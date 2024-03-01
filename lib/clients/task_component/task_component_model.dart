@@ -9,6 +9,14 @@ class TaskComponentModel extends FlutterFlowModel<TaskComponentWidget> {
   FocusNode? taskFocusNode;
   TextEditingController? taskController;
   String? Function(BuildContext, String?)? taskControllerValidator;
+  // State field(s) for date widget.
+  FocusNode? dateFocusNode;
+  TextEditingController? dateController;
+  String? Function(BuildContext, String?)? dateControllerValidator;
+  // State field(s) for assignee widget.
+  FocusNode? assigneeFocusNode;
+  TextEditingController? assigneeController;
+  String? Function(BuildContext, String?)? assigneeControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -19,6 +27,12 @@ class TaskComponentModel extends FlutterFlowModel<TaskComponentWidget> {
   void dispose() {
     taskFocusNode?.dispose();
     taskController?.dispose();
+
+    dateFocusNode?.dispose();
+    dateController?.dispose();
+
+    assigneeFocusNode?.dispose();
+    assigneeController?.dispose();
   }
 
   /// Action blocks are added here.

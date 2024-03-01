@@ -3,9 +3,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
-import '/taskboard/task_action/task_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'task_board_model.dart';
@@ -300,10 +300,15 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
                                           return Center(
-                                            child: LinearProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                            child: SizedBox(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              child: SpinKitCircle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                size: 40.0,
+                                              ),
                                             ),
                                           );
                                         }
@@ -414,11 +419,16 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                             if (!snapshot
                                                                 .hasData) {
                                                               return Center(
-                                                                child:
-                                                                    LinearProgressIndicator(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
+                                                                child: SizedBox(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  child:
+                                                                      SpinKitCircle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    size: 40.0,
+                                                                  ),
                                                                 ),
                                                               );
                                                             }
@@ -614,27 +624,21 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
-                                                                                await showModalBottomSheet(
-                                                                                  isScrollControlled: true,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  enableDrag: false,
-                                                                                  context: context,
-                                                                                  builder: (context) {
-                                                                                    return GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: SizedBox(
-                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                          child: TaskActionWidget(
-                                                                                            taskRef: columnTasksRecord.reference,
-                                                                                            clientRef: columnClientsRecord,
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    );
+                                                                                context.pushNamed(
+                                                                                  'clientTaskDetail',
+                                                                                  queryParameters: {
+                                                                                    'clientRef': serializeParam(
+                                                                                      columnClientsRecord.reference,
+                                                                                      ParamType.DocumentReference,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                  extra: <String, dynamic>{
+                                                                                    kTransitionInfoKey: const TransitionInfo(
+                                                                                      hasTransition: true,
+                                                                                      transitionType: PageTransitionType.fade,
+                                                                                    ),
                                                                                   },
-                                                                                ).then((value) => safeSetState(() {}));
+                                                                                );
                                                                               },
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.ellipsisV,

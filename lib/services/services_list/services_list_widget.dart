@@ -5,11 +5,13 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
 import '/services/service_action/service_action_widget.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:text_search/text_search.dart';
 import 'services_list_model.dart';
 export 'services_list_model.dart';
 
@@ -118,6 +120,43 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                             controller: _model.textController,
                                             focusNode:
                                                 _model.textFieldFocusNode,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              '_model.textController',
+                                              const Duration(milliseconds: 2000),
+                                              () => setState(() {}),
+                                            ),
+                                            onFieldSubmitted: (_) async {
+                                              await queryServicesRecordOnce()
+                                                  .then(
+                                                    (records) => _model
+                                                            .simpleSearchResults =
+                                                        TextSearch(
+                                                      records
+                                                          .map(
+                                                            (record) =>
+                                                                TextSearchItem
+                                                                    .fromTerms(
+                                                                        record,
+                                                                        [
+                                                                  record.name,
+                                                                  record
+                                                                      .description]),
+                                                          )
+                                                          .toList(),
+                                                    )
+                                                            .search(_model
+                                                                .textController
+                                                                .text)
+                                                            .map(
+                                                                (r) => r.object)
+                                                            .toList(),
+                                                  )
+                                                  .onError((_, __) => _model
+                                                      .simpleSearchResults = [])
+                                                  .whenComplete(
+                                                      () => setState(() {}));
+                                            },
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
@@ -131,7 +170,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                         .alternate,
                                                     fontWeight: FontWeight.w300,
                                                   ),
-                                              hintText: 'Search by User Name',
+                                              hintText: 'Search Service',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .labelSmall
@@ -197,6 +236,20 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                         .alternate,
                                                 size: 20.0,
                                               ),
+                                              suffixIcon: _model.textController!
+                                                      .text.isNotEmpty
+                                                  ? InkWell(
+                                                      onTap: () async {
+                                                        _model.textController
+                                                            ?.clear();
+                                                        setState(() {});
+                                                      },
+                                                      child: const Icon(
+                                                        Icons.clear,
+                                                        size: 18.0,
+                                                      ),
+                                                    )
+                                                  : null,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
@@ -300,49 +353,6 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Theme(
-                                                    data: ThemeData(
-                                                      checkboxTheme:
-                                                          CheckboxThemeData(
-                                                        visualDensity:
-                                                            VisualDensity
-                                                                .compact,
-                                                        materialTapTargetSize:
-                                                            MaterialTapTargetSize
-                                                                .shrinkWrap,
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      4.0),
-                                                        ),
-                                                      ),
-                                                      unselectedWidgetColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                                    child: Checkbox(
-                                                      value: _model
-                                                              .checkboxValue1 ??=
-                                                          true,
-                                                      onChanged:
-                                                          (newValue) async {
-                                                        setState(() => _model
-                                                                .checkboxValue1 =
-                                                            newValue!);
-                                                      },
-                                                      activeColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      checkColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .info,
-                                                    ),
-                                                  ),
                                                   Text(
                                                     'Name',
                                                     style: FlutterFlowTheme.of(
@@ -497,38 +507,6 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                                         MainAxisSize
                                                                             .max,
                                                                     children: [
-                                                                      Theme(
-                                                                        data:
-                                                                            ThemeData(
-                                                                          checkboxTheme:
-                                                                              CheckboxThemeData(
-                                                                            visualDensity:
-                                                                                VisualDensity.compact,
-                                                                            materialTapTargetSize:
-                                                                                MaterialTapTargetSize.shrinkWrap,
-                                                                            shape:
-                                                                                RoundedRectangleBorder(
-                                                                              borderRadius: BorderRadius.circular(4.0),
-                                                                            ),
-                                                                          ),
-                                                                          unselectedWidgetColor:
-                                                                              FlutterFlowTheme.of(context).secondary,
-                                                                        ),
-                                                                        child:
-                                                                            Checkbox(
-                                                                          value: _model.checkboxValueMap2[listViewServicesRecord] ??=
-                                                                              false,
-                                                                          onChanged:
-                                                                              (newValue) async {
-                                                                            setState(() =>
-                                                                                _model.checkboxValueMap2[listViewServicesRecord] = newValue!);
-                                                                          },
-                                                                          activeColor:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          checkColor:
-                                                                              FlutterFlowTheme.of(context).info,
-                                                                        ),
-                                                                      ),
                                                                       Text(
                                                                         listViewServicesRecord
                                                                             .name,
@@ -671,199 +649,6 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               },
                                             );
                                           },
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 24.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 8.0, 0.0),
-                                                  child: Icon(
-                                                    Icons.arrow_back_ios_new,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 18.0,
-                                                  ),
-                                                ),
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  2.0,
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0),
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      4.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      4.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          child: Text(
-                                                            '1',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  2.0,
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0),
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      4.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      4.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          child: Text(
-                                                            '2',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  2.0,
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0),
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      4.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      4.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          child: Text(
-                                                            '3',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 0.0, 0.0, 0.0),
-                                                  child: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 18.0,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
                                         ),
                                       ),
                                     ],

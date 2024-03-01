@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/clients/edit_client_task/edit_client_task_widget.dart';
+import '/clients/task_action/task_action_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -412,10 +413,32 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
-                            child: Icon(
-                              Icons.delete_outline_outlined,
-                              color: FlutterFlowTheme.of(context).error,
-                              size: 32.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: TaskActionWidget(
+                                        taskRef: widget.taskRef!,
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Icon(
+                                Icons.delete_outline_outlined,
+                                color: FlutterFlowTheme.of(context).error,
+                                size: 32.0,
+                              ),
                             ),
                           ),
                         ],

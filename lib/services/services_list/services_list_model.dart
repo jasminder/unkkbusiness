@@ -17,15 +17,7 @@ class ServicesListModel extends FlutterFlowModel<ServicesListWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue1;
-  // State field(s) for Checkbox widget.
-
-  Map<ServicesRecord, bool> checkboxValueMap2 = {};
-  List<ServicesRecord> get checkboxCheckedItems2 => checkboxValueMap2.entries
-      .where((e) => e.value)
-      .map((e) => e.key)
-      .toList();
+  List<ServicesRecord> simpleSearchResults = [];
 
   /// Initialization and disposal methods.
 

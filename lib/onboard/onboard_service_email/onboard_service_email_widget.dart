@@ -179,6 +179,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.w600,
                                             ),
+                                        elevation: 0.0,
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,

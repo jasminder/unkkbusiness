@@ -1,5 +1,3 @@
-import '/backend/backend.dart';
-import '/clients/delete_client_confirm/delete_client_confirm_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -12,11 +10,9 @@ class TaskActionWidget extends StatefulWidget {
   const TaskActionWidget({
     super.key,
     required this.taskRef,
-    this.clientRef,
   });
 
   final DocumentReference? taskRef;
-  final ClientsRecord? clientRef;
 
   @override
   State<TaskActionWidget> createState() => _TaskActionWidgetState();
@@ -76,6 +72,20 @@ class _TaskActionWidgetState extends State<TaskActionWidget> {
                       ),
                       Padding(
                         padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                        child: Text(
+                          'Once you delete, your data will be lost.',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Poppins',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -85,10 +95,10 @@ class _TaskActionWidgetState extends State<TaskActionWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  Navigator.pop(context);
                                 },
-                                text: 'Add Task',
+                                text: 'No, Cancel',
                                 options: FFButtonOptions(
                                   width: 135.0,
                                   height: 40.0,
@@ -110,7 +120,7 @@ class _TaskActionWidgetState extends State<TaskActionWidget> {
                                   elevation: 0.0,
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .primaryBackground,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(40.0),
@@ -122,19 +132,8 @@ class _TaskActionWidgetState extends State<TaskActionWidget> {
                                   8.0, 0.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: const DeleteClientConfirmWidget(),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
+                                  await widget.taskRef!.delete();
+                                  Navigator.pop(context);
                                 },
                                 text: 'Yes, Delete',
                                 options: FFButtonOptions(

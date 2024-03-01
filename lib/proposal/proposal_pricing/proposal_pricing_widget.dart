@@ -473,6 +473,7 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
+                                    elevation: 0.0,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,

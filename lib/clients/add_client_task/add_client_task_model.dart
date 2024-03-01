@@ -11,6 +11,10 @@ class AddClientTaskModel extends FlutterFlowModel<AddClientTaskWidget> {
   FocusNode? taskNameFocusNode;
   TextEditingController? taskNameController;
   String? Function(BuildContext, String?)? taskNameControllerValidator;
+  // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
+  TextEditingController? descriptionController;
+  String? Function(BuildContext, String?)? descriptionControllerValidator;
   // State field(s) for assignee widget.
   String? assigneeValue;
   FormFieldController<String>? assigneeValueController;
@@ -35,6 +39,9 @@ class AddClientTaskModel extends FlutterFlowModel<AddClientTaskWidget> {
   void dispose() {
     taskNameFocusNode?.dispose();
     taskNameController?.dispose();
+
+    descriptionFocusNode?.dispose();
+    descriptionController?.dispose();
 
     dueDateFocusNode?.dispose();
     dueDateController?.dispose();

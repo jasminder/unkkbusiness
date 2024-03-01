@@ -39,6 +39,9 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
     _model.taskNameController ??= TextEditingController();
     _model.taskNameFocusNode ??= FocusNode();
 
+    _model.descriptionController ??= TextEditingController();
+    _model.descriptionFocusNode ??= FocusNode();
+
     _model.dueDateController ??= TextEditingController();
     _model.dueDateFocusNode ??= FocusNode();
 
@@ -86,7 +89,7 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 40.0, 0.0, 40.0),
+                            0.0, 40.0, 0.0, 20.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -168,6 +171,89 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                         FlutterFlowTheme.of(context).bodyMedium,
                                     validator: _model
                                         .taskNameControllerValidator
+                                        .asValidator(context),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 20.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 4.0),
+                                    child: Text(
+                                      'Description',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    controller: _model.descriptionController,
+                                    focusNode: _model.descriptionFocusNode,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      isDense: true,
+                                      hintText: 'Description',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: const Color(0x34EEEEEE),
+                                      contentPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 20.0, 20.0, 20.0),
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    maxLines: 5,
+                                    validator: _model
+                                        .descriptionControllerValidator
                                         .asValidator(context),
                                   ),
                                 ],
@@ -561,6 +647,7 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                     dueDate: _model.datePicked,
                                     clientRef: widget.clientRef,
                                     status: 'pending',
+                                    details: _model.descriptionController.text,
                                   ));
                                   _model.taskInfo =
                                       TasksRecord.getDocumentFromData(
@@ -572,14 +659,24 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                             dueDate: _model.datePicked,
                                             clientRef: widget.clientRef,
                                             status: 'pending',
+                                            details: _model
+                                                .descriptionController.text,
                                           ),
                                           tasksRecordReference);
 
                                   await CommentsRecord.createDoc(
                                           _model.taskInfo!.reference)
-                                      .set(createCommentsRecordData(
-                                    info: _model.commentController.text,
-                                  ));
+                                      .set({
+                                    ...createCommentsRecordData(
+                                      info: _model.commentController.text,
+                                    ),
+                                    ...mapToFirestore(
+                                      {
+                                        'createdAt':
+                                            FieldValue.serverTimestamp(),
+                                      },
+                                    ),
+                                  });
                                   Navigator.pop(context);
 
                                   setState(() {});

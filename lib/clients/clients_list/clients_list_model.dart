@@ -18,6 +18,7 @@ class ClientsListModel extends FlutterFlowModel<ClientsListWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  List<ClientsRecord> simpleSearchResults = [];
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

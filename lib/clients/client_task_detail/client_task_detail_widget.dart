@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'client_task_detail_model.dart';
@@ -173,9 +174,14 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
                                       return Center(
-                                        child: LinearProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                        child: SizedBox(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          child: SpinKitCircle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            size: 40.0,
+                                          ),
                                         ),
                                       );
                                     }

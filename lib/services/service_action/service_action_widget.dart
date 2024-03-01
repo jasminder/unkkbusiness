@@ -98,7 +98,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                                     },
                                   );
                                 },
-                                text: 'Edit Services',
+                                text: 'Edit Services ',
                                 options: FFButtonOptions(
                                   width: 135.0,
                                   height: 40.0,
@@ -115,7 +115,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 13.0,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                   elevation: 0.0,
                                   borderSide: BorderSide(

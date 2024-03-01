@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -9,9 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/services/add_service_task/add_service_task_widget.dart';
 import '/services/delete_service_task_confirm/delete_service_task_confirm_widget.dart';
 import '/services/edit_service_task/edit_service_task_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_service_model.dart';
 export 'edit_service_model.dart';
@@ -72,7 +69,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                        const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                     child: StreamBuilder<ServicesRecord>(
                       stream: ServicesRecord.getDocument(widget.serviceRef!),
                       builder: (context, snapshot) {
@@ -105,7 +102,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -116,7 +113,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         context.goNamed(
                                           'servicesList',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -145,7 +142,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                 key: _model.formKey,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 36.0, 0.0, 36.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -153,7 +150,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 20.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
@@ -163,7 +160,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 4.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -258,9 +255,9 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                           10.0),
                                                 ),
                                                 filled: true,
-                                                fillColor: Color(0x34EEEEEE),
+                                                fillColor: const Color(0x34EEEEEE),
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 20.0,
                                                             20.0, 20.0),
                                               ),
@@ -275,7 +272,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 20.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
@@ -285,7 +282,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 4.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -381,9 +378,9 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                           10.0),
                                                 ),
                                                 filled: true,
-                                                fillColor: Color(0x34EEEEEE),
+                                                fillColor: const Color(0x34EEEEEE),
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 20.0,
                                                             20.0, 20.0),
                                               ),
@@ -399,14 +396,14 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Flexible(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 8.0, 20.0),
                                                 child: Column(
@@ -419,7 +416,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -451,7 +448,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                    Container(
+                                                    SizedBox(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
@@ -548,9 +545,9 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                           ),
                                                           filled: true,
                                                           fillColor:
-                                                              Color(0x34EEEEEE),
+                                                              const Color(0x34EEEEEE),
                                                           contentPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       20.0,
@@ -576,7 +573,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                             ),
                                             Flexible(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 20.0),
                                                 child: Column(
@@ -589,7 +586,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -612,7 +609,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                             columnServicesRecord
                                                                 .taxRate,
                                                       ),
-                                                      options: [
+                                                      options: const [
                                                         '2.5',
                                                         '4',
                                                         '0'
@@ -641,7 +638,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         size: 24.0,
                                                       ),
                                                       fillColor:
-                                                          Color(0xFFFCFCFC),
+                                                          const Color(0xFFFCFCFC),
                                                       elevation: 0.0,
                                                       borderColor:
                                                           FlutterFlowTheme.of(
@@ -650,7 +647,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                       borderWidth: 1.0,
                                                       borderRadius: 10.0,
                                                       margin:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   4.0,
@@ -669,7 +666,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
@@ -719,7 +716,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -733,14 +730,14 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                       width: 200.0,
                                                       height: 60.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -798,7 +795,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           height:
                                                               MediaQuery.sizeOf(
                                                                           context)
@@ -868,7 +865,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                           containerServicesTaskRecordList =
                                           snapshot.data!;
                                       return Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Builder(
                                           builder: (context) {
                                             final serviceTasks =
@@ -923,12 +920,12 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                     softWrap: true,
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Container(
                                                         width: 200.0,
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: Text(
                                                           'Action',
                                                           textAlign:
@@ -980,12 +977,12 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             1.0, 0.0),
                                                     child: Container(
                                                       width: 200.0,
                                                       decoration:
-                                                          BoxDecoration(),
+                                                          const BoxDecoration(),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.min,
@@ -995,7 +992,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1029,7 +1026,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          Container(
+                                                                          SizedBox(
                                                                         height: MediaQuery.sizeOf(context).height *
                                                                             1.0,
                                                                         child:
@@ -1055,7 +1052,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -1089,7 +1086,7 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          Container(
+                                                                          SizedBox(
                                                                         height: MediaQuery.sizeOf(context).height *
                                                                             1.0,
                                                                         child:

@@ -1,9 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'service_action_model.dart';
 export 'service_action_model.dart';
@@ -49,7 +47,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -60,11 +58,11 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Stack(
-              alignment: AlignmentDirectional(1.0, -1.0),
+              alignment: const AlignmentDirectional(1.0, -1.0),
               children: [
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(70.0, 40.0, 70.0, 40.0),
+                      const EdgeInsetsDirectional.fromSTEB(70.0, 40.0, 70.0, 40.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -74,13 +72,13 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -93,7 +91,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                                       ),
                                     }.withoutNulls,
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
+                                      kTransitionInfoKey: const TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                       ),
@@ -104,9 +102,9 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                                 options: FFButtonOptions(
                                   width: 135.0,
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
@@ -130,7 +128,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -139,7 +137,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                                   context.goNamed(
                                     'servicesList',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
+                                      kTransitionInfoKey: const TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                       ),
@@ -150,9 +148,9 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                                 options: FFButtonOptions(
                                   width: 135.0,
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).error,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -179,7 +177,7 @@ class _ServiceActionWidgetState extends State<ServiceActionWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 16.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,

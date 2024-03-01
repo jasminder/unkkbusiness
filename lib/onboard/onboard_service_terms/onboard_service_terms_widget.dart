@@ -3,10 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onboard_service_terms_model.dart';
 export 'onboard_service_terms_model.dart';
@@ -65,7 +63,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -92,7 +90,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                     width: 56.0,
                                     height: 56.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x33EEEEEE),
+                                      color: const Color(0x33EEEEEE),
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -100,7 +98,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                         width: 1.0,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.arrowLeft,
                                       color: FlutterFlowTheme.of(context)
@@ -109,7 +107,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Send Proposal to ${rowClientsRecord.firstName} ${rowClientsRecord.lastName}',
@@ -127,7 +125,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -150,10 +148,10 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -165,7 +163,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.w600,
                                             ),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -175,7 +173,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -194,10 +192,10 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -222,7 +220,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -244,7 +242,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: Container(
+                                                child: SizedBox(
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
@@ -264,12 +262,12 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0x32FE8585),
+                                        color: const Color(0x32FE8585),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -281,7 +279,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0x34FE8585),
                                           width: 1.0,
                                         ),
@@ -298,13 +296,13 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 36.0, 0.0, 36.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 6.0),
                                 child: Text(
                                   'Terms',
@@ -313,7 +311,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: Text(
                                   'These terms define the contracted agreement between you and your client. \nDynamic content can be added via placeholders.',
@@ -329,13 +327,13 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   height: 550.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0x33EEEEEE),
+                                    color: const Color(0x33EEEEEE),
                                     borderRadius: BorderRadius.circular(10.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
@@ -344,7 +342,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.all(32.0),
+                                    padding: const EdgeInsets.all(32.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -353,7 +351,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 12.0),
                                             child: Text(
                                               'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to mak',
@@ -364,7 +362,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -394,7 +392,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -424,7 +422,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -454,7 +452,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,

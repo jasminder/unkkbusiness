@@ -6,7 +6,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/onboard/delete_onboard_service/delete_onboard_service_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onboard_regular_services_list_model.dart';
 export 'onboard_regular_services_list_model.dart';
@@ -71,14 +70,14 @@ class _OnboardRegularServicesListWidgetState
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,7 +97,7 @@ class _OnboardRegularServicesListWidgetState
                                     width: 56.0,
                                     height: 56.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x33EEEEEE),
+                                      color: const Color(0x33EEEEEE),
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -106,7 +105,7 @@ class _OnboardRegularServicesListWidgetState
                                         width: 1.0,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.arrowLeft,
                                       color: FlutterFlowTheme.of(context)
@@ -116,7 +115,7 @@ class _OnboardRegularServicesListWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Send Proposal to Ralph Edwards',
@@ -134,7 +133,7 @@ class _OnboardRegularServicesListWidgetState
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       6.0, 0.0, 6.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () {
@@ -144,10 +143,10 @@ class _OnboardRegularServicesListWidgetState
                                     options: FFButtonOptions(
                                       width: 124.0,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
@@ -159,7 +158,7 @@ class _OnboardRegularServicesListWidgetState
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -168,7 +167,7 @@ class _OnboardRegularServicesListWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       6.0, 0.0, 6.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () {
@@ -178,10 +177,10 @@ class _OnboardRegularServicesListWidgetState
                                     options: FFButtonOptions(
                                       width: 124.0,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -204,13 +203,13 @@ class _OnboardRegularServicesListWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       6.0, 0.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
-                                        backgroundColor: Color(0x32000000),
+                                        backgroundColor: const Color(0x32000000),
                                         enableDrag: false,
                                         context: context,
                                         builder: (context) {
@@ -225,13 +224,13 @@ class _OnboardRegularServicesListWidgetState
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
-                                              child: Container(
+                                              child: SizedBox(
                                                 height:
                                                     MediaQuery.sizeOf(context)
                                                             .height *
                                                         1.0,
                                                 child:
-                                                    DeleteOnboardServiceWidget(),
+                                                    const DeleteOnboardServiceWidget(),
                                               ),
                                             ),
                                           );
@@ -242,12 +241,12 @@ class _OnboardRegularServicesListWidgetState
                                     options: FFButtonOptions(
                                       width: 124.0,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: Color(0x32FE8585),
+                                      color: const Color(0x32FE8585),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -258,7 +257,7 @@ class _OnboardRegularServicesListWidgetState
                                             fontWeight: FontWeight.w600,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Color(0x34FE8585),
                                         width: 1.0,
                                       ),
@@ -272,7 +271,7 @@ class _OnboardRegularServicesListWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 16.0, 0.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -292,7 +291,7 @@ class _OnboardRegularServicesListWidgetState
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -307,7 +306,7 @@ class _OnboardRegularServicesListWidgetState
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Edit',
@@ -356,7 +355,7 @@ class _OnboardRegularServicesListWidgetState
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     '₹600.00',
@@ -375,18 +374,18 @@ class _OnboardRegularServicesListWidgetState
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 38.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 12.0),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Color(0x33EEEEEE),
+                                      color: const Color(0x33EEEEEE),
                                       borderRadius: BorderRadius.circular(10.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -395,7 +394,7 @@ class _OnboardRegularServicesListWidgetState
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           40.0, 30.0, 40.0, 30.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -422,7 +421,7 @@ class _OnboardRegularServicesListWidgetState
                                               ),
                                               Container(
                                                 width: 200.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Text(
                                                   'Billing Mode',
                                                   style: FlutterFlowTheme.of(
@@ -437,7 +436,7 @@ class _OnboardRegularServicesListWidgetState
                                               ),
                                               Container(
                                                 width: 200.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Text(
                                                   'Price',
                                                   style: FlutterFlowTheme.of(
@@ -468,7 +467,7 @@ class _OnboardRegularServicesListWidgetState
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 18.0, 0.0, 32.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -483,7 +482,7 @@ class _OnboardRegularServicesListWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       14.0,
@@ -508,7 +507,7 @@ class _OnboardRegularServicesListWidgetState
                                                               Container(
                                                                 width: 200.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Text(
                                                                   'Manual',
                                                                   style: FlutterFlowTheme.of(
@@ -519,7 +518,7 @@ class _OnboardRegularServicesListWidgetState
                                                               Container(
                                                                 width: 200.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -537,7 +536,7 @@ class _OnboardRegularServicesListWidgetState
                                                                         _model.dropDownValue ??=
                                                                             'Fixed',
                                                                       ),
-                                                                      options: [
+                                                                      options: const [
                                                                         'Unit Price',
                                                                         'Fixed'
                                                                       ],
@@ -563,18 +562,18 @@ class _OnboardRegularServicesListWidgetState
                                                                             24.0,
                                                                       ),
                                                                       fillColor:
-                                                                          Color(
+                                                                          const Color(
                                                                               0xFFFCFCFC),
                                                                       elevation:
                                                                           0.0,
                                                                       borderColor:
-                                                                          Color(
+                                                                          const Color(
                                                                               0xFFFCFCFC),
                                                                       borderWidth:
                                                                           0.0,
                                                                       borderRadius:
                                                                           8.0,
-                                                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                                                      margin: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           4.0,
                                                                           0.0,
@@ -606,7 +605,7 @@ class _OnboardRegularServicesListWidgetState
                                                                               .min,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               4.0,
@@ -617,10 +616,10 @@ class _OnboardRegularServicesListWidgetState
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                                                                                 child: Container(
                                                                                   width: 75.0,
-                                                                                  decoration: BoxDecoration(),
+                                                                                  decoration: const BoxDecoration(),
                                                                                   child: TextFormField(
                                                                                     controller: _model.textController1,
                                                                                     focusNode: _model.textFieldFocusNode1,
@@ -665,7 +664,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
                                                                                 child: Text(
                                                                                   'X',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
@@ -675,7 +674,7 @@ class _OnboardRegularServicesListWidgetState
                                                                           ),
                                                                         ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               4.0,
                                                                               0.0,
                                                                               0.0,
@@ -687,7 +686,7 @@ class _OnboardRegularServicesListWidgetState
                                                                             children: [
                                                                               Container(
                                                                                 width: 75.0,
-                                                                                decoration: BoxDecoration(),
+                                                                                decoration: const BoxDecoration(),
                                                                                 child: TextFormField(
                                                                                   controller: _model.textController2,
                                                                                   focusNode: _model.textFieldFocusNode2,
@@ -762,7 +761,7 @@ class _OnboardRegularServicesListWidgetState
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         14.0,
@@ -788,7 +787,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                 FlutterFlowTheme.of(context).bodyMedium,
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 10.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -798,7 +797,7 @@ class _OnboardRegularServicesListWidgetState
                                                                               'Billed on acceptance',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
-                                                                                    color: Color(0x4C000000),
+                                                                                    color: const Color(0x4C000000),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -809,7 +808,7 @@ class _OnboardRegularServicesListWidgetState
                                                                       width:
                                                                           200.0,
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                       child:
                                                                           Text(
                                                                         'Manual',
@@ -821,7 +820,7 @@ class _OnboardRegularServicesListWidgetState
                                                                       width:
                                                                           200.0,
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                     ),
                                                                     Expanded(
                                                                       child:
@@ -836,7 +835,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                 MainAxisSize.min,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
@@ -849,7 +848,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                     ),
                                                                                     Container(
                                                                                       width: 75.0,
-                                                                                      decoration: BoxDecoration(),
+                                                                                      decoration: const BoxDecoration(),
                                                                                       child: TextFormField(
                                                                                         controller: _model.textController3,
                                                                                         focusNode: _model.textFieldFocusNode3,
@@ -919,7 +918,7 @@ class _OnboardRegularServicesListWidgetState
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         14.0,
@@ -945,7 +944,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                 FlutterFlowTheme.of(context).bodyMedium,
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 10.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -955,7 +954,7 @@ class _OnboardRegularServicesListWidgetState
                                                                               'Billed on acceptance',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
-                                                                                    color: Color(0x4C000000),
+                                                                                    color: const Color(0x4C000000),
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -966,7 +965,7 @@ class _OnboardRegularServicesListWidgetState
                                                                       width:
                                                                           200.0,
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                       child:
                                                                           Text(
                                                                         'Manual',
@@ -978,7 +977,7 @@ class _OnboardRegularServicesListWidgetState
                                                                       width:
                                                                           200.0,
                                                                       decoration:
-                                                                          BoxDecoration(),
+                                                                          const BoxDecoration(),
                                                                     ),
                                                                     Expanded(
                                                                       child:
@@ -993,7 +992,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                 MainAxisSize.min,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
@@ -1006,7 +1005,7 @@ class _OnboardRegularServicesListWidgetState
                                                                                     ),
                                                                                     Container(
                                                                                       width: 75.0,
-                                                                                      decoration: BoxDecoration(),
+                                                                                      decoration: const BoxDecoration(),
                                                                                       child: TextFormField(
                                                                                         controller: _model.textController4,
                                                                                         focusNode: _model.textFieldFocusNode4,
@@ -1101,7 +1100,7 @@ class _OnboardRegularServicesListWidgetState
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () {
                             print('Button pressed ...');
@@ -1110,9 +1109,9 @@ class _OnboardRegularServicesListWidgetState
                           options: FFButtonOptions(
                             width: 190.0,
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,

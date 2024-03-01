@@ -1,15 +1,12 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/onboard/delete_onboard_service/delete_onboard_service_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'one_off_service_comp_model.dart';
 export 'one_off_service_comp_model.dart';
@@ -78,7 +75,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 14.0, 0.0, 14.0),
               child: StreamBuilder<ServicesRecord>(
                 stream: ServicesRecord.getDocument(
                     columnClientServicesRecord.serviceRef!),
@@ -105,7 +102,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                       ),
                       Expanded(
                         child: Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -117,7 +114,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                   _model.billingModeValue ??=
                                       columnClientServicesRecord.billingMode,
                                 ),
-                                options: ['Automatic', 'Manual'],
+                                options: const ['Automatic', 'Manual'],
                                 onChanged: (val) async {
                                   setState(() => _model.billingModeValue = val);
                                   await widget.clientServiceRef!
@@ -136,12 +133,12 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                                fillColor: Color(0xFFFCFCFC),
+                                fillColor: const Color(0xFFFCFCFC),
                                 elevation: 0.0,
-                                borderColor: Color(0xFFFCFCFC),
+                                borderColor: const Color(0xFFFCFCFC),
                                 borderWidth: 0.0,
                                 borderRadius: 8.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
+                                margin: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 4.0),
                                 hidesUnderline: true,
                                 isOverButton: true,
@@ -154,7 +151,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                       ),
                       Expanded(
                         child: Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -165,7 +162,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                   _model.priceTypeValue ??=
                                       columnClientServicesRecord.priceType,
                                 ),
-                                options: [
+                                options: const [
                                   'Fixed',
                                   'Per Unit',
                                   'Minimum Price',
@@ -190,12 +187,12 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                                fillColor: Color(0xFFFCFCFC),
+                                fillColor: const Color(0xFFFCFCFC),
                                 elevation: 0.0,
-                                borderColor: Color(0xFFFCFCFC),
+                                borderColor: const Color(0xFFFCFCFC),
                                 borderWidth: 0.0,
                                 borderRadius: 8.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
+                                margin: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 4.0),
                                 hidesUnderline: true,
                                 isOverButton: true,
@@ -215,17 +212,17 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 4.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 4.0, 0.0),
                                         child: Container(
                                           width: 75.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Builder(builder: (_) {
                                             if (!qtyFocusListenerRegistered) {
                                               qtyFocusListenerRegistered = true;
@@ -254,7 +251,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.qtyController',
-                                                Duration(milliseconds: 2000),
+                                                const Duration(milliseconds: 2000),
                                                 () async {
                                                   await columnClientServicesRecord
                                                       .reference
@@ -335,7 +332,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             4.0, 0.0, 4.0, 0.0),
                                         child: Text(
                                           'X',
@@ -347,14 +344,14 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       4.0, 0.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
                                         width: 75.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Builder(builder: (_) {
                                           if (!amountFocusListenerRegistered) {
                                             amountFocusListenerRegistered =
@@ -383,7 +380,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.amountController',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () async {
                                                 await columnClientServicesRecord
                                                     .reference
@@ -458,7 +455,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: FlutterFlowDropDown<String>(
                                     controller:
@@ -466,7 +463,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                             FormFieldController<String>(
                                       _model.qtyUnitValue ??= 'Day',
                                     ),
-                                    options: [
+                                    options: const [
                                       'Day',
                                       'Hour',
                                       'Employee',
@@ -494,12 +491,12 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                           .secondaryText,
                                       size: 24.0,
                                     ),
-                                    fillColor: Color(0xFFFCFCFC),
+                                    fillColor: const Color(0xFFFCFCFC),
                                     elevation: 0.0,
-                                    borderColor: Color(0xFFFCFCFC),
+                                    borderColor: const Color(0xFFFCFCFC),
                                     borderWidth: 0.0,
                                     borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
+                                    margin: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 8.0, 4.0),
                                     hidesUnderline: true,
                                     isOverButton: true,
@@ -514,18 +511,18 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                       ),
                       Container(
                         width: 80.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: FlutterFlowDropDown<String>(
                                 controller: _model.actionValueController ??=
                                     FormFieldController<String>(null),
-                                options: ['Remove Service'],
+                                options: const ['Remove Service'],
                                 onChanged: (val) async {
                                   setState(() => _model.actionValue = val);
                                   if (_model.actionValue == 'Remove Service') {
@@ -538,7 +535,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                         return Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: Container(
+                                          child: SizedBox(
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
                                                 1.0,
@@ -566,12 +563,12 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                       .secondaryText,
                                   size: 24.0,
                                 ),
-                                fillColor: Color(0xFFFCFCFC),
+                                fillColor: const Color(0xFFFCFCFC),
                                 elevation: 0.0,
-                                borderColor: Color(0xFFFCFCFC),
+                                borderColor: const Color(0xFFFCFCFC),
                                 borderWidth: 2.0,
                                 borderRadius: 8.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
+                                margin: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 8.0, 4.0),
                                 hidesUnderline: true,
                                 isOverButton: true,

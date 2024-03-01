@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'navigation_model.dart';
 export 'navigation_model.dart';
@@ -48,7 +47,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
         Container(
           width: 300.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0x1A04F5C8),
           ),
           child: Column(
@@ -56,9 +55,9 @@ class _NavigationWidgetState extends State<NavigationWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 88.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 88.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -68,7 +67,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       context.goNamed(
                         'clientsList',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                           ),
@@ -97,7 +96,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       context.goNamed(
                         'clientsList',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                           ),
@@ -108,23 +107,23 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       decoration: BoxDecoration(
                         color: FFAppState().activeMenu == 'clients'
                             ? FlutterFlowTheme.of(context).primary
-                            : Color(0x0004F5C8),
+                            : const Color(0x0004F5C8),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             18.0, 18.0, 18.0, 18.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 6.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x15000000),
@@ -134,7 +133,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: Icon(
                                     Icons.person_2,
@@ -146,7 +145,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Clients',
@@ -167,7 +166,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       context.goNamed(
                         'newOnboard',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                           ),
@@ -178,23 +177,23 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       decoration: BoxDecoration(
                         color: FFAppState().activeMenu == 'onboard'
                             ? FlutterFlowTheme.of(context).primary
-                            : Color(0x0004F5C8),
+                            : const Color(0x0004F5C8),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             18.0, 18.0, 18.0, 18.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 6.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x15000000),
@@ -204,7 +203,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: Icon(
                                     Icons.person_add_alt_1,
@@ -216,7 +215,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'New On-Board',
@@ -237,7 +236,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       context.goNamed(
                         'taskBoard',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                           ),
@@ -248,23 +247,23 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       decoration: BoxDecoration(
                         color: FFAppState().activeMenu == 'taskboard'
                             ? FlutterFlowTheme.of(context).primary
-                            : Color(0x0004F5C8),
+                            : const Color(0x0004F5C8),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             18.0, 18.0, 18.0, 18.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 6.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x15000000),
@@ -274,7 +273,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: Icon(
                                     Icons.edit_note_sharp,
@@ -286,7 +285,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Task Board',
@@ -307,7 +306,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       context.goNamed(
                         'servicesList',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                           ),
@@ -318,23 +317,23 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                       decoration: BoxDecoration(
                         color: FFAppState().activeMenu == 'services'
                             ? FlutterFlowTheme.of(context).primary
-                            : Color(0x0004F5C8),
+                            : const Color(0x0004F5C8),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             18.0, 18.0, 18.0, 18.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 6.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x15000000),
@@ -344,7 +343,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: Icon(
                                     Icons.settings_outlined,
@@ -356,7 +355,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Services',

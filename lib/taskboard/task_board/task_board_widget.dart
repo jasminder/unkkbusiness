@@ -1,14 +1,12 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
 import '/taskboard/task_action/task_action_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'task_board_model.dart';
 export 'task_board_model.dart';
@@ -77,7 +75,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                           wrapWithModel(
                             model: _model.navigationModel,
                             updateCallback: () => setState(() {}),
-                            child: NavigationWidget(),
+                            child: const NavigationWidget(),
                           ),
                           Expanded(
                             child: Column(
@@ -86,10 +84,10 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                 wrapWithModel(
                                   model: _model.topbarModel,
                                   updateCallback: () => setState(() {}),
-                                  child: TopbarWidget(),
+                                  child: const TopbarWidget(),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       40.0, 40.0, 40.0, 20.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -109,7 +107,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       40.0, 12.0, 40.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -121,7 +119,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                               MainAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 20.0, 0.0),
                                               child: Text(
@@ -140,7 +138,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: Text(
@@ -159,7 +157,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: Text(
@@ -178,7 +176,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: Text(
@@ -197,7 +195,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -294,7 +292,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 20.0, 40.0, 20.0),
                                     child: StreamBuilder<List<ClientsRecord>>(
                                       stream: queryClientsRecord(),
@@ -322,12 +320,12 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   columnClientsRecordList[
                                                       columnIndex];
                                               return Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 20.0),
                                                 child: Container(
                                                   decoration: BoxDecoration(
-                                                    color: Color(0x33EEEEEE),
+                                                    color: const Color(0x33EEEEEE),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
@@ -341,7 +339,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 30.0,
                                                                 0.0, 30.0),
                                                     child: Column(
@@ -350,7 +348,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       40.0,
                                                                       0.0,
@@ -444,7 +442,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                           .min,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           40.0,
                                                                           13.0,
                                                                           40.0,
@@ -465,7 +463,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
                                                                                   child: Text(
                                                                                     'Show Tasks',
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium,
@@ -481,12 +479,12 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                       ),
                                                                                 ),
                                                                                 Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                                                   child: Column(
                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                     children: [
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                         child: Row(
                                                                                           mainAxisSize: MainAxisSize.max,
                                                                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -510,7 +508,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                             ),
                                                                                             if (columnTasksRecord.dueDate != null)
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                                 child: Row(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: [
@@ -534,7 +532,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                               ),
                                                                                             if (columnTasksRecord.assignee != null)
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                                 child: StreamBuilder<UsersRecord>(
                                                                                                   stream: UsersRecord.getDocument(columnTasksRecord.assignee!),
                                                                                                   builder: (context, snapshot) {
@@ -570,9 +568,9 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                                   },
                                                                                                 ),
                                                                                               ),
-                                                                                            if (columnTasksRecord.status != null && columnTasksRecord.status != '')
+                                                                                            if (columnTasksRecord.status != '')
                                                                                               Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                                 child: Row(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: [
@@ -604,7 +602,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 16.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -626,7 +624,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                       onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: Container(
+                                                                                        child: SizedBox(
                                                                                           height: MediaQuery.sizeOf(context).height * 1.0,
                                                                                           child: TaskActionWidget(
                                                                                             taskRef: columnTasksRecord.reference,

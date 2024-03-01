@@ -2,9 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'on_board_proposal_pricing_model.dart';
 export 'on_board_proposal_pricing_model.dart';
@@ -66,7 +64,7 @@ class _OnBoardProposalPricingWidgetState
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                        const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -76,7 +74,7 @@ class _OnBoardProposalPricingWidgetState
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -100,13 +98,13 @@ class _OnBoardProposalPricingWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 36.0, 0.0, 36.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 6.0),
                                   child: Text(
                                     'Proposal Preview',
@@ -115,7 +113,7 @@ class _OnBoardProposalPricingWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
                                     'You are previewing what your client will see once this proposal has been sent.',
@@ -131,13 +129,13 @@ class _OnBoardProposalPricingWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x33EEEEEE),
+                                      color: const Color(0x33EEEEEE),
                                       borderRadius: BorderRadius.circular(10.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -152,7 +150,7 @@ class _OnBoardProposalPricingWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   32.0, 32.0, 32.0, 32.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -210,7 +208,7 @@ class _OnBoardProposalPricingWidgetState
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   32.0, 32.0, 32.0, 32.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -246,7 +244,7 @@ class _OnBoardProposalPricingWidgetState
                                                               servicesIndex];
                                                       return Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     12.0,
@@ -290,7 +288,7 @@ class _OnBoardProposalPricingWidgetState
                                                                             10.0),
                                                               ),
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         26.0,
                                                                         26.0,
@@ -305,7 +303,7 @@ class _OnBoardProposalPricingWidgetState
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -339,7 +337,7 @@ class _OnBoardProposalPricingWidgetState
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
@@ -365,7 +363,7 @@ class _OnBoardProposalPricingWidgetState
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           6.0,
                                                                           0.0,
@@ -376,7 +374,7 @@ class _OnBoardProposalPricingWidgetState
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 4.0,
                                                                                 0.0,
@@ -433,7 +431,7 @@ class _OnBoardProposalPricingWidgetState
                                                                                 children: List.generate(columnServicesTaskRecordList.length, (columnIndex) {
                                                                                   final columnServicesTaskRecord = columnServicesTaskRecordList[columnIndex];
                                                                                   return Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -445,7 +443,7 @@ class _OnBoardProposalPricingWidgetState
                                                                                         ),
                                                                                         Expanded(
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                             child: Column(
                                                                                               mainAxisSize: MainAxisSize.max,
                                                                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -455,7 +453,7 @@ class _OnBoardProposalPricingWidgetState
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                 ),
                                                                                                 Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                                   child: Text(
                                                                                                     columnServicesTaskRecord.description,
                                                                                                     style: FlutterFlowTheme.of(context).bodyMedium,
@@ -501,7 +499,7 @@ class _OnBoardProposalPricingWidgetState
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
@@ -511,9 +509,9 @@ class _OnBoardProposalPricingWidgetState
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 60.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -536,7 +534,7 @@ class _OnBoardProposalPricingWidgetState
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () {
@@ -546,9 +544,9 @@ class _OnBoardProposalPricingWidgetState
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 60.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
@@ -588,7 +586,7 @@ class _OnBoardProposalPricingWidgetState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 24.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -607,7 +605,7 @@ class _OnBoardProposalPricingWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 24.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -623,7 +621,7 @@ class _OnBoardProposalPricingWidgetState
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
                                 'You are previewing what your client will see once this proposal has been sent.',
@@ -641,7 +639,7 @@ class _OnBoardProposalPricingWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -694,14 +692,14 @@ class _OnBoardProposalPricingWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
                               child: Text(
                                 'PRICING',
@@ -715,13 +713,13 @@ class _OnBoardProposalPricingWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0x32EEEEEE),
-                                  borderRadius: BorderRadius.only(
+                                  color: const Color(0x32EEEEEE),
+                                  borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(10.0),
                                     bottomRight: Radius.circular(10.0),
                                     topLeft: Radius.circular(10.0),
@@ -734,7 +732,7 @@ class _OnBoardProposalPricingWidgetState
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 20.0, 20.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -748,7 +746,7 @@ class _OnBoardProposalPricingWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 4.0),
                                             child: Text(
                                               'Consulting Services',
@@ -766,7 +764,7 @@ class _OnBoardProposalPricingWidgetState
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 4.0),
                                             child: Text(
                                               '\$3,000.00',
@@ -803,7 +801,7 @@ class _OnBoardProposalPricingWidgetState
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -819,7 +817,7 @@ class _OnBoardProposalPricingWidgetState
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -838,7 +836,7 @@ class _OnBoardProposalPricingWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -854,7 +852,7 @@ class _OnBoardProposalPricingWidgetState
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -881,7 +879,7 @@ class _OnBoardProposalPricingWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 24.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -895,9 +893,9 @@ class _OnBoardProposalPricingWidgetState
                               options: FFButtonOptions(
                                 width: 160.0,
                                 height: 60.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -926,9 +924,9 @@ class _OnBoardProposalPricingWidgetState
                               options: FFButtonOptions(
                                 width: 160.0,
                                 height: 60.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 textStyle: FlutterFlowTheme.of(context)

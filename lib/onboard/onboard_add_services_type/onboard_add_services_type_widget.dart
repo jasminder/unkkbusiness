@@ -1,11 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onboard_add_services_type_model.dart';
 export 'onboard_add_services_type_model.dart';
@@ -63,7 +60,7 @@ class _OnboardAddServicesTypeWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -82,14 +79,14 @@ class _OnboardAddServicesTypeWidgetState
                             width: 56.0,
                             height: 56.0,
                             decoration: BoxDecoration(
-                              color: Color(0x33EEEEEE),
+                              color: const Color(0x33EEEEEE),
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: FlutterFlowTheme.of(context).secondary,
                                 width: 1.0,
                               ),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -98,7 +95,7 @@ class _OnboardAddServicesTypeWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Send Proposal to ${widget.proposalRef?.firstName} ${widget.proposalRef?.lastName}',
@@ -114,7 +111,7 @@ class _OnboardAddServicesTypeWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 206.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 206.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -122,7 +119,7 @@ class _OnboardAddServicesTypeWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: Text(
                                   'What type of service?',
@@ -131,14 +128,14 @@ class _OnboardAddServicesTypeWidgetState
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -170,7 +167,7 @@ class _OnboardAddServicesTypeWidgetState
                                             extra: <String, dynamic>{
                                               'proposalRef': widget.proposalRef,
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -181,8 +178,8 @@ class _OnboardAddServicesTypeWidgetState
                                         child: Container(
                                           width: 236.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0x1904F5C8),
-                                            borderRadius: BorderRadius.only(
+                                            color: const Color(0x1904F5C8),
+                                            borderRadius: const BorderRadius.only(
                                               bottomLeft: Radius.circular(10.0),
                                               bottomRight:
                                                   Radius.circular(10.0),
@@ -193,13 +190,13 @@ class _OnboardAddServicesTypeWidgetState
                                               color: _model.borderOneOff == true
                                                   ? FlutterFlowTheme.of(context)
                                                       .primary
-                                                  : Color(0x00000000),
+                                                  : const Color(0x00000000),
                                               width: 2.0,
                                             ),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 40.0, 24.0, 40.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -216,7 +213,7 @@ class _OnboardAddServicesTypeWidgetState
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 32.0, 0.0, 0.0),
                                                   child: Text(
@@ -245,7 +242,7 @@ class _OnboardAddServicesTypeWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -277,7 +274,7 @@ class _OnboardAddServicesTypeWidgetState
                                             extra: <String, dynamic>{
                                               'proposalRef': widget.proposalRef,
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -288,8 +285,8 @@ class _OnboardAddServicesTypeWidgetState
                                         child: Container(
                                           width: 236.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0x1904F5C8),
-                                            borderRadius: BorderRadius.only(
+                                            color: const Color(0x1904F5C8),
+                                            borderRadius: const BorderRadius.only(
                                               bottomLeft: Radius.circular(10.0),
                                               bottomRight:
                                                   Radius.circular(10.0),
@@ -301,13 +298,13 @@ class _OnboardAddServicesTypeWidgetState
                                                       true
                                                   ? FlutterFlowTheme.of(context)
                                                       .primary
-                                                  : Color(0x00000000),
+                                                  : const Color(0x00000000),
                                               width: 2.0,
                                             ),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 40.0, 24.0, 40.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -324,7 +321,7 @@ class _OnboardAddServicesTypeWidgetState
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 32.0, 0.0, 0.0),
                                                   child: Text(

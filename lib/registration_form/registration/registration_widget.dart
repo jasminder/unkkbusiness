@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,11 +6,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/registration_form/registration_success/registration_success_widget.dart';
 import '/registration_form/registration_success_mobile/registration_success_mobile_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'registration_model.dart';
 export 'registration_model.dart';
@@ -131,11 +127,11 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0x1A04F5C8),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               120.0, 26.0, 120.0, 26.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -161,14 +157,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 8.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.solidEnvelope,
@@ -190,14 +186,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 8.0, 0.0),
                                           child: Icon(
                                             Icons.call,
@@ -219,7 +215,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
@@ -229,10 +225,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                       options: FFButtonOptions(
                                         width: 130.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
@@ -247,7 +243,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -267,14 +263,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                           key: _model.formKey2,
                           autovalidateMode: AutovalidateMode.disabled,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 64.0),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         120.0, 48.0, 120.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -282,7 +278,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 24.0,
                                             color: Color(0x0A000000),
@@ -298,9 +294,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                           width: 1.0,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             40.0, 40.0, 40.0, 40.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -310,7 +306,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Column(
@@ -320,7 +316,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 3.0),
                                                     child: Text(
@@ -333,7 +329,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 3.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -363,7 +359,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -373,7 +369,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -392,7 +388,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -412,7 +408,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Mr.',
                                                                   'Miss'
                                                                 ],
@@ -438,7 +434,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -449,7 +445,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -471,7 +467,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -490,7 +486,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -503,7 +499,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -586,10 +582,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -612,7 +608,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -622,7 +618,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -641,7 +637,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -654,7 +650,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -737,10 +733,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -762,7 +758,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -781,7 +777,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -801,7 +797,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                 children: [
                                                                   Expanded(
                                                                     child:
-                                                                        Container(
+                                                                        SizedBox(
                                                                       width: MediaQuery.sizeOf(context)
                                                                               .width *
                                                                           1.0,
@@ -868,8 +864,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                           filled:
                                                                               true,
                                                                           fillColor:
-                                                                              Color(0x34EEEEEE),
-                                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                              const Color(0x34EEEEEE),
+                                                                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                               20.0,
                                                                               20.0,
                                                                               20.0,
@@ -886,7 +882,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -908,7 +904,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        final _datePicked1Date =
+                                                                        final datePicked1Date =
                                                                             await showDatePicker(
                                                                           context:
                                                                               context,
@@ -940,15 +936,15 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                           },
                                                                         );
 
-                                                                        if (_datePicked1Date !=
+                                                                        if (datePicked1Date !=
                                                                             null) {
                                                                           safeSetState(
                                                                               () {
                                                                             _model.datePicked1 =
                                                                                 DateTime(
-                                                                              _datePicked1Date.year,
-                                                                              _datePicked1Date.month,
-                                                                              _datePicked1Date.day,
+                                                                              datePicked1Date.year,
+                                                                              datePicked1Date.month,
+                                                                              datePicked1Date.day,
                                                                             );
                                                                           });
                                                                         }
@@ -980,7 +976,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -990,7 +986,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1009,7 +1005,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1029,7 +1025,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Male',
                                                                   'Female'
                                                                 ],
@@ -1055,7 +1051,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -1066,7 +1062,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -1088,7 +1084,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1107,7 +1103,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1120,7 +1116,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1203,10 +1199,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -1229,7 +1225,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Row(
@@ -1239,7 +1235,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1258,7 +1254,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1271,7 +1267,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1354,10 +1350,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -1379,7 +1375,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1419,7 +1415,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         120.0, 48.0, 120.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -1427,7 +1423,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 24.0,
                                             color: Color(0x0A000000),
@@ -1443,9 +1439,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                           width: 1.0,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             40.0, 40.0, 40.0, 40.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1455,7 +1451,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Column(
@@ -1465,7 +1461,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 3.0),
                                                     child: Text(
@@ -1478,7 +1474,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 3.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -1508,7 +1504,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -1518,7 +1514,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1537,7 +1533,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1550,7 +1546,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1633,10 +1629,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -1659,7 +1655,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -1669,7 +1665,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1688,7 +1684,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1701,7 +1697,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1784,10 +1780,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -1810,7 +1806,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -1820,7 +1816,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1839,7 +1835,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -1852,7 +1848,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -1935,10 +1931,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -1961,7 +1957,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -1971,7 +1967,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -1990,7 +1986,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2010,7 +2006,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Queensland',
                                                                   'Victoria'
                                                                 ],
@@ -2036,7 +2032,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -2047,7 +2043,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -2069,7 +2065,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -2088,7 +2084,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2101,7 +2097,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -2184,10 +2180,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -2210,7 +2206,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -2220,7 +2216,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2239,7 +2235,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2259,7 +2255,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Yes',
                                                                   'no'
                                                                 ],
@@ -2285,7 +2281,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -2296,7 +2292,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -2326,7 +2322,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         120.0, 48.0, 120.0, 48.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -2334,7 +2330,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 24.0,
                                             color: Color(0x0A000000),
@@ -2350,9 +2346,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                           width: 1.0,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             40.0, 40.0, 40.0, 40.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -2362,7 +2358,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Column(
@@ -2372,7 +2368,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 3.0),
                                                     child: Text(
@@ -2385,7 +2381,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 3.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -2415,7 +2411,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -2425,7 +2421,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2444,7 +2440,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2457,7 +2453,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .bodyMedium,
                                                                 ),
                                                               ),
-                                                              Container(
+                                                              SizedBox(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -2540,10 +2536,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     filled:
                                                                         true,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0x34EEEEEE),
                                                                     contentPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                        const EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             20.0,
                                                                             20.0,
@@ -2565,7 +2561,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -2584,7 +2580,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2604,7 +2600,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Yes',
                                                                   'no'
                                                                 ],
@@ -2630,7 +2626,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -2641,7 +2637,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -2664,7 +2660,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -2674,7 +2670,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2693,7 +2689,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2713,7 +2709,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Single',
                                                                   'Married'
                                                                 ],
@@ -2739,7 +2735,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -2750,7 +2746,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -2772,7 +2768,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -2791,7 +2787,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2811,7 +2807,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Yes',
                                                                   'No'
                                                                 ],
@@ -2837,7 +2833,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -2848,7 +2844,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -2871,7 +2867,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -2881,7 +2877,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2900,7 +2896,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -2920,7 +2916,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Yes',
                                                                   'No'
                                                                 ],
@@ -2946,7 +2942,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -2957,7 +2953,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -2979,7 +2975,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -2998,7 +2994,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -3018,7 +3014,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     FormFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
+                                                                options: const [
                                                                   'Yes',
                                                                   'No'
                                                                 ],
@@ -3044,7 +3040,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                       .secondaryText,
                                                                   size: 24.0,
                                                                 ),
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0xFFFCFCFC),
                                                                 elevation: 0.0,
                                                                 borderColor:
@@ -3055,7 +3051,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     1.0,
                                                                 borderRadius:
                                                                     10.0,
-                                                                margin: EdgeInsetsDirectional
+                                                                margin: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         4.0,
@@ -3078,7 +3074,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -3098,7 +3094,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -3111,7 +3107,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            Container(
+                                                            SizedBox(
                                                               width: MediaQuery
                                                                           .sizeOf(
                                                                               context)
@@ -3196,10 +3192,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                             10.0),
                                                                   ),
                                                                   filled: true,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0x34EEEEEE),
                                                                   contentPadding:
-                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                      const EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           20.0,
                                                                           20.0,
@@ -3229,7 +3225,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 24.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -3259,7 +3255,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         ),
                                               ),
                                               duration:
-                                                  Duration(milliseconds: 4000),
+                                                  const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -3333,13 +3329,13 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: Container(
+                                                child: SizedBox(
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
                                                           1.0,
                                                   child:
-                                                      RegistrationSuccessWidget(),
+                                                      const RegistrationSuccessWidget(),
                                                 ),
                                               ),
                                             );
@@ -3350,10 +3346,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                       options: FFButtonOptions(
                                         width: 375.0,
                                         height: 60.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -3366,7 +3362,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .primaryBackground,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -3396,11 +3392,11 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0x1A04F5C8),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 24.0, 24.0, 24.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -3418,14 +3414,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 6.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 8.0, 0.0),
                                           child: Icon(
                                             Icons.call,
@@ -3451,7 +3447,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.envelope,
@@ -3487,7 +3483,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                 key: _model.formKey1,
                                 autovalidateMode: AutovalidateMode.disabled,
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 32.0, 24.0, 32.0),
                                   child: SingleChildScrollView(
                                     child: Column(
@@ -3509,7 +3505,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 12.0),
                                           child: Text(
                                             'Let\'s complete your profile by adding some details that will be lodged with the ATO.',
@@ -3526,7 +3522,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -3536,7 +3532,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -3551,7 +3547,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .salutationValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Mr.', 'Miss'],
+                                                options: const ['Mr.', 'Miss'],
                                                 onChanged: (val) => setState(
                                                     () => _model
                                                             .salutationValue2 =
@@ -3573,14 +3569,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -3593,7 +3589,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -3607,7 +3603,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 4.0),
                                                     child: Text(
@@ -3620,7 +3616,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                 ],
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -3697,9 +3693,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -3719,7 +3715,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -3729,7 +3725,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -3739,7 +3735,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -3816,9 +3812,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -3838,7 +3834,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -3848,7 +3844,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -3862,7 +3858,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Expanded(
-                                                    child: Container(
+                                                    child: SizedBox(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
@@ -3947,9 +3943,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                           ),
                                                           filled: true,
                                                           fillColor:
-                                                              Color(0x34EEEEEE),
+                                                              const Color(0x34EEEEEE),
                                                           contentPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       20.0,
@@ -3969,7 +3965,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: InkWell(
@@ -3982,7 +3978,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
-                                                        final _datePicked2Date =
+                                                        final datePicked2Date =
                                                             await showDatePicker(
                                                           context: context,
                                                           initialDate:
@@ -4041,16 +4037,16 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                           },
                                                         );
 
-                                                        if (_datePicked2Date !=
+                                                        if (datePicked2Date !=
                                                             null) {
                                                           safeSetState(() {
                                                             _model.datePicked2 =
                                                                 DateTime(
-                                                              _datePicked2Date
+                                                              datePicked2Date
                                                                   .year,
-                                                              _datePicked2Date
+                                                              datePicked2Date
                                                                   .month,
-                                                              _datePicked2Date
+                                                              datePicked2Date
                                                                   .day,
                                                             );
                                                           });
@@ -4081,7 +4077,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4091,7 +4087,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4173,9 +4169,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                             10.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: Color(0x34EEEEEE),
+                                                  fillColor: const Color(0x34EEEEEE),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(20.0, 20.0,
                                                               20.0, 20.0),
                                                 ),
@@ -4209,7 +4205,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 12.0),
                                           child: Text(
                                             'Please enter your full address including street name and unit number if applicable.',
@@ -4226,7 +4222,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4236,7 +4232,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4246,7 +4242,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -4323,9 +4319,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -4345,7 +4341,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4355,7 +4351,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4365,7 +4361,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -4442,9 +4438,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -4464,7 +4460,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4474,7 +4470,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4484,7 +4480,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -4561,9 +4557,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -4583,7 +4579,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4593,7 +4589,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4608,7 +4604,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .stateValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: [
+                                                options: const [
                                                   'Queensland',
                                                   'Victoria'
                                                 ],
@@ -4632,14 +4628,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -4652,7 +4648,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4662,7 +4658,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4672,7 +4668,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -4749,9 +4745,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -4771,7 +4767,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4781,7 +4777,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4796,7 +4792,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .addressStatusValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Yes', 'no'],
+                                                options: const ['Yes', 'no'],
                                                 onChanged: (val) => setState(() =>
                                                     _model.addressStatusValue2 =
                                                         val),
@@ -4817,14 +4813,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -4855,7 +4851,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 12.0),
                                           child: Text(
                                             'Tell us little about your tax situation, so we can personalize your experience.',
@@ -4872,7 +4868,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -4882,7 +4878,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -4892,7 +4888,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -4970,9 +4966,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -4992,7 +4988,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -5002,7 +4998,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -5017,7 +5013,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .traderValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Yes', 'no'],
+                                                options: const ['Yes', 'no'],
                                                 onChanged: (val) => setState(
                                                     () => _model.traderValue2 =
                                                         val),
@@ -5038,14 +5034,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -5058,7 +5054,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -5068,7 +5064,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -5083,7 +5079,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .maritalStatusValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Single', 'Married'],
+                                                options: const ['Single', 'Married'],
                                                 onChanged: (val) => setState(() =>
                                                     _model.maritalStatusValue2 =
                                                         val),
@@ -5104,14 +5100,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -5124,7 +5120,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -5134,7 +5130,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -5149,7 +5145,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .investmentPropertyValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Yes', 'No'],
+                                                options: const ['Yes', 'No'],
                                                 onChanged: (val) => setState(() =>
                                                     _model.investmentPropertyValue2 =
                                                         val),
@@ -5170,14 +5166,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -5190,7 +5186,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -5200,7 +5196,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -5215,7 +5211,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .hasHealthInsuranceValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Single', 'Married'],
+                                                options: const ['Single', 'Married'],
                                                 onChanged: (val) => setState(() =>
                                                     _model.hasHealthInsuranceValue2 =
                                                         val),
@@ -5236,14 +5232,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -5256,7 +5252,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -5266,7 +5262,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -5281,7 +5277,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         .cryptoInvestmentValueController2 ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['Yes', 'No'],
+                                                options: const ['Yes', 'No'],
                                                 onChanged: (val) => setState(() =>
                                                     _model.cryptoInvestmentValue2 =
                                                         val),
@@ -5302,14 +5298,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -5322,7 +5318,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -5332,7 +5328,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -5342,7 +5338,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                       .bodyMedium,
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -5420,9 +5416,9 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -5443,10 +5439,10 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 30.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -5536,14 +5532,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           height:
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .height *
                                                                   1.0,
                                                           child:
-                                                              RegistrationSuccessMobileWidget(),
+                                                              const RegistrationSuccessMobileWidget(),
                                                         ),
                                                       ),
                                                     );
@@ -5555,11 +5551,11 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                               options: FFButtonOptions(
                                                 width: 375.0,
                                                 height: 60.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -5574,7 +5570,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                         ),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),

@@ -4,10 +4,8 @@ import '/clients/task_component/task_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'client_task_detail_model.dart';
 export 'client_task_detail_model.dart';
@@ -63,7 +61,7 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -85,14 +83,14 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                               width: 56.0,
                               height: 56.0,
                               decoration: BoxDecoration(
-                                color: Color(0x33EEEEEE),
+                                color: const Color(0x33EEEEEE),
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).secondary,
                                   width: 1.0,
                                 ),
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.arrowLeft,
                                 color: FlutterFlowTheme.of(context).primaryText,
@@ -116,7 +114,7 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                                         : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
+                                      child: SizedBox(
                                         height:
                                             MediaQuery.sizeOf(context).height *
                                                 1.0,
@@ -133,9 +131,9 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                             options: FFButtonOptions(
                               width: 190.0,
                               height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryText,
                               textStyle: FlutterFlowTheme.of(context)
@@ -157,7 +155,7 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 40.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,

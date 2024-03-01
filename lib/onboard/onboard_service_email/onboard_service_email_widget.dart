@@ -4,10 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'onboard_service_email_model.dart';
@@ -67,7 +65,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                   child: StreamBuilder<ClientsRecord>(
                     stream: ClientsRecord.getDocument(widget.clientRef!),
                     builder: (context, snapshot) {
@@ -102,7 +100,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                       width: 56.0,
                                       height: 56.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x33EEEEEE),
+                                        color: const Color(0x33EEEEEE),
                                         shape: BoxShape.circle,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
@@ -110,7 +108,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                           width: 1.0,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.arrowLeft,
                                         color: FlutterFlowTheme.of(context)
@@ -120,7 +118,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Send Proposal to ${columnClientsRecord.firstName} ${columnClientsRecord.lastName}',
@@ -138,7 +136,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -152,7 +150,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -164,10 +162,10 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -192,7 +190,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -214,7 +212,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: Container(
+                                                child: SizedBox(
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
@@ -234,12 +232,12 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0x32FE8585),
+                                        color: const Color(0x32FE8585),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -251,7 +249,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0x34FE8585),
                                           width: 1.0,
                                         ),
@@ -266,13 +264,13 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 36.0, 0.0, 36.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 6.0),
                                     child: Text(
                                       'Send proposal for acceptance',
@@ -281,7 +279,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: Text(
                                       'We’ll send the proposal to all signatories when you send via email. To send the proposal \nanother way, click the icon to Send via email for more options.',
@@ -297,7 +295,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 7.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -332,7 +330,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 7.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -367,7 +365,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 40.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -401,13 +399,13 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: Container(
+                                                child: SizedBox(
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
                                                           1.0,
                                                   child:
-                                                      ProposalSuccessWidget(),
+                                                      const ProposalSuccessWidget(),
                                                 ),
                                               ),
                                             );
@@ -416,10 +414,10 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                       },
                                       text: 'Send via Email',
                                       options: FFButtonOptions(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             48.0, 24.0, 48.0, 24.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -432,7 +430,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),

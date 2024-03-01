@@ -1,12 +1,6 @@
-import '/backend/backend.dart';
-import '/clients/edit_client_task/edit_client_task_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'task_component_widget.dart' show TaskComponentWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class TaskComponentModel extends FlutterFlowModel<TaskComponentWidget> {
   ///  State fields for stateful widgets in this component.

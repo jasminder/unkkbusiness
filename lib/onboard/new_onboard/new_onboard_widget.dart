@@ -7,7 +7,6 @@ import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'new_onboard_model.dart';
 export 'new_onboard_model.dart';
@@ -77,7 +76,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                       wrapWithModel(
                         model: _model.navigationModel,
                         updateCallback: () => setState(() {}),
-                        child: NavigationWidget(),
+                        child: const NavigationWidget(),
                       ),
                       Expanded(
                         child: Column(
@@ -86,10 +85,10 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                             wrapWithModel(
                               model: _model.topbarModel,
                               updateCallback: () => setState(() {}),
-                              child: TopbarWidget(),
+                              child: const TopbarWidget(),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 40.0, 40.0, 20.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -105,7 +104,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                           ),
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     width: 287.0,
                                     child: TextFormField(
                                       controller: _model.textController,
@@ -170,9 +169,9 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                               BorderRadius.circular(24.0),
                                         ),
                                         filled: true,
-                                        fillColor: Color(0x34EEEEEE),
+                                        fillColor: const Color(0x34EEEEEE),
                                         contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 24.0, 16.0, 24.0, 16.0),
                                         prefixIcon: Icon(
                                           Icons.search_rounded,
@@ -196,7 +195,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 20.0, 40.0, 20.0),
                               child: StreamBuilder<List<ProposalRecord>>(
                                 stream: queryProposalRecord(),
@@ -222,7 +221,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                     child: Container(
                                       height: 600.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x32EEEEEE),
+                                        color: const Color(0x32EEEEEE),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                         border: Border.all(
@@ -232,7 +231,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 15.0, 15.0, 15.0),
                                         child: Builder(
                                           builder: (context) {
@@ -343,7 +342,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                     softWrap: true,
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Text(
                                                         'Action',
@@ -401,7 +400,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
@@ -420,7 +419,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                             'proposalRef':
                                                                 proposalsItem,
                                                             kTransitionInfoKey:
-                                                                TransitionInfo(
+                                                                const TransitionInfo(
                                                               hasTransition:
                                                                   true,
                                                               transitionType:
@@ -433,14 +432,14 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                       text: 'Send Proposal',
                                                       options: FFButtonOptions(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     22.0,
                                                                     8.0,
                                                                     22.0,
                                                                     8.0),
                                                         iconPadding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -464,7 +463,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 1.0,

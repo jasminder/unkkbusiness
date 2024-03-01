@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'registration_success_model.dart';
 export 'registration_success_model.dart';
@@ -44,7 +43,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +54,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(110.0, 64.0, 110.0, 64.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(110.0, 64.0, 110.0, 64.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -68,7 +67,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: Text(
                       'Registered successfully',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -81,7 +80,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                     child: Text(
                       'Your request has successfully accepted. \nPlease check your confirmation email.',
                       textAlign: TextAlign.center,
@@ -90,7 +89,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed('registration');
@@ -100,10 +99,10 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                         width: 180.0,
                         height: 40.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0x00FFFFFF),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0x00FFFFFF),
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
                             .override(

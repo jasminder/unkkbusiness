@@ -1,14 +1,11 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'client_details_model.dart';
 export 'client_details_model.dart';
@@ -117,7 +114,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
+                      padding: const EdgeInsetsDirectional.fromSTEB(
                           82.0, 70.0, 82.0, 70.0),
                       child: SingleChildScrollView(
                         child: Column(
@@ -141,7 +138,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                     width: 56.0,
                                     height: 56.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x33EEEEEE),
+                                      color: const Color(0x33EEEEEE),
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -149,7 +146,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                         width: 1.0,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.arrowLeft,
                                       color: FlutterFlowTheme.of(context)
@@ -161,7 +158,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 40.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -178,7 +175,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 36.0, 0.0, 0.0),
                                     child: StreamBuilder<ProposalRecord>(
                                       stream: ProposalRecord.getDocument(
@@ -201,7 +198,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 20.0),
                                                 child: Row(
@@ -211,7 +208,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -229,7 +226,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -242,7 +239,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            Container(
+                                                            SizedBox(
                                                               width: MediaQuery
                                                                           .sizeOf(
                                                                               context)
@@ -331,10 +328,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                             10.0),
                                                                   ),
                                                                   filled: true,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0x34EEEEEE),
                                                                   contentPadding:
-                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                      const EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           20.0,
                                                                           20.0,
@@ -356,7 +353,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -374,7 +371,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -387,7 +384,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            Container(
+                                                            SizedBox(
                                                               width: MediaQuery
                                                                           .sizeOf(
                                                                               context)
@@ -476,10 +473,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                             10.0),
                                                                   ),
                                                                   filled: true,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0x34EEEEEE),
                                                                   contentPadding:
-                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                      const EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           20.0,
                                                                           20.0,
@@ -502,7 +499,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 20.0),
                                                 child: Row(
@@ -512,7 +509,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -530,7 +527,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -543,7 +540,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            Container(
+                                                            SizedBox(
                                                               width: MediaQuery
                                                                           .sizeOf(
                                                                               context)
@@ -634,10 +631,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                             10.0),
                                                                   ),
                                                                   filled: true,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0x34EEEEEE),
                                                                   contentPadding:
-                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                      const EdgeInsetsDirectional.fromSTEB(
                                                                           20.0,
                                                                           20.0,
                                                                           20.0,
@@ -659,7 +656,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -677,7 +674,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -700,7 +697,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                     columnProposalRecord
                                                                         .gender,
                                                               ),
-                                                              options: [
+                                                              options: const [
                                                                 'Male',
                                                                 'Female'
                                                               ],
@@ -728,7 +725,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                     .secondaryText,
                                                                 size: 24.0,
                                                               ),
-                                                              fillColor: Color(
+                                                              fillColor: const Color(
                                                                   0xFFFCFCFC),
                                                               elevation: 0.0,
                                                               borderColor:
@@ -739,7 +736,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                               borderRadius:
                                                                   10.0,
                                                               margin:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           4.0,
@@ -762,7 +759,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 20.0),
                                                 child: Row(
@@ -772,7 +769,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -790,7 +787,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -815,7 +812,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                 columnClientsRecord
                                                                     .type,
                                                               )),
-                                                              options: [
+                                                              options: const [
                                                                 'Company',
                                                                 'Trust',
                                                                 'Individual'
@@ -840,7 +837,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                     .secondaryText,
                                                                 size: 24.0,
                                                               ),
-                                                              fillColor: Color(
+                                                              fillColor: const Color(
                                                                   0xFFFCFCFC),
                                                               elevation: 0.0,
                                                               borderColor:
@@ -851,7 +848,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                               borderRadius:
                                                                   10.0,
                                                               margin:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           4.0,
@@ -896,7 +893,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                             if (columnClientsRecord.type.contains('Company') ==
                                 true)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -913,14 +910,14 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 36.0, 0.0, 0.0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Row(
@@ -929,7 +926,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -947,7 +944,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -960,7 +957,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1047,10 +1044,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -1073,7 +1070,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -1091,7 +1088,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1104,7 +1101,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1191,10 +1188,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -1218,7 +1215,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Row(
@@ -1227,7 +1224,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1245,7 +1242,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1258,7 +1255,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1345,10 +1342,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -1371,7 +1368,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -1389,7 +1386,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1402,7 +1399,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1489,10 +1486,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -1531,7 +1528,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                             if (columnClientsRecord.type.contains('Trust') ==
                                 true)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -1548,14 +1545,14 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 36.0, 0.0, 0.0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Row(
@@ -1564,7 +1561,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1582,7 +1579,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1595,7 +1592,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1682,10 +1679,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -1708,7 +1705,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -1726,7 +1723,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1739,7 +1736,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1826,10 +1823,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -1853,7 +1850,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Row(
@@ -1862,7 +1859,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1880,7 +1877,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1893,7 +1890,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -1980,10 +1977,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -2006,7 +2003,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -2024,7 +2021,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2037,7 +2034,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -2124,10 +2121,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -2167,7 +2164,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                     .contains('Individual') ==
                                 true)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -2184,14 +2181,14 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 36.0, 0.0, 0.0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Row(
@@ -2200,7 +2197,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2218,7 +2215,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2231,7 +2228,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -2318,10 +2315,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -2344,7 +2341,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -2362,7 +2359,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2375,7 +2372,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -2462,10 +2459,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -2489,7 +2486,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 20.0),
                                               child: Row(
@@ -2498,7 +2495,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2516,7 +2513,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2529,7 +2526,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -2616,10 +2613,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -2642,7 +2639,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -2660,7 +2657,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -2673,7 +2670,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   .bodyMedium,
                                                             ),
                                                           ),
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery
                                                                         .sizeOf(
                                                                             context)
@@ -2760,10 +2757,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                               10.0),
                                                                 ),
                                                                 filled: true,
-                                                                fillColor: Color(
+                                                                fillColor: const Color(
                                                                     0x34EEEEEE),
                                                                 contentPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             20.0,
                                                                             20.0,
@@ -2794,14 +2791,14 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 ),
                               ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 8.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -2851,10 +2848,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                       options: FFButtonOptions(
                                         width: 190.0,
                                         height: 60.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -2877,7 +2874,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -2890,7 +2887,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -2902,10 +2899,10 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                       options: FFButtonOptions(
                                         width: 190.0,
                                         height: 60.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,

@@ -1,20 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -79,43 +73,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? ClientsListWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? const ClientsListWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? ClientsListWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? const ClientsListWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'login',
           path: '/login',
-          builder: (context, params) => LoginWidget(),
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'forgetPassword',
           path: '/forgetPassword',
-          builder: (context, params) => ForgetPasswordWidget(),
+          builder: (context, params) => const ForgetPasswordWidget(),
         ),
         FFRoute(
           name: 'verifyEmailCode',
           path: '/verifyEmailCode',
-          builder: (context, params) => VerifyEmailCodeWidget(),
+          builder: (context, params) => const VerifyEmailCodeWidget(),
         ),
         FFRoute(
           name: 'resetpassword',
           path: '/resetpassword',
-          builder: (context, params) => ResetpasswordWidget(),
+          builder: (context, params) => const ResetpasswordWidget(),
         ),
         FFRoute(
           name: 'newOnboard',
           path: '/newOnboard',
-          builder: (context, params) => NewOnboardWidget(),
+          builder: (context, params) => const NewOnboardWidget(),
         ),
         FFRoute(
           name: 'onboardAddServices',
@@ -187,47 +181,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'onboardRegularServicesList',
           path: '/onboardRegularServicesList',
-          builder: (context, params) => OnboardRegularServicesListWidget(),
+          builder: (context, params) => const OnboardRegularServicesListWidget(),
         ),
         FFRoute(
           name: 'proposalPreview',
           path: '/proposalPreview',
-          builder: (context, params) => ProposalPreviewWidget(),
+          builder: (context, params) => const ProposalPreviewWidget(),
         ),
         FFRoute(
           name: 'proposalPricing',
           path: '/proposalPricing',
-          builder: (context, params) => ProposalPricingWidget(),
+          builder: (context, params) => const ProposalPricingWidget(),
         ),
         FFRoute(
           name: 'proposalAccept',
           path: '/proposalAccept',
-          builder: (context, params) => ProposalAcceptWidget(),
+          builder: (context, params) => const ProposalAcceptWidget(),
         ),
         FFRoute(
           name: 'proposalAcceptSuccess',
           path: '/proposalAcceptSuccess',
-          builder: (context, params) => ProposalAcceptSuccessWidget(),
+          builder: (context, params) => const ProposalAcceptSuccessWidget(),
         ),
         FFRoute(
           name: 'changePassword',
           path: '/changePassword',
-          builder: (context, params) => ChangePasswordWidget(),
+          builder: (context, params) => const ChangePasswordWidget(),
         ),
         FFRoute(
           name: 'servicesList',
           path: '/servicesList',
-          builder: (context, params) => ServicesListWidget(),
+          builder: (context, params) => const ServicesListWidget(),
         ),
         FFRoute(
           name: 'addService',
           path: '/addService',
-          builder: (context, params) => AddServiceWidget(),
+          builder: (context, params) => const AddServiceWidget(),
         ),
         FFRoute(
           name: 'clientsList',
           path: '/clientsList',
-          builder: (context, params) => ClientsListWidget(),
+          builder: (context, params) => const ClientsListWidget(),
         ),
         FFRoute(
           name: 'clientDetails',
@@ -248,12 +242,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'taskBoard',
           path: '/taskBoard',
-          builder: (context, params) => TaskBoardWidget(),
+          builder: (context, params) => const TaskBoardWidget(),
         ),
         FFRoute(
           name: 'registration',
           path: '/registration',
-          builder: (context, params) => RegistrationWidget(),
+          builder: (context, params) => const RegistrationWidget(),
         ),
         FFRoute(
           name: 'onBoardProposalPricing',
@@ -500,7 +494,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

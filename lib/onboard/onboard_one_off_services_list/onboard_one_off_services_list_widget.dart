@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,11 +5,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
 import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onboard_one_off_services_list_model.dart';
 export 'onboard_one_off_services_list_model.dart';
@@ -96,13 +92,13 @@ class _OnboardOneOffServicesListWidgetState
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -126,7 +122,7 @@ class _OnboardOneOffServicesListWidgetState
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -146,7 +142,7 @@ class _OnboardOneOffServicesListWidgetState
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -158,10 +154,10 @@ class _OnboardOneOffServicesListWidgetState
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -173,7 +169,7 @@ class _OnboardOneOffServicesListWidgetState
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.w600,
                                             ),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -183,7 +179,7 @@ class _OnboardOneOffServicesListWidgetState
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -199,7 +195,7 @@ class _OnboardOneOffServicesListWidgetState
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -211,10 +207,10 @@ class _OnboardOneOffServicesListWidgetState
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -239,7 +235,7 @@ class _OnboardOneOffServicesListWidgetState
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -261,7 +257,7 @@ class _OnboardOneOffServicesListWidgetState
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: Container(
+                                                child: SizedBox(
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
@@ -283,12 +279,12 @@ class _OnboardOneOffServicesListWidgetState
                                       options: FFButtonOptions(
                                         width: 124.0,
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0x32FE8585),
+                                        color: const Color(0x32FE8585),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -300,7 +296,7 @@ class _OnboardOneOffServicesListWidgetState
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0x34FE8585),
                                           width: 1.0,
                                         ),
@@ -315,7 +311,7 @@ class _OnboardOneOffServicesListWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -335,7 +331,7 @@ class _OnboardOneOffServicesListWidgetState
                                         ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -350,7 +346,7 @@ class _OnboardOneOffServicesListWidgetState
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Edit',
@@ -400,7 +396,7 @@ class _OnboardOneOffServicesListWidgetState
                                     ],
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -409,7 +405,7 @@ class _OnboardOneOffServicesListWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '₹${formatNumber(
@@ -499,14 +495,14 @@ class _OnboardOneOffServicesListWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 28.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 12.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -515,7 +511,7 @@ class _OnboardOneOffServicesListWidgetState
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x33EEEEEE),
+                                        color: const Color(0x33EEEEEE),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                         border: Border.all(
@@ -525,7 +521,7 @@ class _OnboardOneOffServicesListWidgetState
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             40.0, 30.0, 40.0, 30.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -552,7 +548,7 @@ class _OnboardOneOffServicesListWidgetState
                                                 ),
                                                 Expanded(
                                                   child: Container(
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Text(
                                                       'Billing Mode',
                                                       textAlign:
@@ -571,7 +567,7 @@ class _OnboardOneOffServicesListWidgetState
                                                 ),
                                                 Expanded(
                                                   child: Container(
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Text(
                                                       'Price',
                                                       textAlign:
@@ -604,7 +600,7 @@ class _OnboardOneOffServicesListWidgetState
                                                 ),
                                                 Container(
                                                   width: 80.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Text(
                                                     'Actions',
                                                     textAlign: TextAlign.end,
@@ -621,7 +617,7 @@ class _OnboardOneOffServicesListWidgetState
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 18.0, 0.0, 32.0),
                                               child: FutureBuilder<
@@ -712,7 +708,7 @@ class _OnboardOneOffServicesListWidgetState
                                                     'proposalRef':
                                                         widget.proposalRef,
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -747,13 +743,13 @@ class _OnboardOneOffServicesListWidgetState
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: const AlignmentDirectional(1.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               context.goNamed(
                                 'addService',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),
@@ -764,9 +760,9 @@ class _OnboardOneOffServicesListWidgetState
                             options: FFButtonOptions(
                               width: 190.0,
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,

@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,10 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_client_task_model.dart';
 export 'edit_client_task_model.dart';
@@ -65,7 +61,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +77,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
               children: [
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(120.0, 56.0, 120.0, 56.0),
+                      const EdgeInsetsDirectional.fromSTEB(120.0, 56.0, 120.0, 56.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -90,7 +86,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 40.0, 0.0, 40.0),
                         child: StreamBuilder<TasksRecord>(
                           stream:
@@ -110,7 +106,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -119,7 +115,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Text(
                                           'Task Name',
@@ -189,9 +185,9 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                 BorderRadius.circular(10.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0x34EEEEEE),
+                                          fillColor: const Color(0x34EEEEEE),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 20.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -204,7 +200,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -213,7 +209,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Text(
                                           'Task Description',
@@ -284,9 +280,9 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                 BorderRadius.circular(10.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0x34EEEEEE),
+                                          fillColor: const Color(0x34EEEEEE),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 20.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -300,7 +296,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -309,7 +305,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Text(
                                           'Assignee',
@@ -385,7 +381,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                       .secondaryText,
                                               size: 24.0,
                                             ),
-                                            fillColor: Color(0xFFFCFCFC),
+                                            fillColor: const Color(0xFFFCFCFC),
                                             elevation: 2.0,
                                             borderColor:
                                                 FlutterFlowTheme.of(context)
@@ -393,7 +389,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                             borderWidth: 1.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 4.0, 16.0, 4.0),
                                             hidesUnderline: true,
                                             isOverButton: true,
@@ -406,7 +402,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -415,7 +411,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Text(
                                           'Due Date',
@@ -427,7 +423,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: Container(
+                                            child: SizedBox(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
@@ -503,9 +499,9 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                             10.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: Color(0x34EEEEEE),
+                                                  fillColor: const Color(0x34EEEEEE),
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(20.0, 20.0,
                                                               20.0, 20.0),
                                                 ),
@@ -522,7 +518,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -531,7 +527,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                final _datePickedDate =
+                                                final datePickedDate =
                                                     await showDatePicker(
                                                   context: context,
                                                   initialDate:
@@ -587,13 +583,13 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                   },
                                                 );
 
-                                                if (_datePickedDate != null) {
+                                                if (datePickedDate != null) {
                                                   safeSetState(() {
                                                     _model.datePicked =
                                                         DateTime(
-                                                      _datePickedDate.year,
-                                                      _datePickedDate.month,
-                                                      _datePickedDate.day,
+                                                      datePickedDate.year,
+                                                      datePickedDate.month,
+                                                      datePickedDate.day,
                                                     );
                                                   });
                                                 }
@@ -619,7 +615,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -628,7 +624,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Text(
                                           'Add Comment',
@@ -694,9 +690,9 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                 BorderRadius.circular(10.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0x34EEEEEE),
+                                          fillColor: const Color(0x34EEEEEE),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 20.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -710,7 +706,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 16.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -729,10 +725,10 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                     options: FFButtonOptions(
                                       width: 290.0,
                                       height: 60.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
@@ -754,7 +750,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,

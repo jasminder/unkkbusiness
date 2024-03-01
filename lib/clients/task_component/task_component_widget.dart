@@ -2,9 +2,7 @@ import '/backend/backend.dart';
 import '/clients/edit_client_task/edit_client_task_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'task_component_model.dart';
 export 'task_component_model.dart';
@@ -77,21 +75,21 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 4.0),
                               child: Text(
                                 'Task Name 1',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               child: TextFormField(
                                 controller: _model.taskController ??=
@@ -141,9 +139,9 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   filled: true,
-                                  fillColor: Color(0x34EEEEEE),
+                                  fillColor: const Color(0x34EEEEEE),
                                   contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
+                                      const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 20.0, 20.0, 20.0),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -157,7 +155,7 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -176,7 +174,7 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: Container(
+                                    child: SizedBox(
                                       height:
                                           MediaQuery.sizeOf(context).height *
                                               1.0,
@@ -195,7 +193,7 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
                             child: Icon(
                               Icons.delete_outline_outlined,

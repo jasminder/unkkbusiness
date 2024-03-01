@@ -1,13 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onboard_one_off_services_type_bill_model.dart';
 export 'onboard_one_off_services_type_bill_model.dart';
@@ -67,7 +63,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -86,14 +82,14 @@ class _OnboardOneOffServicesTypeBillWidgetState
                             width: 56.0,
                             height: 56.0,
                             decoration: BoxDecoration(
-                              color: Color(0x33EEEEEE),
+                              color: const Color(0x33EEEEEE),
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: FlutterFlowTheme.of(context).secondary,
                                 width: 1.0,
                               ),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -102,7 +98,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Send Proposal to ${widget.proposalRef?.firstName} ${widget.proposalRef?.lastName}',
@@ -118,7 +114,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 206.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 206.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -126,7 +122,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: Text(
                                   'How will this one-off service be billed?',
@@ -135,14 +131,14 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -277,11 +273,11 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     name: _model
                                                         .serviceTasks?[
                                                             _model.loopCount]
-                                                        ?.title,
+                                                        .title,
                                                     details: _model
                                                         .serviceTasks?[
                                                             _model.loopCount]
-                                                        ?.description,
+                                                        .description,
                                                     serviceRef:
                                                         widget.serviceRef,
                                                     clientRef: _model
@@ -312,7 +308,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 'proposalRef':
                                                     widget.proposalRef,
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -382,11 +378,11 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     name: _model
                                                         .serviceTasks2?[
                                                             _model.loopCount]
-                                                        ?.title,
+                                                        .title,
                                                     details: _model
                                                         .serviceTasks2?[
                                                             _model.loopCount]
-                                                        ?.description,
+                                                        .description,
                                                     serviceRef:
                                                         widget.serviceRef,
                                                     clientRef: _model
@@ -417,7 +413,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 'proposalRef':
                                                     widget.proposalRef,
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -431,8 +427,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                         child: Container(
                                           width: 240.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0x1904F5C8),
-                                            borderRadius: BorderRadius.only(
+                                            color: const Color(0x1904F5C8),
+                                            borderRadius: const BorderRadius.only(
                                               bottomLeft: Radius.circular(10.0),
                                               bottomRight:
                                                   Radius.circular(10.0),
@@ -445,15 +441,15 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     ? FlutterFlowTheme.of(
                                                             context)
                                                         .primary
-                                                    : Color(0x1904F5C8),
-                                                Color(0x1904F5C8),
+                                                    : const Color(0x1904F5C8),
+                                                const Color(0x1904F5C8),
                                               ),
                                               width: 2.0,
                                             ),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 40.0, 24.0, 40.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -470,7 +466,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 32.0, 0.0, 0.0),
                                                   child: Text(
@@ -499,7 +495,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -635,11 +631,11 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     name: _model
                                                         .serviceTasks3?[
                                                             _model.loopCount]
-                                                        ?.title,
+                                                        .title,
                                                     details: _model
                                                         .serviceTasks3?[
                                                             _model.loopCount]
-                                                        ?.description,
+                                                        .description,
                                                     serviceRef:
                                                         widget.serviceRef,
                                                     clientRef: _model
@@ -670,7 +666,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 'proposalRef':
                                                     widget.proposalRef,
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -731,19 +727,18 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                               ),
                                             );
                                             while (
-                                                _model.serviceTasks4!.length >
-                                                    0) {
+                                                _model.serviceTasks4!.isNotEmpty) {
                                               await TasksRecord.collection
                                                   .doc()
                                                   .set(createTasksRecordData(
                                                     name: _model
                                                         .serviceTasks4?[
                                                             _model.loopCount]
-                                                        ?.title,
+                                                        .title,
                                                     details: _model
                                                         .serviceTasks4?[
                                                             _model.loopCount]
-                                                        ?.description,
+                                                        .description,
                                                     serviceRef:
                                                         widget.serviceRef,
                                                     clientRef: _model
@@ -776,7 +771,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 'proposalRef':
                                                     widget.proposalRef,
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -790,8 +785,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                         child: Container(
                                           width: 238.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0x1904F5C8),
-                                            borderRadius: BorderRadius.only(
+                                            color: const Color(0x1904F5C8),
+                                            borderRadius: const BorderRadius.only(
                                               bottomLeft: Radius.circular(10.0),
                                               bottomRight:
                                                   Radius.circular(10.0),
@@ -804,14 +799,14 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     ? FlutterFlowTheme.of(
                                                             context)
                                                         .primary
-                                                    : Color(0x1904F5C8),
-                                                Color(0x1904F5C8),
+                                                    : const Color(0x1904F5C8),
+                                                const Color(0x1904F5C8),
                                               ),
                                             ),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 40.0, 24.0, 40.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -828,7 +823,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 32.0, 0.0, 0.0),
                                                   child: Text(

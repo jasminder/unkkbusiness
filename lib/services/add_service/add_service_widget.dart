@@ -1,13 +1,10 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_service_model.dart';
 export 'add_service_model.dart';
@@ -67,7 +64,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -86,7 +83,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                 ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -97,7 +94,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                 context.goNamed(
                                   'servicesList',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                     ),
@@ -122,14 +119,14 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 36.0, 0.0, 36.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -138,7 +135,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -223,9 +220,9 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                 BorderRadius.circular(10.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0x34EEEEEE),
+                                          fillColor: const Color(0x34EEEEEE),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 20.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -238,7 +235,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 20.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -247,7 +244,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -332,9 +329,9 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                 BorderRadius.circular(10.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0x34EEEEEE),
+                                          fillColor: const Color(0x34EEEEEE),
                                           contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 20.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -348,7 +345,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -356,7 +353,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 8.0, 20.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -366,7 +363,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Row(
@@ -397,7 +394,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                   ],
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
@@ -474,9 +471,9 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                     ),
                                                     filled: true,
                                                     fillColor:
-                                                        Color(0x34EEEEEE),
+                                                        const Color(0x34EEEEEE),
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 20.0,
                                                                 20.0,
@@ -500,7 +497,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 20.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -510,7 +507,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -525,7 +522,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                         .taxRateValueController ??=
                                                     FormFieldController<String>(
                                                         null),
-                                                options: ['2.5', '4', '0'],
+                                                options: const ['2.5', '4', '0'],
                                                 onChanged: (val) => setState(
                                                     () => _model.taxRateValue =
                                                         val),
@@ -546,14 +543,14 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor: Color(0xFFFCFCFC),
+                                                fillColor: const Color(0xFFFCFCFC),
                                                 elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 borderWidth: 1.0,
                                                 borderRadius: 10.0,
-                                                margin: EdgeInsetsDirectional
+                                                margin: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -620,7 +617,7 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                                   ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),
@@ -633,9 +630,9 @@ class _AddServiceWidgetState extends State<AddServiceWidget> {
                             options: FFButtonOptions(
                               width: 180.0,
                               height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryText,
                               textStyle: FlutterFlowTheme.of(context)

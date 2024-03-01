@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -25,7 +22,7 @@ class FFAppState extends ChangeNotifier {
 
   String _activeMenu = 'clients';
   String get activeMenu => _activeMenu;
-  set activeMenu(String _value) {
-    _activeMenu = _value;
+  set activeMenu(String value) {
+    _activeMenu = value;
   }
 }

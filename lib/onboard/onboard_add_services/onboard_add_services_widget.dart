@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -65,7 +63,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -84,14 +82,14 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                             width: 56.0,
                             height: 56.0,
                             decoration: BoxDecoration(
-                              color: Color(0x33EEEEEE),
+                              color: const Color(0x33EEEEEE),
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: FlutterFlowTheme.of(context).secondary,
                                 width: 1.0,
                               ),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -100,7 +98,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Send Proposal to ${widget.proposalRef?.firstName} ${widget.proposalRef?.lastName}',
@@ -116,18 +114,18 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 206.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 206.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 400.0, 0.0, 400.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 6.0),
                                   child: Text(
                                     'Add services to build your proposal',
@@ -148,9 +146,9 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                       ),
                                 ),
                                 Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 32.0, 0.0, 0.0),
                                     child: FutureBuilder<List<ServicesRecord>>(
                                       future: queryServicesRecordOnce(),
@@ -212,7 +210,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                                 .secondaryText,
                                             size: 24.0,
                                           ),
-                                          fillColor: Color(0xFFFCFCFC),
+                                          fillColor: const Color(0xFFFCFCFC),
                                           elevation: 2.0,
                                           borderColor:
                                               FlutterFlowTheme.of(context)
@@ -220,7 +218,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                           borderWidth: 1.0,
                                           borderRadius: 8.0,
                                           margin:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 4.0, 16.0, 4.0),
                                           hidesUnderline: true,
                                           isOverButton: true,
@@ -232,7 +230,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 40.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -263,7 +261,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
                                             'proposalRef': widget.proposalRef,
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -306,7 +304,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                             extra: <String, dynamic>{
                                               'proposalRef': widget.proposalRef,
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -328,7 +326,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                                 ),
                                               ),
                                               duration:
-                                                  Duration(milliseconds: 4000),
+                                                  const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
@@ -341,10 +339,10 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                     },
                                     text: 'Next',
                                     options: FFButtonOptions(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           75.0, 24.0, 75.0, 24.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
@@ -357,7 +355,7 @@ class _OnboardAddServicesWidgetState extends State<OnboardAddServicesWidget> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                       elevation: 3.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),

@@ -1,19 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/services/add_service_task/add_service_task_widget.dart';
-import '/services/delete_service_task_confirm/delete_service_task_confirm_widget.dart';
-import '/services/edit_service_task/edit_service_task_widget.dart';
 import 'edit_service_widget.dart' show EditServiceWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class EditServiceModel extends FlutterFlowModel<EditServiceWidget> {
   ///  Local state fields for this page.

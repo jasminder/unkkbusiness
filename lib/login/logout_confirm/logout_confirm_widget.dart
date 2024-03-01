@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'logout_confirm_model.dart';
 export 'logout_confirm_model.dart';
@@ -43,7 +42,7 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +53,7 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(70.0, 40.0, 70.0, 40.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(70.0, 40.0, 70.0, 40.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -63,7 +62,7 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
                     style: FlutterFlowTheme.of(context).headlineSmall,
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                     child: Text(
                       'Signing out will require you to sign in again \nto access your account',
                       textAlign: TextAlign.center,
@@ -75,13 +74,13 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -91,9 +90,9 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
                             options: FFButtonOptions(
                               width: 135.0,
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -117,7 +116,7 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () {
@@ -127,9 +126,9 @@ class _LogoutConfirmWidgetState extends State<LogoutConfirmWidget> {
                             options: FFButtonOptions(
                               width: 135.0,
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).error,
                               textStyle: FlutterFlowTheme.of(context)

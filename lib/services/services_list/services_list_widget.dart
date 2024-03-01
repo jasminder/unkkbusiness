@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'services_list_model.dart';
 export 'services_list_model.dart';
@@ -79,7 +78,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                       wrapWithModel(
                         model: _model.navigationModel,
                         updateCallback: () => setState(() {}),
-                        child: NavigationWidget(),
+                        child: const NavigationWidget(),
                       ),
                       Expanded(
                         child: Column(
@@ -88,10 +87,10 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                             wrapWithModel(
                               model: _model.topbarModel,
                               updateCallback: () => setState(() {}),
-                              child: TopbarWidget(),
+                              child: const TopbarWidget(),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 40.0, 40.0, 20.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -111,9 +110,9 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 8.0, 0.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 287.0,
                                           child: TextFormField(
                                             controller: _model.textController,
@@ -186,9 +185,9 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                     BorderRadius.circular(24.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0x34EEEEEE),
+                                              fillColor: const Color(0x34EEEEEE),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(24.0, 16.0,
                                                           24.0, 16.0),
                                               prefixIcon: Icon(
@@ -213,7 +212,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
@@ -221,7 +220,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               'addService',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -234,10 +233,10 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                             width: 148.0,
                                             height: 40.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -251,7 +250,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                       fontWeight:
                                                           FontWeight.w600,
                                                     ),
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -266,11 +265,11 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 20.0, 40.0, 20.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0x33EEEEEE),
+                                  color: const Color(0x33EEEEEE),
                                   borderRadius: BorderRadius.circular(10.0),
                                   border: Border.all(
                                     color:
@@ -279,7 +278,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       40.0, 30.0, 40.0, 30.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -291,13 +290,13 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 8.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.3,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -417,7 +416,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 18.0, 0.0, 0.0),
                                         child:
                                             StreamBuilder<List<ServicesRecord>>(
@@ -463,7 +462,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       14.0,
@@ -479,7 +478,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -492,7 +491,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                                           .width *
                                                                       0.3,
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -588,12 +587,12 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                               Expanded(
                                                                 child: Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           1.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
@@ -630,7 +629,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                               child: Padding(
                                                                                 padding: MediaQuery.viewInsetsOf(context),
-                                                                                child: Container(
+                                                                                child: SizedBox(
                                                                                   height: MediaQuery.sizeOf(context).height * 1.0,
                                                                                   child: ServiceActionWidget(
                                                                                     serviceRef: listViewServicesRecord.reference,
@@ -675,7 +674,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -686,7 +685,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 0.0),
                                                   child: Icon(
@@ -703,7 +702,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   2.0,
                                                                   0.0,
@@ -728,7 +727,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       4.0,
@@ -752,7 +751,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   2.0,
                                                                   0.0,
@@ -777,7 +776,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       4.0,
@@ -801,7 +800,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   2.0,
                                                                   0.0,
@@ -826,7 +825,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       4.0,
@@ -851,7 +850,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                   ],
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Icon(

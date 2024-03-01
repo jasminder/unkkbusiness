@@ -1,19 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
 import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'onboard_one_off_services_list_widget.dart'
     show OnboardOneOffServicesListWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class OnboardOneOffServicesListModel
     extends FlutterFlowModel<OnboardOneOffServicesListWidget> {

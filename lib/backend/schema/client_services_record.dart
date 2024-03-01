@@ -10,9 +10,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class ClientServicesRecord extends FirestoreRecord {
   ClientServicesRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 

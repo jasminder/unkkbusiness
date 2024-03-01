@@ -8,6 +8,7 @@ export '../base_auth_user_provider.dart';
 class UnkkKansalFirebaseUser extends BaseAuthUser {
   UnkkKansalFirebaseUser(this.user);
   User? user;
+  @override
   bool get loggedIn => user != null;
 
   @override

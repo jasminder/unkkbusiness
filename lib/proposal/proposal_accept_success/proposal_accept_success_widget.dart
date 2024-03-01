@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'proposal_accept_success_model.dart';
 export 'proposal_accept_success_model.dart';
@@ -59,7 +58,7 @@ class _ProposalAcceptSuccessWidgetState
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
+                        const EdgeInsetsDirectional.fromSTEB(82.0, 70.0, 82.0, 70.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -69,7 +68,7 @@ class _ProposalAcceptSuccessWidgetState
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -93,13 +92,13 @@ class _ProposalAcceptSuccessWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 36.0, 0.0, 36.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 6.0),
                                   child: Text(
                                     'Proposal Preview',
@@ -108,7 +107,7 @@ class _ProposalAcceptSuccessWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
                                     'You are previewing what your client will see once this proposal has been sent.',
@@ -124,13 +123,13 @@ class _ProposalAcceptSuccessWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x33EEEEEE),
+                                      color: const Color(0x33EEEEEE),
                                       borderRadius: BorderRadius.circular(10.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -145,7 +144,7 @@ class _ProposalAcceptSuccessWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   32.0, 32.0, 32.0, 32.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -207,18 +206,18 @@ class _ProposalAcceptSuccessWidgetState
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 78.0, 0.0, 78.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
-                                                  color: Color(0x1A04F5C8),
+                                                  color: const Color(0x1A04F5C8),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(110.0, 64.0,
                                                           110.0, 64.0),
                                                   child: Column(
@@ -236,7 +235,7 @@ class _ProposalAcceptSuccessWidgetState
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     24.0,
@@ -262,7 +261,7 @@ class _ProposalAcceptSuccessWidgetState
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -279,7 +278,7 @@ class _ProposalAcceptSuccessWidgetState
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     20.0,
@@ -297,20 +296,20 @@ class _ProposalAcceptSuccessWidgetState
                                                             width: 180.0,
                                                             height: 40.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0x00FFFFFF),
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
@@ -362,7 +361,7 @@ class _ProposalAcceptSuccessWidgetState
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () {
@@ -372,9 +371,9 @@ class _ProposalAcceptSuccessWidgetState
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 60.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -397,7 +396,7 @@ class _ProposalAcceptSuccessWidgetState
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () {
@@ -407,9 +406,9 @@ class _ProposalAcceptSuccessWidgetState
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 60.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
@@ -449,7 +448,7 @@ class _ProposalAcceptSuccessWidgetState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 24.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -468,7 +467,7 @@ class _ProposalAcceptSuccessWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 24.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -485,7 +484,7 @@ class _ProposalAcceptSuccessWidgetState
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
                                 'You are previewing what your client will see once this proposal has been sent.',
@@ -503,7 +502,7 @@ class _ProposalAcceptSuccessWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -556,22 +555,22 @@ class _ProposalAcceptSuccessWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 24.0, 0.0, 78.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0x1A04F5C8),
+                                  color: const Color(0x1A04F5C8),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 32.0, 24.0, 32.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -585,7 +584,7 @@ class _ProposalAcceptSuccessWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
                                         child: Text(
                                           'Proposal signed!',
@@ -602,7 +601,7 @@ class _ProposalAcceptSuccessWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 12.0),
                                         child: Text(
                                           'Your proposal was successfully accepted. \nPlease check you confirmation email.',
@@ -612,7 +611,7 @@ class _ProposalAcceptSuccessWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () {
@@ -623,12 +622,12 @@ class _ProposalAcceptSuccessWidgetState
                                             width: 180.0,
                                             height: 40.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0x00FFFFFF),
+                                            color: const Color(0x00FFFFFF),
                                             textStyle: FlutterFlowTheme.of(
                                                     context)
                                                 .titleSmall

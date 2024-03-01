@@ -1,17 +1,9 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
-import '/services/service_action/service_action_widget.dart';
 import 'services_list_widget.dart' show ServicesListWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class ServicesListModel extends FlutterFlowModel<ServicesListWidget> {
   ///  State fields for stateful widgets in this page.

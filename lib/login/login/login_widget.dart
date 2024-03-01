@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
@@ -60,7 +59,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 64.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 64.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -78,7 +77,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         height: 513.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 24.0,
                               color: Color(0x0A000000),
@@ -93,7 +92,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             width: 1.0,
                           ),
                         ),
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,10 +102,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                               style: FlutterFlowTheme.of(context).headlineSmall,
                             ),
                             Container(
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 369.0,
                               ),
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Form(
                                 key: _model.formKey,
                                 autovalidateMode: AutovalidateMode.disabled,
@@ -115,7 +114,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -126,7 +125,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 4.0),
                                             child: Text(
                                               'Username/Email address',
@@ -194,9 +193,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     BorderRadius.circular(10.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0x34EEEEEE),
+                                              fillColor: const Color(0x34EEEEEE),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 20.0,
                                                           20.0, 20.0),
                                             ),
@@ -210,7 +209,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -221,7 +220,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 4.0),
                                             child: Text(
                                               'Password',
@@ -291,9 +290,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     BorderRadius.circular(10.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0x32EEEEEE),
+                                              fillColor: const Color(0x32EEEEEE),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 20.0,
                                                           20.0, 20.0),
                                               suffixIcon: InkWell(
@@ -328,7 +327,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -383,9 +382,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               },
                               text: 'Login',
                               options: FFButtonOptions(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     124.0, 20.0, 124.0, 20.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -396,7 +395,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           .primaryBackground,
                                     ),
                                 elevation: 4.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

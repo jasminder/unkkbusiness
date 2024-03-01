@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'topbar_model.dart';
 export 'topbar_model.dart';
@@ -50,7 +49,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
         Container(
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 20.0,
                 color: Color(0x14000000),
@@ -60,7 +59,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
             ],
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(40.0, 32.0, 40.0, 32.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(40.0, 32.0, 40.0, 32.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,13 +82,13 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                     children: [
                       Flexible(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 4.0, 0.0),
                           child: Container(
                             width: 40.0,
                             height: 40.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.asset(
@@ -101,7 +100,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -109,7 +108,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                             FlutterFlowDropDown<String>(
                               controller: _model.dropDownValueController ??=
                                   FormFieldController<String>(null),
-                              options: ['Profile', 'Dashboard', 'Logout'],
+                              options: const ['Profile', 'Dashboard', 'Logout'],
                               onChanged: (val) async {
                                 setState(() => _model.dropDownValue = val);
                                 if (_model.dropDownValue == 'Logout') {
@@ -124,7 +123,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                                     'clientsList',
                                     context.mounted,
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
+                                      kTransitionInfoKey: const TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                       ),
@@ -150,7 +149,7 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                                   .primaryBackground,
                               borderWidth: 0.0,
                               borderRadius: 0.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
+                              margin: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 2.0, 0.0, 2.0),
                               hidesUnderline: true,
                               isOverButton: true,

@@ -40,7 +40,6 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
 
     _model.taskDescriptionFocusNode ??= FocusNode();
 
-    _model.dueDateController ??= TextEditingController();
     _model.dueDateFocusNode ??= FocusNode();
 
     _model.commentController ??= TextEditingController();
@@ -339,7 +338,10 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                             controller: _model
                                                     .assigneeValueController ??=
                                                 FormFieldController<String>(
-                                              _model.assigneeValue ??= '',
+                                              _model.assigneeValue ??= functions
+                                                  .userIdtoRef(columnTasksRecord
+                                                      .assignee!.id)
+                                                  .id,
                                             ),
                                             options: List<String>.from(
                                                 assigneeUsersRecordList
@@ -429,7 +431,13 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                   1.0,
                                               child: TextFormField(
                                                 controller:
-                                                    _model.dueDateController,
+                                                    _model.dueDateController ??=
+                                                        TextEditingController(
+                                                  text: dateTimeFormat(
+                                                      'yMMMd',
+                                                      columnTasksRecord
+                                                          .dueDate),
+                                                ),
                                                 focusNode:
                                                     _model.dueDateFocusNode,
                                                 obscureText: false,

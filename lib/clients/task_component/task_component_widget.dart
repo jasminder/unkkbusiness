@@ -89,7 +89,7 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 4.0),
                               child: Text(
-                                'Task Name 11',
+                                'Task Name',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),

@@ -1,0 +1,18 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "clientServices",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "clientRef",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}

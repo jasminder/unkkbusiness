@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21002556204",
+    "project_id": "unkk-kl1611",
+    "storage_bucket": "unkk-kl1611.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21002556204:android:57bd96429b5e3dd8e79289",
+        "android_client_info": {
+          "package_name": "com.unkk.books"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP58-nzGgXjEVFV6yySwB5JgR0jx-cnqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,15 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'topbar_widget.dart' show TopbarWidget;
 import 'package:flutter/material.dart';
 
 class TopbarModel extends FlutterFlowModel<TopbarWidget> {
-  ///  State fields for stateful widgets in this component.
-
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-
   /// Initialization and disposal methods.
 
   @override

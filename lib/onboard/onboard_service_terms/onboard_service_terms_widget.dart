@@ -86,24 +86,33 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Container(
-                                    width: 56.0,
-                                    height: 56.0,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x33EEEEEE),
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        width: 1.0,
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.safePop();
+                                    },
+                                    child: Container(
+                                      width: 56.0,
+                                      height: 56.0,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0x33EEEEEE),
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          width: 1.0,
+                                        ),
                                       ),
-                                    ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.arrowLeft,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 28.0,
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: FaIcon(
+                                        FontAwesomeIcons.arrowLeft,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 28.0,
+                                      ),
                                     ),
                                   ),
                                   Padding(

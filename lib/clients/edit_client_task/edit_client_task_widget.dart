@@ -313,13 +313,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                         ),
                                       ),
                                       FutureBuilder<List<UsersRecord>>(
-                                        future: queryUsersRecordOnce(
-                                          queryBuilder: (usersRecord) =>
-                                              usersRecord.where(
-                                            'role',
-                                            isEqualTo: 'assignee',
-                                          ),
-                                        ),
+                                        future: queryUsersRecordOnce(),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
@@ -338,10 +332,9 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                             controller: _model
                                                     .assigneeValueController ??=
                                                 FormFieldController<String>(
-                                              _model.assigneeValue ??= functions
-                                                  .userIdtoRef(columnTasksRecord
-                                                      .assignee!.id)
-                                                  .id,
+                                              _model.assigneeValue ??=
+                                                  columnTasksRecord
+                                                      .assignee?.id,
                                             ),
                                             options: List<String>.from(
                                                 assigneeUsersRecordList
@@ -355,27 +348,10 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                 _model.assigneeValue = val),
                                             width: 420.0,
                                             height: 60.0,
-                                            searchHintTextStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                            searchTextStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium,
                                             hintText: 'Add Service',
-                                            searchHintText: 'Search',
-                                            searchCursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
                                             icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color:
@@ -395,7 +371,7 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                                     16.0, 4.0, 16.0, 4.0),
                                             hidesUnderline: true,
                                             isOverButton: true,
-                                            isSearchable: true,
+                                            isSearchable: false,
                                             isMultiSelect: false,
                                           );
                                         },

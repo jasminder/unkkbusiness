@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -282,6 +283,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                         widget.serviceRef,
                                                     clientRef: _model
                                                         .clientInfo?.reference,
+                                                    assignee:
+                                                        currentUserReference,
                                                   ));
                                               setState(() {
                                                 _model.loopCount =
@@ -387,6 +390,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                         widget.serviceRef,
                                                     clientRef: _model
                                                         .clientExist?.reference,
+                                                    assignee:
+                                                        currentUserReference,
                                                   ));
                                               setState(() {
                                                 _model.loopCount =
@@ -640,6 +645,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                         widget.serviceRef,
                                                     clientRef: _model
                                                         .clientInfo3?.reference,
+                                                    assignee:
+                                                        currentUserReference,
                                                   ));
                                               setState(() {
                                                 _model.loopCount =
@@ -744,6 +751,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     clientRef: _model
                                                         .clientExist2
                                                         ?.reference,
+                                                    assignee:
+                                                        currentUserReference,
                                                   ));
                                               setState(() {
                                                 _model.loopCount =

@@ -28,3 +28,7 @@ DocumentReference userIdtoRef(String userID) {
 // convert userId to document reference
   return FirebaseFirestore.instance.collection('users').doc(userID);
 }
+
+DateTime todayDate() {
+  return DateTime.now();
+}

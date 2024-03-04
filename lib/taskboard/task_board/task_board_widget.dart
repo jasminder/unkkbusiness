@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -32,6 +33,34 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         FFAppState().activeMenu = 'taskboard';
+      });
+      setState(() {
+        _model.taskTillDate = functions.todayDate();
+        _model.clientsRef = [];
+      });
+      _model.clientsInfo = await queryTasksRecordOnce(
+        queryBuilder: (tasksRecord) => tasksRecord
+            .where(
+              'dueDate',
+              isGreaterThanOrEqualTo: _model.taskTillDate,
+            )
+            .orderBy('dueDate', descending: true),
+      );
+      while (_model.clientsInfo!.length > _model.loopCount) {
+        if (_model.clientsRef
+                .contains(_model.clientsInfo?[_model.loopCount].clientRef) ==
+            null) {
+          setState(() {
+            _model.addToClientsRef(
+                _model.clientsInfo![_model.loopCount].clientRef!);
+          });
+        }
+        setState(() {
+          _model.loopCount = _model.loopCount + 1;
+        });
+      }
+      setState(() {
+        _model.loopCount = 0;
       });
     });
 
@@ -290,40 +319,23 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                     ],
                                   ),
                                 ),
-                                Expanded(
+                                Container(
+                                  decoration: const BoxDecoration(),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         40.0, 20.0, 40.0, 20.0),
-                                    child: StreamBuilder<List<ClientsRecord>>(
-                                      stream: queryClientsRecord(),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: SpinKitCircle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                size: 40.0,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<ClientsRecord>
-                                            columnClientsRecordList =
-                                            snapshot.data!;
+                                    child: Builder(
+                                      builder: (context) {
+                                        final clientsList =
+                                            _model.clientsRef.toList();
                                         return SingleChildScrollView(
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: List.generate(
-                                                columnClientsRecordList.length,
-                                                (columnIndex) {
-                                              final columnClientsRecord =
-                                                  columnClientsRecordList[
-                                                      columnIndex];
+                                                clientsList.length,
+                                                (clientsListIndex) {
+                                              final clientsListItem =
+                                                  clientsList[clientsListIndex];
                                               return Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -359,44 +371,66 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                       0.0,
                                                                       40.0,
                                                                       13.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                '${columnClientsRecord.firstName} ${columnClientsRecord.lastName}',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                'Actions',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ),
-                                                            ],
+                                                          child: StreamBuilder<
+                                                              ClientsRecord>(
+                                                            stream: ClientsRecord
+                                                                .getDocument(
+                                                                    clientsListItem),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return Center(
+                                                                  child:
+                                                                      LinearProgressIndicator(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                                );
+                                                              }
+                                                              final rowClientsRecord =
+                                                                  snapshot
+                                                                      .data!;
+                                                              return Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(
+                                                                    '${rowClientsRecord.firstName} ${rowClientsRecord.lastName}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Actions',
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
                                                           ),
                                                         ),
                                                         StreamBuilder<
@@ -409,8 +443,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                         .where(
                                                               'clientRef',
                                                               isEqualTo:
-                                                                  columnClientsRecord
-                                                                      .reference,
+                                                                  clientsListItem,
                                                             ),
                                                           ),
                                                           builder: (context,
@@ -468,147 +501,186 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                         children: [
                                                                           Expanded(
                                                                             child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
-                                                                                  child: Text(
-                                                                                    'Show Tasks',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                  ),
-                                                                                ),
-                                                                                Text(
-                                                                                  'ShowTasks',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                        decoration: TextDecoration.underline,
+                                                                                StreamBuilder<ServicesRecord>(
+                                                                              stream: ServicesRecord.getDocument(columnTasksRecord.serviceRef!),
+                                                                              builder: (context, snapshot) {
+                                                                                // Customize what your widget looks like when it's loading.
+                                                                                if (!snapshot.hasData) {
+                                                                                  return Center(
+                                                                                    child: LinearProgressIndicator(
+                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                    ),
+                                                                                  );
+                                                                                }
+                                                                                final columnServicesRecord = snapshot.data!;
+                                                                                return Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                                                                                      child: Text(
+                                                                                        columnServicesRecord.name,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                       ),
-                                                                                ),
-                                                                                Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                                                                                  child: Column(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-                                                                                        child: Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              'Task 1 :  ',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Poppins',
-                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    fontWeight: FontWeight.w600,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            Flexible(
-                                                                                              child: Text(
-                                                                                                columnTasksRecord.name,
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Poppins',
-                                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                    ),
+                                                                                    ),
+                                                                                    Text(
+                                                                                      'ShowTasks',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).primary,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                            decoration: TextDecoration.underline,
+                                                                                          ),
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                                                                                      child: StreamBuilder<List<TasksRecord>>(
+                                                                                        stream: queryTasksRecord(
+                                                                                          queryBuilder: (tasksRecord) => tasksRecord
+                                                                                              .where(
+                                                                                                'serviceRef',
+                                                                                                isEqualTo: columnServicesRecord.reference,
+                                                                                              )
+                                                                                              .where(
+                                                                                                'dueDate',
+                                                                                                isGreaterThanOrEqualTo: _model.taskTillDate,
                                                                                               ),
-                                                                                            ),
-                                                                                            if (columnTasksRecord.dueDate != null)
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                                child: Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  children: [
-                                                                                                    Text(
-                                                                                                      '| Due Date ',
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Poppins',
-                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                            fontWeight: FontWeight.w600,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                    Text(
-                                                                                                      dateTimeFormat('yMMMd', columnTasksRecord.dueDate!),
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Poppins',
-                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (columnTasksRecord.assignee != null)
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                                child: StreamBuilder<UsersRecord>(
-                                                                                                  stream: UsersRecord.getDocument(columnTasksRecord.assignee!),
-                                                                                                  builder: (context, snapshot) {
-                                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                                    if (!snapshot.hasData) {
-                                                                                                      return Center(
-                                                                                                        child: LinearProgressIndicator(
-                                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                                        ),
-                                                                                                      );
-                                                                                                    }
-                                                                                                    final rowUsersRecord = snapshot.data!;
-                                                                                                    return Row(
-                                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                                      children: [
-                                                                                                        Text(
-                                                                                                          '| Assignee ',
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Poppins',
-                                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                                fontWeight: FontWeight.w600,
-                                                                                                              ),
-                                                                                                        ),
-                                                                                                        Text(
-                                                                                                          rowUsersRecord.displayName,
-                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                fontFamily: 'Poppins',
-                                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                              ),
-                                                                                                        ),
-                                                                                                      ],
-                                                                                                    );
-                                                                                                  },
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (columnTasksRecord.status != '')
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                                child: Row(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  children: [
-                                                                                                    Text(
-                                                                                                      '| Status : ',
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Poppins',
-                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                            fontWeight: FontWeight.w600,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                    Text(
-                                                                                                      columnTasksRecord.status,
-                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                            fontFamily: 'Poppins',
-                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                          ),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
                                                                                         ),
+                                                                                        builder: (context, snapshot) {
+                                                                                          // Customize what your widget looks like when it's loading.
+                                                                                          if (!snapshot.hasData) {
+                                                                                            return Center(
+                                                                                              child: LinearProgressIndicator(
+                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                              ),
+                                                                                            );
+                                                                                          }
+                                                                                          List<TasksRecord> columnTasksRecordList = snapshot.data!;
+                                                                                          return Column(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            children: List.generate(columnTasksRecordList.length, (columnIndex) {
+                                                                                              final columnTasksRecord = columnTasksRecordList[columnIndex];
+                                                                                              return Padding(
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                child: Row(
+                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                  children: [
+                                                                                                    Text(
+                                                                                                      'Task 1 :  ',
+                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                            fontFamily: 'Poppins',
+                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                            fontWeight: FontWeight.w600,
+                                                                                                          ),
+                                                                                                    ),
+                                                                                                    Flexible(
+                                                                                                      child: Text(
+                                                                                                        columnTasksRecord.name,
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                              fontFamily: 'Poppins',
+                                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                            ),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                    if (columnTasksRecord.dueDate != null)
+                                                                                                      Padding(
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                                        child: Row(
+                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                          children: [
+                                                                                                            Text(
+                                                                                                              '| Due Date ',
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                            Text(
+                                                                                                              dateTimeFormat('yMMMd', columnTasksRecord.dueDate!),
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    if (columnTasksRecord.assignee != null)
+                                                                                                      Padding(
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                                        child: StreamBuilder<UsersRecord>(
+                                                                                                          stream: UsersRecord.getDocument(columnTasksRecord.assignee!),
+                                                                                                          builder: (context, snapshot) {
+                                                                                                            // Customize what your widget looks like when it's loading.
+                                                                                                            if (!snapshot.hasData) {
+                                                                                                              return Center(
+                                                                                                                child: LinearProgressIndicator(
+                                                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                                                ),
+                                                                                                              );
+                                                                                                            }
+                                                                                                            final rowUsersRecord = snapshot.data!;
+                                                                                                            return Row(
+                                                                                                              mainAxisSize: MainAxisSize.max,
+                                                                                                              children: [
+                                                                                                                Text(
+                                                                                                                  '| Assignee ',
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                        fontWeight: FontWeight.w600,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                                Text(
+                                                                                                                  rowUsersRecord.displayName,
+                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                        fontFamily: 'Poppins',
+                                                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                      ),
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            );
+                                                                                                          },
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    if (columnTasksRecord.status != '')
+                                                                                                      Padding(
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                                        child: Row(
+                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                          children: [
+                                                                                                            Text(
+                                                                                                              '| Status : ',
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                            Text(
+                                                                                                              columnTasksRecord.status,
+                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                  ),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                              );
+                                                                                            }),
+                                                                                          );
+                                                                                        },
                                                                                       ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ],
+                                                                                    ),
+                                                                                  ],
+                                                                                );
+                                                                              },
                                                                             ),
                                                                           ),
                                                                           Padding(
@@ -628,16 +700,10 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                   'clientTaskDetail',
                                                                                   queryParameters: {
                                                                                     'clientRef': serializeParam(
-                                                                                      columnClientsRecord.reference,
+                                                                                      columnTasksRecord.clientRef,
                                                                                       ParamType.DocumentReference,
                                                                                     ),
                                                                                   }.withoutNulls,
-                                                                                  extra: <String, dynamic>{
-                                                                                    kTransitionInfoKey: const TransitionInfo(
-                                                                                      hasTransition: true,
-                                                                                      transitionType: PageTransitionType.fade,
-                                                                                    ),
-                                                                                  },
                                                                                 );
                                                                               },
                                                                               child: FaIcon(

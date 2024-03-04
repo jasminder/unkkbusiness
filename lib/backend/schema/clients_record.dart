@@ -116,8 +116,8 @@ class ClientsRecord extends FirestoreRecord {
   bool hasGender() => _gender != null;
 
   // "type" field.
-  List<String>? _type;
-  List<String> get type => _type ?? const [];
+  String? _type;
+  String get type => _type ?? '';
   bool hasType() => _type != null;
 
   void _initializeFields() {
@@ -141,7 +141,7 @@ class ClientsRecord extends FirestoreRecord {
     _individualAddress = snapshotData['individualAddress'] as String?;
     _individualPhone = snapshotData['individualPhone'] as String?;
     _gender = snapshotData['gender'] as String?;
-    _type = getDataList(snapshotData['type']);
+    _type = snapshotData['type'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -199,6 +199,7 @@ Map<String, dynamic> createClientsRecordData({
   String? individualAddress,
   String? individualPhone,
   String? gender,
+  String? type,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -222,6 +223,7 @@ Map<String, dynamic> createClientsRecordData({
       'individualAddress': individualAddress,
       'individualPhone': individualPhone,
       'gender': gender,
+      'type': type,
     }.withoutNulls,
   );
 
@@ -233,7 +235,6 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
 
   @override
   bool equals(ClientsRecord? e1, ClientsRecord? e2) {
-    const listEquality = ListEquality();
     return e1?.firstName == e2?.firstName &&
         e1?.lastName == e2?.lastName &&
         e1?.dateOfBirth == e2?.dateOfBirth &&
@@ -254,7 +255,7 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e1?.individualAddress == e2?.individualAddress &&
         e1?.individualPhone == e2?.individualPhone &&
         e1?.gender == e2?.gender &&
-        listEquality.equals(e1?.type, e2?.type);
+        e1?.type == e2?.type;
   }
 
   @override

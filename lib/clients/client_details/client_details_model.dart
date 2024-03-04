@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class ClientDetailsModel extends FlutterFlowModel<ClientDetailsWidget> {
   ///  Local state fields for this page.
 
-  int tableRows = 3;
+  String? clientType;
 
   ///  State fields for stateful widgets in this page.
 
@@ -27,8 +27,8 @@ class ClientDetailsModel extends FlutterFlowModel<ClientDetailsWidget> {
   String? genderValue;
   FormFieldController<String>? genderValueController;
   // State field(s) for clientType widget.
-  List<String>? clientTypeValue;
-  FormFieldController<List<String>>? clientTypeValueController;
+  String? clientTypeValue;
+  FormFieldController<String>? clientTypeValueController;
   // State field(s) for companyName widget.
   FocusNode? companyNameFocusNode;
   TextEditingController? companyNameController;

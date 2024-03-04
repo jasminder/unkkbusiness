@@ -480,7 +480,7 @@ class _OnboardOneOffServicesListWidgetState
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  fontWeight: FontWeight.w500,
+                                                  fontWeight: FontWeight.normal,
                                                   decoration:
                                                       TextDecoration.underline,
                                                 ),

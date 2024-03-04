@@ -808,21 +808,37 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             ),
                                                             FlutterFlowDropDown<
                                                                 String>(
-                                                              multiSelectController: _model
+                                                              controller: _model
                                                                       .clientTypeValueController ??=
                                                                   FormFieldController<
-                                                                      List<String>>(_model
-                                                                          .clientTypeValue ??=
-                                                                      List<
-                                                                          String>.from(
-                                                                columnClientsRecord
-                                                                    .type,
-                                                              )),
-                                                              options: const [
+                                                                      String>(
+                                                                _model.clientTypeValue ??=
+                                                                    '',
+                                                              ),
+                                                              options: List<
+                                                                  String>.from([
+                                                                'company',
+                                                                'trust',
+                                                                'individual',
+                                                                'none'
+                                                              ]),
+                                                              optionLabels: const [
                                                                 'Company',
                                                                 'Trust',
-                                                                'Individual'
+                                                                'Individual',
+                                                                'None'
                                                               ],
+                                                              onChanged:
+                                                                  (val) async {
+                                                                setState(() =>
+                                                                    _model.clientTypeValue =
+                                                                        val);
+                                                                setState(() {
+                                                                  _model.clientType =
+                                                                      _model
+                                                                          .clientTypeValue;
+                                                                });
+                                                              },
                                                               width: MediaQuery
                                                                           .sizeOf(
                                                                               context)
@@ -867,12 +883,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                               isSearchable:
                                                                   false,
                                                               isMultiSelect:
-                                                                  true,
-                                                              onMultiSelectChanged:
-                                                                  (val) => setState(
-                                                                      () => _model
-                                                                              .clientTypeValue =
-                                                                          val),
+                                                                  false,
                                                             ),
                                                           ],
                                                         ),
@@ -896,8 +907,8 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 ],
                               ),
                             ),
-                            if (columnClientsRecord.type.contains('Company') ==
-                                true)
+                            if ((columnClientsRecord.type == 'company') ||
+                                (_model.clientType == 'company'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
@@ -1531,8 +1542,8 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                   ],
                                 ),
                               ),
-                            if (columnClientsRecord.type.contains('Trust') ==
-                                true)
+                            if ((columnClientsRecord.type == 'trust') ||
+                                (_model.clientType == 'trust'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
@@ -2166,9 +2177,8 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                   ],
                                 ),
                               ),
-                            if (columnClientsRecord.type
-                                    .contains('Individual') ==
-                                true)
+                            if ((columnClientsRecord.type == 'individual') ||
+                                (_model.clientType == 'individual'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
@@ -2808,47 +2818,40 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                         0.0, 0.0, 8.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        await widget.clientRef!.update({
-                                          ...createClientsRecordData(
-                                            firstName:
-                                                _model.firstnameController.text,
-                                            lastName:
-                                                _model.lastNameController.text,
-                                            gender: _model.genderValue,
-                                            companyName: _model
-                                                .companyNameController.text,
-                                            companyPhone: _model
-                                                .companyTelephoneController
-                                                .text,
-                                            companyEmail: _model
-                                                .companyEmailController.text,
-                                            companyAddress:
-                                                _model.addressController.text,
-                                            trustName:
-                                                _model.trustnameController.text,
-                                            trustEmail: _model
-                                                .trustEmailController.text,
-                                            trustPhone: _model
-                                                .trustTelephoneController.text,
-                                            trustAddress: _model
-                                                .trustAddressController.text,
-                                            individualName: _model
-                                                .individualNameController.text,
-                                            individualEmail: _model
-                                                .individualEmailController.text,
-                                            individualAddress: _model
-                                                .individualAddressController
-                                                .text,
-                                            individualPhone: _model
-                                                .individualTelephoneController
-                                                .text,
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'type': _model.clientTypeValue,
-                                            },
-                                          ),
-                                        });
+                                        await widget.clientRef!
+                                            .update(createClientsRecordData(
+                                          firstName:
+                                              _model.firstnameController.text,
+                                          lastName:
+                                              _model.lastNameController.text,
+                                          gender: _model.genderValue,
+                                          type: _model.clientTypeValue,
+                                          companyName:
+                                              _model.companyNameController.text,
+                                          companyPhone: _model
+                                              .companyTelephoneController.text,
+                                          companyEmail: _model
+                                              .companyEmailController.text,
+                                          companyAddress:
+                                              _model.addressController.text,
+                                          trustName:
+                                              _model.trustnameController.text,
+                                          trustEmail:
+                                              _model.trustEmailController.text,
+                                          trustPhone: _model
+                                              .trustTelephoneController.text,
+                                          trustAddress: _model
+                                              .trustAddressController.text,
+                                          individualName: _model
+                                              .individualNameController.text,
+                                          individualEmail: _model
+                                              .individualEmailController.text,
+                                          individualAddress: _model
+                                              .individualAddressController.text,
+                                          individualPhone: _model
+                                              .individualTelephoneController
+                                              .text,
+                                        ));
                                       },
                                       text: 'Update Client',
                                       options: FFButtonOptions(

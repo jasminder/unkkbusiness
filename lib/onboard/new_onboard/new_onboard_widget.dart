@@ -252,29 +252,6 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                   label: DefaultTextStyle.merge(
                                                     softWrap: true,
                                                     child: Text(
-                                                      'ID',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
                                                       'Name',
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -371,12 +348,6 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                       onSelectChanged) =>
                                                   DataRow(
                                                 cells: [
-                                                  Text(
-                                                    'Edit Column 1',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
                                                   Text(
                                                     '${proposalsItem.firstName} ${proposalsItem.lastName}',
                                                     style: FlutterFlowTheme.of(

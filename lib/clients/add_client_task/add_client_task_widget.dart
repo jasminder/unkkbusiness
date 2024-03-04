@@ -277,13 +277,7 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                     ),
                                   ),
                                   FutureBuilder<List<UsersRecord>>(
-                                    future: queryUsersRecordOnce(
-                                      queryBuilder: (usersRecord) =>
-                                          usersRecord.where(
-                                        'role',
-                                        isEqualTo: 'assignee',
-                                      ),
-                                    ),
+                                    future: queryUsersRecordOnce(),
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
                                       if (!snapshot.hasData) {

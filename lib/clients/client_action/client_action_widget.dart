@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/clients/delete_client_confirm/delete_client_confirm_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -127,6 +128,93 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                                   borderRadius: BorderRadius.circular(40.0),
                                 ),
                               ),
+                            ),
+                            StreamBuilder<List<ClientServicesRecord>>(
+                              stream: queryClientServicesRecord(
+                                queryBuilder: (clientServicesRecord) =>
+                                    clientServicesRecord.where(
+                                  'clientRef',
+                                  isEqualTo: widget.clientRef,
+                                ),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: LinearProgressIndicator(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  );
+                                }
+                                List<ClientServicesRecord>
+                                    containerClientServicesRecordList =
+                                    snapshot.data!;
+                                return Container(
+                                  decoration: const BoxDecoration(),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.goNamed(
+                                          'onBoardProposalPricing',
+                                          queryParameters: {
+                                            'clientServiceRef': serializeParam(
+                                              containerClientServicesRecordList
+                                                  .map((e) => e.reference)
+                                                  .toList(),
+                                              ParamType.DocumentReference,
+                                              true,
+                                            ),
+                                            'clientRef': serializeParam(
+                                              widget.clientRef,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: const TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      text: 'Proposal',
+                                      options: FFButtonOptions(
+                                        width: 135.0,
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(

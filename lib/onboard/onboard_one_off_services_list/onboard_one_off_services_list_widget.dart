@@ -193,6 +193,10 @@ class _OnboardOneOffServicesListWidgetState
                                               ParamType.DocumentReference,
                                               true,
                                             ),
+                                            'clientRef': serializeParam(
+                                              widget.clientRef,
+                                              ParamType.DocumentReference,
+                                            ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: const TransitionInfo(

@@ -258,6 +258,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ParamType.DocumentReference,
                 true,
                 ['clientServices']),
+            clientRef: params.getParam(
+                'clientRef', ParamType.DocumentReference, false, ['clients']),
           ),
         ),
         FFRoute(

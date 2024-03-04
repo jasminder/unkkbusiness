@@ -11,9 +11,11 @@ class OnBoardProposalPricingWidget extends StatefulWidget {
   const OnBoardProposalPricingWidget({
     super.key,
     required this.clientServiceRef,
+    this.clientRef,
   });
 
   final List<DocumentReference>? clientServiceRef;
+  final DocumentReference? clientRef;
 
   @override
   State<OnBoardProposalPricingWidget> createState() =>
@@ -152,32 +154,67 @@ class _OnBoardProposalPricingWidgetState
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   32.0, 32.0, 32.0, 32.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'John Smith',
-                                                    style: FlutterFlowTheme.of(
+                                          child: StreamBuilder<ClientsRecord>(
+                                            stream: ClientsRecord.getDocument(
+                                                widget.clientRef!),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child:
+                                                      LinearProgressIndicator(
+                                                    color: FlutterFlowTheme.of(
                                                             context)
-                                                        .displayMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 40.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                        .primary,
+                                                  ),
+                                                );
+                                              }
+                                              final rowClientsRecord =
+                                                  snapshot.data!;
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        '${rowClientsRecord.firstName} ${rowClientsRecord.lastName}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .displayMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 40.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        rowClientsRecord.email,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 20.0,
+                                                            ),
+                                                      ),
+                                                    ],
                                                   ),
                                                   Text(
-                                                    'Business Books',
+                                                    'Starting on acceptance',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -187,18 +224,8 @@ class _OnBoardProposalPricingWidgetState
                                                         ),
                                                   ),
                                                 ],
-                                              ),
-                                              Text(
-                                                'Starting on acceptance',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 20.0,
-                                                        ),
-                                              ),
-                                            ],
+                                              );
+                                            },
                                           ),
                                         ),
                                         Divider(

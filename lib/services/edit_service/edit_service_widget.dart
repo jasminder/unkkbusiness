@@ -1124,9 +1124,8 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
                                               hidePaginator: false,
                                               showFirstLastButtons: false,
                                               height: 700.0,
-                                              minWidth: 800.0,
                                               headingRowHeight: 56.0,
-                                              dataRowHeight: 56.0,
+                                              dataRowHeight: 70.0,
                                               columnSpacing: 20.0,
                                               headingRowColor:
                                                   FlutterFlowTheme.of(context)

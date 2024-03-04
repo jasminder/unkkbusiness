@@ -11,7 +11,7 @@ class ClientsListModel extends FlutterFlowModel<ClientsListWidget> {
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in clientsList widget.
-  List<ClientsRecord>? allClients;
+  int? allClients;
   // Model for navigation component.
   late NavigationModel navigationModel;
   // Model for topbar component.

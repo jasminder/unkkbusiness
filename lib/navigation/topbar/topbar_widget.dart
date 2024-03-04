@@ -135,13 +135,13 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 16.0,
+                                            fontSize: 14.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 0.0, 0.0, 0.0),
+                                          8.0, 0.0, 0.0, 0.0),
                                       child: Icon(
                                         Icons.login_sharp,
                                         color: FlutterFlowTheme.of(context)

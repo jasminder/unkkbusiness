@@ -33,7 +33,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
       setState(() {
         FFAppState().activeMenu = 'onboard';
       });
-      _model.allProposal = await queryProposalRecordOnce();
+      _model.allProposal = await queryProposalRecordCount();
     });
 
     _model.textController ??= TextEditingController();
@@ -97,7 +97,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                   Expanded(
                                     child: Text(
                                       'New On-Board (${valueOrDefault<String>(
-                                        _model.allProposal?.length.toString(),
+                                        _model.allProposal?.toString(),
                                         '0',
                                       )})',
                                       style: FlutterFlowTheme.of(context)
@@ -201,231 +201,282 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 20.0, 40.0, 20.0),
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 0.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                child: Container(
-                                  height: 600.0,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0x32EEEEEE),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      width: 1.0,
+                              child: StreamBuilder<List<ProposalRecord>>(
+                                stream: queryProposalRecord(),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: LinearProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    );
+                                  }
+                                  List<ProposalRecord>
+                                      containerProposalRecordList =
+                                      snapshot.data!;
+                                  return Material(
+                                    color: Colors.transparent,
+                                    elevation: 0.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
                                     ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 15.0, 15.0, 15.0),
-                                    child: Builder(
-                                      builder: (context) {
-                                        final proposals =
-                                            _model.allProposal?.toList() ?? [];
-                                        return FlutterFlowDataTable<
-                                            ProposalRecord>(
-                                          controller: _model
-                                              .paginatedDataTableController,
-                                          data: proposals,
-                                          numRows: _model.allProposal?.length,
-                                          columnsBuilder: (onSortChanged) => [
-                                            DataColumn2(
-                                              label: DefaultTextStyle.merge(
-                                                softWrap: true,
-                                                child: Text(
-                                                  'Name',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
+                                    child: Container(
+                                      height: 600.0,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0x32EEEEEE),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          width: 1.0,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 15.0, 15.0, 15.0),
+                                        child: Builder(
+                                          builder: (context) {
+                                            final proposals =
+                                                containerProposalRecordList
+                                                    .toList();
+                                            return FlutterFlowDataTable<
+                                                ProposalRecord>(
+                                              controller: _model
+                                                  .paginatedDataTableController,
+                                              data: proposals,
+                                              numRows:
+                                                  containerProposalRecordList
+                                                      .length,
+                                              columnsBuilder: (onSortChanged) =>
+                                                  [
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Name',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Email',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Text(
+                                                      'Date Joined',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                DataColumn2(
+                                                  label: DefaultTextStyle.merge(
+                                                    softWrap: true,
+                                                    child: Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Action',
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       ),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
-                                            ),
-                                            DataColumn2(
-                                              label: DefaultTextStyle.merge(
-                                                softWrap: true,
-                                                child: Text(
-                                                  'Email',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                            DataColumn2(
-                                              label: DefaultTextStyle.merge(
-                                                softWrap: true,
-                                                child: Text(
-                                                  'Date Joined',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                            DataColumn2(
-                                              label: DefaultTextStyle.merge(
-                                                softWrap: true,
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    'Action',
+                                              ],
+                                              dataRowBuilder: (proposalsItem,
+                                                      proposalsIndex,
+                                                      selected,
+                                                      onSelectChanged) =>
+                                                  DataRow(
+                                                cells: [
+                                                  Text(
+                                                    '${proposalsItem.firstName} ${proposalsItem.lastName}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                        .bodyMedium,
                                                   ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                          dataRowBuilder: (proposalsItem,
-                                                  proposalsIndex,
-                                                  selected,
-                                                  onSelectChanged) =>
-                                              DataRow(
-                                            cells: [
-                                              Text(
-                                                '${proposalsItem.firstName} ${proposalsItem.lastName}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                proposalsItem.email,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                dateTimeFormat('yMMMd',
-                                                    proposalsItem.createdAt!),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    context.pushNamed(
-                                                      'onboardAddServices',
-                                                      queryParameters: {
-                                                        'proposalRef':
-                                                            serializeParam(
-                                                          proposalsItem,
-                                                          ParamType.Document,
-                                                        ),
-                                                      }.withoutNulls,
-                                                      extra: <String, dynamic>{
-                                                        'proposalRef':
-                                                            proposalsItem,
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                        ),
-                                                      },
-                                                    );
-                                                  },
-                                                  text: 'Send Proposal',
-                                                  options: FFButtonOptions(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(22.0, 8.0,
-                                                                22.0, 8.0),
-                                                    iconPadding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
+                                                  Text(
+                                                    proposalsItem.email,
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            58.0),
+                                                        .bodyMedium,
                                                   ),
-                                                ),
+                                                  Text(
+                                                    dateTimeFormat(
+                                                        'yMMMd',
+                                                        proposalsItem
+                                                            .createdAt!),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        context.pushNamed(
+                                                          'onboardAddServices',
+                                                          queryParameters: {
+                                                            'proposalRef':
+                                                                serializeParam(
+                                                              proposalsItem,
+                                                              ParamType
+                                                                  .Document,
+                                                            ),
+                                                          }.withoutNulls,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            'proposalRef':
+                                                                proposalsItem,
+                                                            kTransitionInfoKey:
+                                                                const TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      text: 'Send Proposal',
+                                                      options: FFButtonOptions(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    22.0,
+                                                                    8.0,
+                                                                    22.0,
+                                                                    8.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                        borderSide: const BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(58.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ]
+                                                    .map((c) => DataCell(c))
+                                                    .toList(),
                                               ),
-                                            ].map((c) => DataCell(c)).toList(),
-                                          ),
-                                          paginated: true,
-                                          selectable: false,
-                                          hidePaginator: false,
-                                          showFirstLastButtons: false,
-                                          headingRowHeight: 64.0,
-                                          dataRowHeight: 48.0,
-                                          columnSpacing: 30.0,
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          addHorizontalDivider: true,
-                                          addTopAndBottomDivider: false,
-                                          hideDefaultHorizontalDivider: false,
-                                          horizontalDividerColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                          addVerticalDivider: false,
-                                        );
-                                      },
+                                              paginated: true,
+                                              selectable: false,
+                                              hidePaginator: false,
+                                              showFirstLastButtons: false,
+                                              headingRowHeight: 64.0,
+                                              dataRowHeight: 48.0,
+                                              columnSpacing: 30.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              addHorizontalDivider: true,
+                                              addTopAndBottomDivider: false,
+                                              hideDefaultHorizontalDivider:
+                                                  false,
+                                              horizontalDividerColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              addVerticalDivider: false,
+                                            );
+                                          },
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
                             ),
                           ],

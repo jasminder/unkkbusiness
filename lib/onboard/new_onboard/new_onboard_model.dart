@@ -11,7 +11,7 @@ class NewOnboardModel extends FlutterFlowModel<NewOnboardWidget> {
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in newOnboard widget.
-  List<ProposalRecord>? allProposal;
+  int? allProposal;
   // Model for navigation component.
   late NavigationModel navigationModel;
   // Model for topbar component.

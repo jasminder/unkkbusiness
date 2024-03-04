@@ -7,6 +7,7 @@ import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'new_onboard_model.dart';
 export 'new_onboard_model.dart';
@@ -96,9 +97,14 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
                                     return Center(
-                                      child: LinearProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                      child: SizedBox(
+                                        width: 40.0,
+                                        height: 40.0,
+                                        child: SpinKitCircle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          size: 40.0,
+                                        ),
                                       ),
                                     );
                                   }
@@ -230,9 +236,14 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
                                     return Center(
-                                      child: LinearProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                      child: SizedBox(
+                                        width: 40.0,
+                                        height: 40.0,
+                                        child: SpinKitCircle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          size: 40.0,
+                                        ),
                                       ),
                                     );
                                   }

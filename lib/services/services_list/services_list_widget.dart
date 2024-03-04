@@ -37,7 +37,6 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
       setState(() {
         FFAppState().activeMenu = 'services';
       });
-      _model.allServices = await queryServicesRecordCount();
     });
 
     _model.textController ??= TextEditingController();
@@ -95,230 +94,272 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 40.0, 40.0, 20.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'Services (${valueOrDefault<String>(
-                                        _model.allServices?.toString(),
-                                        '0',
-                                      )})',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Row(
+                              child: FutureBuilder<int>(
+                                future: queryServicesRecordCount(),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: LinearProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    );
+                                  }
+                                  int rowCount = snapshot.data!;
+                                  return Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 8.0, 0.0),
-                                        child: SizedBox(
-                                          width: 287.0,
-                                          child: TextFormField(
-                                            controller: _model.textController,
-                                            focusNode:
-                                                _model.textFieldFocusNode,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.textController',
-                                              const Duration(milliseconds: 2000),
-                                              () => setState(() {}),
-                                            ),
-                                            onFieldSubmitted: (_) async {
-                                              await queryServicesRecordOnce()
-                                                  .then(
-                                                    (records) => _model
-                                                            .simpleSearchResults =
-                                                        TextSearch(
-                                                      records
-                                                          .map(
-                                                            (record) =>
-                                                                TextSearchItem
-                                                                    .fromTerms(
-                                                                        record,
-                                                                        [
-                                                                  record.name,
-                                                                  record
-                                                                      .description]),
-                                                          )
-                                                          .toList(),
-                                                    )
-                                                            .search(_model
-                                                                .textController
-                                                                .text)
-                                                            .map(
-                                                                (r) => r.object)
-                                                            .toList(),
-                                                  )
-                                                  .onError((_, __) => _model
-                                                      .simpleSearchResults = [])
-                                                  .whenComplete(
-                                                      () => setState(() {}));
-                                            },
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              labelStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelSmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .alternate,
-                                                    fontWeight: FontWeight.w300,
-                                                  ),
-                                              hintText: 'Search Service',
-                                              hintStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelSmall
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .alternate,
-                                                    letterSpacing: 0.3,
-                                                    fontWeight: FontWeight.w300,
-                                                  ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
+                                      Expanded(
+                                        child: Text(
+                                          'Services (${valueOrDefault<String>(
+                                            rowCount.toString(),
+                                            '0',
+                                          )})',
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
                                               ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
-                                              filled: true,
-                                              fillColor: const Color(0x34EEEEEE),
-                                              contentPadding:
-                                                  const EdgeInsetsDirectional
-                                                      .fromSTEB(24.0, 16.0,
-                                                          24.0, 16.0),
-                                              prefixIcon: Icon(
-                                                Icons.search_rounded,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                size: 20.0,
-                                              ),
-                                              suffixIcon: _model.textController!
-                                                      .text.isNotEmpty
-                                                  ? InkWell(
-                                                      onTap: () async {
-                                                        _model.textController
-                                                            ?.clear();
-                                                        setState(() {});
-                                                      },
-                                                      child: const Icon(
-                                                        Icons.clear,
-                                                        size: 18.0,
-                                                      ),
-                                                    )
-                                                  : null,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  letterSpacing: 0.3,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                            validator: _model
-                                                .textControllerValidator
-                                                .asValidator(context),
-                                          ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            context.goNamed(
-                                              'addService',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                ),
-                                              },
-                                            );
-                                          },
-                                          text: '+ Add Service',
-                                          options: FFButtonOptions(
-                                            width: 148.0,
-                                            height: 40.0,
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                      fontSize: 14.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
+                                                    0.0, 0.0, 8.0, 0.0),
+                                            child: SizedBox(
+                                              width: 287.0,
+                                              child: TextFormField(
+                                                controller:
+                                                    _model.textController,
+                                                focusNode:
+                                                    _model.textFieldFocusNode,
+                                                onChanged: (_) =>
+                                                    EasyDebounce.debounce(
+                                                  '_model.textController',
+                                                  const Duration(milliseconds: 2000),
+                                                  () => setState(() {}),
+                                                ),
+                                                onFieldSubmitted: (_) async {
+                                                  await queryServicesRecordOnce()
+                                                      .then(
+                                                        (records) => _model
+                                                                .simpleSearchResults =
+                                                            TextSearch(
+                                                          records
+                                                              .map(
+                                                                (record) =>
+                                                                    TextSearchItem
+                                                                        .fromTerms(
+                                                                            record,
+                                                                            [
+                                                                      record
+                                                                          .name,
+                                                                      record
+                                                                          .description]),
+                                                              )
+                                                              .toList(),
+                                                        )
+                                                                .search(_model
+                                                                    .textController
+                                                                    .text)
+                                                                .map((r) =>
+                                                                    r.object)
+                                                                .toList(),
+                                                      )
+                                                      .onError((_, __) => _model
+                                                              .simpleSearchResults =
+                                                          [])
+                                                      .whenComplete(() =>
+                                                          setState(() {}));
+                                                },
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                  hintText: 'Search Service',
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        letterSpacing: 0.3,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      width: 1.0,
                                                     ),
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor: const Color(0x34EEEEEE),
+                                                  contentPadding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(24.0, 16.0,
+                                                              24.0, 16.0),
+                                                  prefixIcon: Icon(
+                                                    Icons.search_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    size: 20.0,
+                                                  ),
+                                                  suffixIcon: _model
+                                                          .textController!
+                                                          .text
+                                                          .isNotEmpty
+                                                      ? InkWell(
+                                                          onTap: () async {
+                                                            _model
+                                                                .textController
+                                                                ?.clear();
+                                                            setState(() {});
+                                                          },
+                                                          child: const Icon(
+                                                            Icons.clear,
+                                                            size: 18.0,
+                                                          ),
+                                                        )
+                                                      : null,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.3,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                        ),
+                                                validator: _model
+                                                    .textControllerValidator
+                                                    .asValidator(context),
+                                              ),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(32.0),
                                           ),
-                                        ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 0.0, 0.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                context.goNamed(
+                                                  'addService',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              text: '+ Add Service',
+                                              options: FFButtonOptions(
+                                                width: 148.0,
+                                                height: 40.0,
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                borderSide: const BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(32.0),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ],
-                                  ),
-                                ],
+                                  );
+                                },
                               ),
                             ),
                             Padding(

@@ -33,7 +33,6 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
       setState(() {
         FFAppState().activeMenu = 'onboard';
       });
-      _model.allProposal = await queryProposalRecordCount();
     });
 
     _model.textController ??= TextEditingController();
@@ -91,111 +90,135 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 40.0, 40.0, 20.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'New On-Board (${valueOrDefault<String>(
-                                        _model.allProposal?.toString(),
-                                        '0',
-                                      )})',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 287.0,
-                                    child: TextFormField(
-                                      controller: _model.textController,
-                                      focusNode: _model.textFieldFocusNode,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        isDense: true,
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                        hintText: 'Search by User Name',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              letterSpacing: 0.3,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: const Color(0x34EEEEEE),
-                                        contentPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                24.0, 16.0, 24.0, 16.0),
-                                        prefixIcon: Icon(
-                                          Icons.search_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          size: 20.0,
+                              child: FutureBuilder<int>(
+                                future: queryProposalRecordCount(),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: LinearProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    );
+                                  }
+                                  int rowCount = snapshot.data!;
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'New On-Board (${valueOrDefault<String>(
+                                            rowCount.toString(),
+                                            '0',
+                                          )})',
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                         ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.3,
-                                            fontWeight: FontWeight.w300,
+                                      SizedBox(
+                                        width: 287.0,
+                                        child: TextFormField(
+                                          controller: _model.textController,
+                                          focusNode: _model.textFieldFocusNode,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            isDense: true,
+                                            labelStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelSmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                            hintText: 'Search by User Name',
+                                            hintStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelSmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  letterSpacing: 0.3,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            filled: true,
+                                            fillColor: const Color(0x34EEEEEE),
+                                            contentPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 16.0, 24.0, 16.0),
+                                            prefixIcon: Icon(
+                                              Icons.search_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              size: 20.0,
+                                            ),
                                           ),
-                                      validator: _model.textControllerValidator
-                                          .asValidator(context),
-                                    ),
-                                  ),
-                                ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.3,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                          validator: _model
+                                              .textControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
                               ),
                             ),
                             Padding(

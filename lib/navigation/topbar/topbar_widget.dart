@@ -116,7 +116,16 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                                   await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();
 
-                                  return;
+                                  context.goNamedAuth(
+                                    'login',
+                                    context.mounted,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: const TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                      ),
+                                    },
+                                  );
                                 }
                                 if (_model.dropDownValue == 'Dashboard') {
                                   context.goNamedAuth(

@@ -39,40 +39,28 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
 
     _model.dateOfBirthFocusNode ??= FocusNode();
 
-    _model.companyNameController ??= TextEditingController();
     _model.companyNameFocusNode ??= FocusNode();
 
-    _model.companyTelephoneController ??= TextEditingController();
     _model.companyTelephoneFocusNode ??= FocusNode();
 
-    _model.companyEmailController ??= TextEditingController();
     _model.companyEmailFocusNode ??= FocusNode();
 
-    _model.addressController ??= TextEditingController();
     _model.addressFocusNode ??= FocusNode();
 
-    _model.trustnameController ??= TextEditingController();
     _model.trustnameFocusNode ??= FocusNode();
 
-    _model.trustTelephoneController ??= TextEditingController();
     _model.trustTelephoneFocusNode ??= FocusNode();
 
-    _model.trustEmailController ??= TextEditingController();
     _model.trustEmailFocusNode ??= FocusNode();
 
-    _model.trustAddressController ??= TextEditingController();
     _model.trustAddressFocusNode ??= FocusNode();
 
-    _model.individualNameController ??= TextEditingController();
     _model.individualNameFocusNode ??= FocusNode();
 
-    _model.individualTelephoneController ??= TextEditingController();
     _model.individualTelephoneFocusNode ??= FocusNode();
 
-    _model.individualEmailController ??= TextEditingController();
     _model.individualEmailFocusNode ??= FocusNode();
 
-    _model.individualAddressController ??= TextEditingController();
     _model.individualAddressFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -813,7 +801,8 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   FormFieldController<
                                                                       String>(
                                                                 _model.clientTypeValue ??=
-                                                                    '',
+                                                                    columnClientsRecord
+                                                                        .type,
                                                               ),
                                                               options: List<
                                                                   String>.from([
@@ -983,7 +972,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .companyNameController,
+                                                                      .companyNameController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .companyName,
+                                                              ),
                                                               focusNode: _model
                                                                   .companyNameFocusNode,
                                                               obscureText:
@@ -992,8 +985,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .companyName,
+                                                                    'Name',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1127,7 +1119,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .companyTelephoneController,
+                                                                      .companyTelephoneController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .companyPhone,
+                                                              ),
                                                               focusNode: _model
                                                                   .companyTelephoneFocusNode,
                                                               obscureText:
@@ -1136,8 +1132,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .companyPhone,
+                                                                    'Last name',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1281,7 +1276,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .companyEmailController,
+                                                                      .companyEmailController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .companyEmail,
+                                                              ),
                                                               focusNode: _model
                                                                   .companyEmailFocusNode,
                                                               obscureText:
@@ -1290,8 +1289,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .companyEmail,
+                                                                    'Email',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1425,7 +1423,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .addressController,
+                                                                      .addressController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .companyAddress,
+                                                              ),
                                                               focusNode: _model
                                                                   .addressFocusNode,
                                                               obscureText:
@@ -1434,8 +1436,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .companyAddress,
+                                                                    'Address',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1618,7 +1619,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .trustnameController,
+                                                                      .trustnameController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .trustName,
+                                                              ),
                                                               focusNode: _model
                                                                   .trustnameFocusNode,
                                                               obscureText:
@@ -1627,8 +1632,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .trustName,
+                                                                    'Name',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1762,7 +1766,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .trustTelephoneController,
+                                                                      .trustTelephoneController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .trustPhone,
+                                                              ),
                                                               focusNode: _model
                                                                   .trustTelephoneFocusNode,
                                                               obscureText:
@@ -1771,8 +1779,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .trustPhone,
+                                                                    'Phone',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1916,7 +1923,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .trustEmailController,
+                                                                      .trustEmailController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .trustEmail,
+                                                              ),
                                                               focusNode: _model
                                                                   .trustEmailFocusNode,
                                                               obscureText:
@@ -1925,8 +1936,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .trustEmail,
+                                                                    'Email',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -2060,7 +2070,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .trustAddressController,
+                                                                      .trustAddressController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .trustAddress,
+                                                              ),
                                                               focusNode: _model
                                                                   .trustAddressFocusNode,
                                                               obscureText:
@@ -2069,8 +2083,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .trustAddress,
+                                                                    'Address',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -2253,7 +2266,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .individualNameController,
+                                                                      .individualNameController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .individualName,
+                                                              ),
                                                               focusNode: _model
                                                                   .individualNameFocusNode,
                                                               obscureText:
@@ -2262,8 +2279,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .individualName,
+                                                                    'Name',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -2397,7 +2413,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .individualTelephoneController,
+                                                                      .individualTelephoneController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .individualPhone,
+                                                              ),
                                                               focusNode: _model
                                                                   .individualTelephoneFocusNode,
                                                               obscureText:
@@ -2406,8 +2426,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .individualPhone,
+                                                                    'Phone',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -2551,7 +2570,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .individualEmailController,
+                                                                      .individualEmailController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .individualEmail,
+                                                              ),
                                                               focusNode: _model
                                                                   .individualEmailFocusNode,
                                                               obscureText:
@@ -2560,8 +2583,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .individualEmail,
+                                                                    'Email',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -2695,7 +2717,11 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .individualAddressController,
+                                                                      .individualAddressController ??=
+                                                                  TextEditingController(
+                                                                text: columnClientsRecord
+                                                                    .individualAddress,
+                                                              ),
                                                               focusNode: _model
                                                                   .individualAddressFocusNode,
                                                               obscureText:
@@ -2704,8 +2730,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                   InputDecoration(
                                                                 isDense: true,
                                                                 hintText:
-                                                                    columnClientsRecord
-                                                                        .individualAddress,
+                                                                    'Address',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium

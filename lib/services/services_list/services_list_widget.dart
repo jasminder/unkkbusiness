@@ -112,7 +112,10 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Services (${rowCount.toString()})',
+                                          'Services (${valueOrDefault<String>(
+                                            rowCount.toString(),
+                                            '0',
+                                          )})',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(

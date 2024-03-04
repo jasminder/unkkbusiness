@@ -96,7 +96,10 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                 children: [
                                   Expanded(
                                     child: Text(
-                                      'New On-Board (${_model.allProposal?.length.toString()})',
+                                      'New On-Board (${valueOrDefault<String>(
+                                        _model.allProposal?.length.toString(),
+                                        '0',
+                                      )})',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(

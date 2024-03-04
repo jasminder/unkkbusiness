@@ -109,7 +109,11 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Clients (${_model.allClients?.length.toString()})',
+                                            'Clients (${valueOrDefault<String>(
+                                              _model.allClients?.length
+                                                  .toString(),
+                                              '0',
+                                            )})',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
@@ -306,11 +310,16 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
                                               padding: const EdgeInsets.all(2.0),
-                                              tabs: const [
+                                              tabs: [
                                                 Tab(
-                                                  text: 'Subscribers (07)',
+                                                  text:
+                                                      'Subscribers (${valueOrDefault<String>(
+                                                    _model.allClients?.length
+                                                        .toString(),
+                                                    '0',
+                                                  )})',
                                                 ),
-                                                Tab(
+                                                const Tab(
                                                   text: 'Generic Clients',
                                                 ),
                                               ],

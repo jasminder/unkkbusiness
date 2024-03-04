@@ -520,7 +520,8 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            if (clientsItem.companyName != '')
+                                                                            if (clientsItem.type ==
+                                                                                'company')
                                                                               Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                 child: FFButtonWidget(
@@ -548,7 +549,8 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            if (clientsItem.trustName != '')
+                                                                            if (clientsItem.type ==
+                                                                                'trust')
                                                                               Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                 child: FFButtonWidget(
@@ -576,7 +578,8 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            if (clientsItem.individualName != '')
+                                                                            if (clientsItem.type ==
+                                                                                'individual')
                                                                               Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                 child: FFButtonWidget(

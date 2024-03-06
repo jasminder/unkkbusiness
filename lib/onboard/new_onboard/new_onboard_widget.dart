@@ -5,10 +5,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:text_search/text_search.dart';
 import 'new_onboard_model.dart';
 export 'new_onboard_model.dart';
 
@@ -131,6 +133,46 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                         child: TextFormField(
                                           controller: _model.textController,
                                           focusNode: _model.textFieldFocusNode,
+                                          onChanged: (_) =>
+                                              EasyDebounce.debounce(
+                                            '_model.textController',
+                                            const Duration(milliseconds: 2000),
+                                            () async {
+                                              await queryProposalRecordOnce()
+                                                  .then(
+                                                    (records) => _model
+                                                            .simpleSearchResults =
+                                                        TextSearch(
+                                                      records
+                                                          .map(
+                                                            (record) =>
+                                                                TextSearchItem
+                                                                    .fromTerms(
+                                                                        record,
+                                                                        [
+                                                                  record.email,
+                                                                  record
+                                                                      .lastName,
+                                                                  record
+                                                                      .firstName]),
+                                                          )
+                                                          .toList(),
+                                                    )
+                                                            .search(_model
+                                                                .textController
+                                                                .text)
+                                                            .map(
+                                                                (r) => r.object)
+                                                            .toList(),
+                                                  )
+                                                  .onError((_, __) => _model
+                                                      .simpleSearchResults = [])
+                                                  .whenComplete(
+                                                      () => setState(() {}));
+                                            },
+                                          ),
+                                          textInputAction:
+                                              TextInputAction.search,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -209,6 +251,53 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                       .alternate,
                                               size: 20.0,
                                             ),
+                                            suffixIcon: _model.textController!
+                                                    .text.isNotEmpty
+                                                ? InkWell(
+                                                    onTap: () async {
+                                                      _model.textController
+                                                          ?.clear();
+                                                      await queryProposalRecordOnce()
+                                                          .then(
+                                                            (records) => _model
+                                                                    .simpleSearchResults =
+                                                                TextSearch(
+                                                              records
+                                                                  .map(
+                                                                    (record) =>
+                                                                        TextSearchItem.fromTerms(
+                                                                            record,
+                                                                            [
+                                                                          record
+                                                                              .email,
+                                                                          record
+                                                                              .lastName,
+                                                                          record
+                                                                              .firstName]),
+                                                                  )
+                                                                  .toList(),
+                                                            )
+                                                                    .search(_model
+                                                                        .textController
+                                                                        .text)
+                                                                    .map((r) =>
+                                                                        r.object)
+                                                                    .toList(),
+                                                          )
+                                                          .onError((_, __) =>
+                                                              _model.simpleSearchResults =
+                                                                  [])
+                                                          .whenComplete(() =>
+                                                              setState(() {}));
+
+                                                      setState(() {});
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.clear,
+                                                      size: 18.0,
+                                                    ),
+                                                  )
+                                                : null,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall

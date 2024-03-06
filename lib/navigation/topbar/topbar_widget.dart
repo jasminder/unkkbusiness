@@ -93,8 +93,8 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
-                              child: Image.network(
-                                'https://picsum.photos/seed/270/600',
+                              child: Image.asset(
+                                'assets/images/Rectangle_1.png',
                                 fit: BoxFit.cover,
                               ),
                             ),

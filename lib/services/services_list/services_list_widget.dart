@@ -147,41 +147,39 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                     EasyDebounce.debounce(
                                                   '_model.textController',
                                                   const Duration(milliseconds: 2000),
-                                                  () => setState(() {}),
-                                                ),
-                                                onFieldSubmitted: (_) async {
-                                                  await queryServicesRecordOnce()
-                                                      .then(
-                                                        (records) => _model
-                                                                .simpleSearchResults =
-                                                            TextSearch(
-                                                          records
-                                                              .map(
-                                                                (record) =>
-                                                                    TextSearchItem
-                                                                        .fromTerms(
-                                                                            record,
-                                                                            [
-                                                                      record
-                                                                          .name,
-                                                                      record
-                                                                          .description]),
-                                                              )
-                                                              .toList(),
-                                                        )
-                                                                .search(_model
-                                                                    .textController
-                                                                    .text)
-                                                                .map((r) =>
-                                                                    r.object)
+                                                  () async {
+                                                    await queryServicesRecordOnce()
+                                                        .then(
+                                                          (records) => _model
+                                                                  .simpleSearchResults =
+                                                              TextSearch(
+                                                            records
+                                                                .map(
+                                                                  (record) => TextSearchItem
+                                                                      .fromTerms(
+                                                                          record,
+                                                                          [
+                                                                        record
+                                                                            .name,
+                                                                        record
+                                                                            .description]),
+                                                                )
                                                                 .toList(),
-                                                      )
-                                                      .onError((_, __) => _model
-                                                              .simpleSearchResults =
-                                                          [])
-                                                      .whenComplete(() =>
-                                                          setState(() {}));
-                                                },
+                                                          )
+                                                                  .search(_model
+                                                                      .textController
+                                                                      .text)
+                                                                  .map((r) =>
+                                                                      r.object)
+                                                                  .toList(),
+                                                        )
+                                                        .onError((_, __) =>
+                                                            _model.simpleSearchResults =
+                                                                [])
+                                                        .whenComplete(() =>
+                                                            setState(() {}));
+                                                  },
+                                                ),
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   isDense: true,
@@ -275,23 +273,44 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                                         .alternate,
                                                     size: 20.0,
                                                   ),
-                                                  suffixIcon: _model
-                                                          .textController!
-                                                          .text
-                                                          .isNotEmpty
-                                                      ? InkWell(
-                                                          onTap: () async {
-                                                            _model
-                                                                .textController
-                                                                ?.clear();
-                                                            setState(() {});
-                                                          },
-                                                          child: const Icon(
-                                                            Icons.clear,
-                                                            size: 18.0,
-                                                          ),
-                                                        )
-                                                      : null,
+                                                  suffixIcon:
+                                                      _model.textController!
+                                                              .text.isNotEmpty
+                                                          ? InkWell(
+                                                              onTap: () async {
+                                                                _model
+                                                                    .textController
+                                                                    ?.clear();
+                                                                await queryServicesRecordOnce()
+                                                                    .then(
+                                                                      (records) =>
+                                                                          _model.simpleSearchResults =
+                                                                              TextSearch(
+                                                                        records
+                                                                            .map(
+                                                                              (record) => TextSearchItem.fromTerms(record, [
+                                                                                record.name,
+                                                                                record.description]),
+                                                                            )
+                                                                            .toList(),
+                                                                      ).search(_model.textController.text).map((r) => r.object).toList(),
+                                                                    )
+                                                                    .onError((_,
+                                                                            __) =>
+                                                                        _model.simpleSearchResults =
+                                                                            [])
+                                                                    .whenComplete(() =>
+                                                                        setState(
+                                                                            () {}));
+
+                                                                setState(() {});
+                                                              },
+                                                              child: const Icon(
+                                                                Icons.clear,
+                                                                size: 18.0,
+                                                              ),
+                                                            )
+                                                          : null,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

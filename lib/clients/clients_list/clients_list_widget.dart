@@ -153,43 +153,41 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                     EasyDebounce.debounce(
                                                   '_model.textController',
                                                   const Duration(milliseconds: 2000),
-                                                  () => setState(() {}),
-                                                ),
-                                                onFieldSubmitted: (_) async {
-                                                  await queryClientsRecordOnce()
-                                                      .then(
-                                                        (records) => _model
-                                                                .simpleSearchResults =
-                                                            TextSearch(
-                                                          records
-                                                              .map(
-                                                                (record) =>
-                                                                    TextSearchItem
-                                                                        .fromTerms(
-                                                                            record,
-                                                                            [
-                                                                      record
-                                                                          .firstName,
-                                                                      record
-                                                                          .lastName,
-                                                                      record
-                                                                          .email]),
-                                                              )
-                                                              .toList(),
-                                                        )
-                                                                .search(_model
-                                                                    .textController
-                                                                    .text)
-                                                                .map((r) =>
-                                                                    r.object)
+                                                  () async {
+                                                    await queryClientsRecordOnce()
+                                                        .then(
+                                                          (records) => _model
+                                                                  .simpleSearchResults =
+                                                              TextSearch(
+                                                            records
+                                                                .map(
+                                                                  (record) => TextSearchItem
+                                                                      .fromTerms(
+                                                                          record,
+                                                                          [
+                                                                        record
+                                                                            .firstName,
+                                                                        record
+                                                                            .lastName,
+                                                                        record
+                                                                            .email]),
+                                                                )
                                                                 .toList(),
-                                                      )
-                                                      .onError((_, __) => _model
-                                                              .simpleSearchResults =
-                                                          [])
-                                                      .whenComplete(() =>
-                                                          setState(() {}));
-                                                },
+                                                          )
+                                                                  .search(_model
+                                                                      .textController
+                                                                      .text)
+                                                                  .map((r) =>
+                                                                      r.object)
+                                                                  .toList(),
+                                                        )
+                                                        .onError((_, __) =>
+                                                            _model.simpleSearchResults =
+                                                                [])
+                                                        .whenComplete(() =>
+                                                            setState(() {}));
+                                                  },
+                                                ),
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   isDense: true,
@@ -284,23 +282,45 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                         .alternate,
                                                     size: 20.0,
                                                   ),
-                                                  suffixIcon: _model
-                                                          .textController!
-                                                          .text
-                                                          .isNotEmpty
-                                                      ? InkWell(
-                                                          onTap: () async {
-                                                            _model
-                                                                .textController
-                                                                ?.clear();
-                                                            setState(() {});
-                                                          },
-                                                          child: const Icon(
-                                                            Icons.clear,
-                                                            size: 18.0,
-                                                          ),
-                                                        )
-                                                      : null,
+                                                  suffixIcon:
+                                                      _model.textController!
+                                                              .text.isNotEmpty
+                                                          ? InkWell(
+                                                              onTap: () async {
+                                                                _model
+                                                                    .textController
+                                                                    ?.clear();
+                                                                await queryClientsRecordOnce()
+                                                                    .then(
+                                                                      (records) =>
+                                                                          _model.simpleSearchResults =
+                                                                              TextSearch(
+                                                                        records
+                                                                            .map(
+                                                                              (record) => TextSearchItem.fromTerms(record, [
+                                                                                record.firstName,
+                                                                                record.lastName,
+                                                                                record.email]),
+                                                                            )
+                                                                            .toList(),
+                                                                      ).search(_model.textController.text).map((r) => r.object).toList(),
+                                                                    )
+                                                                    .onError((_,
+                                                                            __) =>
+                                                                        _model.simpleSearchResults =
+                                                                            [])
+                                                                    .whenComplete(() =>
+                                                                        setState(
+                                                                            () {}));
+
+                                                                setState(() {});
+                                                              },
+                                                              child: const Icon(
+                                                                Icons.clear,
+                                                                size: 18.0,
+                                                              ),
+                                                            )
+                                                          : null,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

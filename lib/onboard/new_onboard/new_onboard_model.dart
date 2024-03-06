@@ -18,6 +18,7 @@ class NewOnboardModel extends FlutterFlowModel<NewOnboardWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  List<ProposalRecord> simpleSearchResults = [];
   // State field(s) for PaginatedDataTable widget.
   final paginatedDataTableController =
       FlutterFlowDataTableController<ProposalRecord>();

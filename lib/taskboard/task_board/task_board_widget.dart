@@ -47,14 +47,6 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
             .orderBy('dueDate', descending: true),
       );
       while (_model.clientsInfo!.length > _model.loopCount) {
-        if (_model.clientsRef
-                .contains(_model.clientsInfo?[_model.loopCount].clientRef) ==
-            null) {
-          setState(() {
-            _model.addToClientsRef(
-                _model.clientsInfo![_model.loopCount].clientRef!);
-          });
-        }
         setState(() {
           _model.loopCount = _model.loopCount + 1;
         });

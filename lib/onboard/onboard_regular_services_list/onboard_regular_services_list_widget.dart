@@ -6,7 +6,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/onboard/delete_onboard_service/delete_onboard_service_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'onboard_regular_services_list_model.dart';
 export 'onboard_regular_services_list_model.dart';
 
@@ -53,8 +52,6 @@ class _OnboardRegularServicesListWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

@@ -8,7 +8,6 @@ import '/registration_form/registration_success/registration_success_widget.dart
 import '/registration_form/registration_success_mobile/registration_success_mobile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'registration_model.dart';
 export 'registration_model.dart';
 
@@ -104,8 +103,6 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

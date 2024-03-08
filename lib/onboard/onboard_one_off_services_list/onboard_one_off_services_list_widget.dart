@@ -7,7 +7,6 @@ import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
 import 'onboard_one_off_services_list_model.dart';
 export 'onboard_one_off_services_list_model.dart';
 
@@ -75,8 +74,6 @@ class _OnboardOneOffServicesListWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

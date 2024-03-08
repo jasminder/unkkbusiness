@@ -6,6 +6,10 @@ import 'services_list_widget.dart' show ServicesListWidget;
 import 'package:flutter/material.dart';
 
 class ServicesListModel extends FlutterFlowModel<ServicesListWidget> {
+  ///  Local state fields for this page.
+
+  bool search = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -14,8 +18,10 @@ class ServicesListModel extends FlutterFlowModel<ServicesListWidget> {
   // Model for topbar component.
   late TopbarModel topbarModel;
   // State field(s) for TextField widget.
+  final textFieldKey = GlobalKey();
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
+  String? textFieldSelectedOption;
   String? Function(BuildContext, String?)? textControllerValidator;
   List<ServicesRecord> simpleSearchResults = [];
 
@@ -33,7 +39,6 @@ class ServicesListModel extends FlutterFlowModel<ServicesListWidget> {
     navigationModel.dispose();
     topbarModel.dispose();
     textFieldFocusNode?.dispose();
-    textController?.dispose();
   }
 
   /// Action blocks are added here.

@@ -7,7 +7,6 @@ import '/onboard/delete_onboard_service/delete_onboard_service_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'one_off_service_comp_model.dart';
 export 'one_off_service_comp_model.dart';
 
@@ -57,8 +56,6 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<ClientServicesRecord>(
       stream: ClientServicesRecord.getDocument(widget.clientServiceRef!),
       builder: (context, snapshot) {

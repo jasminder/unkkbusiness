@@ -138,37 +138,50 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                             '_model.textController',
                                             const Duration(milliseconds: 2000),
                                             () async {
-                                              await queryProposalRecordOnce()
-                                                  .then(
-                                                    (records) => _model
-                                                            .simpleSearchResults =
-                                                        TextSearch(
-                                                      records
-                                                          .map(
-                                                            (record) =>
-                                                                TextSearchItem
-                                                                    .fromTerms(
-                                                                        record,
-                                                                        [
-                                                                  record.email,
-                                                                  record
-                                                                      .lastName,
-                                                                  record
-                                                                      .firstName]),
-                                                          )
-                                                          .toList(),
-                                                    )
-                                                            .search(_model
-                                                                .textController
-                                                                .text)
+                                              if (_model.textController.text !=
+                                                      '') {
+                                                setState(() {
+                                                  _model.search = true;
+                                                });
+                                                await queryProposalRecordOnce()
+                                                    .then(
+                                                      (records) => _model
+                                                              .simpleSearchResults =
+                                                          TextSearch(
+                                                        records
                                                             .map(
-                                                                (r) => r.object)
+                                                              (record) =>
+                                                                  TextSearchItem
+                                                                      .fromTerms(
+                                                                          record,
+                                                                          [
+                                                                    record
+                                                                        .email,
+                                                                    record
+                                                                        .lastName,
+                                                                    record
+                                                                        .firstName
+                                                                  ]),
+                                                            )
                                                             .toList(),
-                                                  )
-                                                  .onError((_, __) => _model
-                                                      .simpleSearchResults = [])
-                                                  .whenComplete(
-                                                      () => setState(() {}));
+                                                      )
+                                                              .search(_model
+                                                                  .textController
+                                                                  .text)
+                                                              .map((r) =>
+                                                                  r.object)
+                                                              .toList(),
+                                                    )
+                                                    .onError((_, __) => _model
+                                                            .simpleSearchResults =
+                                                        [])
+                                                    .whenComplete(
+                                                        () => setState(() {}));
+                                              } else {
+                                                setState(() {
+                                                  _model.search = false;
+                                                });
+                                              }
                                             },
                                           ),
                                           textInputAction:
@@ -257,38 +270,48 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                     onTap: () async {
                                                       _model.textController
                                                           ?.clear();
-                                                      await queryProposalRecordOnce()
-                                                          .then(
-                                                            (records) => _model
-                                                                    .simpleSearchResults =
-                                                                TextSearch(
-                                                              records
-                                                                  .map(
-                                                                    (record) =>
-                                                                        TextSearchItem.fromTerms(
-                                                                            record,
-                                                                            [
-                                                                          record
-                                                                              .email,
-                                                                          record
-                                                                              .lastName,
-                                                                          record
-                                                                              .firstName]),
-                                                                  )
-                                                                  .toList(),
-                                                            )
-                                                                    .search(_model
-                                                                        .textController
-                                                                        .text)
-                                                                    .map((r) =>
-                                                                        r.object)
+                                                      if (_model.textController
+                                                                  .text !=
+                                                              '') {
+                                                        setState(() {
+                                                          _model.search = true;
+                                                        });
+                                                        await queryProposalRecordOnce()
+                                                            .then(
+                                                              (records) => _model
+                                                                      .simpleSearchResults =
+                                                                  TextSearch(
+                                                                records
+                                                                    .map(
+                                                                      (record) =>
+                                                                          TextSearchItem.fromTerms(
+                                                                              record,
+                                                                              [
+                                                                            record.email,
+                                                                            record.lastName,
+                                                                            record.firstName
+                                                                          ]),
+                                                                    )
                                                                     .toList(),
-                                                          )
-                                                          .onError((_, __) =>
-                                                              _model.simpleSearchResults =
-                                                                  [])
-                                                          .whenComplete(() =>
-                                                              setState(() {}));
+                                                              )
+                                                                      .search(_model
+                                                                          .textController
+                                                                          .text)
+                                                                      .map((r) =>
+                                                                          r.object)
+                                                                      .toList(),
+                                                            )
+                                                            .onError((_, __) =>
+                                                                _model.simpleSearchResults =
+                                                                    [])
+                                                            .whenComplete(() =>
+                                                                setState(
+                                                                    () {}));
+                                                      } else {
+                                                        setState(() {
+                                                          _model.search = false;
+                                                        });
+                                                      }
 
                                                       setState(() {});
                                                     },

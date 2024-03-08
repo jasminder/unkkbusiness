@@ -7,6 +7,10 @@ import 'new_onboard_widget.dart' show NewOnboardWidget;
 import 'package:flutter/material.dart';
 
 class NewOnboardModel extends FlutterFlowModel<NewOnboardWidget> {
+  ///  Local state fields for this page.
+
+  bool search = false;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -4,7 +4,6 @@ import '/clients/task_action/task_action_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'task_component_model.dart';
 export 'task_component_model.dart';
 
@@ -52,8 +51,6 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,

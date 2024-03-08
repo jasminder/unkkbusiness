@@ -9,7 +9,6 @@ import '/services/add_service_task/add_service_task_widget.dart';
 import '/services/delete_service_task_confirm/delete_service_task_confirm_widget.dart';
 import '/services/edit_service_task/edit_service_task_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'edit_service_model.dart';
 export 'edit_service_model.dart';
 
@@ -53,8 +52,6 @@ class _EditServiceWidgetState extends State<EditServiceWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

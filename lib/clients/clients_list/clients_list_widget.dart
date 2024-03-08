@@ -595,95 +595,101 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).bodyMedium,
                                                                           ),
-                                                                          SingleChildScrollView(
-                                                                            scrollDirection:
-                                                                                Axis.horizontal,
+                                                                          Visibility(
+                                                                            visible:
+                                                                                clientsItem.type != '',
                                                                             child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
-                                                                                  child: FFButtonWidget(
-                                                                                    onPressed: () {
-                                                                                      print('Button pressed ...');
-                                                                                    },
-                                                                                    text: 'Company',
-                                                                                    options: FFButtonOptions(
-                                                                                      height: 30.0,
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                      color: const Color(0x1A66BD94),
-                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Poppins',
-                                                                                            color: const Color(0xFF66BD94),
-                                                                                            fontSize: 12.0,
-                                                                                            fontWeight: FontWeight.normal,
+                                                                                SingleChildScrollView(
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  if (clientsItem.type == 'compnay')
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () {
+                                                                                          print('Button pressed ...');
+                                                                                        },
+                                                                                        text: 'Company',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: const Color(0x1A66BD94),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: const Color(0xFF66BD94),
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                          elevation: 0.0,
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0xFF66BD94),
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                      elevation: 0.0,
-                                                                                      borderSide: const BorderSide(
-                                                                                        color: Color(0xFF66BD94),
-                                                                                        width: 1.0,
+                                                                                          borderRadius: BorderRadius.circular(30.0),
+                                                                                        ),
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(30.0),
                                                                                     ),
-                                                                                  ),
-                                                                                ),
-                                                                                Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
-                                                                                  child: FFButtonWidget(
-                                                                                    onPressed: () {
-                                                                                      print('Button pressed ...');
-                                                                                    },
-                                                                                    text: 'Trust',
-                                                                                    options: FFButtonOptions(
-                                                                                      height: 30.0,
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                      color: const Color(0x19C37740),
-                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Poppins',
-                                                                                            color: const Color(0xFFC37740),
-                                                                                            fontSize: 12.0,
-                                                                                            fontWeight: FontWeight.normal,
+                                                                                  if (clientsItem.type == 'trust')
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () {
+                                                                                          print('Button pressed ...');
+                                                                                        },
+                                                                                        text: 'Trust',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: const Color(0x19C37740),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: const Color(0xFFC37740),
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                          elevation: 0.0,
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0xFFC37740),
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                      elevation: 0.0,
-                                                                                      borderSide: const BorderSide(
-                                                                                        color: Color(0xFFC37740),
-                                                                                        width: 1.0,
+                                                                                          borderRadius: BorderRadius.circular(30.0),
+                                                                                        ),
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(30.0),
                                                                                     ),
-                                                                                  ),
-                                                                                ),
-                                                                                Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
-                                                                                  child: FFButtonWidget(
-                                                                                    onPressed: () {
-                                                                                      print('Button pressed ...');
-                                                                                    },
-                                                                                    text: 'Individual',
-                                                                                    options: FFButtonOptions(
-                                                                                      height: 30.0,
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                      color: const Color(0x19E4B715),
-                                                                                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Poppins',
-                                                                                            color: const Color(0xFFE4B715),
-                                                                                            fontSize: 12.0,
-                                                                                            fontWeight: FontWeight.normal,
+                                                                                  if (clientsItem.type == 'individual')
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () {
+                                                                                          print('Button pressed ...');
+                                                                                        },
+                                                                                        text: 'Individual',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: const Color(0x19E4B715),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: const Color(0xFFE4B715),
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                          elevation: 0.0,
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0xFFE4B715),
+                                                                                            width: 1.0,
                                                                                           ),
-                                                                                      elevation: 0.0,
-                                                                                      borderSide: const BorderSide(
-                                                                                        color: Color(0xFFE4B715),
-                                                                                        width: 1.0,
+                                                                                          borderRadius: BorderRadius.circular(30.0),
+                                                                                        ),
                                                                                       ),
-                                                                                      borderRadius: BorderRadius.circular(30.0),
                                                                                     ),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
+                                                                                ],
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                           Align(

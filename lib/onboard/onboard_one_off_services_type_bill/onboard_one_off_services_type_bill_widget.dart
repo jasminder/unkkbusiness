@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
@@ -124,7 +123,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: Text(
-                                  'How will this one-off service be billed?',
+                                  'How will this ${widget.serviceType} service be billed?',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall,
                                 ),
@@ -162,312 +161,164 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 _model.borderAcceptance = true;
                                                 _model.borderCompletion = false;
                                               });
-                                              _model.clientExist =
-                                                  await queryClientsRecordOnce(
-                                                queryBuilder: (clientsRecord) =>
-                                                    clientsRecord.where(
-                                                  'email',
-                                                  isEqualTo: _model
-                                                      .userProposal?.email,
+
+                                              var clientsRecordReference =
+                                                  ClientsRecord.collection
+                                                      .doc();
+                                              await clientsRecordReference.set({
+                                                ...createClientsRecordData(
+                                                  firstName: widget
+                                                      .proposalRef?.firstName,
+                                                  lastName: widget
+                                                      .proposalRef?.lastName,
+                                                  dateOfBirth: widget
+                                                      .proposalRef?.dateOfBirth,
+                                                  email:
+                                                      widget.proposalRef?.email,
+                                                  proposalRef: widget
+                                                      .proposalRef?.reference,
+                                                  serviceType:
+                                                      widget.serviceType,
                                                 ),
-                                                singleRecord: true,
-                                              ).then((s) => s.firstOrNull);
-                                              if (_model.clientExist?.email !=
-                                                  widget.proposalRef?.email) {
-                                                var clientsRecordReference =
-                                                    ClientsRecord.collection
-                                                        .doc();
-                                                await clientsRecordReference
-                                                    .set({
-                                                  ...createClientsRecordData(
-                                                    firstName: widget
-                                                        .proposalRef?.firstName,
-                                                    lastName: widget
-                                                        .proposalRef?.lastName,
-                                                    dateOfBirth: widget
-                                                        .proposalRef
-                                                        ?.dateOfBirth,
-                                                    email: widget
-                                                        .proposalRef?.email,
-                                                    proposalRef: widget
-                                                        .proposalRef?.reference,
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt': FieldValue
-                                                          .serverTimestamp(),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.clientInfo =
-                                                    ClientsRecord
-                                                        .getDocumentFromData({
-                                                  ...createClientsRecordData(
-                                                    firstName: widget
-                                                        .proposalRef?.firstName,
-                                                    lastName: widget
-                                                        .proposalRef?.lastName,
-                                                    dateOfBirth: widget
-                                                        .proposalRef
-                                                        ?.dateOfBirth,
-                                                    email: widget
-                                                        .proposalRef?.email,
-                                                    proposalRef: widget
-                                                        .proposalRef?.reference,
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt':
-                                                          DateTime.now(),
-                                                    },
-                                                  ),
-                                                }, clientsRecordReference);
-
-                                                var clientServicesRecordReference1 =
-                                                    ClientServicesRecord
-                                                        .collection
-                                                        .doc();
-                                                await clientServicesRecordReference1
-                                                    .set({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on acceptance',
-                                                    clientRef: _model
-                                                        .clientInfo?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt': FieldValue
-                                                          .serverTimestamp(),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.clientService =
-                                                    ClientServicesRecord
-                                                        .getDocumentFromData({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on acceptance',
-                                                    clientRef: _model
-                                                        .clientInfo?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt':
-                                                          DateTime.now(),
-                                                    },
-                                                  ),
-                                                }, clientServicesRecordReference1);
-                                                _model.serviceTasks =
-                                                    await queryServicesTaskRecordOnce(
-                                                  queryBuilder:
-                                                      (servicesTaskRecord) =>
-                                                          servicesTaskRecord
-                                                              .where(
-                                                    'serviceRef',
-                                                    isEqualTo:
-                                                        widget.serviceRef,
-                                                  ),
-                                                );
-                                                while (_model
-                                                        .serviceTasks!.length >
-                                                    _model.loopCount) {
-                                                  await TasksRecord.collection
-                                                      .doc()
-                                                      .set(
-                                                          createTasksRecordData(
-                                                        name: _model
-                                                            .serviceTasks?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .title,
-                                                        details: _model
-                                                            .serviceTasks?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .description,
-                                                        serviceRef:
-                                                            widget.serviceRef,
-                                                        clientRef: _model
-                                                            .clientInfo
-                                                            ?.reference,
-                                                        assignee:
-                                                            currentUserReference,
-                                                      ));
-                                                  setState(() {
-                                                    _model.loopCount =
-                                                        _model.loopCount + 1;
-                                                  });
-                                                }
-                                                setState(() {
-                                                  _model.loopCount = 0;
-                                                });
-
-                                                context.pushNamed(
-                                                  'onboardOneOffServicesList',
-                                                  queryParameters: {
-                                                    'clientRef': serializeParam(
-                                                      _model.clientInfo
-                                                          ?.reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                    'proposalRef':
-                                                        serializeParam(
-                                                      widget.proposalRef,
-                                                      ParamType.Document,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    'proposalRef':
-                                                        widget.proposalRef,
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                    ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': FieldValue
+                                                        .serverTimestamp(),
                                                   },
-                                                );
-                                              } else {
-                                                var clientServicesRecordReference2 =
-                                                    ClientServicesRecord
-                                                        .collection
-                                                        .doc();
-                                                await clientServicesRecordReference2
-                                                    .set({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on acceptance',
-                                                    clientRef: _model
-                                                        .clientExist?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt': FieldValue
-                                                          .serverTimestamp(),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.clientService2 =
-                                                    ClientServicesRecord
-                                                        .getDocumentFromData({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on acceptance',
-                                                    clientRef: _model
-                                                        .clientExist?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt':
-                                                          DateTime.now(),
-                                                    },
-                                                  ),
-                                                }, clientServicesRecordReference2);
-                                                _model.serviceTasks2 =
-                                                    await queryServicesTaskRecordOnce(
-                                                  queryBuilder:
-                                                      (servicesTaskRecord) =>
-                                                          servicesTaskRecord
-                                                              .where(
-                                                    'serviceRef',
-                                                    isEqualTo: _model
-                                                        .clientService2
-                                                        ?.serviceRef,
-                                                  ),
-                                                );
-                                                while (_model
-                                                        .serviceTasks2!.length >
-                                                    _model.loopCount) {
-                                                  await TasksRecord.collection
-                                                      .doc()
-                                                      .set(
-                                                          createTasksRecordData(
-                                                        name: _model
-                                                            .serviceTasks2?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .title,
-                                                        details: _model
-                                                            .serviceTasks2?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .description,
-                                                        serviceRef:
-                                                            widget.serviceRef,
-                                                        clientRef: _model
-                                                            .clientExist
-                                                            ?.reference,
-                                                        assignee:
-                                                            currentUserReference,
-                                                      ));
-                                                  setState(() {
-                                                    _model.loopCount =
-                                                        _model.loopCount + 1;
-                                                  });
-                                                }
-                                                setState(() {
-                                                  _model.loopCount = 0;
-                                                });
-
-                                                context.pushNamed(
-                                                  'onboardOneOffServicesList',
-                                                  queryParameters: {
-                                                    'clientRef': serializeParam(
-                                                      _model.clientExist
-                                                          ?.reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                    'proposalRef':
-                                                        serializeParam(
-                                                      widget.proposalRef,
-                                                      ParamType.Document,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    'proposalRef':
-                                                        widget.proposalRef,
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                    ),
+                                                ),
+                                              });
+                                              _model.clientInfo = ClientsRecord
+                                                  .getDocumentFromData({
+                                                ...createClientsRecordData(
+                                                  firstName: widget
+                                                      .proposalRef?.firstName,
+                                                  lastName: widget
+                                                      .proposalRef?.lastName,
+                                                  dateOfBirth: widget
+                                                      .proposalRef?.dateOfBirth,
+                                                  email:
+                                                      widget.proposalRef?.email,
+                                                  proposalRef: widget
+                                                      .proposalRef?.reference,
+                                                  serviceType:
+                                                      widget.serviceType,
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': DateTime.now(),
                                                   },
-                                                );
+                                                ),
+                                              }, clientsRecordReference);
+
+                                              var clientServicesRecordReference =
+                                                  ClientServicesRecord
+                                                      .collection
+                                                      .doc();
+                                              await clientServicesRecordReference
+                                                  .set({
+                                                ...createClientServicesRecordData(
+                                                  type: widget.serviceType,
+                                                  billingMode: 'on acceptance',
+                                                  clientRef: _model
+                                                      .clientInfo?.reference,
+                                                  serviceRef: widget.serviceRef,
+                                                  quantity: 1,
+                                                  price:
+                                                      _model.serviceInfo?.price,
+                                                  status: 'created',
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': FieldValue
+                                                        .serverTimestamp(),
+                                                  },
+                                                ),
+                                              });
+                                              _model.clientService =
+                                                  ClientServicesRecord
+                                                      .getDocumentFromData({
+                                                ...createClientServicesRecordData(
+                                                  type: widget.serviceType,
+                                                  billingMode: 'on acceptance',
+                                                  clientRef: _model
+                                                      .clientInfo?.reference,
+                                                  serviceRef: widget.serviceRef,
+                                                  quantity: 1,
+                                                  price:
+                                                      _model.serviceInfo?.price,
+                                                  status: 'created',
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': DateTime.now(),
+                                                  },
+                                                ),
+                                              }, clientServicesRecordReference);
+                                              _model.serviceTasks =
+                                                  await queryServicesTaskRecordOnce(
+                                                queryBuilder:
+                                                    (servicesTaskRecord) =>
+                                                        servicesTaskRecord
+                                                            .where(
+                                                  'serviceRef',
+                                                  isEqualTo: widget.serviceRef,
+                                                ),
+                                              );
+                                              while (
+                                                  _model.serviceTasks!.length >
+                                                      _model.loopCount) {
+                                                await TasksRecord.collection
+                                                    .doc()
+                                                    .set(createTasksRecordData(
+                                                      name: _model
+                                                          .serviceTasks?[
+                                                              _model.loopCount]
+                                                          .title,
+                                                      details: _model
+                                                          .serviceTasks?[
+                                                              _model.loopCount]
+                                                          .description,
+                                                      serviceRef:
+                                                          widget.serviceRef,
+                                                      clientRef: _model
+                                                          .clientInfo
+                                                          ?.reference,
+                                                      assignee:
+                                                          currentUserReference,
+                                                    ));
+                                                setState(() {
+                                                  _model.loopCount =
+                                                      _model.loopCount + 1;
+                                                });
                                               }
+                                              setState(() {
+                                                _model.loopCount = 0;
+                                              });
+
+                                              context.pushNamed(
+                                                'onboardOneOffServicesList',
+                                                queryParameters: {
+                                                  'clientRef': serializeParam(
+                                                    _model
+                                                        .clientInfo?.reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                  'proposalRef': serializeParam(
+                                                    widget.proposalRef,
+                                                    ParamType.Document,
+                                                  ),
+                                                }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  'proposalRef':
+                                                      widget.proposalRef,
+                                                  kTransitionInfoKey:
+                                                      const TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                  ),
+                                                },
+                                              );
 
                                               setState(() {});
                                             },
@@ -576,312 +427,164 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 _model.borderAcceptance = false;
                                                 _model.borderCompletion = true;
                                               });
-                                              _model.clientExist2 =
-                                                  await queryClientsRecordOnce(
-                                                queryBuilder: (clientsRecord) =>
-                                                    clientsRecord.where(
-                                                  'email',
-                                                  isEqualTo: _model
-                                                      .userProposal2?.email,
+
+                                              var clientsRecordReference =
+                                                  ClientsRecord.collection
+                                                      .doc();
+                                              await clientsRecordReference.set({
+                                                ...createClientsRecordData(
+                                                  firstName: widget
+                                                      .proposalRef?.firstName,
+                                                  lastName: widget
+                                                      .proposalRef?.lastName,
+                                                  dateOfBirth: widget
+                                                      .proposalRef?.dateOfBirth,
+                                                  email:
+                                                      widget.proposalRef?.email,
+                                                  proposalRef: widget
+                                                      .proposalRef?.reference,
+                                                  serviceType:
+                                                      widget.serviceType,
                                                 ),
-                                                singleRecord: true,
-                                              ).then((s) => s.firstOrNull);
-                                              if (_model.clientExist2?.email !=
-                                                  widget.proposalRef?.email) {
-                                                var clientsRecordReference =
-                                                    ClientsRecord.collection
-                                                        .doc();
-                                                await clientsRecordReference
-                                                    .set({
-                                                  ...createClientsRecordData(
-                                                    firstName: widget
-                                                        .proposalRef?.firstName,
-                                                    lastName: widget
-                                                        .proposalRef?.lastName,
-                                                    dateOfBirth: widget
-                                                        .proposalRef
-                                                        ?.dateOfBirth,
-                                                    email: widget
-                                                        .proposalRef?.email,
-                                                    proposalRef: widget
-                                                        .proposalRef?.reference,
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt': FieldValue
-                                                          .serverTimestamp(),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.clientInfo3 =
-                                                    ClientsRecord
-                                                        .getDocumentFromData({
-                                                  ...createClientsRecordData(
-                                                    firstName: widget
-                                                        .proposalRef?.firstName,
-                                                    lastName: widget
-                                                        .proposalRef?.lastName,
-                                                    dateOfBirth: widget
-                                                        .proposalRef
-                                                        ?.dateOfBirth,
-                                                    email: widget
-                                                        .proposalRef?.email,
-                                                    proposalRef: widget
-                                                        .proposalRef?.reference,
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt':
-                                                          DateTime.now(),
-                                                    },
-                                                  ),
-                                                }, clientsRecordReference);
-
-                                                var clientServicesRecordReference1 =
-                                                    ClientServicesRecord
-                                                        .collection
-                                                        .doc();
-                                                await clientServicesRecordReference1
-                                                    .set({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on completion',
-                                                    clientRef: _model
-                                                        .clientInfo3?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo2?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt': FieldValue
-                                                          .serverTimestamp(),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.clientService3 =
-                                                    ClientServicesRecord
-                                                        .getDocumentFromData({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on completion',
-                                                    clientRef: _model
-                                                        .clientInfo3?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo2?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt':
-                                                          DateTime.now(),
-                                                    },
-                                                  ),
-                                                }, clientServicesRecordReference1);
-                                                _model.serviceTasks3 =
-                                                    await queryServicesTaskRecordOnce(
-                                                  queryBuilder:
-                                                      (servicesTaskRecord) =>
-                                                          servicesTaskRecord
-                                                              .where(
-                                                    'serviceRef',
-                                                    isEqualTo:
-                                                        widget.serviceRef,
-                                                  ),
-                                                );
-                                                while (_model
-                                                        .serviceTasks3!.length >
-                                                    _model.loopCount) {
-                                                  await TasksRecord.collection
-                                                      .doc()
-                                                      .set(
-                                                          createTasksRecordData(
-                                                        name: _model
-                                                            .serviceTasks3?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .title,
-                                                        details: _model
-                                                            .serviceTasks3?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .description,
-                                                        serviceRef:
-                                                            widget.serviceRef,
-                                                        clientRef: _model
-                                                            .clientInfo3
-                                                            ?.reference,
-                                                        assignee:
-                                                            currentUserReference,
-                                                      ));
-                                                  setState(() {
-                                                    _model.loopCount =
-                                                        _model.loopCount + 1;
-                                                  });
-                                                }
-                                                setState(() {
-                                                  _model.loopCount = 0;
-                                                });
-
-                                                context.goNamed(
-                                                  'onboardOneOffServicesList',
-                                                  queryParameters: {
-                                                    'clientRef': serializeParam(
-                                                      _model.clientInfo3
-                                                          ?.reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                    'proposalRef':
-                                                        serializeParam(
-                                                      widget.proposalRef,
-                                                      ParamType.Document,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    'proposalRef':
-                                                        widget.proposalRef,
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                    ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': FieldValue
+                                                        .serverTimestamp(),
                                                   },
-                                                );
-                                              } else {
-                                                var clientServicesRecordReference2 =
-                                                    ClientServicesRecord
-                                                        .collection
-                                                        .doc();
-                                                await clientServicesRecordReference2
-                                                    .set({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on completion',
-                                                    clientRef: _model
-                                                        .clientExist2
-                                                        ?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt': FieldValue
-                                                          .serverTimestamp(),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.clientService4 =
-                                                    ClientServicesRecord
-                                                        .getDocumentFromData({
-                                                  ...createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on completion',
-                                                    clientRef: _model
-                                                        .clientExist2
-                                                        ?.reference,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceInfo?.price,
-                                                    status: 'created',
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'createdAt':
-                                                          DateTime.now(),
-                                                    },
-                                                  ),
-                                                }, clientServicesRecordReference2);
-                                                _model.serviceTasks4 =
-                                                    await queryServicesTaskRecordOnce(
-                                                  queryBuilder:
-                                                      (servicesTaskRecord) =>
-                                                          servicesTaskRecord
-                                                              .where(
-                                                    'serviceRef',
-                                                    isEqualTo:
-                                                        widget.serviceRef,
-                                                  ),
-                                                );
-                                                while (_model
-                                                        .serviceTasks4!.isNotEmpty) {
-                                                  await TasksRecord.collection
-                                                      .doc()
-                                                      .set(
-                                                          createTasksRecordData(
-                                                        name: _model
-                                                            .serviceTasks4?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .title,
-                                                        details: _model
-                                                            .serviceTasks4?[
-                                                                _model
-                                                                    .loopCount]
-                                                            .description,
-                                                        serviceRef:
-                                                            widget.serviceRef,
-                                                        clientRef: _model
-                                                            .clientExist2
-                                                            ?.reference,
-                                                        assignee:
-                                                            currentUserReference,
-                                                      ));
-                                                  setState(() {
-                                                    _model.loopCount =
-                                                        _model.loopCount + 1;
-                                                  });
-                                                }
-                                                setState(() {
-                                                  _model.loopCount = 0;
-                                                });
-
-                                                context.goNamed(
-                                                  'onboardOneOffServicesList',
-                                                  queryParameters: {
-                                                    'clientRef': serializeParam(
-                                                      _model.clientExist2
-                                                          ?.reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                    'proposalRef':
-                                                        serializeParam(
-                                                      widget.proposalRef,
-                                                      ParamType.Document,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    'proposalRef':
-                                                        widget.proposalRef,
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                    ),
+                                                ),
+                                              });
+                                              _model.clientInfo3 = ClientsRecord
+                                                  .getDocumentFromData({
+                                                ...createClientsRecordData(
+                                                  firstName: widget
+                                                      .proposalRef?.firstName,
+                                                  lastName: widget
+                                                      .proposalRef?.lastName,
+                                                  dateOfBirth: widget
+                                                      .proposalRef?.dateOfBirth,
+                                                  email:
+                                                      widget.proposalRef?.email,
+                                                  proposalRef: widget
+                                                      .proposalRef?.reference,
+                                                  serviceType:
+                                                      widget.serviceType,
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': DateTime.now(),
                                                   },
-                                                );
+                                                ),
+                                              }, clientsRecordReference);
+
+                                              var clientServicesRecordReference =
+                                                  ClientServicesRecord
+                                                      .collection
+                                                      .doc();
+                                              await clientServicesRecordReference
+                                                  .set({
+                                                ...createClientServicesRecordData(
+                                                  type: widget.serviceType,
+                                                  billingMode: 'on completion',
+                                                  clientRef: _model
+                                                      .clientInfo3?.reference,
+                                                  serviceRef: widget.serviceRef,
+                                                  quantity: 1,
+                                                  price: _model
+                                                      .serviceInfo2?.price,
+                                                  status: 'created',
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': FieldValue
+                                                        .serverTimestamp(),
+                                                  },
+                                                ),
+                                              });
+                                              _model.clientService3 =
+                                                  ClientServicesRecord
+                                                      .getDocumentFromData({
+                                                ...createClientServicesRecordData(
+                                                  type: widget.serviceType,
+                                                  billingMode: 'on completion',
+                                                  clientRef: _model
+                                                      .clientInfo3?.reference,
+                                                  serviceRef: widget.serviceRef,
+                                                  quantity: 1,
+                                                  price: _model
+                                                      .serviceInfo2?.price,
+                                                  status: 'created',
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': DateTime.now(),
+                                                  },
+                                                ),
+                                              }, clientServicesRecordReference);
+                                              _model.serviceTasks3 =
+                                                  await queryServicesTaskRecordOnce(
+                                                queryBuilder:
+                                                    (servicesTaskRecord) =>
+                                                        servicesTaskRecord
+                                                            .where(
+                                                  'serviceRef',
+                                                  isEqualTo: widget.serviceRef,
+                                                ),
+                                              );
+                                              while (
+                                                  _model.serviceTasks3!.length >
+                                                      _model.loopCount) {
+                                                await TasksRecord.collection
+                                                    .doc()
+                                                    .set(createTasksRecordData(
+                                                      name: _model
+                                                          .serviceTasks3?[
+                                                              _model.loopCount]
+                                                          .title,
+                                                      details: _model
+                                                          .serviceTasks3?[
+                                                              _model.loopCount]
+                                                          .description,
+                                                      serviceRef:
+                                                          widget.serviceRef,
+                                                      clientRef: _model
+                                                          .clientInfo3
+                                                          ?.reference,
+                                                      assignee:
+                                                          currentUserReference,
+                                                    ));
+                                                setState(() {
+                                                  _model.loopCount =
+                                                      _model.loopCount + 1;
+                                                });
                                               }
+                                              setState(() {
+                                                _model.loopCount = 0;
+                                              });
+
+                                              context.goNamed(
+                                                'onboardOneOffServicesList',
+                                                queryParameters: {
+                                                  'clientRef': serializeParam(
+                                                    _model
+                                                        .clientInfo3?.reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                  'proposalRef': serializeParam(
+                                                    widget.proposalRef,
+                                                    ParamType.Document,
+                                                  ),
+                                                }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  'proposalRef':
+                                                      widget.proposalRef,
+                                                  kTransitionInfoKey:
+                                                      const TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                  ),
+                                                },
+                                              );
 
                                               setState(() {});
                                             },

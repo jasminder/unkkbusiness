@@ -414,7 +414,16 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                             List<
                                                                 ClientsRecord>>(
                                                           future:
-                                                              queryClientsRecordOnce(),
+                                                              queryClientsRecordOnce(
+                                                            queryBuilder:
+                                                                (clientsRecord) =>
+                                                                    clientsRecord
+                                                                        .where(
+                                                              'serviceType',
+                                                              isEqualTo:
+                                                                  'regular',
+                                                            ),
+                                                          ),
                                                           builder: (context,
                                                               snapshot) {
                                                             // Customize what your widget looks like when it's loading.
@@ -798,7 +807,16 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                             List<
                                                                 ClientsRecord>>(
                                                           future:
-                                                              queryClientsRecordOnce(),
+                                                              queryClientsRecordOnce(
+                                                            queryBuilder:
+                                                                (clientsRecord) =>
+                                                                    clientsRecord
+                                                                        .where(
+                                                              'serviceType',
+                                                              isEqualTo:
+                                                                  'one off',
+                                                            ),
+                                                          ),
                                                           builder: (context,
                                                               snapshot) {
                                                             // Customize what your widget looks like when it's loading.

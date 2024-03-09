@@ -21,34 +21,22 @@ class OnboardOneOffServicesTypeBillModel
   ProposalRecord? userProposal;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   ServicesRecord? serviceInfo;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  ClientsRecord? clientExist;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ClientsRecord? clientInfo;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ClientServicesRecord? clientService;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   List<ServicesTaskRecord>? serviceTasks;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  ClientServicesRecord? clientService2;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  List<ServicesTaskRecord>? serviceTasks2;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   ProposalRecord? userProposal2;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
   ServicesRecord? serviceInfo2;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  ClientsRecord? clientExist2;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ClientsRecord? clientInfo3;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ClientServicesRecord? clientService3;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   List<ServicesTaskRecord>? serviceTasks3;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  ClientServicesRecord? clientService4;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  List<ServicesTaskRecord>? serviceTasks4;
 
   /// Initialization and disposal methods.
 

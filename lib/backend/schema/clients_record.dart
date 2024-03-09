@@ -120,6 +120,11 @@ class ClientsRecord extends FirestoreRecord {
   String get type => _type ?? '';
   bool hasType() => _type != null;
 
+  // "serviceType" field.
+  String? _serviceType;
+  String get serviceType => _serviceType ?? '';
+  bool hasServiceType() => _serviceType != null;
+
   void _initializeFields() {
     _firstName = snapshotData['firstName'] as String?;
     _lastName = snapshotData['lastName'] as String?;
@@ -142,6 +147,7 @@ class ClientsRecord extends FirestoreRecord {
     _individualPhone = snapshotData['individualPhone'] as String?;
     _gender = snapshotData['gender'] as String?;
     _type = snapshotData['type'] as String?;
+    _serviceType = snapshotData['serviceType'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -200,6 +206,7 @@ Map<String, dynamic> createClientsRecordData({
   String? individualPhone,
   String? gender,
   String? type,
+  String? serviceType,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -224,6 +231,7 @@ Map<String, dynamic> createClientsRecordData({
       'individualPhone': individualPhone,
       'gender': gender,
       'type': type,
+      'serviceType': serviceType,
     }.withoutNulls,
   );
 
@@ -255,7 +263,8 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e1?.individualAddress == e2?.individualAddress &&
         e1?.individualPhone == e2?.individualPhone &&
         e1?.gender == e2?.gender &&
-        e1?.type == e2?.type;
+        e1?.type == e2?.type &&
+        e1?.serviceType == e2?.serviceType;
   }
 
   @override
@@ -280,7 +289,8 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e?.individualAddress,
         e?.individualPhone,
         e?.gender,
-        e?.type
+        e?.type,
+        e?.serviceType
       ]);
 
   @override

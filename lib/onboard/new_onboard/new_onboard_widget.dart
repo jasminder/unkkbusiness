@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/empty_result_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -388,6 +389,9 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                             final proposals =
                                                 containerProposalRecordList
                                                     .toList();
+                                            if (proposals.isEmpty) {
+                                              return const EmptyResultWidget();
+                                            }
                                             return FlutterFlowDataTable<
                                                 ProposalRecord>(
                                               controller: _model
@@ -599,6 +603,8 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                     .map((c) => DataCell(c))
                                                     .toList(),
                                               ),
+                                              emptyBuilder: () =>
+                                                  const EmptyResultWidget(),
                                               paginated: true,
                                               selectable: false,
                                               hidePaginator: false,

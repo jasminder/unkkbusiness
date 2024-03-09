@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/empty_result_widget.dart';
 import '/components/search_result_not_found_widget.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -634,8 +635,7 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               if (listViewServicesRecordList
                                                   .isEmpty) {
                                                 return const Center(
-                                                  child:
-                                                      SearchResultNotFoundWidget(),
+                                                  child: EmptyResultWidget(),
                                                 );
                                               }
                                               return ListView.builder(
@@ -840,6 +840,9 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               final searchist = _model
                                                   .simpleSearchResults
                                                   .toList();
+                                              if (searchist.isEmpty) {
+                                                return const SearchResultNotFoundWidget();
+                                              }
                                               return ListView.builder(
                                                 padding: EdgeInsets.zero,
                                                 shrinkWrap: true,

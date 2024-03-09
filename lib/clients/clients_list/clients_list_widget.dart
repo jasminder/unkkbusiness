@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
 import '/clients/client_action/client_action_widget.dart';
+import '/components/empty_result_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -476,6 +477,10 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                     final clients =
                                                                         containerClientsRecordList
                                                                             .toList();
+                                                                    if (clients
+                                                                        .isEmpty) {
+                                                                      return const EmptyResultWidget();
+                                                                    }
                                                                     return FlutterFlowDataTable<
                                                                         ClientsRecord>(
                                                                       controller:
@@ -747,6 +752,9 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                 DataCell(c))
                                                                             .toList(),
                                                                       ),
+                                                                      emptyBuilder:
+                                                                          () =>
+                                                                              const EmptyResultWidget(),
                                                                       paginated:
                                                                           true,
                                                                       selectable:
@@ -869,6 +877,10 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                     final clients =
                                                                         containerClientsRecordList
                                                                             .toList();
+                                                                    if (clients
+                                                                        .isEmpty) {
+                                                                      return const EmptyResultWidget();
+                                                                    }
                                                                     return FlutterFlowDataTable<
                                                                         ClientsRecord>(
                                                                       controller:
@@ -1140,6 +1152,9 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                 DataCell(c))
                                                                             .toList(),
                                                                       ),
+                                                                      emptyBuilder:
+                                                                          () =>
+                                                                              const EmptyResultWidget(),
                                                                       paginated:
                                                                           true,
                                                                       selectable:

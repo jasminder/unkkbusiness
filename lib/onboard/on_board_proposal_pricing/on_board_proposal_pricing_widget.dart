@@ -81,7 +81,7 @@ class _OnBoardProposalPricingWidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.safePop();
+                                    context.pop();
                                   },
                                   child: Text(
                                     'Close',

@@ -578,7 +578,7 @@ class _OnboardRegularServicesListWidgetState
                                                                       hidesUnderline:
                                                                           true,
                                                                       isOverButton:
-                                                                          true,
+                                                                          false,
                                                                       isSearchable:
                                                                           false,
                                                                       isMultiSelect:

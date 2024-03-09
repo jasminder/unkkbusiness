@@ -191,6 +191,10 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                               ParamType.DocumentReference,
                                               true,
                                             ),
+                                            'clientRef': serializeParam(
+                                              widget.clientRef,
+                                              ParamType.DocumentReference,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },

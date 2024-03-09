@@ -136,9 +136,9 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                 borderWidth: 0.0,
                                 borderRadius: 8.0,
                                 margin: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 4.0),
+                                    0.0, 0.0, 0.0, 0.0),
                                 hidesUnderline: true,
-                                isOverButton: true,
+                                isOverButton: false,
                                 isSearchable: false,
                                 isMultiSelect: false,
                               ),
@@ -192,7 +192,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                 margin: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 4.0),
                                 hidesUnderline: true,
-                                isOverButton: true,
+                                isOverButton: false,
                                 isSearchable: false,
                                 isMultiSelect: false,
                               ),
@@ -496,7 +496,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                     margin: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 8.0, 4.0),
                                     hidesUnderline: true,
-                                    isOverButton: true,
+                                    isOverButton: false,
                                     isSearchable: false,
                                     isMultiSelect: false,
                                   ),
@@ -568,7 +568,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                 margin: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 8.0, 4.0),
                                 hidesUnderline: true,
-                                isOverButton: true,
+                                isOverButton: false,
                                 isSearchable: false,
                                 isMultiSelect: false,
                               ),

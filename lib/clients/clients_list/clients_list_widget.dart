@@ -471,7 +471,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                         ClientsRecord>(
                                                                       controller:
                                                                           _model
-                                                                              .paginatedDataTableController,
+                                                                              .paginatedDataTableController1,
                                                                       data:
                                                                           clients,
                                                                       numRows:
@@ -781,15 +781,389 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                     ),
                                                   ],
                                                 ),
-                                                Text(
-                                                  'Tab View 2',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 32.0,
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Flexible(
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    20.0,
+                                                                    0.0,
+                                                                    20.0),
+                                                        child: FutureBuilder<
+                                                            List<
+                                                                ClientsRecord>>(
+                                                          future:
+                                                              queryClientsRecordOnce(),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  child:
+                                                                      SpinKitCircle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    size: 40.0,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }
+                                                            List<ClientsRecord>
+                                                                containerClientsRecordList =
+                                                                snapshot.data!;
+                                                            return Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: const Color(
+                                                                    0x33EEEEEE),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            10.0),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  width: 1.0,
+                                                                ),
+                                                              ),
+                                                              child: Padding(
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        40.0,
+                                                                        30.0,
+                                                                        40.0,
+                                                                        30.0),
+                                                                child: Builder(
+                                                                  builder:
+                                                                      (context) {
+                                                                    final clients =
+                                                                        containerClientsRecordList
+                                                                            .toList();
+                                                                    return FlutterFlowDataTable<
+                                                                        ClientsRecord>(
+                                                                      controller:
+                                                                          _model
+                                                                              .paginatedDataTableController2,
+                                                                      data:
+                                                                          clients,
+                                                                      numRows:
+                                                                          valueOrDefault<
+                                                                              int>(
+                                                                        containerClientsRecordList
+                                                                            .length,
+                                                                        0,
+                                                                      ),
+                                                                      columnsBuilder:
+                                                                          (onSortChanged) =>
+                                                                              [
+                                                                        DataColumn2(
+                                                                          label:
+                                                                              DefaultTextStyle.merge(
+                                                                            softWrap:
+                                                                                true,
+                                                                            child:
+                                                                                Text(
+                                                                              'Name',
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        DataColumn2(
+                                                                          label:
+                                                                              DefaultTextStyle.merge(
+                                                                            softWrap:
+                                                                                true,
+                                                                            child:
+                                                                                Text(
+                                                                              'Email',
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        DataColumn2(
+                                                                          label:
+                                                                              DefaultTextStyle.merge(
+                                                                            softWrap:
+                                                                                true,
+                                                                            child:
+                                                                                Text(
+                                                                              'Date Joined',
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                          fixedWidth:
+                                                                              150.0,
+                                                                        ),
+                                                                        DataColumn2(
+                                                                          label:
+                                                                              DefaultTextStyle.merge(
+                                                                            softWrap:
+                                                                                true,
+                                                                            child:
+                                                                                Text(
+                                                                              'Client Type',
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        DataColumn2(
+                                                                          label:
+                                                                              DefaultTextStyle.merge(
+                                                                            softWrap:
+                                                                                true,
+                                                                            child:
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                              child: Text(
+                                                                                'Action',
+                                                                                textAlign: TextAlign.end,
+                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          fixedWidth:
+                                                                              80.0,
+                                                                        ),
+                                                                      ],
+                                                                      dataRowBuilder: (clientsItem,
+                                                                              clientsIndex,
+                                                                              selected,
+                                                                              onSelectChanged) =>
+                                                                          DataRow(
+                                                                        cells: [
+                                                                          Text(
+                                                                            '${clientsItem.firstName} ${clientsItem.lastName}',
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                          Text(
+                                                                            clientsItem.email,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                          Text(
+                                                                            dateTimeFormat('yMMMd',
+                                                                                clientsItem.createdAt!),
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                          Visibility(
+                                                                            visible:
+                                                                                clientsItem.type != '',
+                                                                            child:
+                                                                                SingleChildScrollView(
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  if (clientsItem.type == 'compnay')
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () {
+                                                                                          print('Button pressed ...');
+                                                                                        },
+                                                                                        text: 'Company',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: const Color(0x1A66BD94),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: const Color(0xFF66BD94),
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                          elevation: 0.0,
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0xFF66BD94),
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(30.0),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  if (clientsItem.type == 'trust')
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () {
+                                                                                          print('Button pressed ...');
+                                                                                        },
+                                                                                        text: 'Trust',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: const Color(0x19C37740),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: const Color(0xFFC37740),
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                          elevation: 0.0,
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0xFFC37740),
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(30.0),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  if (clientsItem.type == 'individual')
+                                                                                    Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
+                                                                                      child: FFButtonWidget(
+                                                                                        onPressed: () {
+                                                                                          print('Button pressed ...');
+                                                                                        },
+                                                                                        text: 'Individual',
+                                                                                        options: FFButtonOptions(
+                                                                                          height: 30.0,
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                          color: const Color(0x19E4B715),
+                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: const Color(0xFFE4B715),
+                                                                                                fontSize: 12.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                          elevation: 0.0,
+                                                                                          borderSide: const BorderSide(
+                                                                                            color: Color(0xFFE4B715),
+                                                                                            width: 1.0,
+                                                                                          ),
+                                                                                          borderRadius: BorderRadius.circular(30.0),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(1.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  await showModalBottomSheet(
+                                                                                    isScrollControlled: true,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    enableDrag: false,
+                                                                                    context: context,
+                                                                                    builder: (context) {
+                                                                                      return GestureDetector(
+                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: SizedBox(
+                                                                                            height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                            child: ClientActionWidget(
+                                                                                              clientRef: clientsItem.reference,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      );
+                                                                                    },
+                                                                                  ).then((value) => safeSetState(() {}));
+                                                                                },
+                                                                                child: FaIcon(
+                                                                                  FontAwesomeIcons.ellipsisV,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  size: 24.0,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ]
+                                                                            .map((c) =>
+                                                                                DataCell(c))
+                                                                            .toList(),
+                                                                      ),
+                                                                      paginated:
+                                                                          true,
+                                                                      selectable:
+                                                                          false,
+                                                                      hidePaginator:
+                                                                          false,
+                                                                      showFirstLastButtons:
+                                                                          false,
+                                                                      minWidth:
+                                                                          800.0,
+                                                                      headingRowHeight:
+                                                                          56.0,
+                                                                      dataRowHeight:
+                                                                          48.0,
+                                                                      columnSpacing:
+                                                                          20.0,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                      addHorizontalDivider:
+                                                                          true,
+                                                                      addTopAndBottomDivider:
+                                                                          false,
+                                                                      hideDefaultHorizontalDivider:
+                                                                          false,
+                                                                      horizontalDividerColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryBackground,
+                                                                      horizontalDividerThickness:
+                                                                          1.0,
+                                                                      addVerticalDivider:
+                                                                          false,
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ),
                                                       ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),

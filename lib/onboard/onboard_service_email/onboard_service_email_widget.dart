@@ -1,12 +1,11 @@
 import '/backend/backend.dart';
-import '/components/proposal_success_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
+import '/onboard/proposal_success/proposal_success_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'onboard_service_email_model.dart';
 export 'onboard_service_email_model.dart';
 
@@ -144,6 +143,10 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                               widget.clientServices,
                                               ParamType.DocumentReference,
                                               true,
+                                            ),
+                                            'clientRef': serializeParam(
+                                              widget.clientRef,
+                                              ParamType.DocumentReference,
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
@@ -367,21 +370,11 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                         0.0, 40.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        await launchUrl(Uri(
-                                            scheme: 'mailto',
-                                            path: columnClientsRecord.email,
-                                            query: {
-                                              'subject': 'Proposal',
-                                              'body': 'Email Body',
-                                            }
-                                                .entries
-                                                .map((MapEntry<String, String>
-                                                        e) =>
-                                                    '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
-                                                .join('&')));
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
                                           enableDrag: false,
                                           context: context,
                                           builder: (context) {

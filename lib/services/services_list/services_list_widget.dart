@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/search_result_not_found_widget.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -630,6 +631,13 @@ class _ServicesListWidgetState extends State<ServicesListWidget> {
                                               List<ServicesRecord>
                                                   listViewServicesRecordList =
                                                   snapshot.data!;
+                                              if (listViewServicesRecordList
+                                                  .isEmpty) {
+                                                return const Center(
+                                                  child:
+                                                      SearchResultNotFoundWidget(),
+                                                );
+                                              }
                                               return ListView.builder(
                                                 padding: EdgeInsets.zero,
                                                 shrinkWrap: true,

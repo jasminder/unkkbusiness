@@ -139,7 +139,15 @@ class _DeleteOnboardProposalWidgetState
                               }
                               Navigator.pop(context);
 
-                              context.goNamed('newOnboard');
+                              context.goNamed(
+                                'newOnboard',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                  ),
+                                },
+                              );
                             },
                             text: 'Yes, Delete',
                             options: FFButtonOptions(

@@ -62,7 +62,7 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(

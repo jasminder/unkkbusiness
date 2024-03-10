@@ -897,7 +897,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 (_model.clientType == 'company'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 0.0),
+                                    0.0, 20.0, 0.0, 20.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1531,12 +1531,6 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                         ),
                                       ),
                                     ),
-                                    Divider(
-                                      height: 48.0,
-                                      thickness: 1.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -1544,7 +1538,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 (_model.clientType == 'trust'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 0.0),
+                                    0.0, 20.0, 0.0, 20.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -2178,12 +2172,6 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                         ),
                                       ),
                                     ),
-                                    Divider(
-                                      height: 48.0,
-                                      thickness: 1.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -2191,7 +2179,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 (_model.clientType == 'individual'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 0.0),
+                                    0.0, 20.0, 0.0, 20.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,

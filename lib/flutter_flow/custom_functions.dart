@@ -32,3 +32,11 @@ DocumentReference userIdtoRef(String userID) {
 DateTime todayDate() {
   return DateTime.now();
 }
+
+DateTime getNextDateWithDays(
+  DateTime startDate,
+  int days,
+) {
+  // return next date by adding days in startDate
+  return startDate.add(Duration(days: days));
+}

@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
@@ -10,23 +9,11 @@ class TaskBoardModel extends FlutterFlowModel<TaskBoardWidget> {
 
   DateTime? taskTillDate;
 
-  List<DocumentReference> clientsRef = [];
-  void addToClientsRef(DocumentReference item) => clientsRef.add(item);
-  void removeFromClientsRef(DocumentReference item) => clientsRef.remove(item);
-  void removeAtIndexFromClientsRef(int index) => clientsRef.removeAt(index);
-  void insertAtIndexInClientsRef(int index, DocumentReference item) =>
-      clientsRef.insert(index, item);
-  void updateClientsRefAtIndex(
-          int index, Function(DocumentReference) updateFn) =>
-      clientsRef[index] = updateFn(clientsRef[index]);
-
-  int loopCount = 0;
+  int days = 0;
 
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Firestore Query - Query a collection] action in taskBoard widget.
-  List<TasksRecord>? clientsInfo;
   // Model for navigation component.
   late NavigationModel navigationModel;
   // Model for topbar component.

@@ -375,130 +375,140 @@ class _OnboardOneOffServicesListWidgetState
                                     ),
                                   ],
                                 ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        'Subtotal',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                      Text(
-                                        'Excl. unit prices and tax',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        6.0, 0.0, 0.0, 0.0),
-                                    child: Column(
+                              Expanded(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            '₹${formatNumber(
-                                              _model.oneOffServiceTotal,
-                                              formatType: FormatType.decimal,
-                                              decimalType:
-                                                  DecimalType.periodDecimal,
-                                            )}',
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ),
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            _model.clientServices2 =
-                                                await queryClientServicesRecordOnce(
-                                              queryBuilder:
-                                                  (clientServicesRecord) =>
-                                                      clientServicesRecord
-                                                          .where(
-                                                'clientRef',
-                                                isEqualTo: widget.clientRef,
+                                        Text(
+                                          'Subtotal',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
                                               ),
-                                            );
-                                            _model.oneOffServiceTotal = 0.0;
-                                            while (
-                                                _model.clientServices2!.length >
-                                                    _model.servicesLoopCount) {
-                                              _model.serviceTotal2 =
-                                                  await actions.createSubTotal(
-                                                _model
-                                                    .clientServices2![_model
-                                                        .servicesLoopCount]
-                                                    .quantity,
-                                                _model
-                                                    .clientServices2![_model
-                                                        .servicesLoopCount]
-                                                    .price,
-                                              );
-                                              setState(() {
-                                                _model.oneOffServiceTotal =
-                                                    (_model.serviceTotal2!) +
-                                                        _model
-                                                            .oneOffServiceTotal;
-                                              });
-                                              setState(() {
-                                                _model.servicesLoopCount =
-                                                    _model.servicesLoopCount +
-                                                        1;
-                                              });
-                                            }
-                                            setState(() {
-                                              _model.servicesLoopCount = 0;
-                                            });
-
-                                            setState(() {});
-                                          },
-                                          child: Text(
-                                            'Refresh',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  fontWeight: FontWeight.normal,
-                                                  decoration:
-                                                      TextDecoration.underline,
-                                                ),
-                                          ),
+                                        ),
+                                        Text(
+                                          'Excl. unit prices and tax',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w300,
+                                              ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          6.0, 0.0, 0.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              '₹${formatNumber(
+                                                _model.oneOffServiceTotal,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.periodDecimal,
+                                              )}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              _model.clientServices2 =
+                                                  await queryClientServicesRecordOnce(
+                                                queryBuilder:
+                                                    (clientServicesRecord) =>
+                                                        clientServicesRecord
+                                                            .where(
+                                                  'clientRef',
+                                                  isEqualTo: widget.clientRef,
+                                                ),
+                                              );
+                                              _model.oneOffServiceTotal = 0.0;
+                                              while (_model
+                                                      .clientServices2!.length >
+                                                  _model.servicesLoopCount) {
+                                                _model.serviceTotal2 =
+                                                    await actions
+                                                        .createSubTotal(
+                                                  _model
+                                                      .clientServices2![_model
+                                                          .servicesLoopCount]
+                                                      .quantity,
+                                                  _model
+                                                      .clientServices2![_model
+                                                          .servicesLoopCount]
+                                                      .price,
+                                                );
+                                                setState(() {
+                                                  _model.oneOffServiceTotal =
+                                                      (_model.serviceTotal2!) +
+                                                          _model
+                                                              .oneOffServiceTotal;
+                                                });
+                                                setState(() {
+                                                  _model.servicesLoopCount =
+                                                      _model.servicesLoopCount +
+                                                          1;
+                                                });
+                                              }
+                                              setState(() {
+                                                _model.servicesLoopCount = 0;
+                                              });
+
+                                              setState(() {});
+                                            },
+                                            child: Text(
+                                              'Refresh',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

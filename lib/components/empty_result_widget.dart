@@ -49,11 +49,6 @@ class _EmptyResultWidgetState extends State<EmptyResultWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Icon(
-                  Icons.not_interested,
-                  color: FlutterFlowTheme.of(context).error,
-                  size: 96.0,
-                ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
@@ -61,7 +56,7 @@ class _EmptyResultWidgetState extends State<EmptyResultWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).secondaryText,
-                          fontSize: 24.0,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),

@@ -11,6 +11,10 @@ class TaskBoardModel extends FlutterFlowModel<TaskBoardWidget> {
 
   int days = 0;
 
+  String taskShowBy = 'day';
+
+  int tasksCount = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

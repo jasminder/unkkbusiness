@@ -36,7 +36,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
       FFAppState().activeMenu = 'taskboard';
       setState(() {
         _model.taskTillDate = functions.todayDate();
-        _model.days = 1;
+        _model.days = 0;
         _model.taskShowBy = 'day';
       });
     });
@@ -156,6 +156,14 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
+                                                  color: valueOrDefault<Color>(
+                                                    _model.taskShowBy == 'day'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : Colors.transparent,
+                                                    Colors.transparent,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -165,7 +173,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                       _model.taskShowBy == 'day'
                                                           ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText
+                                                              .primary
                                                           : Colors.transparent,
                                                       Colors.transparent,
                                                     ),
@@ -218,6 +226,14 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
+                                                  color: valueOrDefault<Color>(
+                                                    _model.taskShowBy == 'week'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : Colors.transparent,
+                                                    Colors.transparent,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -228,7 +244,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                               'week'
                                                           ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText
+                                                              .primary
                                                           : Colors.transparent,
                                                       Colors.transparent,
                                                     ),
@@ -281,6 +297,14 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
+                                                  color: valueOrDefault<Color>(
+                                                    _model.taskShowBy == 'month'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : Colors.transparent,
+                                                    Colors.transparent,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -291,7 +315,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                               'month'
                                                           ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText
+                                                              .primary
                                                           : Colors.transparent,
                                                       Colors.transparent,
                                                     ),
@@ -344,6 +368,15 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
+                                                  color: valueOrDefault<Color>(
+                                                    _model.taskShowBy ==
+                                                            'quater'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : Colors.transparent,
+                                                    Colors.transparent,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -354,7 +387,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                               'quater'
                                                           ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText
+                                                              .primary
                                                           : Colors.transparent,
                                                       Colors.transparent,
                                                     ),
@@ -407,6 +440,14 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                   .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                               child: Container(
                                                 decoration: BoxDecoration(
+                                                  color: valueOrDefault<Color>(
+                                                    _model.taskShowBy == 'year'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : Colors.transparent,
+                                                    Colors.transparent,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -417,7 +458,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                               'year'
                                                           ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText
+                                                              .primary
                                                           : Colors.transparent,
                                                       Colors.transparent,
                                                     ),
@@ -776,68 +817,58 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                           0.0,
                                                                           8.0),
                                                                       child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                40.0,
-                                                                                0.0,
-                                                                                40.0,
-                                                                                4.0),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                              children: [
-                                                                                Expanded(
-                                                                                  child: Text(
-                                                                                    allTasksItem.name,
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontWeight: FontWeight.normal,
-                                                                                        ),
-                                                                                  ),
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Align(
-                                                                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                    child: StreamBuilder<ClientsRecord>(
-                                                                                      stream: ClientsRecord.getDocument(allTasksItem.clientRef!),
-                                                                                      builder: (context, snapshot) {
-                                                                                        // Customize what your widget looks like when it's loading.
-                                                                                        if (!snapshot.hasData) {
-                                                                                          return Center(
-                                                                                            child: SizedBox(
-                                                                                              width: 40.0,
-                                                                                              height: 40.0,
-                                                                                              child: SpinKitCircle(
-                                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                                size: 40.0,
-                                                                                              ),
-                                                                                            ),
-                                                                                          );
-                                                                                        }
-                                                                                        final textClientsRecord = snapshot.data!;
-                                                                                        return Text(
-                                                                                          '${textClientsRecord.firstName} ${textClientsRecord.lastName}',
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Poppins',
-                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                fontWeight: FontWeight.normal,
-                                                                                              ),
-                                                                                        );
-                                                                                      },
+                                                                          InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          await showModalBottomSheet(
+                                                                            isScrollControlled:
+                                                                                true,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            enableDrag:
+                                                                                false,
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (context) {
+                                                                              return GestureDetector(
+                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: SizedBox(
+                                                                                    height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                    child: EditClientTaskWidget(
+                                                                                      clientTaskRef: allTasksItem.reference,
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                                Expanded(
-                                                                                  child: Align(
-                                                                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                              );
+                                                                            },
+                                                                          ).then((value) =>
+                                                                              safeSetState(() {}));
+                                                                        },
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 4.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Expanded(
                                                                                     child: Text(
-                                                                                      dateTimeFormat('yMMMd', allTasksItem.dueDate!),
+                                                                                      allTasksItem.name,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -845,97 +876,140 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.end,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                                                                                        child: InkWell(
-                                                                                          splashColor: Colors.transparent,
-                                                                                          focusColor: Colors.transparent,
-                                                                                          hoverColor: Colors.transparent,
-                                                                                          highlightColor: Colors.transparent,
-                                                                                          onTap: () async {
-                                                                                            await showModalBottomSheet(
-                                                                                              isScrollControlled: true,
-                                                                                              backgroundColor: Colors.transparent,
-                                                                                              enableDrag: false,
-                                                                                              context: context,
-                                                                                              builder: (context) {
-                                                                                                return GestureDetector(
-                                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                  child: Padding(
-                                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                                    child: SizedBox(
-                                                                                                      height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                                      child: EditClientTaskWidget(
-                                                                                                        clientTaskRef: allTasksItem.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ).then((value) => safeSetState(() {}));
-                                                                                          },
-                                                                                          child: Icon(
-                                                                                            Icons.edit_note,
-                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                            size: 24.0,
-                                                                                          ),
-                                                                                        ),
+                                                                                  Expanded(
+                                                                                    child: Align(
+                                                                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                      child: StreamBuilder<ClientsRecord>(
+                                                                                        stream: ClientsRecord.getDocument(allTasksItem.clientRef!),
+                                                                                        builder: (context, snapshot) {
+                                                                                          // Customize what your widget looks like when it's loading.
+                                                                                          if (!snapshot.hasData) {
+                                                                                            return Center(
+                                                                                              child: SizedBox(
+                                                                                                width: 40.0,
+                                                                                                height: 40.0,
+                                                                                                child: SpinKitCircle(
+                                                                                                  color: FlutterFlowTheme.of(context).alternate,
+                                                                                                  size: 40.0,
+                                                                                                ),
+                                                                                              ),
+                                                                                            );
+                                                                                          }
+                                                                                          final textClientsRecord = snapshot.data!;
+                                                                                          return Text(
+                                                                                            '${textClientsRecord.firstName} ${textClientsRecord.lastName}',
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                  fontWeight: FontWeight.normal,
+                                                                                                ),
+                                                                                          );
+                                                                                        },
                                                                                       ),
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                                        child: InkWell(
-                                                                                          splashColor: Colors.transparent,
-                                                                                          focusColor: Colors.transparent,
-                                                                                          hoverColor: Colors.transparent,
-                                                                                          highlightColor: Colors.transparent,
-                                                                                          onTap: () async {
-                                                                                            await showModalBottomSheet(
-                                                                                              isScrollControlled: true,
-                                                                                              backgroundColor: Colors.transparent,
-                                                                                              enableDrag: false,
-                                                                                              context: context,
-                                                                                              builder: (context) {
-                                                                                                return GestureDetector(
-                                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                  child: Padding(
-                                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                                    child: SizedBox(
-                                                                                                      height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                                      child: TaskActionWidget(
-                                                                                                        taskRef: allTasksItem.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            ).then((value) => safeSetState(() {}));
-                                                                                          },
-                                                                                          child: Icon(
-                                                                                            Icons.delete_outlined,
-                                                                                            color: FlutterFlowTheme.of(context).error,
-                                                                                            size: 24.0,
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
+                                                                                    ),
                                                                                   ),
-                                                                                ),
-                                                                              ],
+                                                                                  Expanded(
+                                                                                    child: Align(
+                                                                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        dateTimeFormat('yMMMd', allTasksItem.dueDate!),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.end,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                          child: InkWell(
+                                                                                            splashColor: Colors.transparent,
+                                                                                            focusColor: Colors.transparent,
+                                                                                            hoverColor: Colors.transparent,
+                                                                                            highlightColor: Colors.transparent,
+                                                                                            onTap: () async {
+                                                                                              await showModalBottomSheet(
+                                                                                                isScrollControlled: true,
+                                                                                                backgroundColor: Colors.transparent,
+                                                                                                enableDrag: false,
+                                                                                                context: context,
+                                                                                                builder: (context) {
+                                                                                                  return GestureDetector(
+                                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                    child: Padding(
+                                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                                      child: SizedBox(
+                                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                        child: EditClientTaskWidget(
+                                                                                                          clientTaskRef: allTasksItem.reference,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              ).then((value) => safeSetState(() {}));
+                                                                                            },
+                                                                                            child: Icon(
+                                                                                              Icons.edit_note,
+                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                              size: 24.0,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                          child: InkWell(
+                                                                                            splashColor: Colors.transparent,
+                                                                                            focusColor: Colors.transparent,
+                                                                                            hoverColor: Colors.transparent,
+                                                                                            highlightColor: Colors.transparent,
+                                                                                            onTap: () async {
+                                                                                              await showModalBottomSheet(
+                                                                                                isScrollControlled: true,
+                                                                                                backgroundColor: Colors.transparent,
+                                                                                                enableDrag: false,
+                                                                                                context: context,
+                                                                                                builder: (context) {
+                                                                                                  return GestureDetector(
+                                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                    child: Padding(
+                                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                                      child: SizedBox(
+                                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                        child: TaskActionWidget(
+                                                                                                          taskRef: allTasksItem.reference,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              ).then((value) => safeSetState(() {}));
+                                                                                            },
+                                                                                            child: Icon(
+                                                                                              Icons.delete_outlined,
+                                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                                              size: 24.0,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                          Divider(
-                                                                            thickness:
-                                                                                1.0,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          ),
-                                                                        ],
+                                                                            Divider(
+                                                                              thickness: 1.0,
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     );
                                                                   },

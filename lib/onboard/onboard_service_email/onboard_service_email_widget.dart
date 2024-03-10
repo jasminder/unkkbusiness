@@ -267,170 +267,198 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 36.0, 0.0, 36.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 6.0),
-                                    child: Text(
-                                      'Send proposal for acceptance',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
-                                    child: Text(
-                                      'We’ll send the proposal to all signatories when you send via email. To send the proposal \nanother way, click the icon to Send via email for more options.',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 7.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Sending: ',
+                              child: StreamBuilder<ClientsRecord>(
+                                stream: ClientsRecord.getDocument(
+                                    widget.clientRef!),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: LinearProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    );
+                                  }
+                                  final columnClientsRecord = snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 6.0),
+                                        child: Text(
+                                          'Send proposal for acceptance',
                                           style: FlutterFlowTheme.of(context)
-                                              .labelLarge
+                                              .headlineSmall,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 16.0),
+                                        child: Text(
+                                          'We’ll send the proposal to all signatories when you send via email. To send the proposal \nanother way, click the icon to Send via email for more options.',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 18.0,
-                                                fontWeight: FontWeight.w600,
+                                                        .secondaryText,
+                                                fontWeight: FontWeight.w300,
                                               ),
                                         ),
-                                        Text(
-                                          '‘Untitled Proposal’ to John Smith',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 7.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Sending: ',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelLarge
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .primaryText,
-                                              ),
+                                                    fontSize: 18.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            Text(
+                                              '‘Untitled Proposal’ to ${columnClientsRecord.firstName} ${columnClientsRecord.lastName}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 7.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Signatory: ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 7.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Signatory: ',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelLarge
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .primaryText,
-                                                fontSize: 18.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                                    fontSize: 18.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            Text(
+                                              columnClientsRecord.email,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                            ),
+                                          ],
                                         ),
-                                        Text(
-                                          'Henry - lorem@yopmail.com',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 40.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: SizedBox(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 40.0, 0.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return GestureDetector(
+                                                  onTap: () => _model
+                                                          .unfocusNode
+                                                          .canRequestFocus
+                                                      ? FocusScope.of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode)
+                                                      : FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: SizedBox(
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
                                                               .height *
                                                           1.0,
-                                                  child:
-                                                      const ProposalSuccessWidget(),
-                                                ),
-                                              ),
-                                            );
+                                                      child:
+                                                          const ProposalSuccessWidget(),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           },
-                                        ).then((value) => safeSetState(() {}));
-                                      },
-                                      text: 'Send via Email',
-                                      options: FFButtonOptions(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            48.0, 24.0, 48.0, 24.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.white,
-                                              fontSize: 13.0,
-                                              fontWeight: FontWeight.w600,
+                                          text: 'Send Email',
+                                          options: FFButtonOptions(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    48.0, 24.0, 48.0, 24.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.white,
+                                                      fontSize: 13.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: const BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
                                             ),
-                                        elevation: 3.0,
-                                        borderSide: const BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                            borderRadius:
+                                                BorderRadius.circular(34.0),
+                                          ),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(34.0),
                                       ),
-                                    ),
-                                  ),
-                                ],
+                                    ],
+                                  );
+                                },
                               ),
                             ),
                           ),

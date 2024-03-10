@@ -142,8 +142,8 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                                       child: Icon(
                                         Icons.login_sharp,
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 24.0,
+                                            .primaryText,
+                                        size: 18.0,
                                       ),
                                     ),
                                   ],

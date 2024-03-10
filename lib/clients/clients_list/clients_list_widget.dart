@@ -593,10 +593,38 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                               onSelectChanged) =>
                                                                           DataRow(
                                                                         cells: [
-                                                                          Text(
-                                                                            '${clientsItem.firstName} ${clientsItem.lastName}',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              context.goNamed(
+                                                                                'clientDetails',
+                                                                                queryParameters: {
+                                                                                  'clientRef': serializeParam(
+                                                                                    clientsItem.reference,
+                                                                                    ParamType.DocumentReference,
+                                                                                  ),
+                                                                                }.withoutNulls,
+                                                                                extra: <String, dynamic>{
+                                                                                  kTransitionInfoKey: const TransitionInfo(
+                                                                                    hasTransition: true,
+                                                                                    transitionType: PageTransitionType.fade,
+                                                                                  ),
+                                                                                },
+                                                                              );
+                                                                            },
+                                                                            child:
+                                                                                Text(
+                                                                              '${clientsItem.firstName} ${clientsItem.lastName}',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            ),
                                                                           ),
                                                                           Text(
                                                                             clientsItem.email,
@@ -993,10 +1021,38 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                               onSelectChanged) =>
                                                                           DataRow(
                                                                         cells: [
-                                                                          Text(
-                                                                            '${clientsItem.firstName} ${clientsItem.lastName}',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              context.goNamed(
+                                                                                'clientDetails',
+                                                                                queryParameters: {
+                                                                                  'clientRef': serializeParam(
+                                                                                    clientsItem.reference,
+                                                                                    ParamType.DocumentReference,
+                                                                                  ),
+                                                                                }.withoutNulls,
+                                                                                extra: <String, dynamic>{
+                                                                                  kTransitionInfoKey: const TransitionInfo(
+                                                                                    hasTransition: true,
+                                                                                    transitionType: PageTransitionType.fade,
+                                                                                  ),
+                                                                                },
+                                                                              );
+                                                                            },
+                                                                            child:
+                                                                                Text(
+                                                                              '${clientsItem.firstName} ${clientsItem.lastName}',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            ),
                                                                           ),
                                                                           Text(
                                                                             clientsItem.email,

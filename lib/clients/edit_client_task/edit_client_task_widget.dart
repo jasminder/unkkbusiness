@@ -41,7 +41,6 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
 
     _model.dueDateFocusNode ??= FocusNode();
 
-    _model.commentController ??= TextEditingController();
     _model.commentFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -685,7 +684,10 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                             ),
                                             TextFormField(
                                               controller:
-                                                  _model.commentController,
+                                                  _model.commentController ??=
+                                                      TextEditingController(
+                                                text: columnTasksRecord.comment,
+                                              ),
                                               focusNode:
                                                   _model.commentFocusNode,
                                               obscureText: false,
@@ -781,6 +783,8 @@ class _EditClientTaskWidgetState extends State<EditClientTaskWidget> {
                                               dueDate: _model.datePicked,
                                               assignee: functions.userIdtoRef(
                                                   _model.assigneeValue!),
+                                              comment:
+                                                  _model.commentController.text,
                                             ));
                                             Navigator.pop(context);
                                           },

@@ -55,6 +55,11 @@ class TasksRecord extends FirestoreRecord {
   DocumentReference? get assignee => _assignee;
   bool hasAssignee() => _assignee != null;
 
+  // "comment" field.
+  String? _comment;
+  String get comment => _comment ?? '';
+  bool hasComment() => _comment != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _details = snapshotData['details'] as String?;
@@ -64,6 +69,7 @@ class TasksRecord extends FirestoreRecord {
     _serviceRef = snapshotData['serviceRef'] as DocumentReference?;
     _clientRef = snapshotData['clientRef'] as DocumentReference?;
     _assignee = snapshotData['assignee'] as DocumentReference?;
+    _comment = snapshotData['comment'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -108,6 +114,7 @@ Map<String, dynamic> createTasksRecordData({
   DocumentReference? serviceRef,
   DocumentReference? clientRef,
   DocumentReference? assignee,
+  String? comment,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -119,6 +126,7 @@ Map<String, dynamic> createTasksRecordData({
       'serviceRef': serviceRef,
       'clientRef': clientRef,
       'assignee': assignee,
+      'comment': comment,
     }.withoutNulls,
   );
 
@@ -137,7 +145,8 @@ class TasksRecordDocumentEquality implements Equality<TasksRecord> {
         e1?.createdAt == e2?.createdAt &&
         e1?.serviceRef == e2?.serviceRef &&
         e1?.clientRef == e2?.clientRef &&
-        e1?.assignee == e2?.assignee;
+        e1?.assignee == e2?.assignee &&
+        e1?.comment == e2?.comment;
   }
 
   @override
@@ -149,7 +158,8 @@ class TasksRecordDocumentEquality implements Equality<TasksRecord> {
         e?.createdAt,
         e?.serviceRef,
         e?.clientRef,
-        e?.assignee
+        e?.assignee,
+        e?.comment
       ]);
 
   @override

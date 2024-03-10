@@ -649,37 +649,17 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                   onPressed: () async {
                                     var tasksRecordReference =
                                         TasksRecord.collection.doc();
-                                    await tasksRecordReference
-                                        .set(createTasksRecordData(
-                                      name: _model.taskNameController.text,
-                                      assignee: functions
-                                          .userIdtoRef(_model.assigneeValue!),
-                                      dueDate: _model.datePicked,
-                                      clientRef: widget.clientRef,
-                                      status: 'pending',
-                                      details:
-                                          _model.descriptionController.text,
-                                    ));
-                                    _model.taskInfo =
-                                        TasksRecord.getDocumentFromData(
-                                            createTasksRecordData(
-                                              name: _model
-                                                  .taskNameController.text,
-                                              assignee: functions.userIdtoRef(
-                                                  _model.assigneeValue!),
-                                              dueDate: _model.datePicked,
-                                              clientRef: widget.clientRef,
-                                              status: 'pending',
-                                              details: _model
-                                                  .descriptionController.text,
-                                            ),
-                                            tasksRecordReference);
-
-                                    await CommentsRecord.createDoc(
-                                            _model.taskInfo!.reference)
-                                        .set({
-                                      ...createCommentsRecordData(
-                                        info: _model.commentController.text,
+                                    await tasksRecordReference.set({
+                                      ...createTasksRecordData(
+                                        name: _model.taskNameController.text,
+                                        assignee: functions
+                                            .userIdtoRef(_model.assigneeValue!),
+                                        dueDate: _model.datePicked,
+                                        clientRef: widget.clientRef,
+                                        status: 'pending',
+                                        details:
+                                            _model.descriptionController.text,
+                                        comment: _model.commentController.text,
                                       ),
                                       ...mapToFirestore(
                                         {
@@ -688,6 +668,25 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                         },
                                       ),
                                     });
+                                    _model.taskInfo =
+                                        TasksRecord.getDocumentFromData({
+                                      ...createTasksRecordData(
+                                        name: _model.taskNameController.text,
+                                        assignee: functions
+                                            .userIdtoRef(_model.assigneeValue!),
+                                        dueDate: _model.datePicked,
+                                        clientRef: widget.clientRef,
+                                        status: 'pending',
+                                        details:
+                                            _model.descriptionController.text,
+                                        comment: _model.commentController.text,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'createdAt': DateTime.now(),
+                                        },
+                                      ),
+                                    }, tasksRecordReference);
                                     Navigator.pop(context);
 
                                     setState(() {});

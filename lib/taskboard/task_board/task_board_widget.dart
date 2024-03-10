@@ -99,17 +99,41 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
-                                        child: Text(
-                                          'Task Board (${valueOrDefault<String>(
-                                            _model.tasksCount.toString(),
-                                            '0',
-                                          )})',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                        child: FutureBuilder<int>(
+                                          future: queryTasksRecordCount(
+                                            queryBuilder: (tasksRecord) =>
+                                                tasksRecord.where(
+                                              'dueDate',
+                                              isLessThanOrEqualTo:
+                                                  functions.getNextDateWithDays(
+                                                      _model.taskTillDate!,
+                                                      _model.days),
+                                            ),
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: LinearProgressIndicator(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
+                                              );
+                                            }
+                                            int textCount = snapshot.data!;
+                                            return Text(
+                                              'Task Board (${textCount.toString()})',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            );
+                                          },
                                         ),
                                       ),
                                     ],
@@ -352,7 +376,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       setState(() {
-                                                        _model.days = 183;
+                                                        _model.days = 90;
                                                         _model.taskShowBy =
                                                             'quater';
                                                       });
@@ -415,7 +439,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       setState(() {
-                                                        _model.days = 366;
+                                                        _model.days = 365;
                                                         _model.taskShowBy =
                                                             'year';
                                                       });

@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -38,11 +37,8 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().activeMenu = 'taskboard';
-      setState(() {
-        _model.taskTillDate = functions.todayDate();
-        _model.days = 0;
-        _model.taskShowBy = 'day';
+      FFAppState().update(() {
+        FFAppState().activeMenu = 'clients';
       });
     });
 

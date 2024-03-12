@@ -734,46 +734,74 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                const AlignmentDirectional(1.0, 0.0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                              child: InkWell(
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.end,
+                                                                            children: [
+                                                                              InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
-                                                                                  await showModalBottomSheet(
-                                                                                    isScrollControlled: true,
-                                                                                    backgroundColor: Colors.transparent,
-                                                                                    enableDrag: false,
-                                                                                    context: context,
-                                                                                    builder: (context) {
-                                                                                      return GestureDetector(
-                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                        child: Padding(
-                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                          child: SizedBox(
-                                                                                            height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                            child: ClientActionWidget(
-                                                                                              clientRef: clientsItem.reference,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  ).then((value) => safeSetState(() {}));
+                                                                                  context.pushNamed(
+                                                                                    'clientServices',
+                                                                                    queryParameters: {
+                                                                                      'clientRef': serializeParam(
+                                                                                        clientsItem.reference,
+                                                                                        ParamType.DocumentReference,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
                                                                                 },
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.ellipsisV,
+                                                                                child: Icon(
+                                                                                  Icons.list_sharp,
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
-                                                                            ),
+                                                                              Align(
+                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      await showModalBottomSheet(
+                                                                                        isScrollControlled: true,
+                                                                                        backgroundColor: Colors.transparent,
+                                                                                        enableDrag: false,
+                                                                                        context: context,
+                                                                                        builder: (context) {
+                                                                                          return GestureDetector(
+                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: SizedBox(
+                                                                                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                child: ClientActionWidget(
+                                                                                                  clientRef: clientsItem.reference,
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      ).then((value) => safeSetState(() {}));
+                                                                                    },
+                                                                                    child: FaIcon(
+                                                                                      FontAwesomeIcons.ellipsisV,
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      size: 24.0,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ]
                                                                             .map((c) =>
@@ -1162,46 +1190,74 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                const AlignmentDirectional(1.0, 0.0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                              child: InkWell(
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.end,
+                                                                            children: [
+                                                                              InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
                                                                                 hoverColor: Colors.transparent,
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
-                                                                                  await showModalBottomSheet(
-                                                                                    isScrollControlled: true,
-                                                                                    backgroundColor: Colors.transparent,
-                                                                                    enableDrag: false,
-                                                                                    context: context,
-                                                                                    builder: (context) {
-                                                                                      return GestureDetector(
-                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                        child: Padding(
-                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                          child: SizedBox(
-                                                                                            height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                            child: ClientActionWidget(
-                                                                                              clientRef: clientsItem.reference,
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  ).then((value) => safeSetState(() {}));
+                                                                                  context.pushNamed(
+                                                                                    'clientServices',
+                                                                                    queryParameters: {
+                                                                                      'clientRef': serializeParam(
+                                                                                        clientsItem.reference,
+                                                                                        ParamType.DocumentReference,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
                                                                                 },
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.ellipsisV,
+                                                                                child: Icon(
+                                                                                  Icons.list_sharp,
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
-                                                                            ),
+                                                                              Align(
+                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      await showModalBottomSheet(
+                                                                                        isScrollControlled: true,
+                                                                                        backgroundColor: Colors.transparent,
+                                                                                        enableDrag: false,
+                                                                                        context: context,
+                                                                                        builder: (context) {
+                                                                                          return GestureDetector(
+                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: SizedBox(
+                                                                                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                child: ClientActionWidget(
+                                                                                                  clientRef: clientsItem.reference,
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      ).then((value) => safeSetState(() {}));
+                                                                                    },
+                                                                                    child: FaIcon(
+                                                                                      FontAwesomeIcons.ellipsisV,
+                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      size: 24.0,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ]
                                                                             .map((c) =>

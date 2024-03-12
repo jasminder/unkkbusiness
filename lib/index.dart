@@ -46,3 +46,5 @@ export '/registration_form/registration/registration_widget.dart'
 export '/onboard/on_board_proposal_pricing/on_board_proposal_pricing_widget.dart'
     show OnBoardProposalPricingWidget;
 export '/services/edit_service/edit_service_widget.dart' show EditServiceWidget;
+export '/clients/client_services/client_services_widget.dart'
+    show ClientServicesWidget;

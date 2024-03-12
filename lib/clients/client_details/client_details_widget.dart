@@ -2823,124 +2823,67 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 8.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        await widget.clientRef!
-                                            .update(createClientsRecordData(
-                                          firstName:
-                                              _model.firstnameController.text,
-                                          lastName:
-                                              _model.lastNameController.text,
-                                          gender: _model.genderValue,
-                                          type: _model.clientTypeValue,
-                                          companyName:
-                                              _model.companyNameController.text,
-                                          companyPhone: _model
-                                              .companyTelephoneController.text,
-                                          companyEmail: _model
-                                              .companyEmailController.text,
-                                          companyAddress:
-                                              _model.addressController.text,
-                                          trustName:
-                                              _model.trustnameController.text,
-                                          trustEmail:
-                                              _model.trustEmailController.text,
-                                          trustPhone: _model
-                                              .trustTelephoneController.text,
-                                          trustAddress: _model
-                                              .trustAddressController.text,
-                                          individualName: _model
-                                              .individualNameController.text,
-                                          individualEmail: _model
-                                              .individualEmailController.text,
-                                          individualAddress: _model
-                                              .individualAddressController.text,
-                                          individualPhone: _model
-                                              .individualTelephoneController
-                                              .text,
-                                        ));
-                                      },
-                                      text: 'Update Client',
-                                      options: FFButtonOptions(
-                                        width: 190.0,
-                                        height: 60.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      await widget.clientRef!
+                                          .update(createClientsRecordData(
+                                        firstName:
+                                            _model.firstnameController.text,
+                                        lastName:
+                                            _model.lastNameController.text,
+                                        gender: _model.genderValue,
+                                        type: _model.clientTypeValue,
+                                        companyName:
+                                            _model.companyNameController.text,
+                                        companyPhone: _model
+                                            .companyTelephoneController.text,
+                                        companyEmail:
+                                            _model.companyEmailController.text,
+                                        companyAddress:
+                                            _model.addressController.text,
+                                        trustName:
+                                            _model.trustnameController.text,
+                                        trustEmail:
+                                            _model.trustEmailController.text,
+                                        trustPhone: _model
+                                            .trustTelephoneController.text,
+                                        trustAddress:
+                                            _model.trustAddressController.text,
+                                        individualName: _model
+                                            .individualNameController.text,
+                                        individualEmail: _model
+                                            .individualEmailController.text,
+                                        individualAddress: _model
+                                            .individualAddressController.text,
+                                        individualPhone: _model
+                                            .individualTelephoneController.text,
+                                      ));
+                                    },
+                                    text: 'Update Client',
+                                    options: FFButtonOptions(
+                                      width: 190.0,
+                                      height: 60.0,
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.white,
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(34.0),
+                                        width: 1.0,
                                       ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          'clientTaskDetail',
-                                          queryParameters: {
-                                            'clientRef': serializeParam(
-                                              widget.clientRef,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      text: 'View Task',
-                                      options: FFButtonOptions(
-                                        width: 190.0,
-                                        height: 60.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.white,
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(34.0),
-                                      ),
+                                      borderRadius: BorderRadius.circular(34.0),
                                     ),
                                   ),
                                 ],

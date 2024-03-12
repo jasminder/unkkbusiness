@@ -237,6 +237,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClientTaskDetailWidget(
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+            serviceRef: params.getParam(
+                'serviceRef', ParamType.DocumentReference, false, ['services']),
           ),
         ),
         FFRoute(
@@ -268,6 +270,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EditServiceWidget(
             serviceRef: params.getParam(
                 'serviceRef', ParamType.DocumentReference, false, ['services']),
+          ),
+        ),
+        FFRoute(
+          name: 'clientServices',
+          path: '/clientServices',
+          builder: (context, params) => ClientServicesWidget(
+            clientRef: params.getParam(
+                'clientRef', ParamType.DocumentReference, false, ['clients']),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

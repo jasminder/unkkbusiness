@@ -14,9 +14,11 @@ class ClientTaskDetailWidget extends StatefulWidget {
   const ClientTaskDetailWidget({
     super.key,
     this.clientRef,
+    this.serviceRef,
   });
 
   final DocumentReference? clientRef;
+  final DocumentReference? serviceRef;
 
   @override
   State<ClientTaskDetailWidget> createState() => _ClientTaskDetailWidgetState();
@@ -69,32 +71,64 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.safePop();
-                            },
-                            child: Container(
-                              width: 56.0,
-                              height: 56.0,
-                              decoration: BoxDecoration(
-                                color: const Color(0x33EEEEEE),
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  width: 1.0,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.safePop();
+                                },
+                                child: Container(
+                                  width: 56.0,
+                                  height: 56.0,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x33EEEEEE),
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowLeft,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 28.0,
+                                  ),
                                 ),
                               ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowLeft,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 28.0,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
+                                child: StreamBuilder<ServicesRecord>(
+                                  stream: ServicesRecord.getDocument(
+                                      widget.serviceRef!),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: LinearProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      );
+                                    }
+                                    final textServicesRecord = snapshot.data!;
+                                    return Text(
+                                      textServicesRecord.name,
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge,
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                           FFButtonWidget(
                             onPressed: () async {
@@ -118,6 +152,7 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                                                 1.0,
                                         child: AddClientTaskWidget(
                                           clientRef: widget.clientRef,
+                                          serviceRef: widget.serviceRef,
                                         ),
                                       ),
                                     ),

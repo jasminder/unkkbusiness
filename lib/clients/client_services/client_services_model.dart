@@ -1,11 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/navigation/navigation/navigation_widget.dart';
 import '/navigation/topbar/topbar_widget.dart';
-import 'task_board_widget.dart' show TaskBoardWidget;
+import 'client_services_widget.dart' show ClientServicesWidget;
 import 'package:flutter/material.dart';
 
-class TaskBoardModel extends FlutterFlowModel<TaskBoardWidget> {
+class ClientServicesModel extends FlutterFlowModel<ClientServicesWidget> {
   ///  Local state fields for this page.
 
   DateTime? taskTillDate;
@@ -16,8 +15,6 @@ class TaskBoardModel extends FlutterFlowModel<TaskBoardWidget> {
 
   int tasksCount = 0;
 
-  DocumentReference? assigneeRef;
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -25,9 +22,6 @@ class TaskBoardModel extends FlutterFlowModel<TaskBoardWidget> {
   late NavigationModel navigationModel;
   // Model for topbar component.
   late TopbarModel topbarModel;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
 
   /// Initialization and disposal methods.
 

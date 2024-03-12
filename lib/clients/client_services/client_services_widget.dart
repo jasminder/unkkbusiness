@@ -441,6 +441,9 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                 isEqualTo:
                                                                     columnClientServicesRecord
                                                                         .serviceRef,
+                                                                isNull: (columnClientServicesRecord
+                                                                        .serviceRef) ==
+                                                                    null,
                                                               ),
                                                             ),
                                                             builder: (context,
@@ -541,7 +544,10 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                                 child: Align(
                                                                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: Text(
-                                                                                    dateTimeFormat('yMMMd', listViewTasksRecord.dueDate!),
+                                                                                    valueOrDefault<String>(
+                                                                                      dateTimeFormat('yMMMd', listViewTasksRecord.dueDate),
+                                                                                      'Not assigned',
+                                                                                    ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: FlutterFlowTheme.of(context).secondaryText,

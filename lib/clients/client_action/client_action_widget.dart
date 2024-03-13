@@ -130,6 +130,7 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                                   8.0, 0.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  Navigator.pop(context);
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,

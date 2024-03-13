@@ -123,6 +123,7 @@ class _DeleteClientConfirmWidgetState extends State<DeleteClientConfirmWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               await widget.clientRef!.delete();
+                              Navigator.pop(context);
 
                               context.goNamed(
                                 'clientsList',

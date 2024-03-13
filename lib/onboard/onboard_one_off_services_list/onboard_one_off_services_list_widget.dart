@@ -270,6 +270,7 @@ class _OnboardOneOffServicesListWidgetState
                                                         .clientServices!
                                                         .map((e) => e.reference)
                                                         .toList(),
+                                                    clientRef: widget.clientRef,
                                                   ),
                                                 ),
                                               ),
@@ -620,17 +621,21 @@ class _OnboardOneOffServicesListWidgetState
                                                 Container(
                                                   width: 80.0,
                                                   decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'Actions',
-                                                    textAlign: TextAlign.end,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                  child: Visibility(
+                                                    visible: false,
+                                                    child: Text(
+                                                      'Actions',
+                                                      textAlign: TextAlign.end,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],

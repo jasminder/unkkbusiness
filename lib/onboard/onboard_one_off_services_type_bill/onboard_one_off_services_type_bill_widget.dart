@@ -269,23 +269,30 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                       _model.loopCount) {
                                                 await TasksRecord.collection
                                                     .doc()
-                                                    .set(createTasksRecordData(
-                                                      name: _model
-                                                          .serviceTasks?[
-                                                              _model.loopCount]
-                                                          .title,
-                                                      details: _model
-                                                          .serviceTasks?[
-                                                              _model.loopCount]
-                                                          .description,
-                                                      serviceRef:
-                                                          widget.serviceRef,
-                                                      clientRef: _model
-                                                          .clientInfo
-                                                          ?.reference,
-                                                      assignee:
-                                                          currentUserReference,
-                                                    ));
+                                                    .set({
+                                                  ...createTasksRecordData(
+                                                    name: _model
+                                                        .serviceTasks?[
+                                                            _model.loopCount]
+                                                        .title,
+                                                    details: _model
+                                                        .serviceTasks?[
+                                                            _model.loopCount]
+                                                        .description,
+                                                    serviceRef:
+                                                        widget.serviceRef,
+                                                    clientRef: _model
+                                                        .clientInfo?.reference,
+                                                    assignee:
+                                                        currentUserReference,
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'createdAt': FieldValue
+                                                          .serverTimestamp(),
+                                                    },
+                                                  ),
+                                                });
                                                 setState(() {
                                                   _model.loopCount =
                                                       _model.loopCount + 1;
@@ -535,23 +542,30 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                       _model.loopCount) {
                                                 await TasksRecord.collection
                                                     .doc()
-                                                    .set(createTasksRecordData(
-                                                      name: _model
-                                                          .serviceTasks3?[
-                                                              _model.loopCount]
-                                                          .title,
-                                                      details: _model
-                                                          .serviceTasks3?[
-                                                              _model.loopCount]
-                                                          .description,
-                                                      serviceRef:
-                                                          widget.serviceRef,
-                                                      clientRef: _model
-                                                          .clientInfo3
-                                                          ?.reference,
-                                                      assignee:
-                                                          currentUserReference,
-                                                    ));
+                                                    .set({
+                                                  ...createTasksRecordData(
+                                                    name: _model
+                                                        .serviceTasks3?[
+                                                            _model.loopCount]
+                                                        .title,
+                                                    details: _model
+                                                        .serviceTasks3?[
+                                                            _model.loopCount]
+                                                        .description,
+                                                    serviceRef:
+                                                        widget.serviceRef,
+                                                    clientRef: _model
+                                                        .clientInfo3?.reference,
+                                                    assignee:
+                                                        currentUserReference,
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'createdAt': FieldValue
+                                                          .serverTimestamp(),
+                                                    },
+                                                  ),
+                                                });
                                                 setState(() {
                                                   _model.loopCount =
                                                       _model.loopCount + 1;

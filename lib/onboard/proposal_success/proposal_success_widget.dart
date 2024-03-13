@@ -82,7 +82,7 @@ class _ProposalSuccessWidgetState extends State<ProposalSuccessWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                       child: Text(
-                        'Your proposal was successfully. \nPlease check you confirmation email.',
+                        'Your proposal was successfully sent. \nPlease check you confirmation email.',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),

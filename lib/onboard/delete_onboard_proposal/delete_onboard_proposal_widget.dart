@@ -9,9 +9,11 @@ class DeleteOnboardProposalWidget extends StatefulWidget {
   const DeleteOnboardProposalWidget({
     super.key,
     required this.clientServiceRef,
+    this.clientRef,
   });
 
   final List<DocumentReference>? clientServiceRef;
+  final DocumentReference? clientRef;
 
   @override
   State<DeleteOnboardProposalWidget> createState() =>
@@ -62,7 +64,7 @@ class _DeleteOnboardProposalWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    'Delete Proposal?',
+                    'Delete Proposal Data?',
                     style: FlutterFlowTheme.of(context).headlineSmall,
                   ),
                   Padding(
@@ -137,6 +139,7 @@ class _DeleteOnboardProposalWidgetState
                                       _model.loopStartCount + 1;
                                 });
                               }
+                              await widget.clientRef!.delete();
                               Navigator.pop(context);
 
                               context.goNamed(

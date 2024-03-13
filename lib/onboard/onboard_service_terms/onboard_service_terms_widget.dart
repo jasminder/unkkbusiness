@@ -261,6 +261,7 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                                       DeleteOnboardProposalWidget(
                                                     clientServiceRef:
                                                         widget.clientServices!,
+                                                    clientRef: widget.clientRef,
                                                   ),
                                                 ),
                                               ),

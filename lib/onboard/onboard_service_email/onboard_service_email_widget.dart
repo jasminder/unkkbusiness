@@ -222,6 +222,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                                       DeleteOnboardProposalWidget(
                                                     clientServiceRef:
                                                         widget.clientServices!,
+                                                    clientRef: widget.clientRef,
                                                   ),
                                                 ),
                                               ),

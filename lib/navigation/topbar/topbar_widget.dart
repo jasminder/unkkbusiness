@@ -91,8 +91,8 @@ class _TopbarWidgetState extends State<TopbarWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Image.asset(
-                                'assets/images/Rectangle_1.png',
-                                fit: BoxFit.cover,
+                                'assets/images/SvgjsG1014.png',
+                                fit: BoxFit.contain,
                               ),
                             ),
                             Padding(

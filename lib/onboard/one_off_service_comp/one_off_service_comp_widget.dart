@@ -513,66 +513,68 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 0.0, 0.0),
-                              child: FlutterFlowDropDown<String>(
-                                controller: _model.actionValueController ??=
-                                    FormFieldController<String>(null),
-                                options: const ['Remove Service'],
-                                onChanged: (val) async {
-                                  setState(() => _model.actionValue = val);
-                                  if (_model.actionValue == 'Remove Service') {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: SizedBox(
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                1.0,
-                                            child: DeleteOnboardServiceWidget(
-                                              clientServiceRef:
-                                                  widget.clientServiceRef,
+                            if (false)
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
+                                child: FlutterFlowDropDown<String>(
+                                  controller: _model.actionValueController ??=
+                                      FormFieldController<String>(null),
+                                  options: const ['Remove'],
+                                  onChanged: (val) async {
+                                    setState(() => _model.actionValue = val);
+                                    if (_model.actionValue ==
+                                        'Remove Service') {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: SizedBox(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  1.0,
+                                              child: DeleteOnboardServiceWidget(
+                                                clientServiceRef:
+                                                    widget.clientServiceRef,
+                                              ),
                                             ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  }
-                                },
-                                width: 100.0,
-                                height: 30.0,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12.0,
-                                    ),
-                                icon: FaIcon(
-                                  FontAwesomeIcons.ellipsisV,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    }
+                                  },
+                                  width: 130.0,
+                                  height: 30.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 12.0,
+                                      ),
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.ellipsisV,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  fillColor: const Color(0xFFFCFCFC),
+                                  elevation: 0.0,
+                                  borderColor: const Color(0xFFFCFCFC),
+                                  borderWidth: 2.0,
+                                  borderRadius: 8.0,
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 8.0, 4.0),
+                                  hidesUnderline: true,
+                                  isOverButton: false,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
                                 ),
-                                fillColor: const Color(0xFFFCFCFC),
-                                elevation: 0.0,
-                                borderColor: const Color(0xFFFCFCFC),
-                                borderWidth: 2.0,
-                                borderRadius: 8.0,
-                                margin: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 8.0, 4.0),
-                                hidesUnderline: true,
-                                isOverButton: false,
-                                isSearchable: false,
-                                isMultiSelect: false,
                               ),
-                            ),
                           ],
                         ),
                       ),

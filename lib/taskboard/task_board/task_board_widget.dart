@@ -515,147 +515,155 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              child: Text(
-                                                'Total tasks by client',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                            if (false)
+                                              Expanded(
+                                                child: Text(
+                                                  'Total tasks by client',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
                                               ),
-                                            ),
-                                            Expanded(
-                                              child: Text(
-                                                'Total tasks',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                            if (false)
+                                              Expanded(
+                                                child: Text(
+                                                  'Total tasks',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
                                               ),
-                                            ),
                                             Expanded(
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.center,
                                                 children: [
-                                                  Expanded(
-                                                    child: StreamBuilder<
-                                                        List<UsersRecord>>(
-                                                      stream:
-                                                          queryUsersRecord(),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child:
-                                                                LinearProgressIndicator(
+                                                  if (false)
+                                                    Expanded(
+                                                      child: StreamBuilder<
+                                                          List<UsersRecord>>(
+                                                        stream:
+                                                            queryUsersRecord(),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child:
+                                                                  LinearProgressIndicator(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            );
+                                                          }
+                                                          List<UsersRecord>
+                                                              dropDownUsersRecordList =
+                                                              snapshot.data!;
+                                                          return FlutterFlowDropDown<
+                                                              String>(
+                                                            controller: _model
+                                                                    .dropDownValueController ??=
+                                                                FormFieldController<
+                                                                    String>(
+                                                              _model.dropDownValue ??=
+                                                                  '',
+                                                            ),
+                                                            options: List<
+                                                                    String>.from(
+                                                                dropDownUsersRecordList
+                                                                    .map((e) => e
+                                                                        .reference
+                                                                        .id)
+                                                                    .toList()),
+                                                            optionLabels:
+                                                                dropDownUsersRecordList
+                                                                    .map((e) =>
+                                                                        e.displayName)
+                                                                    .toList(),
+                                                            onChanged:
+                                                                (val) async {
+                                                              setState(() =>
+                                                                  _model.dropDownValue =
+                                                                      val);
+                                                              setState(() {
+                                                                _model.assigneeRef =
+                                                                    functions.userIdtoRef(
+                                                                        _model
+                                                                            .dropDownValue!);
+                                                              });
+                                                            },
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
+                                                            hintText:
+                                                                'Assignee',
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down_rounded,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .primary,
+                                                                  .secondaryText,
+                                                              size: 24.0,
                                                             ),
-                                                          );
-                                                        }
-                                                        List<UsersRecord>
-                                                            dropDownUsersRecordList =
-                                                            snapshot.data!;
-                                                        return FlutterFlowDropDown<
-                                                            String>(
-                                                          controller: _model
-                                                                  .dropDownValueController ??=
-                                                              FormFieldController<
-                                                                  String>(
-                                                            _model.dropDownValue ??=
-                                                                '',
-                                                          ),
-                                                          options: List<
-                                                                  String>.from(
-                                                              dropDownUsersRecordList
-                                                                  .map((e) => e
-                                                                      .reference
-                                                                      .id)
-                                                                  .toList()),
-                                                          optionLabels:
-                                                              dropDownUsersRecordList
-                                                                  .map((e) => e
-                                                                      .displayName)
-                                                                  .toList(),
-                                                          onChanged:
-                                                              (val) async {
-                                                            setState(() => _model
-                                                                    .dropDownValue =
-                                                                val);
-                                                            setState(() {
-                                                              _model.assigneeRef =
-                                                                  functions
-                                                                      .userIdtoRef(
-                                                                          _model
-                                                                              .dropDownValue!);
-                                                            });
-                                                          },
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryText,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
-                                                          hintText: 'Assignee',
-                                                          icon: Icon(
-                                                            Icons
-                                                                .keyboard_arrow_down_rounded,
-                                                            color: FlutterFlowTheme
+                                                            fillColor: FlutterFlowTheme
                                                                     .of(context)
-                                                                .secondaryText,
-                                                            size: 24.0,
-                                                          ),
-                                                          fillColor: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          elevation: 0.0,
-                                                          borderColor: Colors
-                                                              .transparent,
-                                                          borderWidth: 0.0,
-                                                          borderRadius: 8.0,
-                                                          margin:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      4.0,
-                                                                      0.0,
-                                                                      4.0,
-                                                                      0.0),
-                                                          hidesUnderline: true,
-                                                          isOverButton: false,
-                                                          isSearchable: false,
-                                                          isMultiSelect: false,
-                                                        );
-                                                      },
+                                                                .primaryBackground,
+                                                            elevation: 0.0,
+                                                            borderColor: Colors
+                                                                .transparent,
+                                                            borderWidth: 0.0,
+                                                            borderRadius: 8.0,
+                                                            margin:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        4.0,
+                                                                        0.0,
+                                                                        4.0,
+                                                                        0.0),
+                                                            hidesUnderline:
+                                                                true,
+                                                            isOverButton: false,
+                                                            isSearchable: false,
+                                                            isMultiSelect:
+                                                                false,
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
-                                                  ),
                                                 ],
                                               ),
                                             ),

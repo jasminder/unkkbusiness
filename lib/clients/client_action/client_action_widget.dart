@@ -139,7 +139,9 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                                       return Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: const DeleteClientConfirmWidget(),
+                                        child: DeleteClientConfirmWidget(
+                                          clientRef: widget.clientRef,
+                                        ),
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));

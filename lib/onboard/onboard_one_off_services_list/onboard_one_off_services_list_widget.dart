@@ -710,50 +710,6 @@ class _OnboardOneOffServicesListWidgetState
                                                 },
                                               ),
                                             ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.goNamed(
-                                                  'onboardAddServices',
-                                                  queryParameters: {
-                                                    'proposalRef':
-                                                        serializeParam(
-                                                      widget.proposalRef,
-                                                      ParamType.Document,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    'proposalRef':
-                                                        widget.proposalRef,
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: Text(
-                                                '+ Add New Service',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                              ),
-                                            ),
                                           ],
                                         ),
                                       ),
@@ -764,47 +720,49 @@ class _OnboardOneOffServicesListWidgetState
                             ],
                           ),
                         ),
-                        Align(
-                          alignment: const AlignmentDirectional(1.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              context.goNamed(
-                                'addService',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                  ),
-                                },
-                              );
-                            },
-                            text: '+ Add Service Type',
-                            options: FFButtonOptions(
-                              width: 190.0,
-                              height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                width: 1.0,
+                        if (false)
+                          Align(
+                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.goNamed(
+                                  'addService',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                    ),
+                                  },
+                                );
+                              },
+                              text: '+ Add Service Type',
+                              options: FFButtonOptions(
+                                width: 190.0,
+                                height: 40.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                borderSide: BorderSide(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(58.0),
                               ),
-                              borderRadius: BorderRadius.circular(58.0),
                             ),
                           ),
-                        ),
                       ],
                     ),
                   ),

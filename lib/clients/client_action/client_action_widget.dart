@@ -80,7 +80,7 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                                   0.0, 0.0, 8.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.goNamed(
+                                  context.pushNamed(
                                     'clientDetails',
                                     queryParameters: {
                                       'clientRef': serializeParam(

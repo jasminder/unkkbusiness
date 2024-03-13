@@ -124,7 +124,7 @@ class _OnboardOneOffServicesListWidgetState
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        context.goNamed(
+                                        context.pushNamed(
                                           'onboardServiceTerms',
                                           queryParameters: {
                                             'clientServices': serializeParam(

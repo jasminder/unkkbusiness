@@ -131,6 +131,8 @@ class _TaskActionWidgetState extends State<TaskActionWidget> {
                                 onPressed: () async {
                                   await widget.taskRef!.delete();
                                   Navigator.pop(context);
+
+                                  context.pushNamed('clientsList');
                                 },
                                 text: 'Yes, Delete',
                                 options: FFButtonOptions(

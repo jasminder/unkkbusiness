@@ -124,16 +124,6 @@ class _DeleteClientConfirmWidgetState extends State<DeleteClientConfirmWidget> {
                             onPressed: () async {
                               await widget.clientRef!.delete();
                               Navigator.pop(context);
-
-                              context.goNamed(
-                                'clientsList',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                  ),
-                                },
-                              );
                             },
                             text: 'Yes, Delete',
                             options: FFButtonOptions(

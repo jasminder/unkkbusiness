@@ -344,7 +344,11 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   40.0, 20.0, 40.0, 20.0),
                               child: StreamBuilder<List<ProposalRecord>>(
-                                stream: queryProposalRecord(),
+                                stream: queryProposalRecord(
+                                  queryBuilder: (proposalRecord) =>
+                                      proposalRecord.orderBy('createdAt',
+                                          descending: true),
+                                ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {

@@ -95,6 +95,8 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                                       ),
                                     },
                                   );
+
+                                  Navigator.pop(context);
                                 },
                                 text: 'Client Info',
                                 options: FFButtonOptions(

@@ -411,11 +411,11 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                     20.0,
                                                                     0.0,
                                                                     20.0),
-                                                        child: FutureBuilder<
+                                                        child: StreamBuilder<
                                                             List<
                                                                 ClientsRecord>>(
-                                                          future:
-                                                              queryClientsRecordOnce(
+                                                          stream:
+                                                              queryClientsRecord(
                                                             queryBuilder:
                                                                 (clientsRecord) =>
                                                                     clientsRecord
@@ -867,11 +867,11 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                     20.0,
                                                                     0.0,
                                                                     20.0),
-                                                        child: FutureBuilder<
+                                                        child: StreamBuilder<
                                                             List<
                                                                 ClientsRecord>>(
-                                                          future:
-                                                              queryClientsRecordOnce(
+                                                          stream:
+                                                              queryClientsRecord(
                                                             queryBuilder:
                                                                 (clientsRecord) =>
                                                                     clientsRecord

@@ -136,7 +136,7 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                         6.0, 0.0, 6.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        context.goNamed(
+                                        context.pushNamed(
                                           'onBoardProposalPricing',
                                           queryParameters: {
                                             'clientServiceRef': serializeParam(

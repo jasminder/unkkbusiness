@@ -13,7 +13,7 @@ class OnboardAddServicesTypeWidget extends StatefulWidget {
     this.serviceRef,
   });
 
-  final ProposalRecord? proposalRef;
+  final DocumentReference? proposalRef;
   final DocumentReference? serviceRef;
 
   @override
@@ -61,50 +61,66 @@ class _OnboardAddServicesTypeWidgetState
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.safePop();
-                          },
-                          child: Container(
-                            width: 56.0,
-                            height: 56.0,
-                            decoration: BoxDecoration(
-                              color: const Color(0x33EEEEEE),
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                width: 1.0,
+                    StreamBuilder<ProposalRecord>(
+                      stream: ProposalRecord.getDocument(widget.proposalRef!),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: LinearProgressIndicator(
+                              color: FlutterFlowTheme.of(context).primary,
+                            ),
+                          );
+                        }
+                        final rowProposalRecord = snapshot.data!;
+                        return Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.safePop();
+                              },
+                              child: Container(
+                                width: 80.0,
+                                height: 80.0,
+                                decoration: BoxDecoration(
+                                  color: const Color(0x33EEEEEE),
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    width: 1.0,
+                                  ),
+                                ),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowLeft,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 28.0,
+                                ),
                               ),
                             ),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.arrowLeft,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 28.0,
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Send Proposal to ${rowProposalRecord.firstName} ${rowProposalRecord.lastName}',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Send Proposal to ${widget.proposalRef?.firstName} ${widget.proposalRef?.lastName}',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ],
+                          ],
+                        );
+                      },
                     ),
                     Padding(
                       padding:
@@ -154,7 +170,7 @@ class _OnboardAddServicesTypeWidgetState
                                               ),
                                               'proposalRef': serializeParam(
                                                 widget.proposalRef,
-                                                ParamType.Document,
+                                                ParamType.DocumentReference,
                                               ),
                                               'serviceType': serializeParam(
                                                 'one off',
@@ -162,7 +178,6 @@ class _OnboardAddServicesTypeWidgetState
                                               ),
                                             }.withoutNulls,
                                             extra: <String, dynamic>{
-                                              'proposalRef': widget.proposalRef,
                                               kTransitionInfoKey:
                                                   const TransitionInfo(
                                                 hasTransition: true,
@@ -261,7 +276,7 @@ class _OnboardAddServicesTypeWidgetState
                                               ),
                                               'proposalRef': serializeParam(
                                                 widget.proposalRef,
-                                                ParamType.Document,
+                                                ParamType.DocumentReference,
                                               ),
                                               'serviceType': serializeParam(
                                                 'regular',
@@ -269,7 +284,6 @@ class _OnboardAddServicesTypeWidgetState
                                               ),
                                             }.withoutNulls,
                                             extra: <String, dynamic>{
-                                              'proposalRef': widget.proposalRef,
                                               kTransitionInfoKey:
                                                   const TransitionInfo(
                                                 hasTransition: true,

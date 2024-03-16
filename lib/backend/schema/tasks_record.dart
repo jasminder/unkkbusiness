@@ -40,11 +40,6 @@ class TasksRecord extends FirestoreRecord {
   DateTime? get createdAt => _createdAt;
   bool hasCreatedAt() => _createdAt != null;
 
-  // "serviceRef" field.
-  DocumentReference? _serviceRef;
-  DocumentReference? get serviceRef => _serviceRef;
-  bool hasServiceRef() => _serviceRef != null;
-
   // "clientRef" field.
   DocumentReference? _clientRef;
   DocumentReference? get clientRef => _clientRef;
@@ -60,16 +55,27 @@ class TasksRecord extends FirestoreRecord {
   String get comment => _comment ?? '';
   bool hasComment() => _comment != null;
 
+  // "clientServiceRef" field.
+  DocumentReference? _clientServiceRef;
+  DocumentReference? get clientServiceRef => _clientServiceRef;
+  bool hasClientServiceRef() => _clientServiceRef != null;
+
+  // "serviceRef" field.
+  DocumentReference? _serviceRef;
+  DocumentReference? get serviceRef => _serviceRef;
+  bool hasServiceRef() => _serviceRef != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _details = snapshotData['details'] as String?;
     _dueDate = snapshotData['dueDate'] as DateTime?;
     _status = snapshotData['status'] as String?;
     _createdAt = snapshotData['createdAt'] as DateTime?;
-    _serviceRef = snapshotData['serviceRef'] as DocumentReference?;
     _clientRef = snapshotData['clientRef'] as DocumentReference?;
     _assignee = snapshotData['assignee'] as DocumentReference?;
     _comment = snapshotData['comment'] as String?;
+    _clientServiceRef = snapshotData['clientServiceRef'] as DocumentReference?;
+    _serviceRef = snapshotData['serviceRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -111,10 +117,11 @@ Map<String, dynamic> createTasksRecordData({
   DateTime? dueDate,
   String? status,
   DateTime? createdAt,
-  DocumentReference? serviceRef,
   DocumentReference? clientRef,
   DocumentReference? assignee,
   String? comment,
+  DocumentReference? clientServiceRef,
+  DocumentReference? serviceRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -123,10 +130,11 @@ Map<String, dynamic> createTasksRecordData({
       'dueDate': dueDate,
       'status': status,
       'createdAt': createdAt,
-      'serviceRef': serviceRef,
       'clientRef': clientRef,
       'assignee': assignee,
       'comment': comment,
+      'clientServiceRef': clientServiceRef,
+      'serviceRef': serviceRef,
     }.withoutNulls,
   );
 
@@ -143,10 +151,11 @@ class TasksRecordDocumentEquality implements Equality<TasksRecord> {
         e1?.dueDate == e2?.dueDate &&
         e1?.status == e2?.status &&
         e1?.createdAt == e2?.createdAt &&
-        e1?.serviceRef == e2?.serviceRef &&
         e1?.clientRef == e2?.clientRef &&
         e1?.assignee == e2?.assignee &&
-        e1?.comment == e2?.comment;
+        e1?.comment == e2?.comment &&
+        e1?.clientServiceRef == e2?.clientServiceRef &&
+        e1?.serviceRef == e2?.serviceRef;
   }
 
   @override
@@ -156,10 +165,11 @@ class TasksRecordDocumentEquality implements Equality<TasksRecord> {
         e?.dueDate,
         e?.status,
         e?.createdAt,
-        e?.serviceRef,
         e?.clientRef,
         e?.assignee,
-        e?.comment
+        e?.comment,
+        e?.clientServiceRef,
+        e?.serviceRef
       ]);
 
   @override

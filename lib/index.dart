@@ -14,8 +14,8 @@ export '/onboard/onboard_add_services_type/onboard_add_services_type_widget.dart
     show OnboardAddServicesTypeWidget;
 export '/onboard/onboard_one_off_services_type_bill/onboard_one_off_services_type_bill_widget.dart'
     show OnboardOneOffServicesTypeBillWidget;
-export '/onboard/onboard_one_off_services_list/onboard_one_off_services_list_widget.dart'
-    show OnboardOneOffServicesListWidget;
+export '/onboard/onboard_services_list/onboard_services_list_widget.dart'
+    show OnboardServicesListWidget;
 export '/onboard/onboard_service_terms/onboard_service_terms_widget.dart'
     show OnboardServiceTermsWidget;
 export '/onboard/onboard_service_email/onboard_service_email_widget.dart'
@@ -48,3 +48,5 @@ export '/onboard/on_board_proposal_pricing/on_board_proposal_pricing_widget.dart
 export '/services/edit_service/edit_service_widget.dart' show EditServiceWidget;
 export '/clients/client_services/client_services_widget.dart'
     show ClientServicesWidget;
+export '/proposal/proposal_info/proposal_info_widget.dart'
+    show ProposalInfoWidget;

@@ -14,29 +14,27 @@ class OnboardOneOffServicesTypeBillModel
 
   int loopCount = 0;
 
+  DocumentReference? clientRef;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  ProposalRecord? userProposal;
+  ProposalRecord? propsalInfo;
   // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  ServicesRecord? serviceInfo;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  ClientsRecord? clientInfo;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  ClientServicesRecord? clientService;
+  ServicesRecord? serviceDetails;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  List<ServicesTaskRecord>? serviceTasks;
-  // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  ProposalRecord? userProposal2;
-  // Stores action output result for [Backend Call - Read Document] action in Container widget.
-  ServicesRecord? serviceInfo2;
+  ClientsRecord? clientExists;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  ClientsRecord? clientInfo3;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  ClientServicesRecord? clientService3;
+  ClientsRecord? createdClient;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  ProposalRecord? propsalInfo2;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  ServicesRecord? serviceDetails2;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  List<ServicesTaskRecord>? serviceTasks3;
+  ClientsRecord? clientExists2;
+  // Stores action output result for [Backend Call - Create Document] action in Container widget.
+  ClientsRecord? createdClient2;
 
   /// Initialization and disposal methods.
 

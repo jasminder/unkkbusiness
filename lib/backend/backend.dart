@@ -13,6 +13,7 @@ import 'schema/tasks_record.dart';
 import 'schema/users_record.dart';
 import 'schema/comments_record.dart';
 import 'schema/services_task_record.dart';
+import 'schema/client_track_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -28,6 +29,7 @@ export 'schema/tasks_record.dart';
 export 'schema/users_record.dart';
 export 'schema/comments_record.dart';
 export 'schema/services_task_record.dart';
+export 'schema/client_track_record.dart';
 
 /// Functions to query ProposalRecords (as a Stream and as a Future).
 Future<int> queryProposalRecordCount({
@@ -323,6 +325,43 @@ Future<List<ServicesTaskRecord>> queryServicesTaskRecordOnce({
     queryCollectionOnce(
       ServicesTaskRecord.collection,
       ServicesTaskRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ClientTrackRecords (as a Stream and as a Future).
+Future<int> queryClientTrackRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ClientTrackRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ClientTrackRecord>> queryClientTrackRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ClientTrackRecord.collection,
+      ClientTrackRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ClientTrackRecord>> queryClientTrackRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ClientTrackRecord.collection,
+      ClientTrackRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -115,15 +115,30 @@ class ClientsRecord extends FirestoreRecord {
   String get gender => _gender ?? '';
   bool hasGender() => _gender != null;
 
-  // "type" field.
-  String? _type;
-  String get type => _type ?? '';
-  bool hasType() => _type != null;
-
   // "serviceType" field.
   String? _serviceType;
   String get serviceType => _serviceType ?? '';
   bool hasServiceType() => _serviceType != null;
+
+  // "typeOneOff" field.
+  bool? _typeOneOff;
+  bool get typeOneOff => _typeOneOff ?? false;
+  bool hasTypeOneOff() => _typeOneOff != null;
+
+  // "typeRegular" field.
+  bool? _typeRegular;
+  bool get typeRegular => _typeRegular ?? false;
+  bool hasTypeRegular() => _typeRegular != null;
+
+  // "proposalExists" field.
+  bool? _proposalExists;
+  bool get proposalExists => _proposalExists ?? false;
+  bool hasProposalExists() => _proposalExists != null;
+
+  // "clientType" field.
+  String? _clientType;
+  String get clientType => _clientType ?? '';
+  bool hasClientType() => _clientType != null;
 
   void _initializeFields() {
     _firstName = snapshotData['firstName'] as String?;
@@ -146,8 +161,11 @@ class ClientsRecord extends FirestoreRecord {
     _individualAddress = snapshotData['individualAddress'] as String?;
     _individualPhone = snapshotData['individualPhone'] as String?;
     _gender = snapshotData['gender'] as String?;
-    _type = snapshotData['type'] as String?;
     _serviceType = snapshotData['serviceType'] as String?;
+    _typeOneOff = snapshotData['typeOneOff'] as bool?;
+    _typeRegular = snapshotData['typeRegular'] as bool?;
+    _proposalExists = snapshotData['proposalExists'] as bool?;
+    _clientType = snapshotData['clientType'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -205,8 +223,11 @@ Map<String, dynamic> createClientsRecordData({
   String? individualAddress,
   String? individualPhone,
   String? gender,
-  String? type,
   String? serviceType,
+  bool? typeOneOff,
+  bool? typeRegular,
+  bool? proposalExists,
+  String? clientType,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -230,8 +251,11 @@ Map<String, dynamic> createClientsRecordData({
       'individualAddress': individualAddress,
       'individualPhone': individualPhone,
       'gender': gender,
-      'type': type,
       'serviceType': serviceType,
+      'typeOneOff': typeOneOff,
+      'typeRegular': typeRegular,
+      'proposalExists': proposalExists,
+      'clientType': clientType,
     }.withoutNulls,
   );
 
@@ -263,8 +287,11 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e1?.individualAddress == e2?.individualAddress &&
         e1?.individualPhone == e2?.individualPhone &&
         e1?.gender == e2?.gender &&
-        e1?.type == e2?.type &&
-        e1?.serviceType == e2?.serviceType;
+        e1?.serviceType == e2?.serviceType &&
+        e1?.typeOneOff == e2?.typeOneOff &&
+        e1?.typeRegular == e2?.typeRegular &&
+        e1?.proposalExists == e2?.proposalExists &&
+        e1?.clientType == e2?.clientType;
   }
 
   @override
@@ -289,8 +316,11 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e?.individualAddress,
         e?.individualPhone,
         e?.gender,
-        e?.type,
-        e?.serviceType
+        e?.serviceType,
+        e?.typeOneOff,
+        e?.typeRegular,
+        e?.proposalExists,
+        e?.clientType
       ]);
 
   @override

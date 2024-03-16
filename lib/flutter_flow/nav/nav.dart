@@ -114,21 +114,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'onboardAddServices',
           path: '/onboardAddServices',
-          asyncParams: {
-            'proposalRef': getDoc(['proposal'], ProposalRecord.fromSnapshot),
-          },
           builder: (context, params) => OnboardAddServicesWidget(
-            proposalRef: params.getParam('proposalRef', ParamType.Document),
+            proposalRef: params.getParam('proposalRef',
+                ParamType.DocumentReference, false, ['proposal']),
           ),
         ),
         FFRoute(
           name: 'onboardAddServicesType',
           path: '/onboardAddServicesType',
-          asyncParams: {
-            'proposalRef': getDoc(['proposal'], ProposalRecord.fromSnapshot),
-          },
           builder: (context, params) => OnboardAddServicesTypeWidget(
-            proposalRef: params.getParam('proposalRef', ParamType.Document),
+            proposalRef: params.getParam('proposalRef',
+                ParamType.DocumentReference, false, ['proposal']),
             serviceRef: params.getParam(
                 'serviceRef', ParamType.DocumentReference, false, ['services']),
           ),
@@ -136,26 +132,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'onboardOneOffServicesTypeBill',
           path: '/onboardOneOffServicesTypeBill',
-          asyncParams: {
-            'proposalRef': getDoc(['proposal'], ProposalRecord.fromSnapshot),
-          },
           builder: (context, params) => OnboardOneOffServicesTypeBillWidget(
             serviceRef: params.getParam(
                 'serviceRef', ParamType.DocumentReference, false, ['services']),
-            proposalRef: params.getParam('proposalRef', ParamType.Document),
+            proposalRef: params.getParam('proposalRef',
+                ParamType.DocumentReference, false, ['proposal']),
             serviceType: params.getParam('serviceType', ParamType.String),
           ),
         ),
         FFRoute(
-          name: 'onboardOneOffServicesList',
-          path: '/onboardOneOffServicesList',
-          asyncParams: {
-            'proposalRef': getDoc(['proposal'], ProposalRecord.fromSnapshot),
-          },
-          builder: (context, params) => OnboardOneOffServicesListWidget(
+          name: 'onboardServicesList',
+          path: '/onboardServicesList',
+          builder: (context, params) => OnboardServicesListWidget(
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
-            proposalRef: params.getParam('proposalRef', ParamType.Document),
+            perposalRef: params.getParam('perposalRef',
+                ParamType.DocumentReference, false, ['proposal']),
           ),
         ),
         FFRoute(
@@ -166,6 +158,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ParamType.DocumentReference, true, ['clientServices']),
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+            proposalRef: params.getParam('proposalRef',
+                ParamType.DocumentReference, false, ['proposal']),
           ),
         ),
         FFRoute(
@@ -176,6 +170,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ParamType.DocumentReference, true, ['clientServices']),
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+            proposalRef: params.getParam('proposalRef',
+                ParamType.DocumentReference, false, ['proposal']),
           ),
         ),
         FFRoute(
@@ -239,6 +235,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
             serviceRef: params.getParam(
                 'serviceRef', ParamType.DocumentReference, false, ['services']),
+            clientServiceRef: params.getParam('clientServiceRef',
+                ParamType.DocumentReference, false, ['clientServices']),
           ),
         ),
         FFRoute(
@@ -278,6 +276,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClientServicesWidget(
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+          ),
+        ),
+        FFRoute(
+          name: 'proposalInfo',
+          path: '/proposalInfo',
+          asyncParams: {
+            'clientTrack':
+                getDoc(['clientTrack'], ClientTrackRecord.fromSnapshot),
+          },
+          builder: (context, params) => ProposalInfoWidget(
+            clientTrack: params.getParam('clientTrack', ParamType.Document),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/clients/add_client_task/add_client_task_widget.dart';
 import '/clients/task_component/task_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -15,10 +14,12 @@ class ClientTaskDetailWidget extends StatefulWidget {
     super.key,
     this.clientRef,
     this.serviceRef,
+    this.clientServiceRef,
   });
 
   final DocumentReference? clientRef;
   final DocumentReference? serviceRef;
+  final DocumentReference? clientServiceRef;
 
   @override
   State<ClientTaskDetailWidget> createState() => _ClientTaskDetailWidgetState();
@@ -74,91 +75,40 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.safePop();
-                                },
-                                child: Container(
-                                  width: 56.0,
-                                  height: 56.0,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0x33EEEEEE),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      width: 1.0,
-                                    ),
+                              Container(
+                                width: 56.0,
+                                height: 56.0,
+                                decoration: BoxDecoration(
+                                  color: const Color(0x33EEEEEE),
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    width: 1.0,
                                   ),
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: FaIcon(
-                                    FontAwesomeIcons.arrowLeft,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 28.0,
-                                  ),
+                                ),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowLeft,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 28.0,
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
-                                child: StreamBuilder<ServicesRecord>(
-                                  stream: ServicesRecord.getDocument(
-                                      widget.serviceRef!),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: LinearProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                        ),
-                                      );
-                                    }
-                                    final textServicesRecord = snapshot.data!;
-                                    return Text(
-                                      textServicesRecord.name,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge,
-                                    );
-                                  },
+                                child: Text(
+                                  'Service name',
+                                  style:
+                                      FlutterFlowTheme.of(context).titleLarge,
                                 ),
                               ),
                             ],
                           ),
                           FFButtonWidget(
-                            onPressed: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                1.0,
-                                        child: AddClientTaskWidget(
-                                          clientRef: widget.clientRef,
-                                          serviceRef: widget.serviceRef,
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
+                            onPressed: () {
+                              print('Button pressed ...');
                             },
                             text: '+ Add Task',
                             options: FFButtonOptions(
@@ -195,13 +145,7 @@ class _ClientTaskDetailWidgetState extends State<ClientTaskDetailWidget> {
                             children: [
                               Expanded(
                                 child: StreamBuilder<List<TasksRecord>>(
-                                  stream: queryTasksRecord(
-                                    queryBuilder: (tasksRecord) =>
-                                        tasksRecord.where(
-                                      'clientRef',
-                                      isEqualTo: widget.clientRef,
-                                    ),
-                                  ),
+                                  stream: queryTasksRecord(),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {

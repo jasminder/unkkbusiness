@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -123,7 +124,23 @@ class _DeleteClientConfirmWidgetState extends State<DeleteClientConfirmWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               await widget.clientRef!.delete();
+                              _model.clientTasks = await queryTasksRecordOnce(
+                                queryBuilder: (tasksRecord) =>
+                                    tasksRecord.where(
+                                  'clientRef',
+                                  isEqualTo: widget.clientRef,
+                                ),
+                              );
+                              while (_model.clientTasks!.length > _model.loop) {
+                                await _model.clientTasks![_model.loop].reference
+                                    .delete();
+                                setState(() {
+                                  _model.loop = _model.loop + 1;
+                                });
+                              }
                               Navigator.pop(context);
+
+                              setState(() {});
                             },
                             text: 'Yes, Delete',
                             options: FFButtonOptions(

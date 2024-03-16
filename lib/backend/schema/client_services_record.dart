@@ -66,6 +66,11 @@ class ClientServicesRecord extends FirestoreRecord {
   String get status => _status ?? '';
   bool hasStatus() => _status != null;
 
+  // "proposalRef" field.
+  DocumentReference? _proposalRef;
+  DocumentReference? get proposalRef => _proposalRef;
+  bool hasProposalRef() => _proposalRef != null;
+
   void _initializeFields() {
     _type = snapshotData['type'] as String?;
     _billingMode = snapshotData['billingMode'] as String?;
@@ -77,6 +82,7 @@ class ClientServicesRecord extends FirestoreRecord {
     _serviceRef = snapshotData['serviceRef'] as DocumentReference?;
     _createdAt = snapshotData['createdAt'] as DateTime?;
     _status = snapshotData['status'] as String?;
+    _proposalRef = snapshotData['proposalRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -124,6 +130,7 @@ Map<String, dynamic> createClientServicesRecordData({
   DocumentReference? serviceRef,
   DateTime? createdAt,
   String? status,
+  DocumentReference? proposalRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -137,6 +144,7 @@ Map<String, dynamic> createClientServicesRecordData({
       'serviceRef': serviceRef,
       'createdAt': createdAt,
       'status': status,
+      'proposalRef': proposalRef,
     }.withoutNulls,
   );
 
@@ -158,7 +166,8 @@ class ClientServicesRecordDocumentEquality
         e1?.clientRef == e2?.clientRef &&
         e1?.serviceRef == e2?.serviceRef &&
         e1?.createdAt == e2?.createdAt &&
-        e1?.status == e2?.status;
+        e1?.status == e2?.status &&
+        e1?.proposalRef == e2?.proposalRef;
   }
 
   @override
@@ -172,7 +181,8 @@ class ClientServicesRecordDocumentEquality
         e?.clientRef,
         e?.serviceRef,
         e?.createdAt,
-        e?.status
+        e?.status,
+        e?.proposalRef
       ]);
 
   @override

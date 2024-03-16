@@ -1,19 +1,17 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'onboard_service_email_widget.dart' show OnboardServiceEmailWidget;
+import 'delete_proposal_widget.dart' show DeleteProposalWidget;
 import 'package:flutter/material.dart';
 
-class OnboardServiceEmailModel
-    extends FlutterFlowModel<OnboardServiceEmailWidget> {
-  ///  Local state fields for this page.
+class DeleteProposalModel extends FlutterFlowModel<DeleteProposalWidget> {
+  ///  Local state fields for this component.
 
-  int loopCount = 0;
+  int loop = 0;
 
-  ///  State fields for stateful widgets in this page.
+  ///  State fields for stateful widgets in this component.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in Button widget.
-  ClientsRecord? clientInfo;
+  ClientTrackRecord? trackInfo;
 
   /// Initialization and disposal methods.
 
@@ -21,9 +19,7 @@ class OnboardServiceEmailModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Action blocks are added here.
 

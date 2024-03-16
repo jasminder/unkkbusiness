@@ -14,10 +14,12 @@ class OnboardServiceEmailWidget extends StatefulWidget {
     super.key,
     required this.clientServices,
     required this.clientRef,
+    this.proposalRef,
   });
 
   final List<DocumentReference>? clientServices;
   final DocumentReference? clientRef;
+  final DocumentReference? proposalRef;
 
   @override
   State<OnboardServiceEmailWidget> createState() =>
@@ -392,6 +394,47 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                             0.0, 40.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
+                                            _model.clientInfo =
+                                                await ClientsRecord
+                                                    .getDocumentOnce(
+                                                        widget.clientRef!);
+
+                                            await ClientTrackRecord.collection
+                                                .doc()
+                                                .set({
+                                              ...createClientTrackRecordData(
+                                                clientRef: widget.clientRef,
+                                                proposalRef: widget.proposalRef,
+                                                email:
+                                                    columnClientsRecord.email,
+                                                status: 'sent',
+                                              ),
+                                              ...mapToFirestore(
+                                                {
+                                                  'createdAt': FieldValue
+                                                      .serverTimestamp(),
+                                                  'clientServices':
+                                                      widget.clientServices,
+                                                },
+                                              ),
+                                            });
+                                            while (
+                                                widget.clientServices!.length >
+                                                    _model.loopCount) {
+                                              await widget.clientServices![
+                                                      _model.loopCount]
+                                                  .update(
+                                                      createClientServicesRecordData(
+                                                status: 'sent via proposal',
+                                              ));
+                                              setState(() {
+                                                _model.loopCount =
+                                                    _model.loopCount + 1;
+                                              });
+                                            }
+                                            setState(() {
+                                              _model.loopCount = 0;
+                                            });
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
@@ -426,6 +469,8 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                               },
                                             ).then(
                                                 (value) => safeSetState(() {}));
+
+                                            setState(() {});
                                           },
                                           text: 'Send Email',
                                           options: FFButtonOptions(

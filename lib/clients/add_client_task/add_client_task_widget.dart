@@ -13,10 +13,12 @@ class AddClientTaskWidget extends StatefulWidget {
   const AddClientTaskWidget({
     super.key,
     this.clientRef,
+    this.clientServiceRef,
     this.serviceRef,
   });
 
   final DocumentReference? clientRef;
+  final DocumentReference? clientServiceRef;
   final DocumentReference? serviceRef;
 
   @override
@@ -662,6 +664,8 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                         details:
                                             _model.descriptionController.text,
                                         comment: _model.commentController.text,
+                                        clientServiceRef:
+                                            widget.clientServiceRef,
                                         serviceRef: widget.serviceRef,
                                       ),
                                       ...mapToFirestore(
@@ -683,6 +687,8 @@ class _AddClientTaskWidgetState extends State<AddClientTaskWidget> {
                                         details:
                                             _model.descriptionController.text,
                                         comment: _model.commentController.text,
+                                        clientServiceRef:
+                                            widget.clientServiceRef,
                                         serviceRef: widget.serviceRef,
                                       ),
                                       ...mapToFirestore(

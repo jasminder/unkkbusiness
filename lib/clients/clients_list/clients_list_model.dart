@@ -30,6 +30,9 @@ class ClientsListModel extends FlutterFlowModel<ClientsListWidget> {
   // State field(s) for PaginatedDataTable widget.
   final paginatedDataTableController2 =
       FlutterFlowDataTableController<ClientsRecord>();
+  // State field(s) for PaginatedDataTable widget.
+  final paginatedDataTableController3 =
+      FlutterFlowDataTableController<ClientTrackRecord>();
 
   /// Initialization and disposal methods.
 

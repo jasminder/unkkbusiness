@@ -1,5 +1,7 @@
 import '/backend/backend.dart';
+import '/clients/accept_proposal/accept_proposal_widget.dart';
 import '/clients/client_action/client_action_widget.dart';
+import '/clients/delete_proposal/delete_proposal_widget.dart';
 import '/components/empty_result_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -47,7 +49,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 2,
+      length: 3,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -385,11 +387,18 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                 Tab(
                                                   text: 'Generic Clients',
                                                 ),
+                                                Tab(
+                                                  text: 'Pending Proposals',
+                                                ),
                                               ],
                                               controller:
                                                   _model.tabBarController,
                                               onTap: (i) async {
-                                                [() async {}, () async {}][i]();
+                                                [
+                                                  () async {},
+                                                  () async {},
+                                                  () async {}
+                                                ][i]();
                                               },
                                             ),
                                           ),
@@ -639,14 +648,14 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                           ),
                                                                           Visibility(
                                                                             visible:
-                                                                                clientsItem.type != '',
+                                                                                clientsItem.clientType != '',
                                                                             child:
                                                                                 SingleChildScrollView(
                                                                               scrollDirection: Axis.horizontal,
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
-                                                                                  if (clientsItem.type == 'compnay')
+                                                                                  if (clientsItem.clientType == 'compnay')
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                       child: FFButtonWidget(
@@ -674,7 +683,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  if (clientsItem.type == 'trust')
+                                                                                  if (clientsItem.clientType == 'trust')
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                       child: FFButtonWidget(
@@ -702,7 +711,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  if (clientsItem.type == 'individual')
+                                                                                  if (clientsItem.clientType == 'individual')
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                       child: FFButtonWidget(
@@ -1095,14 +1104,14 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                           ),
                                                                           Visibility(
                                                                             visible:
-                                                                                clientsItem.type != '',
+                                                                                clientsItem.clientType != '',
                                                                             child:
                                                                                 SingleChildScrollView(
                                                                               scrollDirection: Axis.horizontal,
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
-                                                                                  if (clientsItem.type == 'compnay')
+                                                                                  if (clientsItem.clientType == 'compnay')
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                       child: FFButtonWidget(
@@ -1130,7 +1139,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  if (clientsItem.type == 'trust')
+                                                                                  if (clientsItem.clientType == 'trust')
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                       child: FFButtonWidget(
@@ -1158,7 +1167,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  if (clientsItem.type == 'individual')
+                                                                                  if (clientsItem.clientType == 'individual')
                                                                                     Padding(
                                                                                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                                                                                       child: FFButtonWidget(
@@ -1309,6 +1318,434 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                       ),
                                                     ),
                                                   ],
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 20.0),
+                                                  child: StreamBuilder<
+                                                      List<ClientTrackRecord>>(
+                                                    stream:
+                                                        queryClientTrackRecord(
+                                                      queryBuilder:
+                                                          (clientTrackRecord) =>
+                                                              clientTrackRecord
+                                                                  .where(
+                                                        'status',
+                                                        isEqualTo: 'sent',
+                                                      ),
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 40.0,
+                                                            height: 40.0,
+                                                            child:
+                                                                SpinKitCircle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
+                                                              size: 40.0,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<ClientTrackRecord>
+                                                          containerClientTrackRecordList =
+                                                          snapshot.data!;
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              const Color(0x33EEEEEE),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary,
+                                                            width: 1.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      40.0,
+                                                                      30.0,
+                                                                      40.0,
+                                                                      30.0),
+                                                          child: Builder(
+                                                            builder: (context) {
+                                                              final servicesTrack =
+                                                                  containerClientTrackRecordList
+                                                                      .toList();
+                                                              if (servicesTrack
+                                                                  .isEmpty) {
+                                                                return const EmptyResultWidget();
+                                                              }
+                                                              return FlutterFlowDataTable<
+                                                                  ClientTrackRecord>(
+                                                                controller: _model
+                                                                    .paginatedDataTableController3,
+                                                                data:
+                                                                    servicesTrack,
+                                                                numRows:
+                                                                    containerClientTrackRecordList
+                                                                        .length,
+                                                                columnsBuilder:
+                                                                    (onSortChanged) =>
+                                                                        [
+                                                                  DataColumn2(
+                                                                    label: DefaultTextStyle
+                                                                        .merge(
+                                                                      softWrap:
+                                                                          true,
+                                                                      child:
+                                                                          Text(
+                                                                        'Email',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  DataColumn2(
+                                                                    label: DefaultTextStyle
+                                                                        .merge(
+                                                                      softWrap:
+                                                                          true,
+                                                                      child:
+                                                                          Text(
+                                                                        'Name',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  DataColumn2(
+                                                                    label: DefaultTextStyle
+                                                                        .merge(
+                                                                      softWrap:
+                                                                          true,
+                                                                      child:
+                                                                          Text(
+                                                                        'Date',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontWeight: FontWeight.w500,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    fixedWidth:
+                                                                        150.0,
+                                                                  ),
+                                                                  DataColumn2(
+                                                                    label: DefaultTextStyle
+                                                                        .merge(
+                                                                      softWrap:
+                                                                          true,
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: const AlignmentDirectional(
+                                                                            1.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          'Action',
+                                                                          textAlign:
+                                                                              TextAlign.end,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                fontWeight: FontWeight.w500,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                                dataRowBuilder: (servicesTrackItem,
+                                                                        servicesTrackIndex,
+                                                                        selected,
+                                                                        onSelectChanged) =>
+                                                                    DataRow(
+                                                                  cells: [
+                                                                    Text(
+                                                                      servicesTrackItem
+                                                                          .email,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
+                                                                    ),
+                                                                    StreamBuilder<
+                                                                        ClientsRecord>(
+                                                                      stream: ClientsRecord.getDocument(
+                                                                          servicesTrackItem
+                                                                              .clientRef!),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                LinearProgressIndicator(
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        final textClientsRecord =
+                                                                            snapshot.data!;
+                                                                        return Text(
+                                                                          '${textClientsRecord.firstName} ${textClientsRecord.lastName}',
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                          'yMMMd',
+                                                                          servicesTrackItem
+                                                                              .createdAt!),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
+                                                                    ),
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .end,
+                                                                      children: [
+                                                                        FFButtonWidget(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            context.pushNamed(
+                                                                              'proposalInfo',
+                                                                              queryParameters: {
+                                                                                'clientTrack': serializeParam(
+                                                                                  servicesTrackItem,
+                                                                                  ParamType.Document,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                              extra: <String, dynamic>{
+                                                                                'clientTrack': servicesTrackItem,
+                                                                                kTransitionInfoKey: const TransitionInfo(
+                                                                                  hasTransition: true,
+                                                                                  transitionType: PageTransitionType.fade,
+                                                                                ),
+                                                                              },
+                                                                            );
+                                                                          },
+                                                                          text:
+                                                                              'View',
+                                                                          options:
+                                                                              FFButtonOptions(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                22.0,
+                                                                                8.0,
+                                                                                22.0,
+                                                                                8.0),
+                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                ),
+                                                                            elevation:
+                                                                                0.0,
+                                                                            borderSide:
+                                                                                const BorderSide(
+                                                                              color: Colors.transparent,
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(58.0),
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              6.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FFButtonWidget(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              await showModalBottomSheet(
+                                                                                isScrollControlled: true,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                enableDrag: false,
+                                                                                context: context,
+                                                                                builder: (context) {
+                                                                                  return GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: SizedBox(
+                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                        child: AcceptProposalWidget(
+                                                                                          clientTrackRef: servicesTrackItem.reference,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              ).then((value) => safeSetState(() {}));
+                                                                            },
+                                                                            text:
+                                                                                'Accept',
+                                                                            options:
+                                                                                FFButtonOptions(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: const Color(0x0004F5C8),
+                                                                              textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                              elevation: 0.0,
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(58.0),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              6.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FFButtonWidget(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              await showModalBottomSheet(
+                                                                                isScrollControlled: true,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                enableDrag: false,
+                                                                                context: context,
+                                                                                builder: (context) {
+                                                                                  return GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: SizedBox(
+                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                        child: DeleteProposalWidget(
+                                                                                          trackRef: servicesTrackItem.reference,
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              ).then((value) => safeSetState(() {}));
+                                                                            },
+                                                                            text:
+                                                                                'Remove',
+                                                                            options:
+                                                                                FFButtonOptions(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                              elevation: 0.0,
+                                                                              borderSide: const BorderSide(
+                                                                                color: Colors.transparent,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(58.0),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ]
+                                                                      .map((c) =>
+                                                                          DataCell(
+                                                                              c))
+                                                                      .toList(),
+                                                                ),
+                                                                emptyBuilder: () =>
+                                                                    const EmptyResultWidget(),
+                                                                paginated: true,
+                                                                selectable:
+                                                                    false,
+                                                                hidePaginator:
+                                                                    false,
+                                                                showFirstLastButtons:
+                                                                    false,
+                                                                minWidth: 800.0,
+                                                                headingRowHeight:
+                                                                    56.0,
+                                                                dataRowHeight:
+                                                                    48.0,
+                                                                columnSpacing:
+                                                                    20.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                addHorizontalDivider:
+                                                                    true,
+                                                                addTopAndBottomDivider:
+                                                                    false,
+                                                                hideDefaultHorizontalDivider:
+                                                                    false,
+                                                                horizontalDividerColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                horizontalDividerThickness:
+                                                                    1.0,
+                                                                addVerticalDivider:
+                                                                    false,
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                               ],
                                             ),

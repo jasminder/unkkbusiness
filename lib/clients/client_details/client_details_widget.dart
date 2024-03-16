@@ -799,20 +799,13 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                                       String>(
                                                                 _model.clientTypeValue ??=
                                                                     columnClientsRecord
-                                                                        .type,
+                                                                        .clientType,
                                                               ),
-                                                              options: List<
-                                                                  String>.from([
+                                                              options: const [
                                                                 'company',
                                                                 'trust',
                                                                 'individual',
                                                                 'none'
-                                                              ]),
-                                                              optionLabels: const [
-                                                                'Company',
-                                                                'Trust',
-                                                                'Individual',
-                                                                'None'
                                                               ],
                                                               onChanged:
                                                                   (val) async {
@@ -865,7 +858,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                                               hidesUnderline:
                                                                   true,
                                                               isOverButton:
-                                                                  true,
+                                                                  false,
                                                               isSearchable:
                                                                   false,
                                                               isMultiSelect:
@@ -893,7 +886,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                 ],
                               ),
                             ),
-                            if ((columnClientsRecord.type == 'company') ||
+                            if ((columnClientsRecord.clientType == 'company') ||
                                 (_model.clientType == 'company'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -1534,7 +1527,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                   ],
                                 ),
                               ),
-                            if ((columnClientsRecord.type == 'trust') ||
+                            if ((columnClientsRecord.clientType == 'trust') ||
                                 (_model.clientType == 'trust'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -2175,7 +2168,8 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                   ],
                                 ),
                               ),
-                            if ((columnClientsRecord.type == 'individual') ||
+                            if ((columnClientsRecord.clientType ==
+                                    'individual') ||
                                 (_model.clientType == 'individual'))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -2832,7 +2826,6 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                         lastName:
                                             _model.lastNameController.text,
                                         gender: _model.genderValue,
-                                        type: _model.clientTypeValue,
                                         companyName:
                                             _model.companyNameController.text,
                                         companyPhone: _model
@@ -2857,6 +2850,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                             .individualAddressController.text,
                                         individualPhone: _model
                                             .individualTelephoneController.text,
+                                        clientType: _model.clientType,
                                       ));
                                     },
                                     text: 'Update Client',

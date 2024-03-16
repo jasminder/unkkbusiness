@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/clients/add_client_task/add_client_task_widget.dart';
 import '/clients/edit_client_task/edit_client_task_widget.dart';
 import '/clients/task_action/task_action_widget.dart';
 import '/components/empty_result_widget.dart';
@@ -182,10 +183,16 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                         stream: queryClientServicesRecord(
                                           queryBuilder:
                                               (clientServicesRecord) =>
-                                                  clientServicesRecord.where(
-                                            'clientRef',
-                                            isEqualTo: widget.clientRef,
-                                          ),
+                                                  clientServicesRecord
+                                                      .where(
+                                                        'clientRef',
+                                                        isEqualTo:
+                                                            widget.clientRef,
+                                                      )
+                                                      .where(
+                                                        'status',
+                                                        isEqualTo: 'accept',
+                                                      ),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -668,27 +675,50 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                   Colors
                                                                       .transparent,
                                                               onTap: () async {
-                                                                context
-                                                                    .pushNamed(
-                                                                  'clientTaskDetail',
-                                                                  queryParameters:
-                                                                      {
-                                                                    'clientRef':
-                                                                        serializeParam(
-                                                                      widget
-                                                                          .clientRef,
-                                                                      ParamType
-                                                                          .DocumentReference,
-                                                                    ),
-                                                                    'serviceRef':
-                                                                        serializeParam(
-                                                                      columnClientServicesRecord
-                                                                          .serviceRef,
-                                                                      ParamType
-                                                                          .DocumentReference,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            SizedBox(
+                                                                          height:
+                                                                              MediaQuery.sizeOf(context).height * 1.0,
+                                                                          child:
+                                                                              AddClientTaskWidget(
+                                                                            clientRef:
+                                                                                widget.clientRef,
+                                                                            clientServiceRef:
+                                                                                columnClientServicesRecord.reference,
+                                                                            serviceRef:
+                                                                                columnClientServicesRecord.serviceRef,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
                                                               },
                                                               child: Text(
                                                                 '+ Add New Task',

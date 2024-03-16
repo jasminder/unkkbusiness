@@ -13,10 +13,12 @@ class OnboardServiceTermsWidget extends StatefulWidget {
     super.key,
     required this.clientServices,
     required this.clientRef,
+    this.proposalRef,
   });
 
   final List<DocumentReference>? clientServices;
   final DocumentReference? clientRef;
+  final DocumentReference? proposalRef;
 
   @override
   State<OnboardServiceTermsWidget> createState() =>
@@ -145,6 +147,10 @@ class _OnboardServiceTermsWidgetState extends State<OnboardServiceTermsWidget> {
                                             ),
                                             'clientRef': serializeParam(
                                               widget.clientRef,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'proposalRef': serializeParam(
+                                              widget.proposalRef,
                                               ParamType.DocumentReference,
                                             ),
                                           }.withoutNulls,

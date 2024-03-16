@@ -374,7 +374,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
                                     child: Container(
-                                      height: 600.0,
+                                      height: 632.0,
                                       decoration: BoxDecoration(
                                         color: const Color(0x32EEEEEE),
                                         borderRadius:
@@ -538,15 +538,14 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                           queryParameters: {
                                                             'proposalRef':
                                                                 serializeParam(
-                                                              proposalsItem,
+                                                              proposalsItem
+                                                                  .reference,
                                                               ParamType
-                                                                  .Document,
+                                                                  .DocumentReference,
                                                             ),
                                                           }.withoutNulls,
                                                           extra: <String,
                                                               dynamic>{
-                                                            'proposalRef':
-                                                                proposalsItem,
                                                             kTransitionInfoKey:
                                                                 const TransitionInfo(
                                                               hasTransition:

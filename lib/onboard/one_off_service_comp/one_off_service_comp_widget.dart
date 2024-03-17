@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/onboard/delete_onboard_service/delete_onboard_service_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -93,7 +92,10 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          rowServicesRecord.name,
+                          valueOrDefault<String>(
+                            rowServicesRecord.name,
+                            '-',
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -107,10 +109,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                               FlutterFlowDropDown<String>(
                                 controller:
                                     _model.billingModeValueController ??=
-                                        FormFieldController<String>(
-                                  _model.billingModeValue ??=
-                                      columnClientServicesRecord.billingMode,
-                                ),
+                                        FormFieldController<String>(null),
                                 options: const ['Automatic', 'Manual'],
                                 onChanged: (val) async {
                                   setState(() => _model.billingModeValue = val);
@@ -155,10 +154,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                             children: [
                               FlutterFlowDropDown<String>(
                                 controller: _model.priceTypeValueController ??=
-                                    FormFieldController<String>(
-                                  _model.priceTypeValue ??=
-                                      columnClientServicesRecord.priceType,
-                                ),
+                                    FormFieldController<String>(null),
                                 options: const [
                                   'Fixed',
                                   'Per Unit',
@@ -506,74 +502,20 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                           ],
                         ),
                       ),
-                      Container(
-                        width: 80.0,
-                        decoration: const BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 0.0, 0.0),
-                              child: FlutterFlowDropDown<String>(
-                                controller: _model.actionValueController ??=
-                                    FormFieldController<String>(null),
-                                options: const ['Remove'],
-                                onChanged: (val) async {
-                                  setState(() => _model.actionValue = val);
-                                  if (_model.actionValue == 'Remove Service') {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: SizedBox(
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                1.0,
-                                            child: DeleteOnboardServiceWidget(
-                                              clientServiceRef:
-                                                  widget.clientServiceRef,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  }
-                                },
-                                width: 130.0,
-                                height: 30.0,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12.0,
-                                    ),
-                                icon: FaIcon(
-                                  FontAwesomeIcons.ellipsisV,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
-                                ),
-                                fillColor: const Color(0xFFFCFCFC),
-                                elevation: 0.0,
-                                borderColor: const Color(0xFFFCFCFC),
-                                borderWidth: 2.0,
-                                borderRadius: 8.0,
-                                margin: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 8.0, 4.0),
-                                hidesUnderline: true,
-                                isOverButton: false,
-                                isSearchable: false,
-                                isMultiSelect: false,
-                              ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        child: Container(
+                          width: 80.0,
+                          decoration: const BoxDecoration(),
+                          child: Align(
+                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            child: FaIcon(
+                              FontAwesomeIcons.ellipsisV,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ],

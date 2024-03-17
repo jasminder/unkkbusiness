@@ -29,9 +29,6 @@ class OneOffServiceCompModel extends FlutterFlowModel<OneOffServiceCompWidget> {
   // State field(s) for qtyUnit widget.
   String? qtyUnitValue;
   FormFieldController<String>? qtyUnitValueController;
-  // State field(s) for action widget.
-  String? actionValue;
-  FormFieldController<String>? actionValueController;
 
   /// Initialization and disposal methods.
 

@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
 import 'onboard_services_list_widget.dart' show OnboardServicesListWidget;
 import 'package:flutter/material.dart';
 
@@ -23,21 +22,15 @@ class OnboardServicesListModel
   List<ClientServicesRecord>? clientServices2;
   // Stores action output result for [Custom Action - createSubTotal] action in Text widget.
   double? serviceTotal2;
-  // Models for oneOffServiceComp dynamic component.
-  late FlutterFlowDynamicModels<OneOffServiceCompModel> oneOffServiceCompModels;
 
   /// Initialization and disposal methods.
 
   @override
-  void initState(BuildContext context) {
-    oneOffServiceCompModels =
-        FlutterFlowDynamicModels(() => OneOffServiceCompModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    oneOffServiceCompModels.dispose();
   }
 
   /// Action blocks are added here.

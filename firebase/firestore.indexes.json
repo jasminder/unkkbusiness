@@ -1,24 +1,6 @@
 {
   "indexes": [
     {
-      "collectionGroup": "clientServices",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "clientRef",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "status",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "createdAt",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
       "collectionGroup": "tasks",
       "queryScope": "COLLECTION",
       "fields": [

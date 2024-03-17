@@ -3,8 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lottie/lottie.dart';
 import 'onboard_one_off_services_type_bill_model.dart';
 export 'onboard_one_off_services_type_bill_model.dart';
 
@@ -35,6 +35,15 @@ class _OnboardOneOffServicesTypeBillWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => OnboardOneOffServicesTypeBillModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.animation = false;
+        _model.borderAcceptance = false;
+        _model.borderCompletion = false;
+      });
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -168,6 +177,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 _model.borderAcceptance = true;
                                                 _model.borderCompletion = false;
                                                 _model.clientRef = null;
+                                                _model.animation = true;
                                               });
                                               _model.propsalInfo =
                                                   await ProposalRecord
@@ -429,6 +439,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                 _model.borderAcceptance = false;
                                                 _model.borderCompletion = true;
                                                 _model.clientRef = null;
+                                                _model.animation = true;
                                               });
                                               _model.propsalInfo2 =
                                                   await ProposalRecord
@@ -680,24 +691,6 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                       ],
                                     ),
                                   ),
-                                  if (_model.borderAcceptance ||
-                                      _model.borderCompletion)
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 300.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
-                                      child: Lottie.asset(
-                                        'assets/lottie_animations/UkmjPQvcAT.json',
-                                        width: 150.0,
-                                        height: 130.0,
-                                        fit: BoxFit.contain,
-                                        animate: true,
-                                      ),
-                                    ),
                                 ],
                               ),
                             ],

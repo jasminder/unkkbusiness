@@ -644,7 +644,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                   Expanded(
                                                                                     child: Stack(
                                                                                       children: [
-                                                                                        if (listViewClientsRecord.clientType == 'compnay')
+                                                                                        if (listViewClientsRecord.clientType == 'company')
                                                                                           Padding(
                                                                                             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                                                                                             child: FFButtonWidget(
@@ -1369,7 +1369,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                               clientTrackRecord
                                                                   .where(
                                                         'status',
-                                                        isEqualTo: 'created',
+                                                        isEqualTo: 'sent',
                                                       ),
                                                     ),
                                                     builder:

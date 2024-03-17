@@ -235,6 +235,9 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                                 'regular'
                                                             ? true
                                                             : false,
+                                                    proposalRef: _model
+                                                        .propsalInfo?.reference,
+                                                    clientType: 'none',
                                                   ),
                                                   ...mapToFirestore(
                                                     {
@@ -266,6 +269,9 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                                 'regular'
                                                             ? true
                                                             : false,
+                                                    proposalRef: _model
+                                                        .propsalInfo?.reference,
+                                                    clientType: 'none',
                                                   ),
                                                   ...mapToFirestore(
                                                     {
@@ -473,7 +479,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     .set({
                                                   ...createClientsRecordData(
                                                     firstName: _model
-                                                        .propsalInfo?.firstName,
+                                                        .propsalInfo2
+                                                        ?.firstName,
                                                     lastName: _model
                                                         .propsalInfo2?.lastName,
                                                     dateOfBirth: _model
@@ -491,6 +498,10 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                                 'regular'
                                                             ? true
                                                             : false,
+                                                    clientType: 'none',
+                                                    proposalRef: _model
+                                                        .propsalInfo2
+                                                        ?.reference,
                                                   ),
                                                   ...mapToFirestore(
                                                     {
@@ -504,7 +515,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                         .getDocumentFromData({
                                                   ...createClientsRecordData(
                                                     firstName: _model
-                                                        .propsalInfo?.firstName,
+                                                        .propsalInfo2
+                                                        ?.firstName,
                                                     lastName: _model
                                                         .propsalInfo2?.lastName,
                                                     dateOfBirth: _model
@@ -522,6 +534,10 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                                 'regular'
                                                             ? true
                                                             : false,
+                                                    clientType: 'none',
+                                                    proposalRef: _model
+                                                        .propsalInfo2
+                                                        ?.reference,
                                                   ),
                                                   ...mapToFirestore(
                                                     {

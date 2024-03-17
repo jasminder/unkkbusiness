@@ -183,16 +183,10 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                         stream: queryClientServicesRecord(
                                           queryBuilder:
                                               (clientServicesRecord) =>
-                                                  clientServicesRecord
-                                                      .where(
-                                                        'clientRef',
-                                                        isEqualTo:
-                                                            widget.clientRef,
-                                                      )
-                                                      .where(
-                                                        'status',
-                                                        isEqualTo: 'accept',
-                                                      ),
+                                                  clientServicesRecord.where(
+                                            'clientRef',
+                                            isEqualTo: widget.clientRef,
+                                          ),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -294,24 +288,42 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                       MainAxisAlignment
                                                                           .spaceBetween,
                                                                   children: [
-                                                                    Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          40.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        rowServicesRecord
-                                                                            .name,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleLarge
-                                                                            .override(
-                                                                              fontFamily: 'Poppins',
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
+                                                                    Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              40.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            rowServicesRecord.name,
+                                                                            style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          columnClientServicesRecord
+                                                                              .status,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                decoration: TextDecoration.underline,
+                                                                              ),
+                                                                        ),
+                                                                      ],
                                                                     ),
                                                                     Text(
                                                                       columnClientServicesRecord
@@ -440,9 +452,9 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                   (tasksRecord) =>
                                                                       tasksRecord
                                                                           .where(
-                                                                            'serviceRef',
+                                                                            'clientServiceRef',
                                                                             isEqualTo:
-                                                                                columnClientServicesRecord.serviceRef,
+                                                                                columnClientServicesRecord.reference,
                                                                           )
                                                                           .orderBy(
                                                                               'createdAt'),

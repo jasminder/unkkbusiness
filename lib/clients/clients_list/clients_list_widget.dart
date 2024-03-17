@@ -13,7 +13,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'clients_list_model.dart';
@@ -429,9 +428,8 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                 (clientsRecord) =>
                                                                     clientsRecord
                                                                         .where(
-                                                              'serviceType',
-                                                              isEqualTo:
-                                                                  'regular',
+                                                              'typeRegular',
+                                                              isEqualTo: true,
                                                             ),
                                                           ),
                                                           builder: (context,
@@ -743,74 +741,134 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            children: [
-                                                                              InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  context.pushNamed(
-                                                                                    'clientServices',
-                                                                                    queryParameters: {
-                                                                                      'clientRef': serializeParam(
-                                                                                        clientsItem.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Icon(
-                                                                                  Icons.list_sharp,
-                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                  size: 24.0,
+                                                                          SingleChildScrollView(
+                                                                            scrollDirection:
+                                                                                Axis.horizontal,
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.end,
+                                                                              children: [
+                                                                                FFButtonWidget(
+                                                                                  onPressed: () async {
+                                                                                    context.pushNamed(
+                                                                                      'clientServices',
+                                                                                      queryParameters: {
+                                                                                        'clientRef': serializeParam(
+                                                                                          clientsItem.reference,
+                                                                                          ParamType.DocumentReference,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                      extra: <String, dynamic>{
+                                                                                        kTransitionInfoKey: const TransitionInfo(
+                                                                                          hasTransition: true,
+                                                                                          transitionType: PageTransitionType.fade,
+                                                                                        ),
+                                                                                      },
+                                                                                    );
+                                                                                  },
+                                                                                  text: 'View',
+                                                                                  options: FFButtonOptions(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                          fontFamily: 'Poppins',
+                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                        ),
+                                                                                    elevation: 0.0,
+                                                                                    borderSide: const BorderSide(
+                                                                                      color: Colors.transparent,
+                                                                                      width: 1.0,
+                                                                                    ),
+                                                                                    borderRadius: BorderRadius.circular(58.0),
+                                                                                  ),
                                                                                 ),
-                                                                              ),
-                                                                              Align(
-                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                                                                                  child: InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      await showModalBottomSheet(
-                                                                                        isScrollControlled: true,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        enableDrag: false,
-                                                                                        context: context,
-                                                                                        builder: (context) {
-                                                                                          return GestureDetector(
-                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: SizedBox(
-                                                                                                height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                                child: ClientActionWidget(
-                                                                                                  clientRef: clientsItem.reference,
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          );
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                  child: FFButtonWidget(
+                                                                                    onPressed: () async {
+                                                                                      context.pushNamed(
+                                                                                        'onboardServicesList',
+                                                                                        queryParameters: {
+                                                                                          'clientRef': serializeParam(
+                                                                                            clientsItem.reference,
+                                                                                            ParamType.DocumentReference,
+                                                                                          ),
+                                                                                          'perposalRef': serializeParam(
+                                                                                            clientsItem.proposalRef,
+                                                                                            ParamType.DocumentReference,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                        extra: <String, dynamic>{
+                                                                                          kTransitionInfoKey: const TransitionInfo(
+                                                                                            hasTransition: true,
+                                                                                            transitionType: PageTransitionType.fade,
+                                                                                          ),
                                                                                         },
-                                                                                      ).then((value) => safeSetState(() {}));
+                                                                                      );
                                                                                     },
-                                                                                    child: FaIcon(
-                                                                                      FontAwesomeIcons.ellipsisV,
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      size: 24.0,
+                                                                                    text: 'Proposal',
+                                                                                    options: FFButtonOptions(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      color: FlutterFlowTheme.of(context).alternate,
+                                                                                      textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                      elevation: 0.0,
+                                                                                      borderSide: const BorderSide(
+                                                                                        color: Colors.transparent,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                      borderRadius: BorderRadius.circular(58.0),
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Align(
+                                                                                  alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        await showModalBottomSheet(
+                                                                                          isScrollControlled: true,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          enableDrag: false,
+                                                                                          context: context,
+                                                                                          builder: (context) {
+                                                                                            return GestureDetector(
+                                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                              child: Padding(
+                                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                                child: SizedBox(
+                                                                                                  height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                  child: ClientActionWidget(
+                                                                                                    clientRef: clientsItem.reference,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        ).then((value) => safeSetState(() {}));
+                                                                                      },
+                                                                                      child: Icon(
+                                                                                        Icons.settings_sharp,
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                        size: 24.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ]
                                                                             .map((c) =>
@@ -885,9 +943,8 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                 (clientsRecord) =>
                                                                     clientsRecord
                                                                         .where(
-                                                              'serviceType',
-                                                              isEqualTo:
-                                                                  'one off',
+                                                              'typeOneOff',
+                                                              isEqualTo: true,
                                                             ),
                                                           ),
                                                           builder: (context,
@@ -1199,74 +1256,134 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                          Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            children: [
-                                                                              InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  context.pushNamed(
-                                                                                    'clientServices',
-                                                                                    queryParameters: {
-                                                                                      'clientRef': serializeParam(
-                                                                                        clientsItem.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Icon(
-                                                                                  Icons.list_sharp,
-                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                  size: 24.0,
+                                                                          SingleChildScrollView(
+                                                                            scrollDirection:
+                                                                                Axis.horizontal,
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.end,
+                                                                              children: [
+                                                                                FFButtonWidget(
+                                                                                  onPressed: () async {
+                                                                                    context.pushNamed(
+                                                                                      'clientServices',
+                                                                                      queryParameters: {
+                                                                                        'clientRef': serializeParam(
+                                                                                          clientsItem.reference,
+                                                                                          ParamType.DocumentReference,
+                                                                                        ),
+                                                                                      }.withoutNulls,
+                                                                                      extra: <String, dynamic>{
+                                                                                        kTransitionInfoKey: const TransitionInfo(
+                                                                                          hasTransition: true,
+                                                                                          transitionType: PageTransitionType.fade,
+                                                                                        ),
+                                                                                      },
+                                                                                    );
+                                                                                  },
+                                                                                  text: 'View',
+                                                                                  options: FFButtonOptions(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                          fontFamily: 'Poppins',
+                                                                                          color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                        ),
+                                                                                    elevation: 0.0,
+                                                                                    borderSide: const BorderSide(
+                                                                                      color: Colors.transparent,
+                                                                                      width: 1.0,
+                                                                                    ),
+                                                                                    borderRadius: BorderRadius.circular(58.0),
+                                                                                  ),
                                                                                 ),
-                                                                              ),
-                                                                              Align(
-                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                                                                                  child: InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      await showModalBottomSheet(
-                                                                                        isScrollControlled: true,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        enableDrag: false,
-                                                                                        context: context,
-                                                                                        builder: (context) {
-                                                                                          return GestureDetector(
-                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                            child: Padding(
-                                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                                              child: SizedBox(
-                                                                                                height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                                child: ClientActionWidget(
-                                                                                                  clientRef: clientsItem.reference,
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          );
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                  child: FFButtonWidget(
+                                                                                    onPressed: () async {
+                                                                                      context.pushNamed(
+                                                                                        'onboardServicesList',
+                                                                                        queryParameters: {
+                                                                                          'clientRef': serializeParam(
+                                                                                            clientsItem.reference,
+                                                                                            ParamType.DocumentReference,
+                                                                                          ),
+                                                                                          'perposalRef': serializeParam(
+                                                                                            clientsItem.proposalRef,
+                                                                                            ParamType.DocumentReference,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                        extra: <String, dynamic>{
+                                                                                          kTransitionInfoKey: const TransitionInfo(
+                                                                                            hasTransition: true,
+                                                                                            transitionType: PageTransitionType.fade,
+                                                                                          ),
                                                                                         },
-                                                                                      ).then((value) => safeSetState(() {}));
+                                                                                      );
                                                                                     },
-                                                                                    child: FaIcon(
-                                                                                      FontAwesomeIcons.ellipsisV,
-                                                                                      color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                      size: 24.0,
+                                                                                    text: 'Proposal',
+                                                                                    options: FFButtonOptions(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                      color: FlutterFlowTheme.of(context).alternate,
+                                                                                      textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                      elevation: 0.0,
+                                                                                      borderSide: const BorderSide(
+                                                                                        color: Colors.transparent,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                      borderRadius: BorderRadius.circular(58.0),
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Align(
+                                                                                  alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                  child: Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                    child: InkWell(
+                                                                                      splashColor: Colors.transparent,
+                                                                                      focusColor: Colors.transparent,
+                                                                                      hoverColor: Colors.transparent,
+                                                                                      highlightColor: Colors.transparent,
+                                                                                      onTap: () async {
+                                                                                        await showModalBottomSheet(
+                                                                                          isScrollControlled: true,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          enableDrag: false,
+                                                                                          context: context,
+                                                                                          builder: (context) {
+                                                                                            return GestureDetector(
+                                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                              child: Padding(
+                                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                                child: SizedBox(
+                                                                                                  height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                                  child: ClientActionWidget(
+                                                                                                    clientRef: clientsItem.reference,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            );
+                                                                                          },
+                                                                                        ).then((value) => safeSetState(() {}));
+                                                                                      },
+                                                                                      child: Icon(
+                                                                                        Icons.settings_sharp,
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                        size: 24.0,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ]
                                                                             .map((c) =>
@@ -1332,7 +1449,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                               clientTrackRecord
                                                                   .where(
                                                         'status',
-                                                        isNotEqualTo: 'accept',
+                                                        isEqualTo: 'created',
                                                       ),
                                                     ),
                                                     builder:
@@ -1591,57 +1708,6 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                             ),
                                                                             borderRadius:
                                                                                 BorderRadius.circular(58.0),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              6.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              FFButtonWidget(
-                                                                            onPressed:
-                                                                                () async {
-                                                                              context.pushNamed(
-                                                                                'onboardServicesList',
-                                                                                queryParameters: {
-                                                                                  'clientRef': serializeParam(
-                                                                                    servicesTrackItem.clientRef,
-                                                                                    ParamType.DocumentReference,
-                                                                                  ),
-                                                                                  'perposalRef': serializeParam(
-                                                                                    servicesTrackItem.proposalRef,
-                                                                                    ParamType.DocumentReference,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                                extra: <String, dynamic>{
-                                                                                  kTransitionInfoKey: const TransitionInfo(
-                                                                                    hasTransition: true,
-                                                                                    transitionType: PageTransitionType.fade,
-                                                                                  ),
-                                                                                },
-                                                                              );
-                                                                            },
-                                                                            text:
-                                                                                'Edit',
-                                                                            options:
-                                                                                FFButtonOptions(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FlutterFlowTheme.of(context).alternate,
-                                                                              textStyle: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
-                                                                              elevation: 0.0,
-                                                                              borderSide: const BorderSide(
-                                                                                color: Colors.transparent,
-                                                                                width: 1.0,
-                                                                              ),
-                                                                              borderRadius: BorderRadius.circular(58.0),
-                                                                            ),
                                                                           ),
                                                                         ),
                                                                         Padding(

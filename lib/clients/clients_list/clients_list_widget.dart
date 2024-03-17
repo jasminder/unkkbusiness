@@ -388,7 +388,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                   text: 'Generic Clients',
                                                 ),
                                                 Tab(
-                                                  text: 'Pending Proposals',
+                                                  text: 'Proposals',
                                                 ),
                                               ],
                                               controller:
@@ -1332,7 +1332,7 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                               clientTrackRecord
                                                                   .where(
                                                         'status',
-                                                        isEqualTo: 'sent',
+                                                        isNotEqualTo: 'accept',
                                                       ),
                                                     ),
                                                     builder:
@@ -1591,6 +1591,57 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                             ),
                                                                             borderRadius:
                                                                                 BorderRadius.circular(58.0),
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              6.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FFButtonWidget(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              context.pushNamed(
+                                                                                'onboardServicesList',
+                                                                                queryParameters: {
+                                                                                  'clientRef': serializeParam(
+                                                                                    servicesTrackItem.clientRef,
+                                                                                    ParamType.DocumentReference,
+                                                                                  ),
+                                                                                  'perposalRef': serializeParam(
+                                                                                    servicesTrackItem.proposalRef,
+                                                                                    ParamType.DocumentReference,
+                                                                                  ),
+                                                                                }.withoutNulls,
+                                                                                extra: <String, dynamic>{
+                                                                                  kTransitionInfoKey: const TransitionInfo(
+                                                                                    hasTransition: true,
+                                                                                    transitionType: PageTransitionType.fade,
+                                                                                  ),
+                                                                                },
+                                                                              );
+                                                                            },
+                                                                            text:
+                                                                                'Edit',
+                                                                            options:
+                                                                                FFButtonOptions(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                              textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                              elevation: 0.0,
+                                                                              borderSide: const BorderSide(
+                                                                                color: Colors.transparent,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(58.0),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                         Padding(

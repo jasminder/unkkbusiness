@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/empty_result_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,6 +8,7 @@ import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'onboard_services_list_model.dart';
 export 'onboard_services_list_model.dart';
@@ -669,17 +671,26 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
                                                 return Center(
-                                                  child:
-                                                      LinearProgressIndicator(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
+                                                  child: SizedBox(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    child: SpinKitCircle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      size: 40.0,
+                                                    ),
                                                   ),
                                                 );
                                               }
                                               List<ClientServicesRecord>
                                                   listViewClientServicesRecordList =
                                                   snapshot.data!;
+                                              if (listViewClientServicesRecordList
+                                                  .isEmpty) {
+                                                return const EmptyResultWidget();
+                                              }
                                               return ListView.builder(
                                                 padding: EdgeInsets.zero,
                                                 shrinkWrap: true,

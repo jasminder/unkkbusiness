@@ -546,7 +546,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   billingMode: 'on completion',
                                                   quantity: 1,
                                                   price: _model
-                                                      .serviceDetails?.price,
+                                                      .serviceDetails2?.price,
                                                   clientRef: _model.clientRef,
                                                   serviceRef: widget.serviceRef,
                                                   status: 'created',

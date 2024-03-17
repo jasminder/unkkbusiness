@@ -167,6 +167,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                               setState(() {
                                                 _model.borderAcceptance = true;
                                                 _model.borderCompletion = false;
+                                                _model.clientRef = null;
                                               });
                                               _model.propsalInfo =
                                                   await ProposalRecord
@@ -194,10 +195,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                       .clientExists?.reference;
                                                 });
 
-                                                await _model
-                                                    .clientExists!.reference
-                                                    .update(
-                                                        createClientsRecordData(
+                                                await _model.clientRef!.update(
+                                                    createClientsRecordData(
                                                   typeOneOff:
                                                       widget.serviceType ==
                                                               'one off'
@@ -429,6 +428,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                               setState(() {
                                                 _model.borderAcceptance = false;
                                                 _model.borderCompletion = true;
+                                                _model.clientRef = null;
                                               });
                                               _model.propsalInfo2 =
                                                   await ProposalRecord
@@ -456,10 +456,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                       .clientExists2?.reference;
                                                 });
 
-                                                await _model
-                                                    .clientExists2!.reference
-                                                    .update(
-                                                        createClientsRecordData(
+                                                await _model.clientRef!.update(
+                                                    createClientsRecordData(
                                                   typeOneOff:
                                                       widget.serviceType ==
                                                               'one off'
@@ -546,11 +544,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                     },
                                                   ),
                                                 }, clientsRecordReference);
-                                                setState(() {
-                                                  _model.clientRef = _model
-                                                      .createdClient2
-                                                      ?.reference;
-                                                });
+                                                _model.clientRef = _model
+                                                    .createdClient2?.reference;
                                               }
 
                                               await ClientServicesRecord

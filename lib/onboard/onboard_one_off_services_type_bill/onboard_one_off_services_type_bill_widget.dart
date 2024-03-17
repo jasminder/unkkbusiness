@@ -283,21 +283,26 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                               await ClientServicesRecord
                                                   .collection
                                                   .doc()
-                                                  .set(
-                                                      createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on acceptance',
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceDetails?.price,
-                                                    clientRef: _model.clientRef,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    status: 'created',
-                                                    proposalRef:
-                                                        widget.proposalRef,
-                                                  ));
+                                                  .set({
+                                                ...createClientServicesRecordData(
+                                                  type: widget.serviceType,
+                                                  billingMode: 'on acceptance',
+                                                  quantity: 1,
+                                                  price: _model
+                                                      .serviceDetails?.price,
+                                                  clientRef: _model.clientRef,
+                                                  serviceRef: widget.serviceRef,
+                                                  status: 'created',
+                                                  proposalRef:
+                                                      widget.proposalRef,
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': FieldValue
+                                                        .serverTimestamp(),
+                                                  },
+                                                ),
+                                              });
 
                                               context.pushNamed(
                                                 'onboardServicesList',
@@ -535,21 +540,26 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                               await ClientServicesRecord
                                                   .collection
                                                   .doc()
-                                                  .set(
-                                                      createClientServicesRecordData(
-                                                    type: widget.serviceType,
-                                                    billingMode:
-                                                        'on completion',
-                                                    quantity: 1,
-                                                    price: _model
-                                                        .serviceDetails?.price,
-                                                    clientRef: _model.clientRef,
-                                                    serviceRef:
-                                                        widget.serviceRef,
-                                                    status: 'created',
-                                                    proposalRef:
-                                                        widget.proposalRef,
-                                                  ));
+                                                  .set({
+                                                ...createClientServicesRecordData(
+                                                  type: widget.serviceType,
+                                                  billingMode: 'on completion',
+                                                  quantity: 1,
+                                                  price: _model
+                                                      .serviceDetails?.price,
+                                                  clientRef: _model.clientRef,
+                                                  serviceRef: widget.serviceRef,
+                                                  status: 'created',
+                                                  proposalRef:
+                                                      widget.proposalRef,
+                                                ),
+                                                ...mapToFirestore(
+                                                  {
+                                                    'createdAt': FieldValue
+                                                        .serverTimestamp(),
+                                                  },
+                                                ),
+                                              });
 
                                               context.pushNamed(
                                                 'onboardServicesList',

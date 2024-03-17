@@ -109,7 +109,10 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                               FlutterFlowDropDown<String>(
                                 controller:
                                     _model.billingModeValueController ??=
-                                        FormFieldController<String>(null),
+                                        FormFieldController<String>(
+                                  _model.billingModeValue ??=
+                                      columnClientServicesRecord.billingMode,
+                                ),
                                 options: const ['Automatic', 'Manual'],
                                 onChanged: (val) async {
                                   setState(() => _model.billingModeValue = val);
@@ -365,9 +368,14 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                             controller:
                                                 _model.amountController ??=
                                                     TextEditingController(
-                                              text: columnClientServicesRecord
-                                                  .price
-                                                  .toString(),
+                                              text: formatNumber(
+                                                columnClientServicesRecord
+                                                    .price,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.periodDecimal,
+                                                currency: '\$',
+                                              ),
                                             ),
                                             focusNode: _model.amountFocusNode,
                                             onChanged: (_) =>

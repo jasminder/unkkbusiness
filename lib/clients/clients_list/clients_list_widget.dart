@@ -555,9 +555,18 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                         .hasData) {
                                                                       return Center(
                                                                         child:
-                                                                            LinearProgressIndicator(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                            SizedBox(
+                                                                          width:
+                                                                              40.0,
+                                                                          height:
+                                                                              40.0,
+                                                                          child:
+                                                                              SpinKitCircle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).alternate,
+                                                                            size:
+                                                                                40.0,
+                                                                          ),
                                                                         ),
                                                                       );
                                                                     }
@@ -565,6 +574,10 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                         listViewClientsRecordList =
                                                                         snapshot
                                                                             .data!;
+                                                                    if (listViewClientsRecordList
+                                                                        .isEmpty) {
+                                                                      return const EmptyResultWidget();
+                                                                    }
                                                                     return ListView
                                                                         .builder(
                                                                       padding:
@@ -628,97 +641,96 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                  if (listViewClientsRecord.clientType != '')
-                                                                                    Expanded(
-                                                                                      child: Stack(
-                                                                                        children: [
-                                                                                          if (listViewClientsRecord.clientType == 'compnay')
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                              child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
-                                                                                                },
-                                                                                                text: 'Company',
-                                                                                                options: FFButtonOptions(
-                                                                                                  height: 30.0,
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  color: const Color(0x1A66BD94),
-                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                        fontFamily: 'Poppins',
-                                                                                                        color: const Color(0xFF66BD94),
-                                                                                                        fontSize: 10.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                      ),
-                                                                                                  elevation: 0.0,
-                                                                                                  borderSide: const BorderSide(
-                                                                                                    color: Color(0xFF66BD94),
-                                                                                                    width: 1.0,
-                                                                                                  ),
-                                                                                                  borderRadius: BorderRadius.circular(30.0),
+                                                                                  Expanded(
+                                                                                    child: Stack(
+                                                                                      children: [
+                                                                                        if (listViewClientsRecord.clientType == 'compnay')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () {
+                                                                                                print('Button pressed ...');
+                                                                                              },
+                                                                                              text: 'Company',
+                                                                                              options: FFButtonOptions(
+                                                                                                height: 30.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: const Color(0x1A66BD94),
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: const Color(0xFF66BD94),
+                                                                                                      fontSize: 10.0,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                    ),
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Color(0xFF66BD94),
+                                                                                                  width: 1.0,
                                                                                                 ),
+                                                                                                borderRadius: BorderRadius.circular(30.0),
                                                                                               ),
                                                                                             ),
-                                                                                          if (listViewClientsRecord.clientType == 'trust')
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                              child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
-                                                                                                },
-                                                                                                text: 'Trust',
-                                                                                                options: FFButtonOptions(
-                                                                                                  height: 30.0,
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  color: const Color(0x19C37740),
-                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                        fontFamily: 'Poppins',
-                                                                                                        color: const Color(0xFFC37740),
-                                                                                                        fontSize: 10.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                      ),
-                                                                                                  elevation: 0.0,
-                                                                                                  borderSide: const BorderSide(
-                                                                                                    color: Color(0xFFC37740),
-                                                                                                    width: 1.0,
-                                                                                                  ),
-                                                                                                  borderRadius: BorderRadius.circular(30.0),
+                                                                                          ),
+                                                                                        if (listViewClientsRecord.clientType == 'trust')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () {
+                                                                                                print('Button pressed ...');
+                                                                                              },
+                                                                                              text: 'Trust',
+                                                                                              options: FFButtonOptions(
+                                                                                                height: 30.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: const Color(0x19C37740),
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: const Color(0xFFC37740),
+                                                                                                      fontSize: 10.0,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                    ),
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Color(0xFFC37740),
+                                                                                                  width: 1.0,
                                                                                                 ),
+                                                                                                borderRadius: BorderRadius.circular(30.0),
                                                                                               ),
                                                                                             ),
-                                                                                          if (listViewClientsRecord.clientType == 'individual')
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                              child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
-                                                                                                },
-                                                                                                text: 'Individual',
-                                                                                                options: FFButtonOptions(
-                                                                                                  height: 30.0,
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  color: const Color(0x19E4B715),
-                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                        fontFamily: 'Poppins',
-                                                                                                        color: const Color(0xFFE4B715),
-                                                                                                        fontSize: 10.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                      ),
-                                                                                                  elevation: 0.0,
-                                                                                                  borderSide: const BorderSide(
-                                                                                                    color: Color(0xFFE4B715),
-                                                                                                    width: 1.0,
-                                                                                                  ),
-                                                                                                  borderRadius: BorderRadius.circular(30.0),
+                                                                                          ),
+                                                                                        if (listViewClientsRecord.clientType == 'individual')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () {
+                                                                                                print('Button pressed ...');
+                                                                                              },
+                                                                                              text: 'Individual',
+                                                                                              options: FFButtonOptions(
+                                                                                                height: 30.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: const Color(0x19E4B715),
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: const Color(0xFFE4B715),
+                                                                                                      fontSize: 10.0,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                    ),
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Color(0xFFE4B715),
+                                                                                                  width: 1.0,
                                                                                                 ),
+                                                                                                borderRadius: BorderRadius.circular(30.0),
                                                                                               ),
                                                                                             ),
-                                                                                        ],
-                                                                                      ),
+                                                                                          ),
+                                                                                      ],
                                                                                     ),
+                                                                                  ),
                                                                                   Expanded(
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
@@ -1018,9 +1030,18 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                         .hasData) {
                                                                       return Center(
                                                                         child:
-                                                                            LinearProgressIndicator(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                            SizedBox(
+                                                                          width:
+                                                                              40.0,
+                                                                          height:
+                                                                              40.0,
+                                                                          child:
+                                                                              SpinKitCircle(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).alternate,
+                                                                            size:
+                                                                                40.0,
+                                                                          ),
                                                                         ),
                                                                       );
                                                                     }
@@ -1028,6 +1049,10 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                         listViewClientsRecordList =
                                                                         snapshot
                                                                             .data!;
+                                                                    if (listViewClientsRecordList
+                                                                        .isEmpty) {
+                                                                      return const EmptyResultWidget();
+                                                                    }
                                                                     return ListView
                                                                         .builder(
                                                                       padding:
@@ -1091,97 +1116,96 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                           ),
                                                                                     ),
                                                                                   ),
-                                                                                  if (listViewClientsRecord.clientType != '')
-                                                                                    Expanded(
-                                                                                      child: Stack(
-                                                                                        children: [
-                                                                                          if (listViewClientsRecord.clientType == 'compnay')
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                              child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
-                                                                                                },
-                                                                                                text: 'Company',
-                                                                                                options: FFButtonOptions(
-                                                                                                  height: 30.0,
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  color: const Color(0x1A66BD94),
-                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                        fontFamily: 'Poppins',
-                                                                                                        color: const Color(0xFF66BD94),
-                                                                                                        fontSize: 10.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                      ),
-                                                                                                  elevation: 0.0,
-                                                                                                  borderSide: const BorderSide(
-                                                                                                    color: Color(0xFF66BD94),
-                                                                                                    width: 1.0,
-                                                                                                  ),
-                                                                                                  borderRadius: BorderRadius.circular(30.0),
+                                                                                  Expanded(
+                                                                                    child: Stack(
+                                                                                      children: [
+                                                                                        if (listViewClientsRecord.clientType == 'compnay')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () {
+                                                                                                print('Button pressed ...');
+                                                                                              },
+                                                                                              text: 'Company',
+                                                                                              options: FFButtonOptions(
+                                                                                                height: 30.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: const Color(0x1A66BD94),
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: const Color(0xFF66BD94),
+                                                                                                      fontSize: 10.0,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                    ),
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Color(0xFF66BD94),
+                                                                                                  width: 1.0,
                                                                                                 ),
+                                                                                                borderRadius: BorderRadius.circular(30.0),
                                                                                               ),
                                                                                             ),
-                                                                                          if (listViewClientsRecord.clientType == 'trust')
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                              child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
-                                                                                                },
-                                                                                                text: 'Trust',
-                                                                                                options: FFButtonOptions(
-                                                                                                  height: 30.0,
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  color: const Color(0x19C37740),
-                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                        fontFamily: 'Poppins',
-                                                                                                        color: const Color(0xFFC37740),
-                                                                                                        fontSize: 10.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                      ),
-                                                                                                  elevation: 0.0,
-                                                                                                  borderSide: const BorderSide(
-                                                                                                    color: Color(0xFFC37740),
-                                                                                                    width: 1.0,
-                                                                                                  ),
-                                                                                                  borderRadius: BorderRadius.circular(30.0),
+                                                                                          ),
+                                                                                        if (listViewClientsRecord.clientType == 'trust')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () {
+                                                                                                print('Button pressed ...');
+                                                                                              },
+                                                                                              text: 'Trust',
+                                                                                              options: FFButtonOptions(
+                                                                                                height: 30.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: const Color(0x19C37740),
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: const Color(0xFFC37740),
+                                                                                                      fontSize: 10.0,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                    ),
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Color(0xFFC37740),
+                                                                                                  width: 1.0,
                                                                                                 ),
+                                                                                                borderRadius: BorderRadius.circular(30.0),
                                                                                               ),
                                                                                             ),
-                                                                                          if (listViewClientsRecord.clientType == 'individual')
-                                                                                            Padding(
-                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                              child: FFButtonWidget(
-                                                                                                onPressed: () {
-                                                                                                  print('Button pressed ...');
-                                                                                                },
-                                                                                                text: 'Individual',
-                                                                                                options: FFButtonOptions(
-                                                                                                  height: 30.0,
-                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
-                                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                                  color: const Color(0x19E4B715),
-                                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                        fontFamily: 'Poppins',
-                                                                                                        color: const Color(0xFFE4B715),
-                                                                                                        fontSize: 10.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                      ),
-                                                                                                  elevation: 0.0,
-                                                                                                  borderSide: const BorderSide(
-                                                                                                    color: Color(0xFFE4B715),
-                                                                                                    width: 1.0,
-                                                                                                  ),
-                                                                                                  borderRadius: BorderRadius.circular(30.0),
+                                                                                          ),
+                                                                                        if (listViewClientsRecord.clientType == 'individual')
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                                                                                            child: FFButtonWidget(
+                                                                                              onPressed: () {
+                                                                                                print('Button pressed ...');
+                                                                                              },
+                                                                                              text: 'Individual',
+                                                                                              options: FFButtonOptions(
+                                                                                                height: 30.0,
+                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(14.0, 6.0, 14.0, 6.0),
+                                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                                color: const Color(0x19E4B715),
+                                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                      fontFamily: 'Poppins',
+                                                                                                      color: const Color(0xFFE4B715),
+                                                                                                      fontSize: 10.0,
+                                                                                                      fontWeight: FontWeight.normal,
+                                                                                                    ),
+                                                                                                elevation: 0.0,
+                                                                                                borderSide: const BorderSide(
+                                                                                                  color: Color(0xFFE4B715),
+                                                                                                  width: 1.0,
                                                                                                 ),
+                                                                                                borderRadius: BorderRadius.circular(30.0),
                                                                                               ),
                                                                                             ),
-                                                                                        ],
-                                                                                      ),
+                                                                                          ),
+                                                                                      ],
                                                                                     ),
+                                                                                  ),
                                                                                   Expanded(
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,

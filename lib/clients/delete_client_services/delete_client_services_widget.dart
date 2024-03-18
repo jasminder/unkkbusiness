@@ -154,8 +154,13 @@ class _DeleteClientServicesWidgetState
                                 }
                                 setState(() {
                                   _model.loop = _model.loop + 1;
+                                  _model.tasksLoop = 0;
                                 });
                               }
+                              setState(() {
+                                _model.loop = 0;
+                                _model.tasksLoop = 0;
+                              });
                               await widget.clientServiceRef!.delete();
                               Navigator.pop(context);
 

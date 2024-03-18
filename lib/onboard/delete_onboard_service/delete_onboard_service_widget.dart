@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -123,8 +124,30 @@ class _DeleteOnboardServiceWidgetState
                               8.0, 0.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              _model.includedServices =
+                                  await queryClientServicesRecordOnce(
+                                queryBuilder: (clientServicesRecord) =>
+                                    clientServicesRecord.where(
+                                  'includes',
+                                  isEqualTo: widget.clientServiceRef,
+                                ),
+                              );
+                              while (_model.includedServices!.length >
+                                  _model.loop) {
+                                await _model
+                                    .includedServices![_model.loop].reference
+                                    .delete();
+                                setState(() {
+                                  _model.loop = _model.loop + 1;
+                                });
+                              }
                               await widget.clientServiceRef!.delete();
+                              setState(() {
+                                _model.loop = 0;
+                              });
                               Navigator.pop(context);
+
+                              setState(() {});
                             },
                             text: 'Yes, Delete',
                             options: FFButtonOptions(

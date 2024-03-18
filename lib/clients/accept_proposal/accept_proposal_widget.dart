@@ -76,6 +76,10 @@ class _AcceptProposalWidgetState extends State<AcceptProposalWidget> {
           _model.loop = _model.loop + 1;
         });
       }
+
+      await widget.clientTrackRef!.update(createClientTrackRecordData(
+        status: '',
+      ));
       setState(() {
         _model.loop = 0;
       });

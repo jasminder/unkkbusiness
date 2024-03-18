@@ -152,6 +152,25 @@ class _DeleteClientServicesWidgetState
                                     _model.tasksLoop = _model.tasksLoop + 1;
                                   });
                                 }
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: const Text('Ref'),
+                                      content: Text(_model
+                                          .includedServices![_model.loop]
+                                          .reference
+                                          .id),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: const Text('Ok'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
                                 await _model
                                     .includedServices![_model.loop].reference
                                     .delete();

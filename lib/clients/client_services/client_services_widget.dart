@@ -190,8 +190,7 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                         isEqualTo:
                                                             widget.clientRef,
                                                       )
-                                                      .orderBy('createdAt',
-                                                          descending: true),
+                                                      .orderBy('createdAt'),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.

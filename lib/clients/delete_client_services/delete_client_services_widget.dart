@@ -152,6 +152,9 @@ class _DeleteClientServicesWidgetState
                                     _model.tasksLoop = _model.tasksLoop + 1;
                                   });
                                 }
+                                await _model
+                                    .includedServices![_model.loop].reference
+                                    .delete();
                                 setState(() {
                                   _model.loop = _model.loop + 1;
                                   _model.tasksLoop = 0;

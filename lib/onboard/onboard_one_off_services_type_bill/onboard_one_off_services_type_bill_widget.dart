@@ -310,6 +310,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   status: 'created',
                                                   proposalRef:
                                                       widget.proposalRef,
+                                                  name: _model
+                                                      .serviceDetails?.name,
                                                 ),
                                                 ...mapToFirestore(
                                                   {
@@ -574,6 +576,8 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   status: 'created',
                                                   proposalRef:
                                                       widget.proposalRef,
+                                                  name: _model
+                                                      .serviceDetails2?.name,
                                                 ),
                                                 ...mapToFirestore(
                                                   {

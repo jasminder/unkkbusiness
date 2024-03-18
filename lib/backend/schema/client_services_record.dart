@@ -71,6 +71,16 @@ class ClientServicesRecord extends FirestoreRecord {
   DocumentReference? get proposalRef => _proposalRef;
   bool hasProposalRef() => _proposalRef != null;
 
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
+
+  // "includes" field.
+  DocumentReference? _includes;
+  DocumentReference? get includes => _includes;
+  bool hasIncludes() => _includes != null;
+
   void _initializeFields() {
     _type = snapshotData['type'] as String?;
     _billingMode = snapshotData['billingMode'] as String?;
@@ -83,6 +93,8 @@ class ClientServicesRecord extends FirestoreRecord {
     _createdAt = snapshotData['createdAt'] as DateTime?;
     _status = snapshotData['status'] as String?;
     _proposalRef = snapshotData['proposalRef'] as DocumentReference?;
+    _name = snapshotData['name'] as String?;
+    _includes = snapshotData['includes'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -131,6 +143,8 @@ Map<String, dynamic> createClientServicesRecordData({
   DateTime? createdAt,
   String? status,
   DocumentReference? proposalRef,
+  String? name,
+  DocumentReference? includes,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -145,6 +159,8 @@ Map<String, dynamic> createClientServicesRecordData({
       'createdAt': createdAt,
       'status': status,
       'proposalRef': proposalRef,
+      'name': name,
+      'includes': includes,
     }.withoutNulls,
   );
 
@@ -167,7 +183,9 @@ class ClientServicesRecordDocumentEquality
         e1?.serviceRef == e2?.serviceRef &&
         e1?.createdAt == e2?.createdAt &&
         e1?.status == e2?.status &&
-        e1?.proposalRef == e2?.proposalRef;
+        e1?.proposalRef == e2?.proposalRef &&
+        e1?.name == e2?.name &&
+        e1?.includes == e2?.includes;
   }
 
   @override
@@ -182,7 +200,9 @@ class ClientServicesRecordDocumentEquality
         e?.serviceRef,
         e?.createdAt,
         e?.status,
-        e?.proposalRef
+        e?.proposalRef,
+        e?.name,
+        e?.includes
       ]);
 
   @override

@@ -3,9 +3,9 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/onboard/include_services/include_services_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'one_off_service_comp_model.dart';
 export 'one_off_service_comp_model.dart';
 
@@ -162,15 +162,42 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                   'Fixed',
                                   'Per Unit',
                                   'Minimum Price',
-                                  'Price Range',
-                                  'Included'
+                                  'Price Range'
                                 ],
                                 onChanged: (val) async {
                                   setState(() => _model.priceTypeValue = val);
-                                  await widget.clientServiceRef!
-                                      .update(createClientServicesRecordData(
-                                    priceType: _model.priceTypeValue,
-                                  ));
+                                  if (_model.priceTypeValue == 'included') {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: SizedBox(
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                1.0,
+                                            child: IncludeServicesWidget(
+                                              clientServiceRef:
+                                                  columnClientServicesRecord
+                                                      .reference,
+                                              clientRef:
+                                                  columnClientServicesRecord
+                                                      .clientRef,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  } else {
+                                    await widget.clientServiceRef!
+                                        .update(createClientServicesRecordData(
+                                      priceType: _model.priceTypeValue,
+                                    ));
+                                  }
                                 },
                                 width: 90.0,
                                 height: 30.0,
@@ -516,13 +543,68 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                         child: Container(
                           width: 80.0,
                           decoration: const BoxDecoration(),
-                          child: Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.ellipsisV,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
-                            ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: SizedBox(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  1.0,
+                                              child: IncludeServicesWidget(
+                                                clientServiceRef:
+                                                    columnClientServicesRecord
+                                                        .reference,
+                                                clientRef:
+                                                    columnClientServicesRecord
+                                                        .clientRef,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    },
+                                    child: Icon(
+                                      Icons.add_box,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Icon(
+                                    Icons.close_sharp,
+                                    color: FlutterFlowTheme.of(context).error,
+                                    size: 24.0,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -530,6 +612,152 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                   );
                 },
               ),
+            ),
+            StreamBuilder<List<ClientServicesRecord>>(
+              stream: queryClientServicesRecord(
+                queryBuilder: (clientServicesRecord) =>
+                    clientServicesRecord.where(
+                  'includes',
+                  isEqualTo: columnClientServicesRecord.reference,
+                  isNull: (columnClientServicesRecord.reference) == null,
+                ),
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: LinearProgressIndicator(
+                      color: FlutterFlowTheme.of(context).primary,
+                    ),
+                  );
+                }
+                List<ClientServicesRecord> containerClientServicesRecordList =
+                    snapshot.data!;
+                return Container(
+                  decoration: const BoxDecoration(),
+                  child: Visibility(
+                    visible: containerClientServicesRecordList.isNotEmpty,
+                    child: Builder(
+                      builder: (context) {
+                        final includedServices =
+                            containerClientServicesRecordList.toList();
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: includedServices.length,
+                          itemBuilder: (context, includedServicesIndex) {
+                            final includedServicesItem =
+                                includedServices[includedServicesIndex];
+                            return Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 4.0, 0.0, 4.0),
+                              child: StreamBuilder<ServicesRecord>(
+                                stream: ServicesRecord.getDocument(
+                                    includedServicesItem.serviceRef!),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: LinearProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    );
+                                  }
+                                  final rowServicesRecord = snapshot.data!;
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          rowServicesRecord.name,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          decoration: const BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 100.0,
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0x00EEEEEE),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          decoration: const BoxDecoration(),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                includedServicesItem.priceType,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              width: 100.0,
+                                              decoration: const BoxDecoration(
+                                                color: Color(0x00EEEEEE),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 12.0, 0.0),
+                                        child: Container(
+                                          width: 80.0,
+                                          decoration: const BoxDecoration(),
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(1.0, 0.0),
+                                            child: Icon(
+                                              Icons.close,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                );
+              },
             ),
             Divider(
               height: 2.0,

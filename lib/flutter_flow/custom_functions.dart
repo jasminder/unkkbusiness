@@ -18,6 +18,13 @@ int stringToInt(String stringValue) {
   return int.parse(stringValue);
 }
 
+DocumentReference clientServiceIDtoRef(String clientServiceID) {
+  // convert serviceId to document referance
+  return FirebaseFirestore.instance
+      .collection('clientServices')
+      .doc(clientServiceID);
+}
+
 DocumentReference docIDtoRef(String serviceID) {
   // convert serviceId to document referance
   return FirebaseFirestore.instance.collection('services').doc(serviceID);

@@ -305,53 +305,6 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            if (columnClientServicesRecord.includes !=
-                                                                                null)
-                                                                              StreamBuilder<ClientServicesRecord>(
-                                                                                stream: ClientServicesRecord.getDocument(columnClientServicesRecord.includes!),
-                                                                                builder: (context, snapshot) {
-                                                                                  // Customize what your widget looks like when it's loading.
-                                                                                  if (!snapshot.hasData) {
-                                                                                    return Center(
-                                                                                      child: LinearProgressIndicator(
-                                                                                        color: FlutterFlowTheme.of(context).primary,
-                                                                                      ),
-                                                                                    );
-                                                                                  }
-                                                                                  final rowClientServicesRecord = snapshot.data!;
-                                                                                  return Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      StreamBuilder<ServicesRecord>(
-                                                                                        stream: ServicesRecord.getDocument(rowClientServicesRecord.serviceRef!),
-                                                                                        builder: (context, snapshot) {
-                                                                                          // Customize what your widget looks like when it's loading.
-                                                                                          if (!snapshot.hasData) {
-                                                                                            return Center(
-                                                                                              child: LinearProgressIndicator(
-                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                              ),
-                                                                                            );
-                                                                                          }
-                                                                                          final textServicesRecord = snapshot.data!;
-                                                                                          return Text(
-                                                                                            textServicesRecord.name,
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Poppins',
-                                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                ),
-                                                                                          );
-                                                                                        },
-                                                                                      ),
-                                                                                      Icon(
-                                                                                        Icons.keyboard_arrow_right_outlined,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        size: 24.0,
-                                                                                      ),
-                                                                                    ],
-                                                                                  );
-                                                                                },
-                                                                              ),
                                                                             Text(
                                                                               rowServicesRecord.name,
                                                                               style: FlutterFlowTheme.of(context).titleLarge.override(
@@ -393,51 +346,64 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                                 fontStyle: FontStyle.italic,
                                                                               ),
                                                                         ),
-                                                                        if (columnClientServicesRecord.includes ==
-                                                                            null)
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                4.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                InkWell(
-                                                                              splashColor: Colors.transparent,
-                                                                              focusColor: Colors.transparent,
-                                                                              hoverColor: Colors.transparent,
-                                                                              highlightColor: Colors.transparent,
-                                                                              onTap: () async {
-                                                                                await showModalBottomSheet(
-                                                                                  isScrollControlled: true,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  enableDrag: false,
-                                                                                  context: context,
-                                                                                  builder: (context) {
-                                                                                    return GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: SizedBox(
-                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                          child: DeleteClientServicesWidget(
-                                                                                            clientServiceRef: columnClientServicesRecord.reference,
-                                                                                          ),
-                                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            if (columnClientServicesRecord.includes !=
+                                                                                null)
+                                                                              Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                child: Text(
+                                                                                  'Included Service',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
                                                                                       ),
-                                                                                    );
-                                                                                  },
-                                                                                ).then((value) => safeSetState(() {}));
-                                                                              },
-                                                                              child: Text(
-                                                                                'Remove',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Poppins',
-                                                                                      color: FlutterFlowTheme.of(context).error,
-                                                                                    ),
+                                                                                ),
                                                                               ),
-                                                                            ),
-                                                                          ),
+                                                                            if (columnClientServicesRecord.includes ==
+                                                                                null)
+                                                                              Padding(
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    await showModalBottomSheet(
+                                                                                      isScrollControlled: true,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      enableDrag: false,
+                                                                                      context: context,
+                                                                                      builder: (context) {
+                                                                                        return GestureDetector(
+                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                            child: SizedBox(
+                                                                                              height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                              child: DeleteClientServicesWidget(
+                                                                                                clientServiceRef: columnClientServicesRecord.reference,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    ).then((value) => safeSetState(() {}));
+                                                                                  },
+                                                                                  child: Text(
+                                                                                    'Remove',
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Poppins',
+                                                                                          color: FlutterFlowTheme.of(context).error,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                          ],
+                                                                        ),
                                                                       ],
                                                                     ),
                                                                   ],

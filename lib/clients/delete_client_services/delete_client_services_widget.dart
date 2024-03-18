@@ -132,7 +132,7 @@ class _DeleteClientServicesWidgetState
                                   isEqualTo: widget.clientServiceRef,
                                 ),
                               );
-                              while (_model.includedServices?.length ==
+                              while (_model.includedServices!.length >
                                   _model.loop) {
                                 _model.tasksInfo = await queryTasksRecordOnce(
                                   queryBuilder: (tasksRecord) =>

@@ -322,6 +322,7 @@ class _ClientServicesWidgetState extends State<ClientServicesWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 color: FlutterFlowTheme.of(context).primary,
+                                                                                fontWeight: FontWeight.w300,
                                                                                 decoration: TextDecoration.underline,
                                                                               ),
                                                                         ),

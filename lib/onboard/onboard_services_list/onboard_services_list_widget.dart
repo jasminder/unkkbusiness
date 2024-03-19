@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
 import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -42,6 +41,26 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         _model.clientRef = widget.clientRef;
+      });
+      _model.clientServices = await queryClientServicesRecordOnce(
+        queryBuilder: (clientServicesRecord) => clientServicesRecord.where(
+          'clientRef',
+          isEqualTo: widget.clientRef,
+        ),
+      );
+      while (_model.clientServices!.length > _model.servicesLoopCount) {
+        setState(() {
+          _model.serviceTotal = _model.serviceTotal = _model.serviceTotal +
+              (_model.clientServices![_model.servicesLoopCount].price *
+                  _model.clientServices![_model.servicesLoopCount].quantity
+                      .toDouble());
+        });
+        setState(() {
+          _model.servicesLoopCount = _model.servicesLoopCount + 1;
+        });
+      }
+      setState(() {
+        _model.servicesLoopCount = 0;
       });
     });
 
@@ -457,7 +476,12 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          '₹600.00',
+                                          formatNumber(
+                                            _model.serviceTotal,
+                                            formatType: FormatType.decimal,
+                                            decimalType: DecimalType.automatic,
+                                            currency: '\$',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
@@ -472,34 +496,33 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.clientServices2 =
+                                          setState(() {
+                                            _model.serviceTotal = 0.0;
+                                          });
+                                          _model.clientServices3 =
                                               await queryClientServicesRecordOnce(
                                             queryBuilder:
                                                 (clientServicesRecord) =>
                                                     clientServicesRecord.where(
                                               'clientRef',
-                                              isEqualTo: _model.clientRef,
+                                              isEqualTo: widget.clientRef,
                                             ),
                                           );
-                                          _model.oneOffServiceTotal = 0.0;
-                                          while (
-                                              _model.clientServices2!.length >
-                                                  _model.servicesLoopCount) {
-                                            _model.serviceTotal2 =
-                                                await actions.createSubTotal(
-                                              _model
-                                                  .clientServices2![
-                                                      _model.servicesLoopCount]
-                                                  .quantity,
-                                              _model
-                                                  .clientServices2![
-                                                      _model.servicesLoopCount]
-                                                  .price,
-                                            );
+                                          while (_model.clientServices!.length >
+                                              _model.servicesLoopCount) {
                                             setState(() {
-                                              _model.oneOffServiceTotal =
-                                                  (_model.serviceTotal2!) +
-                                                      _model.oneOffServiceTotal;
+                                              _model.serviceTotal = _model
+                                                  .serviceTotal = _model
+                                                      .serviceTotal +
+                                                  (_model
+                                                          .clientServices3![_model
+                                                              .servicesLoopCount]
+                                                          .price *
+                                                      _model
+                                                          .clientServices3![_model
+                                                              .servicesLoopCount]
+                                                          .quantity
+                                                          .toDouble());
                                             });
                                             setState(() {
                                               _model.servicesLoopCount =

@@ -9,7 +9,7 @@ class OnboardServicesListModel
 
   int servicesLoopCount = 0;
 
-  double oneOffServiceTotal = 0.0;
+  double serviceTotal = 0.0;
 
   DocumentReference? clientRef;
 
@@ -18,10 +18,10 @@ class OnboardServicesListModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Firestore Query - Query a collection] action in onboardServicesList widget.
+  List<ClientServicesRecord>? clientServices;
   // Stores action output result for [Firestore Query - Query a collection] action in Text widget.
-  List<ClientServicesRecord>? clientServices2;
-  // Stores action output result for [Custom Action - createSubTotal] action in Text widget.
-  double? serviceTotal2;
+  List<ClientServicesRecord>? clientServices3;
 
   /// Initialization and disposal methods.
 

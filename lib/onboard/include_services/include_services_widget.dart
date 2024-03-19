@@ -170,7 +170,7 @@ class _IncludeServicesWidgetState extends State<IncludeServicesWidget> {
                               type: _model.clientServicesInfo?.type,
                               billingMode:
                                   _model.clientServicesInfo?.billingMode,
-                              priceType: 'included',
+                              priceType: 'Included',
                               quantity: 0,
                               price: 0.0,
                               clientRef: _model.clientServicesInfo?.clientRef,

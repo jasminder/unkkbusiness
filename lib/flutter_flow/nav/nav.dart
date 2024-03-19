@@ -288,6 +288,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ProposalInfoWidget(
             clientTrack: params.getParam('clientTrack', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'proposalRequestInfo',
+          path: '/proposalRequestInfo',
+          asyncParams: {
+            'proposal': getDoc(['proposal'], ProposalRecord.fromSnapshot),
+          },
+          builder: (context, params) => ProposalRequestInfoWidget(
+            proposal: params.getParam('proposal', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

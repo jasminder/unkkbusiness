@@ -50,3 +50,5 @@ export '/clients/client_services/client_services_widget.dart'
     show ClientServicesWidget;
 export '/proposal/proposal_info/proposal_info_widget.dart'
     show ProposalInfoWidget;
+export '/onboard/proposal_request_info/proposal_request_info_widget.dart'
+    show ProposalRequestInfoWidget;

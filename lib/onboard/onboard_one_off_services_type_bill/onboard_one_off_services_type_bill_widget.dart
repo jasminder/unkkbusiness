@@ -301,7 +301,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   .set({
                                                 ...createClientServicesRecordData(
                                                   type: widget.serviceType,
-                                                  billingMode: 'on acceptance',
+                                                  billingMode: 'On acceptance',
                                                   quantity: 1,
                                                   price: _model
                                                       .serviceDetails?.price,
@@ -312,6 +312,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                       widget.proposalRef,
                                                   name: _model
                                                       .serviceDetails?.name,
+                                                  priceType: 'Fixed',
                                                 ),
                                                 ...mapToFirestore(
                                                   {
@@ -567,7 +568,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                   .set({
                                                 ...createClientServicesRecordData(
                                                   type: widget.serviceType,
-                                                  billingMode: 'on completion',
+                                                  billingMode: 'On completion',
                                                   quantity: 1,
                                                   price: _model
                                                       .serviceDetails2?.price,
@@ -578,6 +579,7 @@ class _OnboardOneOffServicesTypeBillWidgetState
                                                       widget.proposalRef,
                                                   name: _model
                                                       .serviceDetails2?.name,
+                                                  priceType: 'Fixed',
                                                 ),
                                                 ...mapToFirestore(
                                                   {

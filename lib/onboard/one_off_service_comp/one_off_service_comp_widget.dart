@@ -72,7 +72,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (columnClientServicesRecord.priceType != 'included')
+            if (columnClientServicesRecord.priceType != 'Included')
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -121,7 +121,10 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                             columnClientServicesRecord
                                                 .billingMode,
                                       ),
-                                      options: const ['Automatic', 'Manual'],
+                                      options: const [
+                                        'On completion',
+                                        'On acceptance'
+                                      ],
                                       onChanged: (val) async {
                                         setState(() =>
                                             _model.billingModeValue = val);
@@ -164,78 +167,10 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.priceTypeValueController ??=
-                                              FormFieldController<String>(null),
-                                      options: const [
-                                        'Fixed',
-                                        'Per Unit',
-                                        'Minimum Price',
-                                        'Price Range'
-                                      ],
-                                      onChanged: (val) async {
-                                        setState(
-                                            () => _model.priceTypeValue = val);
-                                        if (_model.priceTypeValue ==
-                                            'included') {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: SizedBox(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          1.0,
-                                                  child: IncludeServicesWidget(
-                                                    clientServiceRef:
-                                                        columnClientServicesRecord
-                                                            .reference,
-                                                    clientRef:
-                                                        columnClientServicesRecord
-                                                            .clientRef,
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          ).then(
-                                              (value) => safeSetState(() {}));
-                                        } else {
-                                          await widget.clientServiceRef!.update(
-                                              createClientServicesRecordData(
-                                            priceType: _model.priceTypeValue,
-                                          ));
-                                        }
-                                      },
-                                      width: 90.0,
-                                      height: 30.0,
-                                      textStyle: FlutterFlowTheme.of(context)
+                                    Text(
+                                      columnClientServicesRecord.priceType,
+                                      style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
-                                      hintText: 'Price',
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 24.0,
-                                      ),
-                                      fillColor: const Color(0xFFFCFCFC),
-                                      elevation: 0.0,
-                                      borderColor: const Color(0xFFFCFCFC),
-                                      borderWidth: 0.0,
-                                      borderRadius: 8.0,
-                                      margin: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 4.0),
-                                      hidesUnderline: true,
-                                      isOverButton: false,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
                                     ),
                                   ],
                                 ),
@@ -537,17 +472,12 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                           controller:
                                               _model.qtyUnitValueController ??=
                                                   FormFieldController<String>(
-                                            _model.qtyUnitValue ??= 'Day',
+                                            _model.qtyUnitValue ??= 'Quarterly',
                                           ),
                                           options: const [
-                                            'Day',
-                                            'Hour',
-                                            'Employee',
-                                            'Transaction',
-                                            'Entity',
-                                            'Person',
-                                            'Bill',
-                                            'Item'
+                                            'Quarterly',
+                                            'Monthly',
+                                            'Weekly'
                                           ],
                                           onChanged: (val) async {
                                             setState(() =>
@@ -562,7 +492,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium,
-                                          hintText: 'Per hour',
+                                          hintText: 'Quarterly',
                                           icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
@@ -914,7 +844,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                                         .minusSquare,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
+                                                        .error,
                                                     size: 24.0,
                                                   ),
                                                 ),

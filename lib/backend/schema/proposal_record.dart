@@ -125,6 +125,41 @@ class ProposalRecord extends FirestoreRecord {
   String get gender => _gender ?? '';
   bool hasGender() => _gender != null;
 
+  // "spouseName" field.
+  String? _spouseName;
+  String get spouseName => _spouseName ?? '';
+  bool hasSpouseName() => _spouseName != null;
+
+  // "spouseTFN" field.
+  String? _spouseTFN;
+  String get spouseTFN => _spouseTFN ?? '';
+  bool hasSpouseTFN() => _spouseTFN != null;
+
+  // "spouseDOB" field.
+  DateTime? _spouseDOB;
+  DateTime? get spouseDOB => _spouseDOB;
+  bool hasSpouseDOB() => _spouseDOB != null;
+
+  // "hasBusiness" field.
+  String? _hasBusiness;
+  String get hasBusiness => _hasBusiness ?? '';
+  bool hasHasBusiness() => _hasBusiness != null;
+
+  // "businessName" field.
+  String? _businessName;
+  String get businessName => _businessName ?? '';
+  bool hasBusinessName() => _businessName != null;
+
+  // "businessABN" field.
+  String? _businessABN;
+  String get businessABN => _businessABN ?? '';
+  bool hasBusinessABN() => _businessABN != null;
+
+  // "businessTFN" field.
+  String? _businessTFN;
+  String get businessTFN => _businessTFN ?? '';
+  bool hasBusinessTFN() => _businessTFN != null;
+
   void _initializeFields() {
     _salutation = snapshotData['salutation'] as String?;
     _firstName = snapshotData['firstName'] as String?;
@@ -148,6 +183,13 @@ class ProposalRecord extends FirestoreRecord {
     _status = snapshotData['status'] as String?;
     _contact = snapshotData['contact'] as String?;
     _gender = snapshotData['gender'] as String?;
+    _spouseName = snapshotData['spouseName'] as String?;
+    _spouseTFN = snapshotData['spouseTFN'] as String?;
+    _spouseDOB = snapshotData['spouseDOB'] as DateTime?;
+    _hasBusiness = snapshotData['hasBusiness'] as String?;
+    _businessName = snapshotData['businessName'] as String?;
+    _businessABN = snapshotData['businessABN'] as String?;
+    _businessTFN = snapshotData['businessTFN'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -207,6 +249,13 @@ Map<String, dynamic> createProposalRecordData({
   String? status,
   String? contact,
   String? gender,
+  String? spouseName,
+  String? spouseTFN,
+  DateTime? spouseDOB,
+  String? hasBusiness,
+  String? businessName,
+  String? businessABN,
+  String? businessTFN,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -232,6 +281,13 @@ Map<String, dynamic> createProposalRecordData({
       'status': status,
       'contact': contact,
       'gender': gender,
+      'spouseName': spouseName,
+      'spouseTFN': spouseTFN,
+      'spouseDOB': spouseDOB,
+      'hasBusiness': hasBusiness,
+      'businessName': businessName,
+      'businessABN': businessABN,
+      'businessTFN': businessTFN,
     }.withoutNulls,
   );
 
@@ -264,7 +320,14 @@ class ProposalRecordDocumentEquality implements Equality<ProposalRecord> {
         e1?.createdAt == e2?.createdAt &&
         e1?.status == e2?.status &&
         e1?.contact == e2?.contact &&
-        e1?.gender == e2?.gender;
+        e1?.gender == e2?.gender &&
+        e1?.spouseName == e2?.spouseName &&
+        e1?.spouseTFN == e2?.spouseTFN &&
+        e1?.spouseDOB == e2?.spouseDOB &&
+        e1?.hasBusiness == e2?.hasBusiness &&
+        e1?.businessName == e2?.businessName &&
+        e1?.businessABN == e2?.businessABN &&
+        e1?.businessTFN == e2?.businessTFN;
   }
 
   @override
@@ -290,7 +353,14 @@ class ProposalRecordDocumentEquality implements Equality<ProposalRecord> {
         e?.createdAt,
         e?.status,
         e?.contact,
-        e?.gender
+        e?.gender,
+        e?.spouseName,
+        e?.spouseTFN,
+        e?.spouseDOB,
+        e?.hasBusiness,
+        e?.businessName,
+        e?.businessABN,
+        e?.businessTFN
       ]);
 
   @override

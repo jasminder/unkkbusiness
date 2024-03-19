@@ -15,9 +15,6 @@ class OneOffServiceCompModel extends FlutterFlowModel<OneOffServiceCompWidget> {
   // State field(s) for billingMode widget.
   String? billingModeValue;
   FormFieldController<String>? billingModeValueController;
-  // State field(s) for priceType widget.
-  String? priceTypeValue;
-  FormFieldController<String>? priceTypeValueController;
   // State field(s) for qty widget.
   FocusNode? qtyFocusNode;
   TextEditingController? qtyController;

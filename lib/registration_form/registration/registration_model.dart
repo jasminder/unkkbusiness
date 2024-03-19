@@ -37,9 +37,9 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   }
 
   // State field(s) for dateOfBirth widget.
-  FocusNode? dateOfBirthFocusNode;
-  TextEditingController? dateOfBirthController;
-  String? Function(BuildContext, String?)? dateOfBirthControllerValidator;
+  FocusNode? dateOfBirthFocusNode1;
+  TextEditingController? dateOfBirthController1;
+  String? Function(BuildContext, String?)? dateOfBirthController1Validator;
   DateTime? datePicked1;
   // State field(s) for gender widget.
   String? genderValue;
@@ -113,18 +113,46 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   // State field(s) for trader widget.
   String? traderValue1;
   FormFieldController<String>? traderValueController1;
-  // State field(s) for maritalStatus widget.
-  String? maritalStatusValue1;
-  FormFieldController<String>? maritalStatusValueController1;
+  // State field(s) for cryptoInvestment widget.
+  String? cryptoInvestmentValue1;
+  FormFieldController<String>? cryptoInvestmentValueController1;
   // State field(s) for investmentProperty widget.
   String? investmentPropertyValue1;
   FormFieldController<String>? investmentPropertyValueController1;
   // State field(s) for hasHealthInsurance widget.
   String? hasHealthInsuranceValue1;
   FormFieldController<String>? hasHealthInsuranceValueController1;
-  // State field(s) for cryptoInvestment widget.
-  String? cryptoInvestmentValue1;
-  FormFieldController<String>? cryptoInvestmentValueController1;
+  // State field(s) for maritalStatus widget.
+  String? maritalStatusValue1;
+  FormFieldController<String>? maritalStatusValueController1;
+  // State field(s) for spouseName widget.
+  FocusNode? spouseNameFocusNode;
+  TextEditingController? spouseNameController;
+  String? Function(BuildContext, String?)? spouseNameControllerValidator;
+  // State field(s) for dateOfBirth widget.
+  FocusNode? dateOfBirthFocusNode2;
+  TextEditingController? dateOfBirthController2;
+  String? Function(BuildContext, String?)? dateOfBirthController2Validator;
+  DateTime? datePicked2;
+  // State field(s) for spouseTFN widget.
+  FocusNode? spouseTFNFocusNode;
+  TextEditingController? spouseTFNController;
+  String? Function(BuildContext, String?)? spouseTFNControllerValidator;
+  // State field(s) for haveBusiness widget.
+  String? haveBusinessValue;
+  FormFieldController<String>? haveBusinessValueController;
+  // State field(s) for businessName widget.
+  FocusNode? businessNameFocusNode;
+  TextEditingController? businessNameController;
+  String? Function(BuildContext, String?)? businessNameControllerValidator;
+  // State field(s) for buinessABN widget.
+  FocusNode? buinessABNFocusNode;
+  TextEditingController? buinessABNController;
+  String? Function(BuildContext, String?)? buinessABNControllerValidator;
+  // State field(s) for buinessTFN widget.
+  FocusNode? buinessTFNFocusNode;
+  TextEditingController? buinessTFNController;
+  String? Function(BuildContext, String?)? buinessTFNControllerValidator;
   // State field(s) for taxAdditionalInformation widget.
   FocusNode? taxAdditionalInformationFocusNode1;
   TextEditingController? taxAdditionalInformationController1;
@@ -169,7 +197,7 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
     return null;
   }
 
-  DateTime? datePicked2;
+  DateTime? datePicked3;
   // State field(s) for email widget.
   FocusNode? emailFocusNode2;
   TextEditingController? emailController2;
@@ -272,8 +300,8 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
     lastNameFocusNode1?.dispose();
     lastNameController1?.dispose();
 
-    dateOfBirthFocusNode?.dispose();
-    dateOfBirthController?.dispose();
+    dateOfBirthFocusNode1?.dispose();
+    dateOfBirthController1?.dispose();
 
     contactFocusNode?.dispose();
     contactController?.dispose();
@@ -295,6 +323,24 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
 
     tFNnumberFocusNode1?.dispose();
     tFNnumberController1?.dispose();
+
+    spouseNameFocusNode?.dispose();
+    spouseNameController?.dispose();
+
+    dateOfBirthFocusNode2?.dispose();
+    dateOfBirthController2?.dispose();
+
+    spouseTFNFocusNode?.dispose();
+    spouseTFNController?.dispose();
+
+    businessNameFocusNode?.dispose();
+    businessNameController?.dispose();
+
+    buinessABNFocusNode?.dispose();
+    buinessABNController?.dispose();
+
+    buinessTFNFocusNode?.dispose();
+    buinessTFNController?.dispose();
 
     taxAdditionalInformationFocusNode1?.dispose();
     taxAdditionalInformationController1?.dispose();

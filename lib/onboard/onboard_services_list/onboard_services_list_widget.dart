@@ -508,8 +508,9 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
                                               isEqualTo: widget.clientRef,
                                             ),
                                           );
-                                          while (_model.clientServices!.length >
-                                              _model.servicesLoopCount) {
+                                          while (
+                                              _model.clientServices3!.length >
+                                                  _model.servicesLoopCount) {
                                             setState(() {
                                               _model.serviceTotal = _model
                                                   .serviceTotal = _model

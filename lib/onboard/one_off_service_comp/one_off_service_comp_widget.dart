@@ -133,7 +133,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                                           billingMode: _model.billingModeValue,
                                         ));
                                       },
-                                      width: 120.0,
+                                      width: 220.0,
                                       height: 30.0,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium,

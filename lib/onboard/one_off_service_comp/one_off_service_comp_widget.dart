@@ -698,7 +698,7 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 8.0),
+                                      0.0, 12.0, 0.0, 12.0),
                                   child: StreamBuilder<ServicesRecord>(
                                     stream: ServicesRecord.getDocument(
                                         listViewClientServicesRecord

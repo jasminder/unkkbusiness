@@ -65,7 +65,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.goNamed(
-                        'clientsList',
+                        'newOnboard',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,

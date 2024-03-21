@@ -478,7 +478,7 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              1.0, 0.0),
                                                       child: Text(
                                                         'Action',
                                                         style:
@@ -530,6 +530,8 @@ class _NewOnboardWidgetState extends State<NewOnboardWidget> {
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
                                                     children: [
                                                       Align(
                                                         alignment:

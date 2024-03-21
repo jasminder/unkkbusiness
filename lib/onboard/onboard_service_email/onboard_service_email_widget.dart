@@ -4,8 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
 import '/onboard/proposal_success/proposal_success_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'onboard_service_email_model.dart';
 export 'onboard_service_email_model.dart';
 
@@ -435,6 +437,22 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                             setState(() {
                                               _model.loopCount = 0;
                                             });
+                                            _model.pageURL =
+                                                actions.getUrl();
+                                            await launchUrl(Uri(
+                                                scheme: 'mailto',
+                                                path: _model.clientInfo!.email,
+                                                query: {
+                                                  'subject': 'Accept Proposal',
+                                                  'body':
+                                                      'Accept proposal by click on this link.<a href=\'${_model.pageURL}\' >Click Here</a>',
+                                                }
+                                                    .entries
+                                                    .map((MapEntry<String,
+                                                                String>
+                                                            e) =>
+                                                        '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                                    .join('&')));
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:

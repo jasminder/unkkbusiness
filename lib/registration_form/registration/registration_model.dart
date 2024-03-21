@@ -123,8 +123,8 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   String? hasHealthInsuranceValue1;
   FormFieldController<String>? hasHealthInsuranceValueController1;
   // State field(s) for maritalStatus widget.
-  String? maritalStatusValue1;
-  FormFieldController<String>? maritalStatusValueController1;
+  String? maritalStatusValue;
+  FormFieldController<String>? maritalStatusValueController;
   // State field(s) for spouseName widget.
   FocusNode? spouseNameFocusNode;
   TextEditingController? spouseNameController;
@@ -185,19 +185,6 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
     return null;
   }
 
-  // State field(s) for dateOfBirth2 widget.
-  FocusNode? dateOfBirth2FocusNode;
-  TextEditingController? dateOfBirth2Controller;
-  String? Function(BuildContext, String?)? dateOfBirth2ControllerValidator;
-  String? _dateOfBirth2ControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    return null;
-  }
-
-  DateTime? datePicked3;
   // State field(s) for email widget.
   FocusNode? emailFocusNode2;
   TextEditingController? emailController2;
@@ -255,9 +242,6 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   // State field(s) for trader widget.
   String? traderValue2;
   FormFieldController<String>? traderValueController2;
-  // State field(s) for maritalStatus widget.
-  String? maritalStatusValue2;
-  FormFieldController<String>? maritalStatusValueController2;
   // State field(s) for investmentProperty widget.
   String? investmentPropertyValue2;
   FormFieldController<String>? investmentPropertyValueController2;
@@ -267,6 +251,32 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
   // State field(s) for cryptoInvestment widget.
   String? cryptoInvestmentValue2;
   FormFieldController<String>? cryptoInvestmentValueController2;
+  // State field(s) for maritalStatusM widget.
+  String? maritalStatusMValue;
+  FormFieldController<String>? maritalStatusMValueController;
+  // State field(s) for spouseNameMobile widget.
+  FocusNode? spouseNameMobileFocusNode;
+  TextEditingController? spouseNameMobileController;
+  String? Function(BuildContext, String?)? spouseNameMobileControllerValidator;
+  // State field(s) for spouseDateOfBirth2 widget.
+  FocusNode? spouseDateOfBirth2FocusNode;
+  TextEditingController? spouseDateOfBirth2Controller;
+  String? Function(BuildContext, String?)?
+      spouseDateOfBirth2ControllerValidator;
+  String? _spouseDateOfBirth2ControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
+  DateTime? datePicked3;
+  // State field(s) for spouseTFNMobile widget.
+  FocusNode? spouseTFNMobileFocusNode;
+  TextEditingController? spouseTFNMobileController;
+  String? Function(BuildContext, String?)? spouseTFNMobileControllerValidator;
   // State field(s) for taxAdditionalInformation widget.
   FocusNode? taxAdditionalInformationFocusNode2;
   TextEditingController? taxAdditionalInformationController2;
@@ -285,10 +295,11 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
     tFNnumberController1Validator = _tFNnumberController1Validator;
     firatNameController2Validator = _firatNameController2Validator;
     lastNameController2Validator = _lastNameController2Validator;
-    dateOfBirth2ControllerValidator = _dateOfBirth2ControllerValidator;
     emailController2Validator = _emailController2Validator;
     addressLine1Controller2Validator = _addressLine1Controller2Validator;
     tFNnumberController2Validator = _tFNnumberController2Validator;
+    spouseDateOfBirth2ControllerValidator =
+        _spouseDateOfBirth2ControllerValidator;
   }
 
   @override
@@ -351,9 +362,6 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
     lastNameFocusNode2?.dispose();
     lastNameController2?.dispose();
 
-    dateOfBirth2FocusNode?.dispose();
-    dateOfBirth2Controller?.dispose();
-
     emailFocusNode2?.dispose();
     emailController2?.dispose();
 
@@ -371,6 +379,15 @@ class RegistrationModel extends FlutterFlowModel<RegistrationWidget> {
 
     tFNnumberFocusNode2?.dispose();
     tFNnumberController2?.dispose();
+
+    spouseNameMobileFocusNode?.dispose();
+    spouseNameMobileController?.dispose();
+
+    spouseDateOfBirth2FocusNode?.dispose();
+    spouseDateOfBirth2Controller?.dispose();
+
+    spouseTFNMobileFocusNode?.dispose();
+    spouseTFNMobileController?.dispose();
 
     taxAdditionalInformationFocusNode2?.dispose();
     taxAdditionalInformationController2?.dispose();

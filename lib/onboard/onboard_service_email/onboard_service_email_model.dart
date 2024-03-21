@@ -14,6 +14,8 @@ class OnboardServiceEmailModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in Button widget.
   ClientsRecord? clientInfo;
+  // Stores action output result for [Custom Action - getUrl] action in Button widget.
+  String? pageURL;
 
   /// Initialization and disposal methods.
 

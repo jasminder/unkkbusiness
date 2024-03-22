@@ -283,6 +283,135 @@ class _ClientProposalAcceptWidgetState
                                                                 height: 320.0,
                                                               ),
                                                             ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      final signatureImage = await _model
+                                                                          .signatureController!
+                                                                          .toPngBytes();
+                                                                      if (signatureImage ==
+                                                                          null) {
+                                                                        showUploadMessage(
+                                                                          context,
+                                                                          'Signature is empty.',
+                                                                        );
+                                                                        return;
+                                                                      }
+                                                                      showUploadMessage(
+                                                                        context,
+                                                                        'Uploading signature...',
+                                                                        showLoading:
+                                                                            true,
+                                                                      );
+                                                                      final downloadUrl = (await uploadData(
+                                                                          getSignatureStoragePath(),
+                                                                          signatureImage));
+
+                                                                      ScaffoldMessenger.of(
+                                                                              context)
+                                                                          .hideCurrentSnackBar();
+                                                                      if (downloadUrl !=
+                                                                          null) {
+                                                                        setState(() =>
+                                                                            _model.uploadedSignatureUrl =
+                                                                                downloadUrl);
+                                                                        showUploadMessage(
+                                                                          context,
+                                                                          'Success!',
+                                                                        );
+                                                                      } else {
+                                                                        showUploadMessage(
+                                                                          context,
+                                                                          'Failed to upload signature.',
+                                                                        );
+                                                                        return;
+                                                                      }
+                                                                    },
+                                                                    child: Text(
+                                                                      'Upload Signature',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            decoration:
+                                                                                TextDecoration.underline,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            164.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        setState(
+                                                                            () {
+                                                                          _model
+                                                                              .signatureController
+                                                                              ?.clear();
+                                                                        });
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        'Clear Signature',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
                                                           ],
                                                         ),
                                                       ),
@@ -344,48 +473,18 @@ class _ClientProposalAcceptWidgetState
                                     8.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    final signatureImage = await _model
-                                        .signatureController!
-                                        .toPngBytes(height: 320, width: 500);
-                                    if (signatureImage == null) {
-                                      showUploadMessage(
-                                        context,
-                                        'Signature is empty.',
-                                      );
-                                      return;
-                                    }
-                                    showUploadMessage(
-                                      context,
-                                      'Uploading signature...',
-                                      showLoading: true,
-                                    );
-                                    final downloadUrl = (await uploadData(
-                                        getSignatureStoragePath(),
-                                        signatureImage));
-
-                                    ScaffoldMessenger.of(context)
-                                        .hideCurrentSnackBar();
-                                    if (downloadUrl != null) {
-                                      setState(() => _model
-                                          .uploadedSignatureUrl = downloadUrl);
-                                      showUploadMessage(
-                                        context,
-                                        'Success!',
-                                      );
-                                    } else {
-                                      showUploadMessage(
-                                        context,
-                                        'Failed to upload signature.',
-                                      );
-                                      return;
-                                    }
-
-                                    await widget.clientRef!
-                                        .update(createClientsRecordData(
-                                      signature: _model.uploadedSignatureUrl,
-                                      proposalAccept: true,
-                                      signatureDate: getCurrentTimestamp,
-                                    ));
+                                    await widget.clientRef!.update({
+                                      ...createClientsRecordData(
+                                        signature: _model.uploadedSignatureUrl,
+                                        proposalAccept: true,
+                                      ),
+                                      ...mapToFirestore(
+                                        {
+                                          'signatureDate':
+                                              FieldValue.serverTimestamp(),
+                                        },
+                                      ),
+                                    });
 
                                     context.pushNamed(
                                       'clientProposalAcceptSuccess',

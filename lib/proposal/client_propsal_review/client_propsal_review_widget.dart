@@ -311,7 +311,10 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                                                             MainAxisAlignment.spaceBetween,
                                                                         children: [
                                                                           Text(
-                                                                            containerClientServicesRecord.type,
+                                                                            valueOrDefault<String>(
+                                                                              containerClientServicesRecord.type,
+                                                                              'Type',
+                                                                            ),
                                                                             style: FlutterFlowTheme.of(context).headlineMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primary,
@@ -320,7 +323,15 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                                                                 ),
                                                                           ),
                                                                           Text(
-                                                                            (containerClientServicesRecord.price * containerClientServicesRecord.quantity).toString(),
+                                                                            (valueOrDefault<double>(
+                                                                                      containerClientServicesRecord.price,
+                                                                                      0.0,
+                                                                                    ) *
+                                                                                    valueOrDefault<int>(
+                                                                                      containerClientServicesRecord.quantity,
+                                                                                      0,
+                                                                                    ))
+                                                                                .toString(),
                                                                             style: FlutterFlowTheme.of(context).headlineMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primary,
@@ -345,12 +356,21 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                                                             MainAxisAlignment.spaceBetween,
                                                                         children: [
                                                                           Text(
-                                                                            containerClientServicesRecord.billingMode,
+                                                                            valueOrDefault<String>(
+                                                                              containerClientServicesRecord.billingMode,
+                                                                              'Mode',
+                                                                            ),
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).bodyLarge,
                                                                           ),
                                                                           Text(
-                                                                            'ex. ${(containerClientServicesRecord.price * containerClientServicesRecord.quantity).toString()} GST',
+                                                                            'ex. ${(valueOrDefault<double>(
+                                                                                  containerClientServicesRecord.price,
+                                                                                  0.0,
+                                                                                ) * valueOrDefault<int>(
+                                                                                  containerClientServicesRecord.quantity,
+                                                                                  0,
+                                                                                )).toString()} GST',
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).bodyLarge,
                                                                           ),
@@ -392,7 +412,10 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                                                                   children: [
                                                                                     Expanded(
                                                                                       child: Text(
-                                                                                        rowServicesRecord.description,
+                                                                                        valueOrDefault<String>(
+                                                                                          rowServicesRecord.description,
+                                                                                          'Desc',
+                                                                                        ),
                                                                                         style: FlutterFlowTheme.of(context).bodyLarge,
                                                                                       ),
                                                                                     ),

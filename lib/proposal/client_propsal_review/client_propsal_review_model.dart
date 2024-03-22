@@ -1,8 +1,13 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'proposal_preview_widget.dart' show ProposalPreviewWidget;
+import 'client_propsal_review_widget.dart' show ClientPropsalReviewWidget;
 import 'package:flutter/material.dart';
 
-class ProposalPreviewModel extends FlutterFlowModel<ProposalPreviewWidget> {
+class ClientPropsalReviewModel
+    extends FlutterFlowModel<ClientPropsalReviewWidget> {
+  ///  Local state fields for this page.
+
+  int loopCount = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'proposal_pricing_widget.dart' show ProposalPricingWidget;
+import 'client_proposal_accept_success_widget.dart'
+    show ClientProposalAcceptSuccessWidget;
 import 'package:flutter/material.dart';
 
-class ProposalPricingModel extends FlutterFlowModel<ProposalPricingWidget> {
+class ClientProposalAcceptSuccessModel
+    extends FlutterFlowModel<ClientProposalAcceptSuccessWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

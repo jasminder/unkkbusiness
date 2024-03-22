@@ -1,26 +1,37 @@
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'proposal_pricing_model.dart';
-export 'proposal_pricing_model.dart';
+import 'package:signature/signature.dart';
+import 'client_proposal_accept_model.dart';
+export 'client_proposal_accept_model.dart';
 
-class ProposalPricingWidget extends StatefulWidget {
-  const ProposalPricingWidget({super.key});
+class ClientProposalAcceptWidget extends StatefulWidget {
+  const ClientProposalAcceptWidget({
+    super.key,
+    required this.clientRef,
+  });
+
+  final DocumentReference? clientRef;
 
   @override
-  State<ProposalPricingWidget> createState() => _ProposalPricingWidgetState();
+  State<ClientProposalAcceptWidget> createState() =>
+      _ClientProposalAcceptWidgetState();
 }
 
-class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
-  late ProposalPricingModel _model;
+class _ClientProposalAcceptWidgetState
+    extends State<ClientProposalAcceptWidget> {
+  late ClientProposalAcceptModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProposalPricingModel());
+    _model = createModel(context, () => ClientProposalAcceptModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -58,34 +69,6 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.safePop();
-                                  },
-                                  child: Text(
-                                    'Close',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          decoration: TextDecoration.underline,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 36.0, 0.0, 36.0),
@@ -141,32 +124,67 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   32.0, 32.0, 32.0, 32.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'John Smith',
-                                                    style: FlutterFlowTheme.of(
+                                          child: StreamBuilder<ClientsRecord>(
+                                            stream: ClientsRecord.getDocument(
+                                                widget.clientRef!),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child:
+                                                      LinearProgressIndicator(
+                                                    color: FlutterFlowTheme.of(
                                                             context)
-                                                        .displayMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 40.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                        .primary,
+                                                  ),
+                                                );
+                                              }
+                                              final rowClientsRecord =
+                                                  snapshot.data!;
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        '${rowClientsRecord.firstName} ${rowClientsRecord.lastName}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .displayMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 40.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        rowClientsRecord.email,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 20.0,
+                                                            ),
+                                                      ),
+                                                    ],
                                                   ),
                                                   Text(
-                                                    'Business Books',
+                                                    'Starting on acceptance',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -176,18 +194,8 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                                         ),
                                                   ),
                                                 ],
-                                              ),
-                                              Text(
-                                                'Starting on acceptance',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 20.0,
-                                                        ),
-                                              ),
-                                            ],
+                                              );
+                                            },
                                           ),
                                         ),
                                         Divider(
@@ -205,7 +213,7 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'PRICING',
+                                                'SIGN & ACCEPT',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -253,174 +261,26 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                                               CrossAxisAlignment
                                                                   .start,
                                                           children: [
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    'Billed every month',
-                                                                    style: FlutterFlowTheme.of(
+                                                            ClipRect(
+                                                              child: Signature(
+                                                                controller: _model
+                                                                        .signatureController ??=
+                                                                    SignatureController(
+                                                                  penStrokeWidth:
+                                                                      2.0,
+                                                                  penColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  exportBackgroundColor:
+                                                                      Colors
+                                                                          .white,
+                                                                ),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
                                                                             context)
-                                                                        .headlineMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          fontSize:
-                                                                              26.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                        ),
-                                                                  ),
-                                                                  Text(
-                                                                    '\$3,000.00',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          fontSize:
-                                                                              26.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    'From acceptance, until change required',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyLarge,
-                                                                  ),
-                                                                  Text(
-                                                                    'ex. \$300.00 GST',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyLarge,
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          6.0,
-                                                                          16.0,
-                                                                          6.0),
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Icon(
-                                                                          Icons
-                                                                              .check_sharp,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          size:
-                                                                              24.0,
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Accounts Payable Service',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyLarge,
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Icon(
-                                                                          Icons
-                                                                              .check_sharp,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          size:
-                                                                              24.0,
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              8.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Annual Company Financial Reports',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyLarge,
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                                        .secondaryBackground,
+                                                                width: 500.0,
+                                                                height: 320.0,
                                                               ),
                                                             ),
                                                           ],
@@ -448,8 +308,8 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 8.0, 0.0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    context.safePop();
                                   },
                                   text: 'Previous',
                                   options: FFButtonOptions(
@@ -470,7 +330,6 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
-                                    elevation: 0.0,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
@@ -484,10 +343,68 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    final signatureImage = await _model
+                                        .signatureController!
+                                        .toPngBytes(height: 320, width: 500);
+                                    if (signatureImage == null) {
+                                      showUploadMessage(
+                                        context,
+                                        'Signature is empty.',
+                                      );
+                                      return;
+                                    }
+                                    showUploadMessage(
+                                      context,
+                                      'Uploading signature...',
+                                      showLoading: true,
+                                    );
+                                    final downloadUrl = (await uploadData(
+                                        getSignatureStoragePath(),
+                                        signatureImage));
+
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    if (downloadUrl != null) {
+                                      setState(() => _model
+                                          .uploadedSignatureUrl = downloadUrl);
+                                      showUploadMessage(
+                                        context,
+                                        'Success!',
+                                      );
+                                    } else {
+                                      showUploadMessage(
+                                        context,
+                                        'Failed to upload signature.',
+                                      );
+                                      return;
+                                    }
+
+                                    await widget.clientRef!
+                                        .update(createClientsRecordData(
+                                      signature: _model.uploadedSignatureUrl,
+                                      proposalAccept: true,
+                                      signatureDate: getCurrentTimestamp,
+                                    ));
+
+                                    context.pushNamed(
+                                      'clientProposalAcceptSuccess',
+                                      queryParameters: {
+                                        'clientRef': serializeParam(
+                                          widget.clientRef,
+                                          ParamType.DocumentReference,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: const TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                        ),
+                                      },
+                                    );
                                   },
-                                  text: 'Next',
+                                  text: 'Accept',
                                   options: FFButtonOptions(
                                     width: 180.0,
                                     height: 60.0,
@@ -559,6 +476,7 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                           children: [
                             Text(
                               'Proposal Preview',
+                              textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -649,7 +567,7 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
                               child: Text(
-                                'PRICING',
+                                'SIGN & ACCEPT',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
@@ -686,60 +604,8 @@ class _ProposalPricingWidgetState extends State<ProposalPricingWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 4.0),
-                                            child: Text(
-                                              'Consulting Services',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 4.0),
-                                            child: Text(
-                                              '\$3,000.00',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
                                       Text(
-                                        'From acceptance, until change required',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.0,
-                                            ),
-                                      ),
-                                      Text(
-                                        'ex. \$300.00 GST',
+                                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, re',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

@@ -17,8 +17,8 @@ Future sendEmail(
 ) async {
   // Add your function code here!
 
-  String username = 'jasminderwsp@gmail.com'; // Your email
-  String password = 'nokia6110N'; // Your password
+  String username = 'wspkkptesting@gmail.com'; // Your email
+  String password = 'cctiivvnogesxpua'; // Your password
   String recipient = recipientEmail; // Recipient's email
   String urllink = link;
 

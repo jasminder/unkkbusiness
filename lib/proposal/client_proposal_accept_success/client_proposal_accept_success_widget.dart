@@ -1,28 +1,34 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'proposal_accept_success_model.dart';
-export 'proposal_accept_success_model.dart';
+import 'client_proposal_accept_success_model.dart';
+export 'client_proposal_accept_success_model.dart';
 
-class ProposalAcceptSuccessWidget extends StatefulWidget {
-  const ProposalAcceptSuccessWidget({super.key});
+class ClientProposalAcceptSuccessWidget extends StatefulWidget {
+  const ClientProposalAcceptSuccessWidget({
+    super.key,
+    required this.clientRef,
+  });
+
+  final DocumentReference? clientRef;
 
   @override
-  State<ProposalAcceptSuccessWidget> createState() =>
-      _ProposalAcceptSuccessWidgetState();
+  State<ClientProposalAcceptSuccessWidget> createState() =>
+      _ClientProposalAcceptSuccessWidgetState();
 }
 
-class _ProposalAcceptSuccessWidgetState
-    extends State<ProposalAcceptSuccessWidget> {
-  late ProposalAcceptSuccessModel _model;
+class _ClientProposalAcceptSuccessWidgetState
+    extends State<ClientProposalAcceptSuccessWidget> {
+  late ClientProposalAcceptSuccessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProposalAcceptSuccessModel());
+    _model = createModel(context, () => ClientProposalAcceptSuccessModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -60,34 +66,6 @@ class _ProposalAcceptSuccessWidgetState
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.safePop();
-                                  },
-                                  child: Text(
-                                    'Close',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          decoration: TextDecoration.underline,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 36.0, 0.0, 36.0),
@@ -98,25 +76,9 @@ class _ProposalAcceptSuccessWidgetState
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 6.0),
                                   child: Text(
-                                    'Proposal Preview',
+                                    'Proposal Signed',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 16.0),
-                                  child: Text(
-                                    'You are previewing what your client will see once this proposal has been sent.',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontWeight: FontWeight.w300,
-                                        ),
                                   ),
                                 ),
                                 Padding(
@@ -143,53 +105,83 @@ class _ProposalAcceptSuccessWidgetState
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   32.0, 32.0, 32.0, 32.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'John Smith',
-                                                    style: FlutterFlowTheme.of(
+                                          child: StreamBuilder<ClientsRecord>(
+                                            stream: ClientsRecord.getDocument(
+                                                widget.clientRef!),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child:
+                                                      LinearProgressIndicator(
+                                                    color: FlutterFlowTheme.of(
                                                             context)
-                                                        .displayMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 40.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                        .primary,
                                                   ),
-                                                  Text(
-                                                    'Business Books',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 20.0,
-                                                        ),
+                                                );
+                                              }
+                                              final rowClientsRecord =
+                                                  snapshot.data!;
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        '${rowClientsRecord.firstName} ${rowClientsRecord.lastName}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .displayMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 40.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        rowClientsRecord.email,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 20.0,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0.0),
+                                                    child: Image.network(
+                                                      valueOrDefault<String>(
+                                                        rowClientsRecord
+                                                            .signature,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/unkk-kl1611/assets/d77iuwcqhpey/SvgjsG1014.png',
+                                                      ),
+                                                      width: 300.0,
+                                                      height: 120.0,
+                                                      fit: BoxFit.contain,
+                                                    ),
                                                   ),
                                                 ],
-                                              ),
-                                              Text(
-                                                'Starting on acceptance',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 20.0,
-                                                        ),
-                                              ),
-                                            ],
+                                              );
+                                            },
                                           ),
                                         ),
                                         Divider(
@@ -286,8 +278,7 @@ class _ProposalAcceptSuccessWidgetState
                                                             print(
                                                                 'Button pressed ...');
                                                           },
-                                                          text:
-                                                              'Back to Homepage',
+                                                          text: 'Done',
                                                           options:
                                                               FFButtonOptions(
                                                             width: 180.0,
@@ -352,81 +343,6 @@ class _ProposalAcceptSuccessWidgetState
                                 ),
                               ],
                             ),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Previous',
-                                  options: FFButtonOptions(
-                                    width: 180.0,
-                                    height: 60.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(34.0),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Next',
-                                  options: FFButtonOptions(
-                                    width: 180.0,
-                                    height: 60.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(34.0),
-                                  ),
-                                ),
-                              ),
-                            ],
                           ),
                         ],
                       ),

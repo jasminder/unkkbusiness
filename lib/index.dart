@@ -22,14 +22,10 @@ export '/onboard/onboard_service_email/onboard_service_email_widget.dart'
     show OnboardServiceEmailWidget;
 export '/onboard/onboard_regular_services_list/onboard_regular_services_list_widget.dart'
     show OnboardRegularServicesListWidget;
-export '/proposal/proposal_preview/proposal_preview_widget.dart'
-    show ProposalPreviewWidget;
-export '/proposal/proposal_pricing/proposal_pricing_widget.dart'
-    show ProposalPricingWidget;
-export '/proposal/proposal_accept/proposal_accept_widget.dart'
-    show ProposalAcceptWidget;
-export '/proposal/proposal_accept_success/proposal_accept_success_widget.dart'
-    show ProposalAcceptSuccessWidget;
+export '/proposal/client_proposal_accept/client_proposal_accept_widget.dart'
+    show ClientProposalAcceptWidget;
+export '/proposal/client_proposal_accept_success/client_proposal_accept_success_widget.dart'
+    show ClientProposalAcceptSuccessWidget;
 export '/login/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
 export '/services/services_list/services_list_widget.dart'
@@ -48,7 +44,9 @@ export '/onboard/on_board_proposal_pricing/on_board_proposal_pricing_widget.dart
 export '/services/edit_service/edit_service_widget.dart' show EditServiceWidget;
 export '/clients/client_services/client_services_widget.dart'
     show ClientServicesWidget;
-export '/proposal/proposal_info/proposal_info_widget.dart'
+export '/onboard/proposal_info/proposal_info_widget.dart'
     show ProposalInfoWidget;
 export '/onboard/proposal_request_info/proposal_request_info_widget.dart'
     show ProposalRequestInfoWidget;
+export '/proposal/client_propsal_review/client_propsal_review_widget.dart'
+    show ClientPropsalReviewWidget;

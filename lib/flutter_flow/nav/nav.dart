@@ -180,24 +180,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const OnboardRegularServicesListWidget(),
         ),
         FFRoute(
-          name: 'proposalPreview',
-          path: '/proposalPreview',
-          builder: (context, params) => const ProposalPreviewWidget(),
+          name: 'clientProposalAccept',
+          path: '/clientProposalAccept',
+          builder: (context, params) => ClientProposalAcceptWidget(
+            clientRef: params.getParam(
+                'clientRef', ParamType.DocumentReference, false, ['clients']),
+          ),
         ),
         FFRoute(
-          name: 'proposalPricing',
-          path: '/proposalPricing',
-          builder: (context, params) => const ProposalPricingWidget(),
-        ),
-        FFRoute(
-          name: 'proposalAccept',
-          path: '/proposalAccept',
-          builder: (context, params) => const ProposalAcceptWidget(),
-        ),
-        FFRoute(
-          name: 'proposalAcceptSuccess',
-          path: '/proposalAcceptSuccess',
-          builder: (context, params) => const ProposalAcceptSuccessWidget(),
+          name: 'clientProposalAcceptSuccess',
+          path: '/clientProposalAcceptSuccess',
+          builder: (context, params) => ClientProposalAcceptSuccessWidget(
+            clientRef: params.getParam(
+                'clientRef', ParamType.DocumentReference, false, ['clients']),
+          ),
         ),
         FFRoute(
           name: 'changePassword',
@@ -297,6 +293,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           },
           builder: (context, params) => ProposalRequestInfoWidget(
             proposal: params.getParam('proposal', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'clientPropsalReview',
+          path: '/clientPropsalReview',
+          builder: (context, params) => ClientPropsalReviewWidget(
+            clientServiceRef: params.getParam<DocumentReference>(
+                'clientServiceRef',
+                ParamType.DocumentReference,
+                true,
+                ['clientServices']),
+            clientRef: params.getParam(
+                'clientRef', ParamType.DocumentReference, false, ['clients']),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

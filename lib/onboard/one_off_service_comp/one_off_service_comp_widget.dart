@@ -663,7 +663,10 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                 List<ClientServicesRecord> containerClientServicesRecordList =
                     snapshot.data!;
                 return Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                   child: Visibility(
                     visible: containerClientServicesRecordList.isNotEmpty,
                     child: StreamBuilder<List<ClientServicesRecord>>(
@@ -696,165 +699,173 @@ class _OneOffServiceCompWidgetState extends State<OneOffServiceCompWidget> {
                             return Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 12.0),
-                                  child: StreamBuilder<ServicesRecord>(
-                                    stream: ServicesRecord.getDocument(
-                                        listViewClientServicesRecord
-                                            .serviceRef!),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: LinearProgressIndicator(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        );
-                                      }
-                                      final rowServicesRecord = snapshot.data!;
-                                      return Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              rowServicesRecord.name,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Container(
-                                              decoration: const BoxDecoration(),
-                                              child: Column(
+                                StreamBuilder<ServicesRecord>(
+                                  stream: ServicesRecord.getDocument(
+                                      listViewClientServicesRecord.serviceRef!),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: LinearProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      );
+                                    }
+                                    final columnServicesRecord = snapshot.data!;
+                                    return Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 14.0, 20.0, 14.0),
+                                              child: Row(
                                                 mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    listViewClientServicesRecord
-                                                        .priceType,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
+                                                  Expanded(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Text(
+                                                          columnServicesRecord
+                                                              .name,
+                                                          style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .bodyMedium,
                                                         ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            listViewClientServicesRecord
+                                                                .priceType,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: const Color(
+                                                                      0x4C000000),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Container(
-                                              decoration: const BoxDecoration(),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    width: 100.0,
-                                                    decoration: const BoxDecoration(
-                                                      color: Color(0x00EEEEEE),
+                                                  Expanded(
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          enableDrag:
+                                                                              false,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: SizedBox(
+                                                                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                child: DeleteOnboardServiceWidget(
+                                                                                  clientServiceRef: listViewClientServicesRecord.reference,
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+                                                                      },
+                                                                      child:
+                                                                          FaIcon(
+                                                                        FontAwesomeIcons
+                                                                            .minusSquare,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                          ),
-                                          Expanded(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 100.0,
-                                                  decoration: const BoxDecoration(
-                                                    color: Color(0x00EEEEEE),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 12.0, 0.0),
-                                            child: Container(
-                                              width: 80.0,
-                                              decoration: const BoxDecoration(),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: SizedBox(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                1.0,
-                                                            child:
-                                                                DeleteOnboardServiceWidget(
-                                                              clientServiceRef:
-                                                                  listViewClientServicesRecord
-                                                                      .reference,
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ).then((value) =>
-                                                        safeSetState(() {}));
-                                                  },
-                                                  child: FaIcon(
-                                                    FontAwesomeIcons
-                                                        .minusSquare,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .error,
-                                                    size: 24.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  ),
+                                          ],
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                  color: FlutterFlowTheme.of(context).secondary,
                                 ),
                               ],
                             );

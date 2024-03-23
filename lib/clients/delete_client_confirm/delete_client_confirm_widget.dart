@@ -123,7 +123,6 @@ class _DeleteClientConfirmWidgetState extends State<DeleteClientConfirmWidget> {
                               8.0, 0.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              await widget.clientRef!.delete();
                               _model.clientTasks = await queryTasksRecordOnce(
                                 queryBuilder: (tasksRecord) =>
                                     tasksRecord.where(
@@ -138,7 +137,55 @@ class _DeleteClientConfirmWidgetState extends State<DeleteClientConfirmWidget> {
                                   _model.loop = _model.loop + 1;
                                 });
                               }
-                              Navigator.pop(context);
+                              setState(() {
+                                _model.loop = 0;
+                              });
+                              _model.clientServices =
+                                  await queryClientServicesRecordOnce(
+                                queryBuilder: (clientServicesRecord) =>
+                                    clientServicesRecord.where(
+                                  'clientRef',
+                                  isEqualTo: widget.clientRef,
+                                ),
+                              );
+                              while (
+                                  _model.clientServices!.length > _model.loop) {
+                                await _model
+                                    .clientServices![_model.loop].reference
+                                    .delete();
+                                setState(() {
+                                  _model.loop = _model.loop + 1;
+                                });
+                              }
+                              setState(() {
+                                _model.loop = 0;
+                              });
+                              _model.clientTrack =
+                                  await queryClientTrackRecordOnce(
+                                queryBuilder: (clientTrackRecord) =>
+                                    clientTrackRecord.where(
+                                  'clientRef',
+                                  isEqualTo: widget.clientRef,
+                                ),
+                              );
+                              while (_model.clientTasks!.length > _model.loop) {
+                                await _model.clientTrack![_model.loop].reference
+                                    .delete();
+                                setState(() {
+                                  _model.loop = _model.loop + 1;
+                                });
+                              }
+                              await widget.clientRef!.delete();
+
+                              context.goNamed(
+                                'clientsList',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                  ),
+                                },
+                              );
 
                               setState(() {});
                             },

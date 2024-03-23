@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/clients/delete_client_confirm/delete_client_confirm_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -110,7 +111,7 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                           children: [
                             Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 InkWell(
                                   splashColor: Colors.transparent,
@@ -140,6 +141,85 @@ class _ClientDetailsWidgetState extends State<ClientDetailsWidget> {
                                       size: 28.0,
                                     ),
                                   ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 2.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: SizedBox(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        1.0,
+                                                    child:
+                                                        DeleteClientConfirmWidget(
+                                                      clientRef:
+                                                          widget.clientRef,
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Text(
+                                          'Delete Client',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w500,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'All information about this client will removed.',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 10.0,
+                                            letterSpacing: 1.0,
+                                          ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

@@ -295,82 +295,89 @@ class _ClientProposalAcceptWidgetState
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
                                                                 children: [
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      final signatureImage = await _model
-                                                                          .signatureController!
-                                                                          .toPngBytes();
-                                                                      if (signatureImage ==
-                                                                          null) {
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            32.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        final signatureImage = await _model
+                                                                            .signatureController!
+                                                                            .toPngBytes();
+                                                                        if (signatureImage ==
+                                                                            null) {
+                                                                          showUploadMessage(
+                                                                            context,
+                                                                            'Signature is empty.',
+                                                                          );
+                                                                          return;
+                                                                        }
                                                                         showUploadMessage(
                                                                           context,
-                                                                          'Signature is empty.',
+                                                                          'Uploading signature...',
+                                                                          showLoading:
+                                                                              true,
                                                                         );
-                                                                        return;
-                                                                      }
-                                                                      showUploadMessage(
-                                                                        context,
-                                                                        'Uploading signature...',
-                                                                        showLoading:
-                                                                            true,
-                                                                      );
-                                                                      final downloadUrl = (await uploadData(
-                                                                          getSignatureStoragePath(),
-                                                                          signatureImage));
+                                                                        final downloadUrl = (await uploadData(
+                                                                            getSignatureStoragePath(),
+                                                                            signatureImage));
 
-                                                                      ScaffoldMessenger.of(
-                                                                              context)
-                                                                          .hideCurrentSnackBar();
-                                                                      if (downloadUrl !=
-                                                                          null) {
-                                                                        setState(() =>
-                                                                            _model.uploadedSignatureUrl =
-                                                                                downloadUrl);
-                                                                        showUploadMessage(
-                                                                          context,
-                                                                          'Success!',
-                                                                        );
-                                                                      } else {
-                                                                        showUploadMessage(
-                                                                          context,
-                                                                          'Failed to upload signature.',
-                                                                        );
-                                                                        return;
-                                                                      }
-                                                                    },
-                                                                    child: Text(
-                                                                      'Upload Signature',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            decoration:
-                                                                                TextDecoration.underline,
-                                                                          ),
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .hideCurrentSnackBar();
+                                                                        if (downloadUrl !=
+                                                                            null) {
+                                                                          setState(() =>
+                                                                              _model.uploadedSignatureUrl = downloadUrl);
+                                                                          showUploadMessage(
+                                                                            context,
+                                                                            'Success!',
+                                                                          );
+                                                                        } else {
+                                                                          showUploadMessage(
+                                                                            context,
+                                                                            'Failed to upload signature.',
+                                                                          );
+                                                                          return;
+                                                                        }
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        'Upload Signature',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              decoration: TextDecoration.underline,
+                                                                            ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            164.0,
+                                                                            32.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
@@ -473,35 +480,67 @@ class _ClientProposalAcceptWidgetState
                                     8.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    await widget.clientRef!.update({
-                                      ...createClientsRecordData(
-                                        signature: _model.uploadedSignatureUrl,
-                                        proposalAccept: true,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'signatureDate':
-                                              FieldValue.serverTimestamp(),
-                                        },
-                                      ),
-                                    });
+                                    if (_model.uploadedSignatureUrl != '') {
+                                      await widget.clientRef!.update({
+                                        ...createClientsRecordData(
+                                          signature:
+                                              _model.uploadedSignatureUrl,
+                                          proposalAccept: true,
+                                        ),
+                                        ...mapToFirestore(
+                                          {
+                                            'signatureDate':
+                                                FieldValue.serverTimestamp(),
+                                          },
+                                        ),
+                                      });
 
-                                    context.pushNamed(
-                                      'clientProposalAcceptSuccess',
-                                      queryParameters: {
-                                        'clientRef': serializeParam(
-                                          widget.clientRef,
-                                          ParamType.DocumentReference,
-                                        ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: const TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                        ),
-                                      },
-                                    );
+                                      context.pushNamed(
+                                        'clientProposalAcceptSuccess',
+                                        queryParameters: {
+                                          'clientRef': serializeParam(
+                                            widget.clientRef,
+                                            ParamType.DocumentReference,
+                                          ),
+                                        }.withoutNulls,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: const TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                          ),
+                                        },
+                                      );
+                                    } else {
+                                      var confirmDialogResponse =
+                                          await showDialog<bool>(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return AlertDialog(
+                                                    title: const Text('Error'),
+                                                    content: const Text(
+                                                        'Signature required.'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                false),
+                                                        child: const Text('Cancel'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                true),
+                                                        child: const Text('Confirm'),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              ) ??
+                                              false;
+                                    }
                                   },
                                   text: 'Accept',
                                   options: FFButtonOptions(

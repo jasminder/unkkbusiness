@@ -375,146 +375,146 @@ class _ProposalInfoWidgetState extends State<ProposalInfoWidget> {
                                                               final servicesItem =
                                                                   services[
                                                                       servicesIndex];
-                                                              return Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                              return StreamBuilder<
+                                                                  ClientServicesRecord>(
+                                                                stream: ClientServicesRecord
+                                                                    .getDocument(
+                                                                        servicesItem),
+                                                                builder: (context,
+                                                                    snapshot) {
+                                                                  // Customize what your widget looks like when it's loading.
+                                                                  if (!snapshot
+                                                                      .hasData) {
+                                                                    return Center(
+                                                                      child:
+                                                                          LinearProgressIndicator(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                      ),
+                                                                    );
+                                                                  }
+                                                                  final containerClientServicesRecord =
+                                                                      snapshot
+                                                                          .data!;
+                                                                  return Container(
+                                                                    decoration:
+                                                                        const BoxDecoration(),
+                                                                    child:
+                                                                        Visibility(
+                                                                      visible:
+                                                                          containerClientServicesRecord.reference !=
+                                                                              null,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             8.0,
                                                                             0.0,
                                                                             8.0),
-                                                                child: StreamBuilder<
-                                                                    ClientServicesRecord>(
-                                                                  stream: ClientServicesRecord
-                                                                      .getDocument(
-                                                                          servicesItem),
-                                                                  builder: (context,
-                                                                      snapshot) {
-                                                                    // Customize what your widget looks like when it's loading.
-                                                                    if (!snapshot
-                                                                        .hasData) {
-                                                                      return Center(
                                                                         child:
-                                                                            LinearProgressIndicator(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                        ),
-                                                                      );
-                                                                    }
-                                                                    final columnClientServicesRecord =
-                                                                        snapshot
-                                                                            .data!;
-                                                                    return Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              40.0,
-                                                                              0.0,
-                                                                              40.0,
-                                                                              4.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Expanded(
-                                                                                child: StreamBuilder<ServicesRecord>(
-                                                                                  stream: ServicesRecord.getDocument(columnClientServicesRecord.serviceRef!),
-                                                                                  builder: (context, snapshot) {
-                                                                                    // Customize what your widget looks like when it's loading.
-                                                                                    if (!snapshot.hasData) {
-                                                                                      return Center(
-                                                                                        child: LinearProgressIndicator(
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                        ),
-                                                                                      );
-                                                                                    }
-                                                                                    final textServicesRecord = snapshot.data!;
-                                                                                    return Text(
-                                                                                      textServicesRecord.name,
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 4.0),
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Expanded(
+                                                                                    child: StreamBuilder<ServicesRecord>(
+                                                                                      stream: ServicesRecord.getDocument(containerClientServicesRecord.serviceRef!),
+                                                                                      builder: (context, snapshot) {
+                                                                                        // Customize what your widget looks like when it's loading.
+                                                                                        if (!snapshot.hasData) {
+                                                                                          return Center(
+                                                                                            child: LinearProgressIndicator(
+                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                            ),
+                                                                                          );
+                                                                                        }
+                                                                                        final textServicesRecord = snapshot.data!;
+                                                                                        return Text(
+                                                                                          textServicesRecord.name,
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Poppins',
+                                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                              ),
+                                                                                        );
+                                                                                      },
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Text(
+                                                                                      containerClientServicesRecord.price.toString(),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             color: FlutterFlowTheme.of(context).secondaryText,
                                                                                             fontWeight: FontWeight.normal,
                                                                                           ),
-                                                                                    );
-                                                                                  },
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                child: Text(
-                                                                                  columnClientServicesRecord.price.toString(),
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                child: Text(
-                                                                                  columnClientServicesRecord.type,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                child: Text(
-                                                                                  columnClientServicesRecord.status,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'Poppins',
-                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                        fontWeight: FontWeight.normal,
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                child: Align(
-                                                                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                                                                  child: Text(
-                                                                                    columnClientServicesRecord.billingMode,
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontWeight: FontWeight.normal,
-                                                                                        ),
+                                                                                    ),
                                                                                   ),
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                child: Align(
-                                                                                  alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                  child: Text(
-                                                                                    dateTimeFormat('yMMMd', columnClientServicesRecord.createdAt!),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                          fontWeight: FontWeight.normal,
-                                                                                        ),
+                                                                                  Expanded(
+                                                                                    child: Text(
+                                                                                      containerClientServicesRecord.type,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                          ),
+                                                                                    ),
                                                                                   ),
-                                                                                ),
+                                                                                  Expanded(
+                                                                                    child: Text(
+                                                                                      containerClientServicesRecord.status,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                            fontWeight: FontWeight.normal,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Align(
+                                                                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        containerClientServicesRecord.billingMode,
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Align(
+                                                                                      alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                      child: Text(
+                                                                                        dateTimeFormat('yMMMd', containerClientServicesRecord.createdAt!),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
                                                                               ),
-                                                                            ],
-                                                                          ),
+                                                                            ),
+                                                                            Divider(
+                                                                              thickness: 1.0,
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                          ],
                                                                         ),
-                                                                        Divider(
-                                                                          thickness:
-                                                                              1.0,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        ),
-                                                                      ],
-                                                                    );
-                                                                  },
-                                                                ),
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
                                                               );
                                                             },
                                                           );

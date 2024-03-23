@@ -13,6 +13,10 @@ class DeleteClientConfirmModel
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   List<TasksRecord>? clientTasks;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  List<ClientServicesRecord>? clientServices;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  List<ClientTrackRecord>? clientTrack;
 
   /// Initialization and disposal methods.
 

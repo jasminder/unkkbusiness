@@ -1292,42 +1292,42 @@ class _ClientsListWidgetState extends State<ClientsListWidget>
                                                                                             ),
                                                                                           ),
                                                                                         ),
-                                                                                        Align(
-                                                                                          alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                            child: InkWell(
-                                                                                              splashColor: Colors.transparent,
-                                                                                              focusColor: Colors.transparent,
-                                                                                              hoverColor: Colors.transparent,
-                                                                                              highlightColor: Colors.transparent,
-                                                                                              onTap: () async {
-                                                                                                await showModalBottomSheet(
-                                                                                                  isScrollControlled: true,
-                                                                                                  backgroundColor: Colors.transparent,
-                                                                                                  enableDrag: false,
-                                                                                                  context: context,
-                                                                                                  builder: (context) {
-                                                                                                    return GestureDetector(
-                                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                      child: Padding(
-                                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                                        child: SizedBox(
-                                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                                          child: ClientActionWidget(
-                                                                                                            clientRef: listViewClientsRecord.reference,
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    );
-                                                                                                  },
-                                                                                                ).then((value) => safeSetState(() {}));
-                                                                                              },
-                                                                                              child: Icon(
-                                                                                                Icons.settings_sharp,
+                                                                                        Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                          child: FFButtonWidget(
+                                                                                            onPressed: () async {
+                                                                                              context.pushNamed(
+                                                                                                'clientDetails',
+                                                                                                queryParameters: {
+                                                                                                  'clientRef': serializeParam(
+                                                                                                    listViewClientsRecord.reference,
+                                                                                                    ParamType.DocumentReference,
+                                                                                                  ),
+                                                                                                }.withoutNulls,
+                                                                                                extra: <String, dynamic>{
+                                                                                                  kTransitionInfoKey: const TransitionInfo(
+                                                                                                    hasTransition: true,
+                                                                                                    transitionType: PageTransitionType.fade,
+                                                                                                  ),
+                                                                                                },
+                                                                                              );
+                                                                                            },
+                                                                                            text: 'Info',
+                                                                                            options: FFButtonOptions(
+                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 22.0, 8.0),
+                                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                              color: const Color(0x0004F5C8),
+                                                                                              textStyle: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                                    fontFamily: 'Poppins',
+                                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                    fontWeight: FontWeight.w600,
+                                                                                                  ),
+                                                                                              elevation: 0.0,
+                                                                                              borderSide: BorderSide(
                                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                                size: 24.0,
+                                                                                                width: 1.0,
                                                                                               ),
+                                                                                              borderRadius: BorderRadius.circular(58.0),
                                                                                             ),
                                                                                           ),
                                                                                         ),

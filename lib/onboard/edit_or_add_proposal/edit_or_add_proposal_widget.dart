@@ -2,27 +2,25 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'delete_onboard_proposal_model.dart';
-export 'delete_onboard_proposal_model.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'edit_or_add_proposal_model.dart';
+export 'edit_or_add_proposal_model.dart';
 
-class DeleteOnboardProposalWidget extends StatefulWidget {
-  const DeleteOnboardProposalWidget({
+class EditOrAddProposalWidget extends StatefulWidget {
+  const EditOrAddProposalWidget({
     super.key,
-    required this.clientServiceRef,
-    this.clientRef,
+    this.propsalRef,
   });
 
-  final List<DocumentReference>? clientServiceRef;
-  final DocumentReference? clientRef;
+  final DocumentReference? propsalRef;
 
   @override
-  State<DeleteOnboardProposalWidget> createState() =>
-      _DeleteOnboardProposalWidgetState();
+  State<EditOrAddProposalWidget> createState() =>
+      _EditOrAddProposalWidgetState();
 }
 
-class _DeleteOnboardProposalWidgetState
-    extends State<DeleteOnboardProposalWidget> {
-  late DeleteOnboardProposalModel _model;
+class _EditOrAddProposalWidgetState extends State<EditOrAddProposalWidget> {
+  late EditOrAddProposalModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -33,7 +31,7 @@ class _DeleteOnboardProposalWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DeleteOnboardProposalModel());
+    _model = createModel(context, () => EditOrAddProposalModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -59,19 +57,25 @@ class _DeleteOnboardProposalWidgetState
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(70.0, 40.0, 70.0, 40.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(120.0, 120.0, 120.0, 120.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text(
-                    'Delete Proposal Data?',
-                    style: FlutterFlowTheme.of(context).headlineSmall,
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                    child: FaIcon(
+                      FontAwesomeIcons.questionCircle,
+                      color: FlutterFlowTheme.of(context).error,
+                      size: 96.0,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                     child: Text(
-                      'Once you delete, your data will be lost.',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      'Currenty no proposal exists for editing.',
+                      style: FlutterFlowTheme.of(context).titleLarge.override(
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).secondaryText,
                           ),
@@ -89,11 +93,19 @@ class _DeleteOnboardProposalWidgetState
                               0.0, 0.0, 8.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              Navigator.pop(context);
+                              context.pushNamed(
+                                'onboardAddServices',
+                                queryParameters: {
+                                  'proposalRef': serializeParam(
+                                    widget.propsalRef,
+                                    ParamType.DocumentReference,
+                                  ),
+                                }.withoutNulls,
+                              );
                             },
-                            text: 'No, Cancel',
+                            text: 'Add New Perposal',
                             options: FFButtonOptions(
-                              width: 135.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
@@ -108,12 +120,12 @@ class _DeleteOnboardProposalWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     fontSize: 13.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.normal,
                                   ),
                               elevation: 0.0,
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(40.0),
@@ -125,52 +137,31 @@ class _DeleteOnboardProposalWidgetState
                               8.0, 0.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              setState(() {
-                                _model.loopEndCount =
-                                    widget.clientServiceRef!.length;
-                              });
-                              while (
-                                  _model.loopStartCount < _model.loopEndCount) {
-                                await widget
-                                    .clientServiceRef![_model.loopStartCount]
-                                    .delete();
-                                setState(() {
-                                  _model.loopStartCount =
-                                      _model.loopStartCount + 1;
-                                });
-                              }
-                              Navigator.pop(context);
-
-                              context.goNamed(
-                                'newOnboard',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                  ),
-                                },
-                              );
+                              context.pop();
+                              context.safePop();
                             },
-                            text: 'Yes, Delete',
+                            text: 'Close',
                             options: FFButtonOptions(
-                              width: 135.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).secondaryText,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
                                     fontSize: 13.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.normal,
                                   ),
                               elevation: 0.0,
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(40.0),

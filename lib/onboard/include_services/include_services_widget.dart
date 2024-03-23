@@ -176,7 +176,7 @@ class _IncludeServicesWidgetState extends State<IncludeServicesWidget> {
                               clientRef: _model.clientServicesInfo?.clientRef,
                               serviceRef:
                                   functions.docIDtoRef(_model.dropDownValue!),
-                              quantityUnit: ' ',
+                              quantityUnit: '0',
                               status: _model.clientServicesInfo?.status,
                               proposalRef:
                                   _model.clientServicesInfo?.proposalRef,

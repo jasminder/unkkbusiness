@@ -342,142 +342,387 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                                                           26.0,
                                                                           26.0,
                                                                           26.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Text(
-                                                                              'Billed every month',
-                                                                              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    fontSize: 26.0,
-                                                                                    fontWeight: FontWeight.w500,
+                                                                  child: StreamBuilder<
+                                                                      ServicesRecord>(
+                                                                    stream: ServicesRecord.getDocument(
+                                                                        listViewClientServicesRecord
+                                                                            .serviceRef!),
+                                                                    builder:
+                                                                        (context,
+                                                                            snapshot) {
+                                                                      // Customize what your widget looks like when it's loading.
+                                                                      if (!snapshot
+                                                                          .hasData) {
+                                                                        return Center(
+                                                                          child:
+                                                                              LinearProgressIndicator(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                          ),
+                                                                        );
+                                                                      }
+                                                                      final columnServicesRecord =
+                                                                          snapshot
+                                                                              .data!;
+                                                                      return Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                8.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              children: [
+                                                                                Text(
+                                                                                  columnServicesRecord.name,
+                                                                                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                        fontSize: 26.0,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                      ),
+                                                                                ),
+                                                                                Text(
+                                                                                  formatNumber(
+                                                                                    listViewClientServicesRecord.price * listViewClientServicesRecord.quantity,
+                                                                                    formatType: FormatType.decimal,
+                                                                                    decimalType: DecimalType.periodDecimal,
+                                                                                    currency: '\$',
                                                                                   ),
+                                                                                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                        fontSize: 26.0,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
                                                                             ),
-                                                                            Text(
-                                                                              '\$3,000.00',
-                                                                              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    fontSize: 26.0,
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                  ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Text(
-                                                                              'From acceptance, until change required',
-                                                                              style: FlutterFlowTheme.of(context).bodyLarge,
-                                                                            ),
-                                                                            Text(
-                                                                              'ex.  GST',
-                                                                              style: FlutterFlowTheme.of(context).bodyLarge,
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            6.0),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                children: [
-                                                                                  Expanded(
-                                                                                    child: Text(
-                                                                                      'Accounts Payable Service ',
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                8.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
+                                                                                Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Text(
+                                                                                      listViewClientServicesRecord.billingMode,
                                                                                       style: FlutterFlowTheme.of(context).bodyLarge,
                                                                                     ),
-                                                                                  ),
-                                                                                ],
-                                                                              ),
+                                                                                    Text(
+                                                                                      'Price Type : ${listViewClientServicesRecord.type}',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Poppins',
+                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                                Text(
+                                                                                  'ex. ${formatNumber(
+                                                                                    listViewClientServicesRecord.price * listViewClientServicesRecord.quantity,
+                                                                                    formatType: FormatType.decimal,
+                                                                                    decimalType: DecimalType.periodDecimal,
+                                                                                    currency: '\$',
+                                                                                  )} GST',
+                                                                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                                                                                ),
+                                                                              ],
                                                                             ),
-                                                                            Column(
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                6.0,
+                                                                                0.0,
+                                                                                6.0),
+                                                                            child:
+                                                                                Column(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
                                                                                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.max,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
                                                                                     children: [
-                                                                                      Icon(
-                                                                                        Icons.check_rounded,
-                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                        size: 24.0,
-                                                                                      ),
                                                                                       Expanded(
-                                                                                        child: Padding(
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Text(
-                                                                                                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
+                                                                                        child: Text(
+                                                                                          columnServicesRecord.description,
+                                                                                          style: FlutterFlowTheme.of(context).bodyLarge,
                                                                                         ),
                                                                                       ),
                                                                                     ],
                                                                                   ),
                                                                                 ),
+                                                                                StreamBuilder<List<ServicesTaskRecord>>(
+                                                                                  stream: queryServicesTaskRecord(
+                                                                                    queryBuilder: (servicesTaskRecord) => servicesTaskRecord.where(
+                                                                                      'serviceRef',
+                                                                                      isEqualTo: columnServicesRecord.reference,
+                                                                                    ),
+                                                                                  ),
+                                                                                  builder: (context, snapshot) {
+                                                                                    // Customize what your widget looks like when it's loading.
+                                                                                    if (!snapshot.hasData) {
+                                                                                      return Center(
+                                                                                        child: LinearProgressIndicator(
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                        ),
+                                                                                      );
+                                                                                    }
+                                                                                    List<ServicesTaskRecord> columnServicesTaskRecordList = snapshot.data!;
+                                                                                    return Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      children: List.generate(columnServicesTaskRecordList.length, (columnIndex) {
+                                                                                        final columnServicesTaskRecord = columnServicesTaskRecordList[columnIndex];
+                                                                                        return Padding(
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                          child: Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                            children: [
+                                                                                              Icon(
+                                                                                                Icons.check_rounded,
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                size: 24.0,
+                                                                                              ),
+                                                                                              Expanded(
+                                                                                                child: Padding(
+                                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                  child: Column(
+                                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                    children: [
+                                                                                                      Text(
+                                                                                                        columnServicesTaskRecord.title,
+                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                      ),
+                                                                                                      Padding(
+                                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                                        child: Text(
+                                                                                                          columnServicesTaskRecord.description,
+                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      }),
+                                                                                    );
+                                                                                  },
+                                                                                ),
                                                                               ],
                                                                             ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ],
+                                                                          ),
+                                                                          StreamBuilder<
+                                                                              List<ClientServicesRecord>>(
+                                                                            stream:
+                                                                                queryClientServicesRecord(
+                                                                              queryBuilder: (clientServicesRecord) => clientServicesRecord.where(
+                                                                                'includes',
+                                                                                isEqualTo: listViewClientServicesRecord.reference,
+                                                                                isNull: (listViewClientServicesRecord.reference) == null,
+                                                                              ),
+                                                                            ),
+                                                                            builder:
+                                                                                (context, snapshot) {
+                                                                              // Customize what your widget looks like when it's loading.
+                                                                              if (!snapshot.hasData) {
+                                                                                return Center(
+                                                                                  child: LinearProgressIndicator(
+                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                  ),
+                                                                                );
+                                                                              }
+                                                                              List<ClientServicesRecord> containerClientServicesRecordList = snapshot.data!;
+                                                                              return Container(
+                                                                                decoration: const BoxDecoration(),
+                                                                                child: Visibility(
+                                                                                  visible: containerClientServicesRecordList.isNotEmpty,
+                                                                                  child: Container(
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: const Color(0x7FEEEEEE),
+                                                                                      borderRadius: BorderRadius.circular(12.0),
+                                                                                    ),
+                                                                                    child: Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          Text(
+                                                                                            'INCLUDED SERVICES',
+                                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                                  fontFamily: 'Poppins',
+                                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                  letterSpacing: 1.0,
+                                                                                                  fontWeight: FontWeight.w500,
+                                                                                                ),
+                                                                                          ),
+                                                                                          Builder(
+                                                                                            builder: (context) {
+                                                                                              final includedServices = containerClientServicesRecordList.toList();
+                                                                                              return ListView.builder(
+                                                                                                padding: EdgeInsets.zero,
+                                                                                                shrinkWrap: true,
+                                                                                                scrollDirection: Axis.vertical,
+                                                                                                itemCount: includedServices.length,
+                                                                                                itemBuilder: (context, includedServicesIndex) {
+                                                                                                  final includedServicesItem = includedServices[includedServicesIndex];
+                                                                                                  return Padding(
+                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
+                                                                                                    child: StreamBuilder<ServicesRecord>(
+                                                                                                      stream: ServicesRecord.getDocument(includedServicesItem.serviceRef!),
+                                                                                                      builder: (context, snapshot) {
+                                                                                                        // Customize what your widget looks like when it's loading.
+                                                                                                        if (!snapshot.hasData) {
+                                                                                                          return Center(
+                                                                                                            child: LinearProgressIndicator(
+                                                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                                                            ),
+                                                                                                          );
+                                                                                                        }
+                                                                                                        final columnServicesRecord = snapshot.data!;
+                                                                                                        return Column(
+                                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                          children: [
+                                                                                                            Padding(
+                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                                                                                                              child: Column(
+                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                children: [
+                                                                                                                  Text(
+                                                                                                                    columnServicesRecord.name,
+                                                                                                                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                                                          fontFamily: 'Poppins',
+                                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                        ),
+                                                                                                                  ),
+                                                                                                                  Padding(
+                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                                                    child: Text(
+                                                                                                                      columnServicesRecord.description,
+                                                                                                                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                                                            fontFamily: 'Poppins',
+                                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                            fontSize: 14.0,
+                                                                                                                          ),
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                            StreamBuilder<List<ServicesTaskRecord>>(
+                                                                                                              stream: queryServicesTaskRecord(
+                                                                                                                queryBuilder: (servicesTaskRecord) => servicesTaskRecord.where(
+                                                                                                                  'serviceRef',
+                                                                                                                  isEqualTo: columnServicesRecord.reference,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              builder: (context, snapshot) {
+                                                                                                                // Customize what your widget looks like when it's loading.
+                                                                                                                if (!snapshot.hasData) {
+                                                                                                                  return Center(
+                                                                                                                    child: LinearProgressIndicator(
+                                                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                                                    ),
+                                                                                                                  );
+                                                                                                                }
+                                                                                                                List<ServicesTaskRecord> columnServicesTaskRecordList = snapshot.data!;
+                                                                                                                return Column(
+                                                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                                                  children: List.generate(columnServicesTaskRecordList.length, (columnIndex) {
+                                                                                                                    final columnServicesTaskRecord = columnServicesTaskRecordList[columnIndex];
+                                                                                                                    return Padding(
+                                                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                                                                                                                      child: Row(
+                                                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                        children: [
+                                                                                                                          Icon(
+                                                                                                                            Icons.check_rounded,
+                                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                            size: 24.0,
+                                                                                                                          ),
+                                                                                                                          Expanded(
+                                                                                                                            child: Padding(
+                                                                                                                              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                                                              child: Column(
+                                                                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                                children: [
+                                                                                                                                  Text(
+                                                                                                                                    columnServicesTaskRecord.title,
+                                                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                          fontFamily: 'Poppins',
+                                                                                                                                          color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                        ),
+                                                                                                                                  ),
+                                                                                                                                  Padding(
+                                                                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                                                                    child: Text(
+                                                                                                                                      columnServicesTaskRecord.description,
+                                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                            fontFamily: 'Poppins',
+                                                                                                                                            color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                                                                          ),
+                                                                                                                                    ),
+                                                                                                                                  ),
+                                                                                                                                ],
+                                                                                                                              ),
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                    );
+                                                                                                                  }),
+                                                                                                                );
+                                                                                                              },
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        );
+                                                                                                      },
+                                                                                                    ),
+                                                                                                  );
+                                                                                                },
+                                                                                              );
+                                                                                            },
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
+import '/onboard/edit_or_add_proposal/edit_or_add_proposal_widget.dart';
 import '/onboard/one_off_service_comp/one_off_service_comp_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -43,10 +44,15 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
         _model.clientRef = widget.clientRef;
       });
       _model.clientServices = await queryClientServicesRecordOnce(
-        queryBuilder: (clientServicesRecord) => clientServicesRecord.where(
-          'clientRef',
-          isEqualTo: widget.clientRef,
-        ),
+        queryBuilder: (clientServicesRecord) => clientServicesRecord
+            .where(
+              'clientRef',
+              isEqualTo: widget.clientRef,
+            )
+            .where(
+              'status',
+              isEqualTo: 'created',
+            ),
       );
       while (_model.clientServices!.length > _model.servicesLoopCount) {
         setState(() {
@@ -62,6 +68,31 @@ class _OnboardServicesListWidgetState extends State<OnboardServicesListWidget> {
       setState(() {
         _model.servicesLoopCount = 0;
       });
+      if (_model.clientServices.isEmpty) {
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          isDismissible: false,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  child: EditOrAddProposalWidget(
+                    propsalRef: widget.perposalRef,
+                  ),
+                ),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

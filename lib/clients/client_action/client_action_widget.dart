@@ -79,26 +79,10 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed(
-                                    'clientDetails',
-                                    queryParameters: {
-                                      'clientRef': serializeParam(
-                                        widget.clientRef,
-                                        ParamType.DocumentReference,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                      ),
-                                    },
-                                  );
-
-                                  Navigator.pop(context);
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
-                                text: 'Client Info',
+                                text: 'Cancel',
                                 options: FFButtonOptions(
                                   width: 135.0,
                                   height: 40.0,
@@ -120,7 +104,7 @@ class _ClientActionWidgetState extends State<ClientActionWidget> {
                                   elevation: 0.0,
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .primaryBackground,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(40.0),

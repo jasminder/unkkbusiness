@@ -185,6 +185,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClientProposalAcceptWidget(
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+            clientTrack: params.getParam('clientTrack',
+                ParamType.DocumentReference, false, ['clientTrack']),
           ),
         ),
         FFRoute(
@@ -193,6 +195,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClientProposalAcceptSuccessWidget(
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+            clientTrack: params.getParam('clientTrack',
+                ParamType.DocumentReference, false, ['clientTrack']),
           ),
         ),
         FFRoute(
@@ -299,13 +303,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'clientPropsalReview',
           path: '/clientPropsalReview',
           builder: (context, params) => ClientPropsalReviewWidget(
-            clientServiceRef: params.getParam<DocumentReference>(
-                'clientServiceRef',
-                ParamType.DocumentReference,
-                true,
-                ['clientServices']),
             clientRef: params.getParam(
                 'clientRef', ParamType.DocumentReference, false, ['clients']),
+            clientTrack: params.getParam('clientTrack',
+                ParamType.DocumentReference, false, ['clientTrack']),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

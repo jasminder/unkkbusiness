@@ -140,20 +140,10 @@ class ClientsRecord extends FirestoreRecord {
   String get clientType => _clientType ?? '';
   bool hasClientType() => _clientType != null;
 
-  // "signature" field.
-  String? _signature;
-  String get signature => _signature ?? '';
-  bool hasSignature() => _signature != null;
-
-  // "proposalAccept" field.
-  bool? _proposalAccept;
-  bool get proposalAccept => _proposalAccept ?? false;
-  bool hasProposalAccept() => _proposalAccept != null;
-
-  // "signatureDate" field.
-  DateTime? _signatureDate;
-  DateTime? get signatureDate => _signatureDate;
-  bool hasSignatureDate() => _signatureDate != null;
+  // "clientTracks" field.
+  List<DocumentReference>? _clientTracks;
+  List<DocumentReference> get clientTracks => _clientTracks ?? const [];
+  bool hasClientTracks() => _clientTracks != null;
 
   void _initializeFields() {
     _firstName = snapshotData['firstName'] as String?;
@@ -181,9 +171,7 @@ class ClientsRecord extends FirestoreRecord {
     _typeRegular = snapshotData['typeRegular'] as bool?;
     _proposalExists = snapshotData['proposalExists'] as bool?;
     _clientType = snapshotData['clientType'] as String?;
-    _signature = snapshotData['signature'] as String?;
-    _proposalAccept = snapshotData['proposalAccept'] as bool?;
-    _signatureDate = snapshotData['signatureDate'] as DateTime?;
+    _clientTracks = getDataList(snapshotData['clientTracks']);
   }
 
   static CollectionReference get collection =>
@@ -246,9 +234,6 @@ Map<String, dynamic> createClientsRecordData({
   bool? typeRegular,
   bool? proposalExists,
   String? clientType,
-  String? signature,
-  bool? proposalAccept,
-  DateTime? signatureDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -277,9 +262,6 @@ Map<String, dynamic> createClientsRecordData({
       'typeRegular': typeRegular,
       'proposalExists': proposalExists,
       'clientType': clientType,
-      'signature': signature,
-      'proposalAccept': proposalAccept,
-      'signatureDate': signatureDate,
     }.withoutNulls,
   );
 
@@ -291,6 +273,7 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
 
   @override
   bool equals(ClientsRecord? e1, ClientsRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.firstName == e2?.firstName &&
         e1?.lastName == e2?.lastName &&
         e1?.dateOfBirth == e2?.dateOfBirth &&
@@ -316,9 +299,7 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e1?.typeRegular == e2?.typeRegular &&
         e1?.proposalExists == e2?.proposalExists &&
         e1?.clientType == e2?.clientType &&
-        e1?.signature == e2?.signature &&
-        e1?.proposalAccept == e2?.proposalAccept &&
-        e1?.signatureDate == e2?.signatureDate;
+        listEquality.equals(e1?.clientTracks, e2?.clientTracks);
   }
 
   @override
@@ -348,9 +329,7 @@ class ClientsRecordDocumentEquality implements Equality<ClientsRecord> {
         e?.typeRegular,
         e?.proposalExists,
         e?.clientType,
-        e?.signature,
-        e?.proposalAccept,
-        e?.signatureDate
+        e?.clientTracks
       ]);
 
   @override

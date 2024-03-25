@@ -13,9 +13,11 @@ class ClientProposalAcceptWidget extends StatefulWidget {
   const ClientProposalAcceptWidget({
     super.key,
     required this.clientRef,
+    this.clientTrack,
   });
 
   final DocumentReference? clientRef;
+  final DocumentReference? clientTrack;
 
   @override
   State<ClientProposalAcceptWidget> createState() =>
@@ -481,8 +483,8 @@ class _ClientProposalAcceptWidgetState
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (_model.uploadedSignatureUrl != '') {
-                                      await widget.clientRef!.update({
-                                        ...createClientsRecordData(
+                                      await widget.clientTrack!.update({
+                                        ...createClientTrackRecordData(
                                           signature:
                                               _model.uploadedSignatureUrl,
                                           proposalAccept: true,
@@ -495,11 +497,25 @@ class _ClientProposalAcceptWidgetState
                                         ),
                                       });
 
+                                      await widget.clientRef!.update({
+                                        ...mapToFirestore(
+                                          {
+                                            'clientTracks':
+                                                FieldValue.arrayUnion(
+                                                    [widget.clientTrack]),
+                                          },
+                                        ),
+                                      });
+
                                       context.pushNamed(
                                         'clientProposalAcceptSuccess',
                                         queryParameters: {
                                           'clientRef': serializeParam(
                                             widget.clientRef,
+                                            ParamType.DocumentReference,
+                                          ),
+                                          'clientTrack': serializeParam(
+                                            widget.clientTrack,
                                             ParamType.DocumentReference,
                                           ),
                                         }.withoutNulls,

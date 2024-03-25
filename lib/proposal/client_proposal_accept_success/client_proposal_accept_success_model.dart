@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'client_proposal_accept_success_widget.dart'
     show ClientProposalAcceptSuccessWidget;
@@ -8,6 +9,8 @@ class ClientProposalAcceptSuccessModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - Read Document] action in clientProposalAcceptSuccess widget.
+  ClientTrackRecord? clientTrack;
 
   /// Initialization and disposal methods.
 

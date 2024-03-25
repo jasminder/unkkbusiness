@@ -47,3 +47,14 @@ DateTime getNextDateWithDays(
   // return next date by adding days in startDate
   return startDate.add(Duration(days: days));
 }
+
+String createURL(
+  DocumentReference clientRef,
+  DocumentReference clientTrack,
+  String appUrl,
+) {
+  // create URl with parameters values clientRef and trackRef
+  String clientRefId = clientRef.id;
+  String clientTrackId = clientTrack.id;
+  return '$appUrl' + 'clientRef=$clientRefId&trackRef=$clientTrackId ';
+}

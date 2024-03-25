@@ -5,8 +5,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/onboard/delete_onboard_proposal/delete_onboard_proposal_widget.dart';
 import '/onboard/proposal_success/proposal_success_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'onboard_service_email_model.dart';
 export 'onboard_service_email_model.dart';
 
@@ -49,6 +51,8 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -400,8 +404,10 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                                     .getDocumentOnce(
                                                         widget.clientRef!);
 
-                                            await ClientTrackRecord.collection
-                                                .doc()
+                                            var clientTrackRecordReference =
+                                                ClientTrackRecord.collection
+                                                    .doc();
+                                            await clientTrackRecordReference
                                                 .set({
                                               ...createClientTrackRecordData(
                                                 clientRef: widget.clientRef,
@@ -419,6 +425,24 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                                 },
                                               ),
                                             });
+                                            _model.clientTrack =
+                                                ClientTrackRecord
+                                                    .getDocumentFromData({
+                                              ...createClientTrackRecordData(
+                                                clientRef: widget.clientRef,
+                                                proposalRef: widget.proposalRef,
+                                                email:
+                                                    columnClientsRecord.email,
+                                                status: 'sent',
+                                              ),
+                                              ...mapToFirestore(
+                                                {
+                                                  'createdAt': DateTime.now(),
+                                                  'clientServices':
+                                                      widget.clientServices,
+                                                },
+                                              ),
+                                            }, clientTrackRecordReference);
                                             while (
                                                 widget.clientServices!.length >
                                                     _model.loopCount) {
@@ -436,11 +460,12 @@ class _OnboardServiceEmailWidgetState extends State<OnboardServiceEmailWidget> {
                                             setState(() {
                                               _model.loopCount = 0;
                                             });
-                                            _model.pageURL =
-                                                actions.getUrl();
                                             await actions.sendEmail(
                                               _model.clientInfo!.email,
-                                              _model.pageURL!,
+                                              functions.createURL(
+                                                  widget.clientRef!,
+                                                  _model.clientTrack!.reference,
+                                                  FFAppState().emailURL),
                                             );
                                             await showModalBottomSheet(
                                               isScrollControlled: true,

@@ -9,12 +9,12 @@ export 'client_propsal_review_model.dart';
 class ClientPropsalReviewWidget extends StatefulWidget {
   const ClientPropsalReviewWidget({
     super.key,
-    required this.clientServiceRef,
     this.clientRef,
+    this.clientTrack,
   });
 
-  final List<DocumentReference>? clientServiceRef;
   final DocumentReference? clientRef;
+  final DocumentReference? clientTrack;
 
   @override
   State<ClientPropsalReviewWidget> createState() =>
@@ -181,51 +181,15 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                                       ),
                                                     ],
                                                   ),
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return AlertDialog(
-                                                            title: const Text('Info'),
-                                                            content: Text(widget
-                                                                .clientServiceRef!
-                                                                .length
-                                                                .toString()),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    const Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Text(
-                                                      'Starting on acceptance',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 20.0,
-                                                              ),
-                                                    ),
+                                                  Text(
+                                                    'Starting on acceptance',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 20.0,
+                                                        ),
                                                   ),
                                                 ],
                                               );
@@ -755,6 +719,10 @@ class _ClientPropsalReviewWidgetState extends State<ClientPropsalReviewWidget> {
                                     queryParameters: {
                                       'clientRef': serializeParam(
                                         widget.clientRef,
+                                        ParamType.DocumentReference,
+                                      ),
+                                      'clientTrack': serializeParam(
+                                        widget.clientTrack,
                                         ParamType.DocumentReference,
                                       ),
                                     }.withoutNulls,

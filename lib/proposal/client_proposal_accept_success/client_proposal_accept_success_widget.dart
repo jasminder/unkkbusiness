@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'client_proposal_accept_success_model.dart';
 export 'client_proposal_accept_success_model.dart';
 
@@ -10,9 +11,11 @@ class ClientProposalAcceptSuccessWidget extends StatefulWidget {
   const ClientProposalAcceptSuccessWidget({
     super.key,
     required this.clientRef,
+    this.clientTrack,
   });
 
   final DocumentReference? clientRef;
+  final DocumentReference? clientTrack;
 
   @override
   State<ClientProposalAcceptSuccessWidget> createState() =>
@@ -29,6 +32,12 @@ class _ClientProposalAcceptSuccessWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ClientProposalAcceptSuccessModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.clientTrack =
+          await ClientTrackRecord.getDocumentOnce(widget.clientTrack!);
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -169,11 +178,8 @@ class _ClientProposalAcceptSuccessWidgetState
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.network(
-                                                      valueOrDefault<String>(
-                                                        rowClientsRecord
-                                                            .signature,
-                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/unkk-kl1611/assets/d77iuwcqhpey/SvgjsG1014.png',
-                                                      ),
+                                                      _model.clientTrack!
+                                                          .signature,
                                                       width: 300.0,
                                                       height: 120.0,
                                                       fit: BoxFit.contain,

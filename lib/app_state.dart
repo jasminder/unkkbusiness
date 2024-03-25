@@ -25,4 +25,10 @@ class FFAppState extends ChangeNotifier {
   set activeMenu(String value) {
     _activeMenu = value;
   }
+
+  String _emailURL = 'https://unkk-kl1611.flutterflow.app/clientPropsalReview?';
+  String get emailURL => _emailURL;
+  set emailURL(String value) {
+    _emailURL = value;
+  }
 }

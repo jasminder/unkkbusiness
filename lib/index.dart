@@ -50,3 +50,5 @@ export '/onboard/proposal_request_info/proposal_request_info_widget.dart'
     show ProposalRequestInfoWidget;
 export '/proposal/client_propsal_review/client_propsal_review_widget.dart'
     show ClientPropsalReviewWidget;
+export '/taskboard/task_board_copy/task_board_copy_widget.dart'
+    show TaskBoardCopyWidget;

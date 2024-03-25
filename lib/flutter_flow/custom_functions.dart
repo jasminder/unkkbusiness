@@ -10,6 +10,7 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 int stringToInt(String stringValue) {
@@ -57,4 +58,33 @@ String createURL(
   String clientRefId = clientRef.id;
   String clientTrackId = clientTrack.id;
   return '$appUrl' + 'clientRef=$clientRefId&trackRef=$clientTrackId ';
+}
+
+List<ClubbedTasksStruct>? clubTasks(List<TasksRecord>? tasks) {
+  if (tasks == null || tasks.isEmpty) return [];
+  List<ClubbedTasksStruct> clubbedTasks = [];
+  for (var task in tasks) {
+    final taskIndex = clubbedTasks
+        .indexWhere((element) => element.clientRef == task.clientRef);
+    if (taskIndex == -1) {
+      clubbedTasks.add(ClubbedTasksStruct(
+          clientRef: task.clientRef, tasks: [task.reference]));
+    } else {
+      final clientTasks = clubbedTasks[taskIndex].tasks;
+      clientTasks.add(task.reference);
+      clubbedTasks[taskIndex] =
+          ClubbedTasksStruct(clientRef: task.clientRef, tasks: clientTasks);
+    }
+
+    return clubbedTasks;
+  }
+}
+
+TasksRecord? getTaskFromRef(
+  List<TasksRecord> tasks,
+  DocumentReference? taskRef,
+) {
+  return tasks.firstWhere(
+    (element) => element.reference == taskRef,
+  );
 }

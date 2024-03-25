@@ -364,27 +364,8 @@ class _ClientProposalAcceptSuccessWidgetState
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 24.0, 24.0, 24.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Close',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    decoration: TextDecoration.underline,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 24.0),
@@ -402,21 +383,6 @@ class _ClientProposalAcceptSuccessWidgetState
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 0.0),
-                              child: Text(
-                                'You are previewing what your client will see once this proposal has been sent.',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -426,44 +392,51 @@ class _ClientProposalAcceptSuccessWidgetState
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'John Smith',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
+                            StreamBuilder<ClientsRecord>(
+                              stream:
+                                  ClientsRecord.getDocument(widget.clientRef!),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: LinearProgressIndicator(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
-                                    Text(
-                                      'Business Books',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                  );
+                                }
+                                final rowClientsRecord = snapshot.data!;
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '${rowClientsRecord.firstName} ${rowClientsRecord.lastName}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        Text(
+                                          rowClientsRecord.email,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ],
                                     ),
                                   ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Starting on acceptance',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                );
+                              },
                             ),
                             Divider(
                               height: 48.0,
@@ -536,7 +509,7 @@ class _ClientProposalAcceptSuccessWidgetState
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: 'Back to Homepage',
+                                          text: 'Done',
                                           options: FFButtonOptions(
                                             width: 180.0,
                                             height: 40.0,
@@ -558,6 +531,7 @@ class _ClientProposalAcceptSuccessWidgetState
                                                   fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
+                                            elevation: 0.0,
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)

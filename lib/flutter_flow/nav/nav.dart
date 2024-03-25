@@ -308,6 +308,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             clientTrack: params.getParam('clientTrack',
                 ParamType.DocumentReference, false, ['clientTrack']),
           ),
+        ),
+        FFRoute(
+          name: 'taskBoardCopy',
+          path: '/taskBoardCopy',
+          builder: (context, params) => const TaskBoardCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

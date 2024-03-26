@@ -934,8 +934,13 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                               // Customize what your widget looks like when it's loading.
                                                                               if (!snapshot.hasData) {
                                                                                 return Center(
-                                                                                  child: LinearProgressIndicator(
-                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                  child: SizedBox(
+                                                                                    width: 32.0,
+                                                                                    height: 32.0,
+                                                                                    child: SpinKitThreeBounce(
+                                                                                      color: FlutterFlowTheme.of(context).alternate,
+                                                                                      size: 32.0,
+                                                                                    ),
                                                                                   ),
                                                                                 );
                                                                               }

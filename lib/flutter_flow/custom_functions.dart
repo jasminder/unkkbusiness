@@ -75,9 +75,8 @@ List<ClubbedTasksStruct>? clubTasks(List<TasksRecord>? tasks) {
       clubbedTasks[taskIndex] =
           ClubbedTasksStruct(clientRef: task.clientRef, tasks: clientTasks);
     }
-
-    return clubbedTasks;
   }
+  return clubbedTasks;
 }
 
 TasksRecord? getTaskFromRef(

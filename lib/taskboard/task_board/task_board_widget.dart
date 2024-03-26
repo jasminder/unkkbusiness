@@ -991,7 +991,7 @@ class _TaskBoardWidgetState extends State<TaskBoardWidget> {
                                                                                                         ),
                                                                                                         Flexible(
                                                                                                           child: Text(
-                                                                                                            functions.getTaskFromRef(containerTasksRecordList.toList(), clientTasksItem)!.name,
+                                                                                                            ' ${functions.getTaskFromRef(containerTasksRecordList.toList(), clientTasksItem)?.name}',
                                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Poppins',
                                                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
